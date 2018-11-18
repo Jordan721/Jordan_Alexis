@@ -6,9 +6,10 @@ body {
 h1 {
     text-align: center;
     font-family: 'Righteous', cursive;
+    font-size: 30;
 }
 
-p1 {
+p {
     text-align: center;
     font-family: 'Patua One', cursive;
     font-size: 20;
