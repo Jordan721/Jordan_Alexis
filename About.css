@@ -1,0 +1,14 @@
+body{
+    background: url(cade-roberts-742608-unsplash.jpg)no-repeat center center fixed;
+    background-size: cover;
+}
+
+h1{
+    font-family: 'Bree Serif', serif;
+    color: aliceblue;
+    font-size: 25;
+}
+
+p{
+    color: aliceblue;
+}
