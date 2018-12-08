@@ -7,12 +7,13 @@ h1 {
     font-family: 'Bree Serif', serif;
     color: aliceblue;
     font-size: 40;
+    text-align: center;
 }
 
 aside {
-    height: 200px;
-    background-color: gray;
-    width: 45.3%;
+    height: 250px;
+    background-color: silver;
+    width: 46.3%;
     float: left;
 }
 
@@ -25,7 +26,12 @@ article {
 }
 
 p {
-    color: deepskyblue;
+    color: black;
     font-family: 'Rock Salt', cursive;
     font-size: 15;
+}
+
+a {
+    font-family: 'Gamja Flower', cursive;
+    font-size: 20;
 }
