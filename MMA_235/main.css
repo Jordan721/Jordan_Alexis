@@ -1,0 +1,19 @@
+body {
+    background: url(Pics_For_site/anna-kolosyuk-481874-unsplash.jpg)no-repeat center center fixed;
+    background-size: cover;
+}
+
+a {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 20;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Berkshire Swash', cursive;
+    color: darkred;
+}
+
+h3 {
+    color: darkcyan;
+}
