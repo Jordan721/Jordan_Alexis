@@ -16,13 +16,15 @@ h1 {
 
 h3 {
     color: darkcyan;
+    font-size: 20;
+    font-family: 'Righteous', cursive;
 }
 
 .carousel-indicators li {
-    background-color: #999;
-    background-color: rgba(70, 70, 70, .25);
+    background-color: #999 !important;
+    background-color: rgba(70, 70, 70, .25) !important;
 }
 
 .carousel-indicators .active {
-    background-color: #444;
+    background-color: #444 !important;
 }
