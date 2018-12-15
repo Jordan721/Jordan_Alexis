@@ -22,6 +22,8 @@ h3 {
 
 h2 {
 	font-family: 'Berkshire Swash', cursive;
+	text-align: center;
+	color: blue;
 }
 
 .carousel-indicators li {
