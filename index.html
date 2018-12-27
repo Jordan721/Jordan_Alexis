@@ -1,51 +1,155 @@
+<!DOCTYPE html>
 <html>
+<title>Central Site</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
+<!--Bootstrap CSS-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!--Bootstrap CSS-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Patrick+Hand+SC" rel="stylesheet">
-    <link rel="stylesheet" href="main_Central.css">
-    <title>Central Site</title>
-</head>
+<style>
+	body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {width: 120px;background: #222;}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {margin-left: 120px}
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px) {#main {margin-left: 0}}
+	a{
+		font-family: 'Staatliches', cursive;
+	}
+</style>
 
-<body>
-    <nav class="navbar navbar-light navbar-expand-sm" style="background-color: #e3f2fd;">
-        <div class="container">
-            <div class="navbar-nav">
+<body class="w3-black">
 
-                <li class="index.html"><a style="color: fuchsia" href="About.html" class="nav-item nav-link">About Me</a></li>
+	<!-- Icon Bar (Sidebar - hidden on small screens) -->
+	<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+		<a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
+			<i class="fa fa-home w3-xxlarge"></i>
+			<p>HOME</p>
+		</a>
+		<a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+			<i class="fa fa-user w3-xxlarge"></i>
+			<p>ABOUT</p>
+		</a>
+		<a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+			<i class="fa fa-eye w3-xxlarge"></i>
+			<p>PHOTOS</p>
+		</a>
+		<a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+			<i class="fa fa-envelope w3-xxlarge"></i>
+			<p>CONTACT</p>
+		</a>
+	</nav>
 
-                <li class="index.html"><a href="MMA_100/MMA_100_Arts.html" style="color: dodgerblue" class="nav-item nav-link">Graphic Arts MMA 100 Portfolio</a></li>
-                
-                <li class="index.html"><a href="https://prospectpark23.wixsite.com/prospect-park" style="color: crimson" class="nav-item nav-link">Website I made for MES 152 Class Using Wix</a></li>
+	<!-- Navbar on small screens (Hidden on medium and large screens) -->
+	<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+		<div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+			<a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
+			<a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
+			<a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PHOTOS</a>
+			<a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
+		</div>
+	</div>
 
-                <li><a href="MMA_235/MMA_235_Arts.html" style="color: deeppink" class="nav-item nav-link">Graphic Arts MMA 235 Portfolio</a></li>
+	<nav class="navbar navbar-light navbar-expand-sm" style="background-color: #e3f2fd;">
+		<div class="container">
+			<div class="navbar-nav">
 
-                <li class="MMP200.html"><a style="color: black" href="https://jordan721.github.io/MMP_200_Website/" class="nav-item nav-link">MMP 200 Portfolio</a></li>
+				<li class="index.html"><a href="MMA_100/MMA_100_Arts.html" style="color: black" class="nav-item nav-link">Graphic Arts MMA 100 Portfolio</a></li>
 
-                <li class="MMP210.html"><a style="color: chocolate" href="https://jordan721.github.io/MMP210/" class="nav-item nav-link">MMP 210 Portfolio</a></li>
+				<li class="index.html"><a href="https://prospectpark23.wixsite.com/prospect-park" style="color: black" class="nav-item nav-link">Website I made for MES 152 Class Using Wix</a></li>
 
-                <li class="MMP240.html"><a href="https://jordan721.github.io/MMP240/" style="color: cadetblue" class="nav-item nav-link">MMP 240 Portfolio</a></li>
-            </div>
-        </div>
-    </nav>
-    <h1 style="color: white">
-        Hello and Welcome to my Central Website to connect all my Programming and Art Websites together.
-    </h1>
+				<li><a href="MMA_235/MMA_235_Arts.html" style="color: black" class="nav-item nav-link">Graphic Arts MMA 235 Portfolio</a></li>
 
-    <p>
-        Hello and welcome to the the site that connects all of my works that I have done to make a more comprehensive feeling.
-    </p>
+				<li class="MMP200.html"><a style="color: black" href="https://jordan721.github.io/MMP_200_Website/" class="nav-item nav-link">MMP 200 Portfolio</a></li>
 
-    <!--JavaScripy scripts-->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+				<li class="MMP210.html"><a style="color: black" href="https://jordan721.github.io/MMP210/" class="nav-item nav-link">MMP 210 Portfolio</a></li>
+
+				<li class="MMP240.html"><a href="https://jordan721.github.io/MMP240/" style="color: black" class="nav-item nav-link">MMP 240 Portfolio</a></li>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Page Content -->
+	<div class="w3-padding-large" id="main">
+		<!-- Header/Home -->
+		<header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+			<h1 class="w3-jumbo"><span class="w3-hide-small"></span>I'm Jordan Alexis.</h1>
+			<p>Multimedia Programmer and Designer.</p>
+		</header>
+
+		<!-- About Section -->
+		<div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+			<h2 class="w3-text-light-grey">About Me</h2>
+			<hr style="width:200px" class="w3-opacity">
+			<p>I am a Multimedia Programmer and Designer and what that means for you is that I can not only program websites, games, and computer networks I can also make digital arts for any occasion. I have many years of learning about how the field of my occupation works. Learning about how and what programmes I need to use to get the job done. To name a few Adobe Indesign, Photoshop, XD and Illustrator. Using Brackets to make my websites and using Github or Wix to publish websites I made.
+			</p>
+
+			<!--Bars of Experience-->
+			<h3 class="w3-padding-16 w3-text-light-grey">My Skills</h3>
+			<p class="w3-wide">Web Design</p>
+			<div class="w3-white">
+				<div class="w3-dark-grey" style="height:28px;width:95%"></div>
+			</div>
+			<p class="w3-wide">Graphic Arts</p>
+			<div class="w3-white">
+				<div class="w3-dark-grey" style="height:28px;width:85%"></div>
+			</div>
+			<p class="w3-wide">Game Design and Progamming</p>
+			<div class="w3-white">
+				<div class="w3-dark-grey" style="height:28px;width:80%"></div>
+			</div><br>
+			<!--End-Bars of Experience-->
+
+			<a href="JORDAN%20ALEXIS%20Resume.docx"><button class="w3-button w3-light-grey w3-padding-large w3-section">
+				<i class="fa fa-download"></i> Download Resume
+				</button></a>
+		</div>
+
+		<!-- Contact Section -->
+		<div class="w3-padding-64 w3-content w3-text-grey" id="contact">
+			<h2 class="w3-text-light-grey">Contact Me</h2>
+			<hr style="width:200px" class="w3-opacity">
+
+			<div class="w3-section">
+				<p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Brooklyn, NY</p>
+				<p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: 6466258972</p>
+				<p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: alexisjordan842@gmail.com</p>
+			</div><br>
+			<p>Lets get in touch. Send me a message:</p>
+
+			<form action="/action_page.php" target="_blank">
+				<p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
+				<p><input class="w3-input w3-padding-16" type="text" placeholder="Email" required name="Email"></p>
+				<p><input class="w3-input w3-padding-16" type="text" placeholder="Subject" required name="Subject"></p>
+				<p><input class="w3-input w3-padding-16" type="text" placeholder="Message" required name="Message"></p>
+				<p>
+					<button class="w3-button w3-light-grey w3-padding-large" type="submit">
+						<i class="fa fa-paper-plane"></i> SEND MESSAGE
+					</button>
+				</p>
+			</form>
+			<!-- End Contact Section -->
+		</div>
+
+		<!-- Footer -->
+		<footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+			<a href="https://twitter.com/JordanA29793602?lang=en"><i class="fa fa-twitter w3-hover-opacity"></i></a>
+			<a href="https://www.linkedin.com/in/jordan-alexis-799214175/"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+			<p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+			<!-- End footer -->
+		</footer>
+
+		<!-- END PAGE CONTENT -->
+	</div>
+
 </body>
 
 </html>
