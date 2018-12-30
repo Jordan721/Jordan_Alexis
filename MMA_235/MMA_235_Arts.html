@@ -16,24 +16,41 @@
 	<title>MMA 235 Graphic Arts</title>
 </head>
 
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Navigation</span>
+
 <body>
-	<nav class="navbar navbar-light navbar-expand-sm" style="background-color: black">
-		<div class="container">
-			<div class="navbar-nav">
-				<li class="Central_Site.html"><a href="../index.html" class="nav-item nav-link" style="color: gray">Home</a>
+	<div id="myNav" class="overlay">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<div class="overlay-content">
+			<li class="Central_Site.html"><a href="../index.html" style="color: gray">Home</a>
 
-				<li class="MMA_100.html"><a href="../MMA_100/MMA_100_Arts.html" class="nav-item nav-link" style="color: orange">MMA 100 Graphic Arts Portfolio</a></li>
+			<li class="MMA_100.html"><a href="../MMA_100/MMA_100_Arts.html" style="color: orange">MMA 100 Graphic Arts Portfolio</a></li>
 
-				<li class="index.html"><a href="https://prospectpark23.wixsite.com/prospect-park" style="color: crimson" class="nav-item nav-link">Website I made for MES 152 Class Using Wix</a></li>
+			<li class="index.html"><a href="https://prospectpark23.wixsite.com/prospect-park" style="color: crimson">Website I made for MES 152 Class Using Wix</a></li>
 
-				<li class="MMP200.html"><a style="color:white" href="https://jordan721.github.io/MMP_200_Website/" class="nav-item nav-link">MMP 200 Portfolio</a></li>
+			<li class="MMP200.html"><a style="color:white" href="https://jordan721.github.io/MMP_200_Website/">MMP 200 Portfolio</a></li>
 
-				<li class="MMP210.html"><a style="color:chocolate" href="https://jordan721.github.io/MMP210/" class="nav-item nav-link">MMP 210 Portfolio</a></li>
+			<li class="MMP210.html"><a style="color:chocolate" href="https://jordan721.github.io/MMP210/">MMP 210 Portfolio</a></li>
 
-				<li class="MMP240.html"><a href="https://jordan721.github.io/MMP240/" style="color: cadetblue" class="nav-item nav-link">MMP 240 Portfolio</a></li>
-			</div>
+			<li class="MMP240.html"><a href="https://jordan721.github.io/MMP240/" style="color: cadetblue">MMP 240 Portfolio</a></li>
 		</div>
-	</nav>
+
+	</div>
+
+	<div class="topnav">
+		<a class="active" href="../index.html">Home</a>
+
+		<a href="../MMA_100/MMA_100_Arts.html" style="color: orange">MMA 100 Graphic Arts Portfolio</a>
+
+		<a href="https://prospectpark23.wixsite.com/prospect-park" style="color: crimson">Website I made for MES 152 Class Using Wix</a>
+
+		<a style="color:white" href="https://jordan721.github.io/MMP_200_Website/">MMP 200 Portfolio</a>
+
+		<a style="color:chocolate" href="https://jordan721.github.io/MMP210/">MMP 210 Portfolio</a>
+
+		<a href="https://jordan721.github.io/MMP240/" style="color: cadetblue">MMP 240 Portfolio</a>
+	</div>
+
 	<h1>My MMA 235 Graphic Arts Portfolio</h1>
 	<div class="container">
 		<div class="row">
@@ -349,6 +366,17 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+	<script>
+		function openNav() {
+			document.getElementById("myNav").style.width = "100%";
+		}
+
+		function closeNav() {
+			document.getElementById("myNav").style.width = "0%";
+		}
+
+	</script>
 </body>
 
 </html>
