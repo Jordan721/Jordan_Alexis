@@ -1,0 +1,28 @@
+;flak spec
+
+;FLAK Start
+throwangle     = 15
+throwforward   = 10
+throwheight    = 0
+
+;FLAK Movement
+lifespan       = 5000
+yinc	       = 2
+zinc	       = 6
+xspeed         = 10
+yspeed         = 30
+zspeed         = 10
+weight         = 500
+spinx          = 330
+bounceonhit    = 1
+explodeonhit   = 1
+damage         = 25
+
+;FLAK Explosion
+exponfloor     = mushroom
+expinair       = smokey
+
+;FLAK Sounds
+
+sndbounce      = bounce.wav
+sndexplode     = explode.wav

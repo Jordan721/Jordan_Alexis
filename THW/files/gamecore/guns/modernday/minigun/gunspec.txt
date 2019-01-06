@@ -1,0 +1,62 @@
+;Minigun weapon spec
+
+;GUN Model File Requirements
+
+;GUN Settings
+
+muzzleflash    = 3
+muzzlesize     = 100
+brass          = 2
+smoke          = 1
+damage         = 10
+damagetype     = 2
+scorchtype     = 2
+reloadqty      = 60
+iterate        = 2
+accuracy       = 10
+
+;GUN Visuals
+textured      = gun_D2.tga
+effect        = effectbank\BumpCubeReflectAlpha\BumpCubeReflectAlpha.fx
+transparency  = 2
+weapontype    = 4
+
+;GUN Sounds
+
+sound1	       = fire.wav
+sound2	       = reload.wav
+sound3         = dryfire.wav
+sound4         = windup.wav
+sound5         =
+fireloop       = 1800
+
+;HUD muzzleflash position
+
+horiz          = 0
+vert           = 0
+forward        = -2
+alignx         = 6
+aligny         = -10
+alignz         = 50
+
+;HUD animation frames list
+
+keyframe ratio = 1
+select         = 0,9
+Idle           = 10,38
+Move           = 39,53
+Start fire     = 54,69
+automatic fire = 70,75
+Spin           = 76,81
+end fire       = 82,93
+reload         = 94,111
+cock           = 112,119
+putaway	       = 120,130
+
+;HUD sound frames list
+
+soundframes    = 3
+sframe0        = 70,1
+sframe1        = 94,2
+sframe2        = 54,4
+	
