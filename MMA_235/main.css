@@ -1,139 +1,160 @@
 body {
-	background: url(Pics_For_site/anna-kolosyuk-481874-unsplash.jpg)no-repeat center center fixed;
-	background-size: cover;
+    background: url(Pics_For_site/anna-kolosyuk-481874-unsplash.jpg)no-repeat center center fixed;
+    background-size: cover;
 }
 
 a {
-	font-family: 'Permanent Marker', cursive;
-	font-size: 15;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 15;
 }
 
 span {
-	font-family: 'Permanent Marker', cursive;
-	color: white;
+    font-family: 'Permanent Marker', cursive;
+    color: white;
 }
 
 h1 {
-	text-align: center;
-	font-family: 'Berkshire Swash', cursive;
-	color: darkred;
+    text-align: center;
+    font-family: 'Berkshire Swash', cursive;
+    color: darkred;
 }
 
 h3 {
-	color: darkcyan;
-	font-size: 20;
-	font-family: 'Righteous', cursive;
+    color: darkcyan;
+    font-size: 20;
+    font-family: 'Righteous', cursive;
 }
 
 h2 {
-	font-family: 'Berkshire Swash', cursive;
-	text-align: center;
-	color: blue;
+    font-family: 'Berkshire Swash', cursive;
+    text-align: center;
+    color: blue;
 }
 
 .carousel-indicators li {
-	background-color: #999 !important;
-	background-color: rgba(70, 70, 70, .25) !important;
+    background-color: #999 !important;
+    background-color: rgba(70, 70, 70, .25) !important;
 }
 
 .carousel-indicators .active {
-	background-color: #444 !important;
+    background-color: #444 !important;
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-	height: 100px;
-	width: 100px;
-	background-size: 100%, 100%;
-	background-image: none;
+    height: 100px;
+    width: 100px;
+    background-size: 100%, 100%;
+    background-image: none;
 }
 
 .carousel-control-next-icon:after {
-	content: '>';
-	font-size: 55px;
-	color: red;
+    content: '>';
+    font-size: 55px;
+    color: red;
 }
 
 .carousel-control-prev-icon:after {
-	content: '<';
-	font-size: 55px;
-	color: red;
+    content: '<';
+    font-size: 55px;
+    color: red;
 }
 
 .overlay {
-	height: 100%;
-	width: 0;
-	position: fixed;
-	z-index: 1;
-	top: 0;
-	left: 0;
-	background-color: rgb(0, 0, 0);
-	background-color: rgba(0, 0, 0, 0.9);
-	overflow-x: hidden;
-	transition: 0.5s;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
 }
 
 .overlay-content {
-	position: relative;
-	top: 25%;
-	width: 100%;
-	text-align: center;
-	margin-top: 30px;
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
 }
 
 .overlay a {
-	padding: 8px;
-	text-decoration: none;
-	font-size: 36px;
-	color: #818181;
-	display: block;
-	transition: 0.3s;
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
 }
 
 .overlay a:hover,
 .overlay a:focus {
-	color: #f1f1f1;
+    color: #f1f1f1;
 }
 
 .overlay .closebtn {
-	position: absolute;
-	top: 20px;
-	right: 45px;
-	font-size: 60px;
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
 }
 
 @media screen and (max-height: 450px) {
-	.overlay a {
-		font-size: 20px
-	}
+    .overlay a {
+        font-size: 20px
+    }
 
-	.overlay .closebtn {
-		font-size: 40px;
-		top: 15px;
-		right: 35px;
-	}
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
 }
 
 .topnav {
-	overflow: hidden;
-	background-color: #000000;
+    overflow: hidden;
+    background-color: #000000;
 }
 
 .topnav a {
-	float: left;
-	display: block;
-	color: white;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
-	font-size: 13px;
-	border-bottom: 3px solid transparent;
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 13px;
+    border-bottom: 3px solid transparent;
 }
 
 .topnav a:hover {
-	border-bottom: 3px solid red;
+    border-bottom: 3px solid red;
 }
 
 .topnav a.active {
-	border-bottom: 3px solid red;
+    border-bottom: 3px solid red;
+}
+
+/*Top Of page Button*/
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+#myBtn:hover {
+    background-color: #f4a142;
 }
