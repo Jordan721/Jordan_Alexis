@@ -97,6 +97,7 @@ li a:hover {
     cursor: pointer;
     padding: 15px;
     border-radius: 4px;
+    font-family: 'Staatliches', cursive;
 }
 
 #myBtn:hover {
