@@ -145,7 +145,7 @@ h4 {
 
 .navbar {
 	margin-bottom: 0;
-	background-color: #C2AE41;
+	background-color: #A099FF;
 	z-index: 9999;
 	border: 0;
 	font-size: 12px !important;
@@ -157,7 +157,7 @@ h4 {
 
 .navbar li a,
 .navbar .navbar-brand {
-	color: #fff !important;
+	color: #A099FF !important;
 }
 
 .navbar-nav li a:hover,
@@ -269,4 +269,3 @@ footer .glyphicon {
 .row {
 	text-align: center;
 }
-
