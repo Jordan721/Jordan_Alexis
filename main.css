@@ -157,18 +157,18 @@ h4 {
 
 .navbar li a,
 .navbar .navbar-brand {
-	color: #A099FF !important;
+	color: #4238C2 !important;
 }
 
 .navbar-nav li a:hover,
 .navbar-nav li.active a {
 	color: #C2AE41 !important;
-	background-color: #fff !important;
+	background-color: #FFEF99 !important;
 }
 
 .navbar-default .navbar-toggle {
 	border-color: transparent;
-	color: #fff !important;
+	color: #FFEF99!important;
 }
 
 footer .glyphicon {
