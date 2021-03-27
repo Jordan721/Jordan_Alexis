@@ -4,11 +4,7 @@ body {
 	color: #818181;
 }
 
-.aboutme{
-	text-align: center;
-}
-
-h2,h4 {
+h2 {
 	font-size: 24px;
 	text-transform: uppercase;
 	color: #303030;
@@ -16,9 +12,19 @@ h2,h4 {
 	margin-bottom: 30px;
 }
 
-h5{
-	color: white;
-	font-size: 25px;
+h4 {
+	font-size: 19px;
+	line-height: 1.375em;
+	color: #303030;
+	font-weight: 400;
+	margin-bottom: 30px;
+}
+
+.jumbotron {
+	background-color: #8378FF;
+	color: #fff;
+	padding: 100px 25px;
+	font-family: Montserrat, sans-serif;
 }
 
 .container-fluid {
@@ -269,4 +275,3 @@ footer .glyphicon {
 .row {
 	text-align: center;
 }
-
