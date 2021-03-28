@@ -4,21 +4,38 @@ body {
 	color: #818181;
 }
 
-.aboutme{
+.aboutme {
 	text-align: center;
 }
 
-h2,h4 {
+h1,
+h2,
+h3 {
 	font-size: 24px;
 	text-transform: uppercase;
-	color: #303030;
+	color: #708090;
 	font-weight: 600;
 	margin-bottom: 30px;
+	font-weight: bold;
 }
 
-h5{
-	color: white;
+h4 {
+	font-size: 24px;
+	text-transform: uppercase;
+	color: #708090;
+	font-weight: 600;
+	margin-bottom: 30px;
+	font-weight: bold;
+}
+
+h5 {
+	color: #708090;
 	font-size: 25px;
+	font-weight: bold;
+}
+
+p {
+	font-weight: bold;
 }
 
 .container-fluid {
@@ -27,6 +44,10 @@ h5{
 
 .bg-grey {
 	background-color: #f6f6f6;
+}
+
+.bg-black {
+	background-color: black;
 }
 
 .logo-small {
@@ -63,6 +84,7 @@ h5{
 .thumbnail {
 	padding: 0 0 15px 0;
 	border: none;
+	background-color: black;
 	border-radius: 0;
 }
 
@@ -276,4 +298,3 @@ footer .glyphicon {
 .row {
 	text-align: center;
 }
-
