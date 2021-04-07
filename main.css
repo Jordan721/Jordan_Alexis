@@ -56,6 +56,10 @@ p {
 	font-size: 50px;
 }
 
+a {
+	font-weight: bold;
+}
+
 .btn {
 	background-color: DodgerBlue;
 	border: none;
