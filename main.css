@@ -17,6 +17,7 @@ h3 {
 	font-weight: 600;
 	margin-bottom: 30px;
 	font-weight: bold;
+	text-align: center;
 }
 
 h4 {
@@ -64,10 +65,10 @@ p {
 	font-size: 20px;
 }
 
-.divider{
-    width:5px;
-    height:auto;
-    display:inline-block;
+.divider {
+	width: 5px;
+	height: auto;
+	display: inline-block;
 }
 
 .jumbotron {
