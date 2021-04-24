@@ -8,6 +8,10 @@ body {
 	text-align: center;
 }
 
+.row1 {
+	text-align: center;
+}
+
 h1,
 h2,
 h3 {
@@ -61,12 +65,14 @@ a {
 }
 
 .btn {
-	background-color: DodgerBlue;
 	border: none;
 	color: white;
 	padding: 12px 30px;
 	cursor: pointer;
 	font-size: 20px;
+	justify-content: center;
+	align-items: center;
+	display: flex;
 }
 
 .divider {
@@ -83,10 +89,6 @@ a {
 }
 
 /* Darker background on mouse-over */
-.btn:hover {
-	background-color: RoyalBlue;
-}
-
 .logo {
 	color: #9B91FF;
 	font-size: 200px;
