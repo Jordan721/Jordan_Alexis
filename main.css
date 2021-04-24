@@ -70,9 +70,9 @@ a {
 	padding: 12px 30px;
 	cursor: pointer;
 	font-size: 20px;
+	background-color: royalblue;
 	justify-content: center;
 	align-items: center;
-	display: flex;
 }
 
 .divider {
