@@ -73,6 +73,10 @@ a {
 	background-color: royalblue;
 	justify-content: center;
 	align-items: center;
+	position: relative;
+	text-align: center;
+	margin-bottom: 2rem;
+
 }
 
 .divider {
