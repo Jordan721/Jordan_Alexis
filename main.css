@@ -71,12 +71,10 @@ a {
 	cursor: pointer;
 	font-size: 20px;
 	background-color: royalblue;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-	text-align: center;
 	margin-bottom: 2rem;
-
+	position: relative;
+	display: block;
+	margin: 0 auto;
 }
 
 .divider {
