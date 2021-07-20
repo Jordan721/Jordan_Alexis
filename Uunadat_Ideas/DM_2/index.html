@@ -5,40 +5,128 @@
     <title>Darkmode Mockup</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">WebSiteName</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Page 1</a></li>
-                <li><a href="#">Page 2</a></li>
-                <li><a href="#">Page 3</a></li>
+
+    <nav class="navbar navbar-expand-md navbar-dark">
+        <a class="navbar-brand" href="#">Unadat</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        Dropdown link
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Link 1</a>
+                        <a class="dropdown-item" href="#">Link 2</a>
+                        <a class="dropdown-item" href="#">Link 3</a>
+                    </div>
+                </li>
+            </ul>
             </ul>
         </div>
     </nav>
 
-    <h2>Toggle Switch</h2>
+    <h2>Toggle Switch for Dark Mode</h2>
+    <br>
+    <center>
+        <label class="switch">
+            <input type="checkbox" checked onclick="myFunction()">
+            <span class="slider"></span>
+        </label>
 
-    <label class="switch">
-        <input type="checkbox" onclick="myFunction()">
-        <span class="slider"></span>
-    </label>
+        <label class="switch">
+            <input type="checkbox" checked onclick="myFunction()">
+            <span class="slider round"></span>
+        </label>
+    </center>
 
+    <h2>About Us</h2>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam erat volutpat. Cum sociis natoque penatibus et
+        magnis dis parturient montes, nascetur ridiculus mus. Etiam ligula pede, sagittis quis, interdum ultricies,
+        scelerisque eu. Donec vitae arcu. Etiam posuere lacus quis dolor. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Nullam justo enim, consectetuer nec, ullamcorper
+        ac, vestibulum in, elit. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Integer tempor.
+        Nullam sit amet magna in magna gravida vehicula.</p>
 
-    
-    <label class="switch">
-        <input type="checkbox" checked onclick="myFunction()">
-        <span class="slider round"></span>
-    </label>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam eget nisl. Praesent in mauris eu tortor
+        porttitor accumsan. Nulla accumsan, elit sit amet varius semper, nulla mauris mollis quam, tempor suscipit diam
+        nulla vel leo. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut
+        aliquid ex ea commodi consequatur? Et harum quidem rerum facilis est et expedita distinctio. Ut enim ad minima
+        veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi
+        consequatur? Donec ipsum massa, ullamcorper in, auctor et, scelerisque sed, est. Phasellus rhoncus. Ut enim ad
+        minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi
+        consequatur? Nullam eget nisl. Pellentesque arcu. Duis condimentum augue id magna semper rutrum. Fusce tellus
+        odio, dapibus id fermentum quis, suscipit id erat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+        Aliquam erat volutpat.</p>
+
+    <p>Aliquam erat volutpat. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae
+        consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? Praesent id justo in neque elementum
+        ultrices. Etiam commodo dui eget wisi. Pellentesque pretium lectus id turpis. Aenean vel massa quis mauris
+        vehicula lacinia. Etiam quis quam. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede. Duis
+        bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. Fusce
+        consectetuer risus a nunc. Integer tempor. Phasellus faucibus molestie nisl. Proin pede metus, vulputate nec,
+        fermentum fringilla, vehicula vitae, justo. In sem justo, commodo ut, suscipit at, pharetra vitae, orci.
+        Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit. Mauris tincidunt sem sed arcu. Duis pulvinar.
+    </p>
+
+    <p>Sed convallis magna eu sem. In convallis. Morbi leo mi, nonummy eget tristique non, rhoncus non leo. Nam quis
+        nulla. Proin in tellus sit amet nibh dignissim sagittis. Aenean id metus id velit ullamcorper pulvinar.
+        Pellentesque pretium lectus id turpis. Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et, dolor.
+        Proin pede metus, vulputate nec, fermentum fringilla, vehicula vitae, justo. Nullam rhoncus aliquam metus. Duis
+        sapien nunc, commodo et, interdum suscipit, sollicitudin et, dolor. Mauris metus.</p>
+
+    <p>Nulla turpis magna, cursus sit amet, suscipit a, interdum id, felis. Nullam rhoncus aliquam metus. Class aptent
+        taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Etiam commodo dui eget wisi.
+        Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit
+        amet enim. Nam sed tellus id magna elementum tincidunt. Aliquam erat volutpat. Nam libero tempore, cum soluta
+        nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas
+        assumenda est, omnis dolor repellendus. Aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer
+        adipiscing elit. Pellentesque pretium lectus id turpis. Vestibulum erat nulla, ullamcorper nec, rutrum non,
+        nonummy ac, erat. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Duis ante orci, molestie
+        vitae vehicula venenatis, tincidunt ac pede. Nulla pulvinar eleifend sem.</p>
+
+    <p>Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit. Etiam sapien elit, consequat eget, tristique
+        non, venenatis quis, ante. Duis pulvinar. Phasellus et lorem id felis nonummy placerat. Suspendisse sagittis
+        ultrices augue. In rutrum. Maecenas ipsum velit, consectetuer eu lobortis ut, dictum at dui. Fusce wisi.
+        Maecenas libero. Nulla non lectus sed nisl molestie malesuada. Vivamus luctus egestas leo. Proin mattis lacinia
+        justo.</p>
+
+    <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates
+        repudiandae sint et molestiae non recusandae. Pellentesque pretium lectus id turpis. Quis autem vel eum iure
+        reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat
+        quo voluptas nulla pariatur? Aliquam erat volutpat. Nulla est. Proin mattis lacinia justo. Praesent dapibus. Ut
+        enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea
+        commodi consequatur? Etiam dictum tincidunt diam. Class aptent taciti sociosqu ad litora torquent per conubia
+        nostra, per inceptos hymenaeos. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante.</p>
+
+    <p>Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Temporibus autem quibusdam et aut officiis
+        debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
+        Etiam dictum tincidunt diam. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil
+        molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? Cras pede libero, dapibus
+        nec, pretium sit amet, tempor quis. Fusce tellus. Phasellus enim erat, vestibulum vel, aliquam a, posuere eu,
+        velit. Aenean vel massa quis mauris vehicula lacinia. Nulla est. Quis autem vel eum iure reprehenderit qui in ea
+        voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla
+        pariatur? Aliquam ante. Fusce tellus.</p>
 
     <script>
         function myFunction() {

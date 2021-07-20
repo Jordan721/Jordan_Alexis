@@ -1,4 +1,4 @@
-.switch {
+ .switch {
     position: sticky;
     display: inline-block;
     width: 60px;
@@ -50,7 +50,7 @@ input:checked+.slider:before {
 }
 
 /* Rounded sliders */
-.slider.round {
+slider.round {
     border-radius: 34px;
 }
 
@@ -58,8 +58,19 @@ input:checked+.slider:before {
     border-radius: 50%;
 }
 
-/* Simple */
+/* Darkmode Button */
 .dark-mode {
     background-color: #000;
     color: #fff;
 }
+
+.navbar {
+    background-color: grey;
+
+}
+
+p,
+h2 {
+    font-weight: bolder;
+    text-align: center;
+} 
