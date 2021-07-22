@@ -16,8 +16,7 @@
 
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-  <!-- CSS -->
+  <!--  -->
   <link rel="stylesheet" href="main.css">
 </head>
 
@@ -29,15 +28,23 @@
       aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    </form>
-
-    <div class="custom-control custom-switch mr-5">
-      <input type="checkbox" class="custom-control-input" id="selector">
-      <label class="custom-control-label" for="selector">Toggle L/D Mode</label>
-    </div>
+    <div class="collapse navbar-collapse" id="collapseNavbarid">
+      <ul class="navbar-nav mr-auto mt-2 w-50 d-flex justify-content-around">
+        <li class="nav-item active">
+          <a class="nav-link font-weight-bold" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link font-weight-bold" href="yo.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font-weight-bold" href="#">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font-weight-bold" href="#">Help</a>
+        </li>
+      </ul>
     </div>
   </nav>
-
 
   <div class="container">
     <div class="row d-flex align-content-center">
@@ -62,17 +69,31 @@
     </div>
   </div>
 
-  <!-- <button type="submit" class="btn btn-outline-secondary my-2 my-sm-0">Search</button> -->
-  <!-- <button type="button" class="btn btn-primary">Primary</button>
-    <button type="button" class="btn btn-secondary">Secondary</button>
-    <button type="button" class="btn btn-success">Success</button>
-    <button type="button" class="btn btn-danger">Danger</button>
-    <button type="button" class="btn btn-warning">Warning</button>
-    <button type="button" class="btn btn-info">Info</button>
-    <button type="button" class="btn btn-light">Light</button>
-    <button type="button" class="btn btn-dark">Dark</button> -->
+  <div class="col-5">
+    <form>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1">
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+      <button type="submit" class="btn btn-outline-secondary my-2 my-sm-0">Submit</button>
+    </form>
+  </div>
 
+  <div class="custom-control custom-switch mr-5">
+    <input type="checkbox" class="custom-control-input" id="selector">
+    <label class="custom-control-label" for="selector">L/D</label>
+  </div>
 
+  <!-- Dark Mode Script -->
   <script>
     $(document).ready(function () {
       $("#selector").change(function () {
@@ -81,15 +102,14 @@
         $(".custom-control-label").toggleClass("text-white");
         $("h1").toggleClass("text-white");
         $("h5").toggleClass("text-white");
+        $("form").toggleClass("text-white");
+        $(".form-control").toggleClass("bg-dark");
+        $(".form-control").toggleClass("text-white");
+        $(".btn").toggleClass("bg-dark");
+        $(".btn").toggleClass("text-white");
       });
     });
   </script>
-
-
-
-
-
-
 
 </body>
 
