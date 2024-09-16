@@ -10,3 +10,11 @@ h6 {
 body {
     font-family: "Open Sans"
 }
+
+hr{
+    border: none;
+    height: 1px;
+    /* Set the hr color */
+    color: #979494;  /* old IE */
+    background-color: #9b9a9a;  /* Modern Browsers */
+}
