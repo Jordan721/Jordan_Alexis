@@ -357,17 +357,91 @@
                 <a class="btn" href="THW.zip"> <button type="button"
                         class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"
                         onclick="document.getElementById('subscribe').style.display='none'">Game 2</button></a>
-                <a class="btn" href="./Certifications/Year_Up_United_LTCA_Certificate.pdf"> <button type="button"
-                        class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"
-                        onclick="document.getElementById('subscribe').style.display='none'">Bootcamp Completion Year Up
-                        United</button></a>
-                        <a class="btn" href="./Certifications/Foundations_Data_Data_Everywhere.pdf"><button type="button"
-                        class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"
-                        onclick="document.getElementById('subscribe').style.display='none'">Foundations: Data,Data,Everywhere</button></a>
-                         <a class="btn" href="./Certifications/Ask_Questions_to_Make_Data_Driven_Decisions_Certification.pdf"><button type="button"
-                        class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"
-                        onclick="document.getElementById('subscribe').style.display='none'">Ask Questions to Make Data-Driven Decisions</button></a>
+                <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"
+                        onclick="openCertificatesCarousel()">View My Certifications</button>
 
+            </div>
+        </div>
+    </div>
+
+    <!-- Certifications Carousel Modal -->
+    <div id="certificatesModal" class="w3-modal w3-animate-opacity">
+        <div class="w3-modal-content w3-white carousel-modal-content" style="max-width:850px; max-height:85vh; margin:auto; margin-top:40px; border-radius:8px; overflow:hidden;">
+            <div class="w3-container" style="padding:0;">
+                <!-- Header -->
+                <div class="w3-black" style="padding:15px 50px 15px 20px; position:relative;">
+                    <h2 class="w3-center carousel-title" style="margin:0; font-size:24px;">My Certifications</h2>
+                    <i onclick="closeCertificatesCarousel()"
+                       class="fa fa-remove w3-button w3-xlarge w3-black w3-hover-red"
+                       style="position:absolute; top:5px; right:5px; cursor:pointer;"></i>
+                </div>
+
+                <!-- Carousel Container -->
+                <div class="carousel-container" style="padding:20px; position:relative;">
+                    <!-- Previous Button (Left) -->
+                    <button class="w3-button w3-red w3-hover-dark-grey carousel-btn-prev"
+                            onclick="changeSlide(-1)"
+                            style="position:absolute; left:5px; top:45%; transform:translateY(-50%); z-index:10; font-size:20px; padding:8px 12px; border-radius:4px;">
+                        &#10094;
+                    </button>
+
+                    <!-- Next Button (Right) -->
+                    <button class="w3-button w3-red w3-hover-dark-grey carousel-btn-next"
+                            onclick="changeSlide(1)"
+                            style="position:absolute; right:5px; top:45%; transform:translateY(-50%); z-index:10; font-size:20px; padding:8px 12px; border-radius:4px;">
+                        &#10095;
+                    </button>
+
+                    <!-- Slides -->
+                    <div class="carousel-slides" style="margin:0 50px;">
+                        <div class="certificate-slide">
+                            <h3 class="w3-center w3-text-red certificate-title" style="margin-bottom:15px; font-size:18px;">Bootcamp Completion - Year Up United</h3>
+                            <div class="certificate-pdf-container" style="border:2px solid #ddd; border-radius:4px; overflow:hidden; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+                                <embed src="./Certifications/Year_Up_United_LTCA_Certificate.pdf" type="application/pdf"
+                                       width="100%" height="450px" class="certificate-pdf" />
+                            </div>
+                            <div class="w3-center" style="margin-top:15px;">
+                                <a href="./Certifications/Year_Up_United_LTCA_Certificate.pdf" target="_blank"
+                                   class="w3-button w3-red w3-hover-dark-grey w3-round">
+                                    <i class="fa fa-external-link"></i> Open in New Tab
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="certificate-slide" style="display:none;">
+                            <h3 class="w3-center w3-text-red certificate-title" style="margin-bottom:15px; font-size:18px;">Foundations: Data, Data, Everywhere</h3>
+                            <div class="certificate-pdf-container" style="border:2px solid #ddd; border-radius:4px; overflow:hidden; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+                                <embed src="./Certifications/Foundations_Data_Data_Everywhere.pdf" type="application/pdf"
+                                       width="100%" height="450px" class="certificate-pdf" />
+                            </div>
+                            <div class="w3-center" style="margin-top:15px;">
+                                <a href="./Certifications/Foundations_Data_Data_Everywhere.pdf" target="_blank"
+                                   class="w3-button w3-red w3-hover-dark-grey w3-round">
+                                    <i class="fa fa-external-link"></i> Open in New Tab
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="certificate-slide" style="display:none;">
+                            <h3 class="w3-center w3-text-red certificate-title" style="margin-bottom:15px; font-size:18px;">Ask Questions to Make Data-Driven Decisions</h3>
+                            <div class="certificate-pdf-container" style="border:2px solid #ddd; border-radius:4px; overflow:hidden; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+                                <embed src="./Certifications/Ask_Questions_to_Make_Data_Driven_Decisions_Certification.pdf"
+                                       type="application/pdf" width="100%" height="450px" class="certificate-pdf" />
+                            </div>
+                            <div class="w3-center" style="margin-top:15px;">
+                                <a href="./Certifications/Ask_Questions_to_Make_Data_Driven_Decisions_Certification.pdf"
+                                   target="_blank" class="w3-button w3-red w3-hover-dark-grey w3-round">
+                                    <i class="fa fa-external-link"></i> Open in New Tab
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide Indicator -->
+                    <div class="w3-center" style="margin-top:15px;">
+                        <span id="slideIndicator" class="w3-badge w3-red" style="font-size:14px; padding:6px 12px;">1 / 3</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

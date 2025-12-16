@@ -28,3 +28,90 @@ hr {
 .background{
     background-color: #cccccc;
 }
+
+/* Carousel Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+    /* Make modal take full width on mobile with minimal margins */
+    .carousel-modal-content {
+        max-width: 95% !important;
+        margin: 10px auto !important;
+        margin-top: 20px !important;
+        max-height: 90vh !important;
+    }
+
+    /* Reduce header padding on mobile */
+    .carousel-title {
+        font-size: 18px !important;
+        padding-right: 40px;
+    }
+
+    /* Smaller carousel container padding */
+    .carousel-container {
+        padding: 10px !important;
+    }
+
+    /* Reduce slide margins to make buttons more accessible */
+    .carousel-slides {
+        margin: 0 35px !important;
+    }
+
+    /* Smaller navigation buttons on mobile */
+    .carousel-btn-prev,
+    .carousel-btn-next {
+        font-size: 16px !important;
+        padding: 6px 10px !important;
+        left: 2px !important;
+    }
+
+    .carousel-btn-next {
+        right: 2px !important;
+    }
+
+    /* Smaller certificate titles on mobile */
+    .certificate-title {
+        font-size: 14px !important;
+        margin-bottom: 10px !important;
+    }
+
+    /* Smaller PDF viewer on mobile */
+    .certificate-pdf {
+        height: 300px !important;
+    }
+
+    /* Make "Open in New Tab" button smaller on mobile */
+    .certificate-pdf-container + .w3-center .w3-button {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Even more compact for very small screens */
+    .carousel-modal-content {
+        max-width: 98% !important;
+        margin: 5px auto !important;
+        margin-top: 10px !important;
+    }
+
+    .carousel-title {
+        font-size: 16px !important;
+    }
+
+    .carousel-slides {
+        margin: 0 30px !important;
+    }
+
+    .certificate-title {
+        font-size: 13px !important;
+    }
+
+    .certificate-pdf {
+        height: 250px !important;
+    }
+
+    .carousel-btn-prev,
+    .carousel-btn-next {
+        font-size: 14px !important;
+        padding: 5px 8px !important;
+    }
+}
