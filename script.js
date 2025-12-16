@@ -21,6 +21,9 @@ function openCertificatesCarousel() {
   currentSlideIndex = 1; // Reset to first slide
   document.getElementById('certificatesModal').style.display = 'block';
   showSlide();
+
+  // Add touch event listeners for mobile swipe support
+  addTouchSupport();
 }
 
 function closeCertificatesCarousel() {
@@ -55,6 +58,34 @@ function showSlide() {
 
   // Update indicator
   indicator.innerHTML = currentSlideIndex + ' / ' + slides.length;
+}
+
+// Add touch swipe support for mobile
+function addTouchSupport() {
+  var startX = 0;
+  var endX = 0;
+  var carouselContainer = document.querySelector('.carousel-slides');
+
+  if (carouselContainer) {
+    carouselContainer.addEventListener('touchstart', function(e) {
+      startX = e.touches[0].clientX;
+    }, { passive: true });
+
+    carouselContainer.addEventListener('touchmove', function(e) {
+      endX = e.touches[0].clientX;
+    }, { passive: true });
+
+    carouselContainer.addEventListener('touchend', function() {
+      var threshold = 50; // minimum swipe distance
+      if (startX - endX > threshold) {
+        // Swiped left, go to next
+        changeSlide(1);
+      } else if (endX - startX > threshold) {
+        // Swiped right, go to previous
+        changeSlide(-1);
+      }
+    });
+  }
 }
 
 // Close modal when clicking outside of it

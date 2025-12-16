@@ -29,6 +29,19 @@ hr {
     background-color: #cccccc;
 }
 
+/* Carousel Touch Support */
+.carousel-slides {
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.carousel-btn-prev,
+.carousel-btn-next {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+}
+
 /* Carousel Mobile Responsive Styles */
 @media screen and (max-width: 768px) {
     /* Make modal take full width on mobile with minimal margins */
@@ -61,6 +74,8 @@ hr {
         font-size: 16px !important;
         padding: 6px 10px !important;
         left: 2px !important;
+        min-width: 40px;
+        min-height: 40px;
     }
 
     .carousel-btn-next {
