@@ -80,15 +80,19 @@ hr {
         margin-bottom: 10px !important;
     }
 
-    /* Smaller PDF viewer on mobile */
+    /* Hide PDF embed on mobile and show fallback */
     .certificate-pdf {
-        height: 300px !important;
+        display: none !important;
     }
 
-    /* Make "Open in New Tab" button smaller on mobile */
+    .mobile-pdf-fallback {
+        display: flex !important;
+    }
+
+    /* Make "View Certificate" button more prominent on mobile */
     .certificate-pdf-container + .w3-center .w3-button {
-        font-size: 12px;
-        padding: 8px 12px;
+        font-size: 14px !important;
+        padding: 12px 24px !important;
     }
 
     /* Add swipe hint text for mobile users */
