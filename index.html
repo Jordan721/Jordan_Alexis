@@ -358,7 +358,9 @@
                         class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"
                         onclick="document.getElementById('subscribe').style.display='none'">Game 2</button></a>
                 <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"
-                        onclick="openCertificatesCarousel()">View My Certifications</button>
+                        onclick="openCertificatesCarousel(); return false;"
+                        ontouchstart="this.classList.add('w3-opacity');"
+                        ontouchend="this.classList.remove('w3-opacity');">View My Certifications</button>
 
             </div>
         </div>
@@ -380,14 +382,18 @@
                 <div class="carousel-container" style="padding:20px; position:relative;">
                     <!-- Previous Button (Left) -->
                     <button class="w3-button w3-red w3-hover-dark-grey carousel-btn-prev"
-                            onclick="changeSlide(-1)"
+                            onclick="changeSlide(-1); return false;"
+                            ontouchend="changeSlide(-1); event.preventDefault();"
+                            type="button"
                             style="position:absolute; left:5px; top:45%; transform:translateY(-50%); z-index:10; font-size:20px; padding:8px 12px; border-radius:4px;">
                         &#10094;
                     </button>
 
                     <!-- Next Button (Right) -->
                     <button class="w3-button w3-red w3-hover-dark-grey carousel-btn-next"
-                            onclick="changeSlide(1)"
+                            onclick="changeSlide(1); return false;"
+                            ontouchend="changeSlide(1); event.preventDefault();"
+                            type="button"
                             style="position:absolute; right:5px; top:45%; transform:translateY(-50%); z-index:10; font-size:20px; padding:8px 12px; border-radius:4px;">
                         &#10095;
                     </button>

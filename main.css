@@ -63,23 +63,15 @@ hr {
         padding: 10px !important;
     }
 
-    /* Reduce slide margins to make buttons more accessible */
+    /* Remove slide margins since buttons are hidden */
     .carousel-slides {
-        margin: 0 35px !important;
+        margin: 0 10px !important;
     }
 
-    /* Smaller navigation buttons on mobile */
+    /* Hide navigation buttons on tablets and mobile - use swipe instead */
     .carousel-btn-prev,
     .carousel-btn-next {
-        font-size: 16px !important;
-        padding: 6px 10px !important;
-        left: 2px !important;
-        min-width: 40px;
-        min-height: 40px;
-    }
-
-    .carousel-btn-next {
-        right: 2px !important;
+        display: none !important;
     }
 
     /* Smaller certificate titles on mobile */
@@ -98,6 +90,17 @@ hr {
         font-size: 12px;
         padding: 8px 12px;
     }
+
+    /* Add swipe hint text for mobile users */
+    .carousel-slides::after {
+        content: "← Swipe to navigate →";
+        display: block;
+        text-align: center;
+        color: #999;
+        font-size: 12px;
+        margin-top: 10px;
+        font-style: italic;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -113,7 +116,7 @@ hr {
     }
 
     .carousel-slides {
-        margin: 0 30px !important;
+        margin: 0 5px !important;
     }
 
     .certificate-title {
@@ -124,9 +127,5 @@ hr {
         height: 250px !important;
     }
 
-    .carousel-btn-prev,
-    .carousel-btn-next {
-        font-size: 14px !important;
-        padding: 5px 8px !important;
-    }
+    /* Buttons already hidden at 768px breakpoint */
 }
