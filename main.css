@@ -546,3 +546,11 @@ footer .w3-button:hover i {
 
     /* Buttons already hidden at 768px breakpoint */
 }
+
+/* Game Note Box Hover Effect */
+.game-note-box:hover {
+    background-color: #d4edda !important;
+    border-color: #28a745 !important;
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
