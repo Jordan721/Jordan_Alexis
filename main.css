@@ -212,7 +212,12 @@ hr {
 
 /* Sidebar Enhancements */
 .w3-col.l4 .w3-white {
-    border-radius: 15px;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.w3-col.l4 .w3-margin {
+    border-radius: 25px;
     overflow: hidden;
 }
 
@@ -220,6 +225,11 @@ hr {
     background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%) !important;
     padding: 20px;
     position: relative;
+    border-bottom: none !important;
+}
+
+.w3-col.l4 .w3-container.w3-white {
+    border-top: none !important;
 }
 
 .w3-col.l4 .w3-container.w3-black h4 {
