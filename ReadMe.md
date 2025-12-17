@@ -1,40 +1,127 @@
 # 🎨 Jordan Alexis' Portfolio Website
 
-Welcome to my portfolio website repository! 👋 This website has been evolving over the years, showcasing my journey as a developer. You can find older versions in the "Trail" folder, documenting the progression of my work.
+A responsive portfolio website showcasing my journey as a developer. Previous versions live in the Trail folder. 📂
 
 ## 📅 Recent Updates
 
-### December 16, 2025
-Finally decided to create a proper README after years of maintaining this website! Also implemented a certificate carousel feature with some interesting technical challenges along the way.
+### December 17, 2025 ✨
+Added CSS animations (typing effects, wave emoji, card fade-ins), improved footer messaging, and refined modal styling.
+
+### December 16, 2025 🎠
+Implemented interactive certificate carousel with responsive design and multiple navigation methods.
 
 ---
 
-## 🎠 Certificate Carousel Feature
+## 🎠 Certificate Carousel
 
-### Overview
-Built a professional carousel modal to showcase my certifications from Year Up United and Google Data Analytics courses. The carousel adapts to different devices with responsive design and multiple navigation methods.
+Showcases certifications from Year Up United and Google Data Analytics courses.
 
-### 🎯 Key Features
+### 🖥️ Desktop (>768px)
+- ⬅️➡️ Arrow buttons for navigation
+- ⌨️ Keyboard controls (Arrow keys, Escape to close)
+- 🖱️ Click outside to close
+- 📄 Embedded PDF viewer + "Open in New Tab" button
 
-#### Desktop Experience (>768px)
-- ⬅️ **Left/Right arrow buttons** for navigation
-- ⌨️ **Keyboard controls**: Arrow keys to navigate, Escape to close
-- 🖱️ Click outside modal to close
-- Embedded PDF viewer with "Open in New Tab" option
-
-#### Mobile/Tablet Experience (≤768px)
-- 👆 **Swipe gestures** (left/right) to navigate between certificates
-- 📱 Buttons hidden for cleaner interface
-- 💡 Helpful hint text: "← Swipe to navigate →"
-- Optimized touch targets and spacing
+### 📱 Mobile/Tablet (≤768px)
+- 👆 Swipe left/right to navigate
+- 🎯 Buttons hidden for cleaner look
+- 💡 Hint text: "← Swipe to navigate →"
+- ✨ Optimized touch targets
 
 ---
 
-## 💻 Interesting Code Snippets
+## ✨ Animation Enhancements
 
-### 1. Touch Swipe Detection with Direction Filtering
+Lightweight CSS animations that bring the site to life without overwhelming content.
 
-One of the challenges was ensuring swipes only triggered horizontal navigation and didn't interfere with vertical scrolling:
+### 🎬 Header Animations
+- ⌨️ **Typing Effect** - Name appears typewriter-style (2s, 13 steps)
+- 💫 **Cursor Blink** - Blinks 8 times then fades out
+- 👋 **Hello Fade-In** - Greeting appears after name animation
+- 🌊 **Wave Emoji** - Waves on hover
+
+### 🎯 Content Animations
+- 📋 **Card Fade-Ins** - Employment/skills sections animate in with staggered timing
+- 🎪 **Social Icons Bounce** - Icons bounce in with 0.1s delays
+- 🎪 **Carousel Title Bounce** - Subtle bounce on hover
+- ⬆️ **Arrow Bounce** - "Back to Top" bounces on hover
+
+### 🚀 Why It Works
+- Subtle & non-intrusive
+- GPU-accelerated (CSS transforms + opacity)
+- Progressive disclosure through timing
+- No motion sickness risks
+
+---
+
+## 💻 Technical Implementation
+
+### 1. ⌨️ CSS Typing Animation
+
+Typewriter effect with coordinated cursor blinking:
+
+```css
+/* Typing Animation for Name */
+.typing-name {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing-name 2s steps(13) 0s 1 normal both;
+}
+
+.typing-name::after {
+    content: '|';
+    margin-left: 5px;
+    opacity: 1;
+    animation: blink 0.75s step-end 2s 8 normal,
+               cursorFadeOut 0.3s ease-in 8s forwards;
+}
+
+@keyframes typing-name {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes cursorFadeOut {
+    to { opacity: 0; }
+}
+```
+
+💡 **Key insight:** `steps(13)` matches "Jordan Alexis" character count. Cursor blinks 8 times over 6s, then fades out.
+
+### 2. 👋 Interactive Wave Emoji
+
+```css
+.wave-emoji {
+    display: inline-block;
+    animation-play-state: paused;
+}
+
+.wave-emoji:hover {
+    animation: wave 0.6s ease-in-out;
+}
+
+@keyframes wave {
+    0%, 100% { transform: rotate(0deg); }
+    10%, 30%, 50%, 70%, 90% { transform: rotate(14deg); }
+    20%, 40%, 60%, 80% { transform: rotate(-8deg); }
+}
+```
+
+🎯 **Design decision:** Hover-only animation avoids distraction. Uses `transform: rotate()` for smooth GPU acceleration.
+
+### 3. 👆 Touch Swipe Detection
+
+Horizontal swipes trigger navigation without hijacking vertical scrolling:
 
 ```javascript
 // Add touch swipe support for mobile
@@ -72,9 +159,9 @@ function addTouchSupport() {
 }
 ```
 
-**Why this matters:** The `yDiff` comparison prevents the carousel from hijacking vertical scrolling, ensuring users can still scroll the page naturally.
+💡 **Key insight:** `yDiff` comparison prevents carousel from hijacking vertical scrolling.
 
-### 2. Keyboard Navigation with Modal State Check
+### 4. ⌨️ Keyboard Navigation
 
 ```javascript
 // Add keyboard support for desktop
@@ -99,9 +186,9 @@ function addKeyboardSupport() {
 }
 ```
 
-**Key insight:** Always check if the modal is open before responding to keyboard events to avoid interfering with other page interactions.
+💡 **Key insight:** Always check if modal is open to avoid interfering with other page interactions.
 
-### 3. Responsive CSS - Hiding Buttons on Mobile
+### 5. 📱 Responsive CSS
 
 ```css
 /* Carousel Mobile Responsive Styles */
@@ -125,19 +212,19 @@ function addKeyboardSupport() {
 }
 ```
 
-**Design decision:** Rather than cramming small buttons on mobile screens, we hide them and rely on intuitive swipe gestures with a helpful hint.
+🎯 **Design decision:** Swipe gestures > tiny buttons on mobile. Cleaner + contextual hints.
 
 ---
 
 ## 🐛 Challenges & Solutions
 
-### Issue #1: Navigation Buttons Not Working on Mobile
-**Problem:** Initially, the onclick handlers weren't responding to touch events on mobile devices.
+### Issue #1: 📱 Touch Events Not Working
+**Problem:** Click handlers ignored on mobile.
 
 **Solution:**
-- Added both `onclick` and `ontouchend` event handlers
-- Used `return false;` and `event.preventDefault()` to prevent default mobile behavior
-- Added CSS `touch-action: manipulation` for faster tap response
+- Added `onclick` + `ontouchend` event handlers
+- Prevented default behavior (`return false;` + `event.preventDefault()`)
+- Added CSS `touch-action: manipulation` for faster response
 
 ```html
 <button onclick="changeSlide(-1); return false;"
@@ -147,10 +234,10 @@ function addKeyboardSupport() {
 </button>
 ```
 
-### Issue #2: Duplicate Event Listeners
-**Problem:** Every time the carousel opened, new event listeners were being added, causing multiple navigation triggers.
+### Issue #2: 🔁 Duplicate Event Listeners
+**Problem:** Multiple listeners added every time carousel opened = chaos.
 
-**Solution:** Implemented flag variables to ensure listeners are only added once:
+**Solution:** Flag variables ensure one-time setup:
 
 ```javascript
 var touchListenersAdded = false;
@@ -170,13 +257,13 @@ function openCertificatesCarousel() {
 }
 ```
 
-### Issue #3: Close Button Hidden Behind Browser UI
-**Problem:** The modal's close button was partially hidden behind the browser's bookmark bar on some screens.
+### Issue #3: ❌ Hidden Close Button
+**Problem:** Close button hidden behind browser bookmark bar.
 
 **Solution:**
-- Reduced modal max-height from 100vh to 85vh
-- Added 40px top margin to push content down
-- Adjusted overall modal size for better visibility
+- Reduced max-height: 100vh → 85vh
+- Added 40px top margin
+- Better visibility across devices
 
 ```css
 .carousel-modal-content {
@@ -187,10 +274,10 @@ function openCertificatesCarousel() {
 }
 ```
 
-### Issue #4: Slides Not Displaying Initially
-**Problem:** When the carousel opened, sometimes no slides would be visible.
+### Issue #4: 🖼️ Invisible Slides
+**Problem:** Slides sometimes didn't show when carousel opened.
 
-**Solution:** Added a 100ms delay and null checks to ensure DOM is ready:
+**Solution:** 100ms delay + null checks = DOM ready:
 
 ```javascript
 function openCertificatesCarousel() {
@@ -216,13 +303,36 @@ function showSlide() {
 
 ---
 
-## 🛠️ Technologies Used
+## 🎨 UX Improvements
 
-- **HTML5** - Semantic markup with W3.CSS framework
-- **CSS3** - Custom responsive design with media queries
-- **JavaScript (ES5)** - Vanilla JS for carousel functionality
-- **Font Awesome** - Icons for UI elements
-- **W3.CSS** - Base styling framework
+### Visual Polish
+- ⌨️ **Header** - Typing animation + cursor blink
+- 👋 **Interactive** - Wave emoji on hover
+- 📝 **Modal** - "Hello" → "Resources & Portfolio"
+- 👣 **Footer** - "Welcome to the Footer Enjoy Your Stay 👋🏾"
+- ⬆️ **Button** - "To the top" → "Back to Top"
+
+### Animation Philosophy
+- 🎯 **Purposeful** - Each serves a UX goal
+- ⚡ **Performant** - CSS transforms + opacity = 60fps
+- 🤫 **Subtle** - Enhances, doesn't distract
+- ♿ **Accessible** - No motion sickness triggers
+
+### Responsive Magic
+- 📐 Adapts to viewport size
+- 📱 Touch-optimized for mobile
+- ⏱️ Staggered timing for natural flow
+
+---
+
+## 🛠️ Technologies
+
+- 📝 **HTML5** - Semantic markup + W3.CSS
+- 🎨 **CSS3** - Responsive design + keyframe animations
+- ⚡ **JavaScript (ES5)** - Vanilla JS carousel + events
+- 🎯 **Font Awesome** - UI icons
+- 🎭 **W3.CSS** - Base framework
+- ✨ **CSS Animations** - Typing, transforms, fade-ins
 
 ---
 
@@ -237,40 +347,39 @@ Jordan_Alexis/
 │   ├── Year_Up_United_LTCA_Certificate.pdf
 │   ├── Foundations_Data_Data_Everywhere.pdf
 │   └── Ask_Questions_to_Make_Data_Driven_Decisions_Certification.pdf
-├── Trail/                  # Older versions of the website
-└── ReadMe.md              # You are here! 📍
+├── Trail_#/                  # Older versions of the website
+└── ReadMe.md              # Project documentation
 ```
 
 ---
 
+## 🎮 Usage
 
-### Desktop:
-- Use arrow keys ⬅️ ➡️ to navigate
-- Click the side buttons
-- Press Escape to close
+### 🖥️ Desktop
+- ⬅️➡️ Arrow keys to navigate
+- 🖱️ Click side buttons
+- ⎋ Escape to close
 
-### Mobile:
-- Swipe left/right to navigate 👆
-- Tap the X to close
-
----
-
-## 📝 Future Improvements
-
-Who knows what's next? 🤷‍♂️ Knowing me, I'll probably redesign the whole site again or add some cool new features. Stay tuned!
-
+### 📱 Mobile
+- 👆 Swipe left/right
+- ❌ Tap X to close
 
 ---
 
-## 📧 Contact
+## 🚀 Future Plans
 
-Feel free to reach out or connect with me:
+Always evolving! More features and improvements coming based on new trends and ideas. Stay tuned! ✨
+
+---
+
+## 📧 Connect With Me
+
 - 💼 [LinkedIn](https://www.linkedin.com/in/jordan-alexis/)
 - 🐙 [GitHub](https://github.com/Jordan721)
 - 🌳 [Linktree](https://linktr.ee/Jordan_Alexis_)
 
 ---
 
-**Last Updated:** December 16, 2025
+**Last Updated:** December 17, 2025 📅
 
-Made with ❤️ and lots of 💻 by Jordan Alexis
+Made with 💻 and ☕ by Jordan Alexis
