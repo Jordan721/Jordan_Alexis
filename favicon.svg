@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      @media (prefers-color-scheme: dark) {
+        .bg { fill: #1a1a1a; }
+        .text { fill: #ffffff; }
+        .accent { fill: #ff6b6b; }
+      }
+      @media (prefers-color-scheme: light) {
+        .bg { fill: #ffffff; }
+        .text { fill: #000000; }
+        .accent { fill: #e74c3c; }
+      }
+      .text {
+        font-family: 'Arial', sans-serif;
+        font-weight: bold;
+        font-size: 45px;
+      }
+      .glow {
+        filter: drop-shadow(0 0 3px rgba(231, 76, 60, 0.5));
+      }
+    </style>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" class="accent" />
+      <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="48" class="bg" stroke="url(#grad)" stroke-width="3"/>
+
+  <!-- Initials with glow effect -->
+  <g class="glow">
+    <text x="50" y="68" text-anchor="middle" class="text">JA</text>
+  </g>
+
+  <!-- Subtle code brackets accent -->
+  <path d="M 15 35 L 10 50 L 15 65" stroke="url(#grad)" stroke-width="2" fill="none" opacity="0.3"/>
+  <path d="M 85 35 L 90 50 L 85 65" stroke="url(#grad)" stroke-width="2" fill="none" opacity="0.3"/>
+</svg>
