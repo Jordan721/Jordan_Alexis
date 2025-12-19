@@ -14,30 +14,29 @@ function likeFunction(x) {
   x.innerHTML = "✓ Liked";
 }
 
-// Certificates Carousel functionality
+// Certificates Carousel functionality with folder navigation
 var currentSlideIndex = 1;
 var touchListenersAdded = false;
 var keyboardListenerAdded = false;
+var currentFolder = null;
 
 function openCertificatesCarousel() {
-  currentSlideIndex = 1; // Reset to first slide
   var modal = document.getElementById('certificatesModal');
   if (modal) {
     modal.style.display = 'block';
-    // Small delay to ensure DOM is ready
-    setTimeout(function() {
-      showSlide();
-      // Add touch event listeners for mobile swipe support (only once)
-      if (!touchListenersAdded) {
-        addTouchSupport();
-        touchListenersAdded = true;
-      }
-      // Add keyboard event listeners for desktop (only once)
-      if (!keyboardListenerAdded) {
-        addKeyboardSupport();
-        keyboardListenerAdded = true;
-      }
-    }, 100);
+    // Show folder view by default
+    showFolderView();
+
+    // Add touch event listeners for mobile swipe support (only once)
+    if (!touchListenersAdded) {
+      addTouchSupport();
+      touchListenersAdded = true;
+    }
+    // Add keyboard event listeners for desktop (only once)
+    if (!keyboardListenerAdded) {
+      addKeyboardSupport();
+      keyboardListenerAdded = true;
+    }
   }
 }
 
@@ -45,6 +44,66 @@ function closeCertificatesCarousel() {
   var modal = document.getElementById('certificatesModal');
   if (modal) {
     modal.style.display = 'none';
+    // Reset to folder view when closing
+    showFolderView();
+  }
+}
+
+function showFolderView() {
+  var folderView = document.getElementById('folderView');
+  var carouselView = document.getElementById('carouselView');
+  var modalTitle = document.getElementById('modalTitle');
+
+  if (folderView) folderView.style.display = 'block';
+  if (carouselView) carouselView.style.display = 'none';
+  if (modalTitle) modalTitle.innerHTML = 'My Certifications';
+  currentFolder = null;
+}
+
+function openFolder(folderName) {
+  currentFolder = folderName;
+  var folderView = document.getElementById('folderView');
+  var carouselView = document.getElementById('carouselView');
+  var modalTitle = document.getElementById('modalTitle');
+
+  // Hide folder view, show carousel
+  if (folderView) folderView.style.display = 'none';
+  if (carouselView) carouselView.style.display = 'block';
+
+  // Update title based on folder
+  if (modalTitle) {
+    if (folderName === 'yearup') {
+      modalTitle.innerHTML = 'Year Up United Certifications';
+    } else if (folderName === 'dataanalytics') {
+      modalTitle.innerHTML = 'Data Analytics Certifications';
+    }
+  }
+
+  // Reset to first slide of this folder
+  currentSlideIndex = 1;
+  filterSlidesByFolder(folderName);
+  showSlide();
+}
+
+function backToFolders() {
+  showFolderView();
+}
+
+function filterSlidesByFolder(folderName) {
+  var allSlides = document.getElementsByClassName('certificate-slide');
+
+  // Hide all slides first
+  for (var i = 0; i < allSlides.length; i++) {
+    allSlides[i].style.display = 'none';
+    allSlides[i].classList.remove('active-folder');
+  }
+
+  // Show only slides from the selected folder
+  var folderClass = folderName + '-cert';
+  var folderSlides = document.getElementsByClassName(folderClass);
+
+  for (var i = 0; i < folderSlides.length; i++) {
+    folderSlides[i].classList.add('active-folder');
   }
 }
 
@@ -55,8 +114,15 @@ function changeSlide(n) {
 
 function showSlide() {
   var i;
-  var slides = document.getElementsByClassName('certificate-slide');
+  var slides;
   var indicator = document.getElementById('slideIndicator');
+
+  // Get only the slides from the active folder
+  if (currentFolder) {
+    slides = document.getElementsByClassName('active-folder');
+  } else {
+    slides = document.getElementsByClassName('certificate-slide');
+  }
 
   if (!slides || slides.length === 0) {
     return;
@@ -70,7 +136,7 @@ function showSlide() {
     currentSlideIndex = slides.length;
   }
 
-  // Hide all slides
+  // Hide all slides from the active folder
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = 'none';
   }

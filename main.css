@@ -565,3 +565,73 @@ footer .w3-button:hover i {
     transform: scale(1.02);
     box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
 }
+
+/* Certification Folder Styles */
+.cert-folder {
+    transition: all 0.3s ease;
+}
+
+.cert-folder:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+}
+
+.cert-folder:active {
+    transform: translateY(-8px) scale(1.03);
+}
+
+.cert-folder i {
+    transition: transform 0.3s ease;
+}
+
+.cert-folder:hover i {
+    transform: scale(1.1) rotateZ(-5deg);
+}
+
+/* Folder view responsive styles */
+@media screen and (max-width: 768px) {
+    .folder-view {
+        padding: 20px !important;
+    }
+
+    .cert-folder {
+        width: 160px !important;
+        padding: 20px 15px !important;
+    }
+
+    .cert-folder i {
+        font-size: 48px !important;
+    }
+
+    .cert-folder h4 {
+        font-size: 16px !important;
+    }
+
+    .cert-folder p {
+        font-size: 12px !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .folder-view {
+        padding: 15px !important;
+    }
+
+    .cert-folder {
+        width: 140px !important;
+        padding: 15px 10px !important;
+    }
+
+    .cert-folder i {
+        font-size: 40px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .cert-folder h4 {
+        font-size: 14px !important;
+    }
+
+    .cert-folder p {
+        font-size: 11px !important;
+    }
+}

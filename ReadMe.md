@@ -4,6 +4,9 @@ A responsive portfolio website showcasing my journey as a developer. Previous ve
 
 ## 📅 Recent Updates
 
+### December 19, 2025 📁
+Added folder-based navigation system to organize certifications by category! Now you can browse Year Up United and Data Analytics certs separately with a slick folder interface that's fun to click! 🎯
+
 ### December 17, 2025 ✨
 Added CSS animations (typing effects, wave emoji, card fade-ins), improved footer messaging, and refined modal styling.
 
@@ -12,9 +15,28 @@ Implemented interactive certificate carousel with responsive design and multiple
 
 ---
 
-## 🎠 Certificate Carousel
+## 📁 Certificate Folder System
 
-Showcases certifications from Year Up United and Google Data Analytics courses.
+Your certs deserve their own filing cabinet! 🗄️ Click "View My Certifications" and you'll see gorgeous gradient folder cards for different categories. It's like a digital office but way cooler! 😎
+
+### 🎨 The Folders
+- 💜 **Year Up United** - That sweet purple gradient holds your bootcamp completion cert
+- 💖 **Data Analytics** - Pink vibes for your 2 Google Data Analytics course certificates
+- ✨ **Hover Magic** - Watch the folders lift and tilt when you hover! It's oddly satisfying 🤤
+
+### 🚀 How It Works
+1. 👆 Click a folder card (they're basically begging to be clicked)
+2. 🎠 Boom! The carousel opens with ONLY certs from that category
+3. ⬅️➡️ Navigate through the certs with arrows/swipe (same smooth carousel action)
+4. 🔙 Hit "Back to Categories" to return to folder view
+5. 🔄 Pick another folder and keep exploring!
+
+### 🧠 Smart Features
+- 📊 Each folder shows how many certs it contains (because transparency matters)
+- 🎯 Modal title updates to show which category you're viewing
+- 🎨 Beautiful gradient backgrounds that match your site's aesthetic
+- 📱 Fully responsive - works great on mobile too!
+- 🌟 Folder icons do a little dance on hover (because why not?)
 
 ### 🖥️ Desktop (>768px)
 - ⬅️➡️ Arrow buttons for navigation
@@ -187,6 +209,68 @@ function addKeyboardSupport() {
 ```
 
 💡 **Key insight:** Always check if modal is open to avoid interfering with other page interactions.
+
+### 6. 📁 Folder Navigation System
+
+Dynamic filtering shows only relevant certificates per category:
+
+```javascript
+function openFolder(folderName) {
+  currentFolder = folderName;
+
+  // Update modal title based on folder
+  if (folderName === 'yearup') {
+    modalTitle.innerHTML = 'Year Up United Certifications';
+  } else if (folderName === 'dataanalytics') {
+    modalTitle.innerHTML = 'Data Analytics Certifications';
+  }
+
+  // Filter slides by folder
+  filterSlidesByFolder(folderName);
+  showSlide();
+}
+
+function filterSlidesByFolder(folderName) {
+  var allSlides = document.getElementsByClassName('certificate-slide');
+
+  // Hide all slides first
+  for (var i = 0; i < allSlides.length; i++) {
+    allSlides[i].style.display = 'none';
+    allSlides[i].classList.remove('active-folder');
+  }
+
+  // Show only slides from selected folder
+  var folderClass = folderName + '-cert';
+  var folderSlides = document.getElementsByClassName(folderClass);
+
+  for (var i = 0; i < folderSlides.length; i++) {
+    folderSlides[i].classList.add('active-folder');
+  }
+}
+```
+
+🎯 **Design decision:** Each cert has a class like `yearup-cert` or `dataanalytics-cert`. The `active-folder` class tracks which slides to display, making it super easy to add more folders!
+
+### 7. 🎨 Folder Hover Effects
+
+Smooth CSS animations make folders feel interactive:
+
+```css
+.cert-folder {
+    transition: all 0.3s ease;
+}
+
+.cert-folder:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+}
+
+.cert-folder:hover i {
+    transform: scale(1.1) rotateZ(-5deg);
+}
+```
+
+✨ **The magic:** Folders lift up (`translateY`), grow slightly (`scale`), get a bigger shadow, AND the folder icon tilts a bit. It's like they're jumping into your hand! 🤲
 
 ### 5. 📱 Responsive CSS
 
@@ -380,6 +464,8 @@ Always evolving! More features and improvements coming based on new trends and i
 
 ---
 
-**Last Updated:** December 17, 2025 📅
+**Last Updated:** December 19, 2025 📅
 
 Made with 💻 and ☕ by Jordan Alexis
+
+P.S. - Click those folders, they're fun! 📁✨
