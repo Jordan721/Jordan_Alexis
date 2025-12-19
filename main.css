@@ -245,11 +245,40 @@ hr {
 }
 
 .w3-col.l4 .w3-margin:first-child .w3-container.w3-black + div p {
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .w3-col.l4 .w3-margin:first-child:hover .w3-container.w3-black + div p {
     transform: translateX(5px);
+    color: #667eea;
+}
+
+/* Enhanced About Me box hover effects */
+.w3-col.l4 .w3-margin:first-child {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.w3-col.l4 .w3-margin:first-child::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+    transition: left 0.5s ease;
+    z-index: 10;
+}
+
+.w3-col.l4 .w3-margin:first-child:hover::before {
+    left: 100%;
+}
+
+.w3-col.l4 .w3-margin:first-child:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.3);
 }
 
 @keyframes titleBounce {
@@ -274,6 +303,62 @@ hr {
     75% {
         transform: translateY(-6px) scale(1.03);
     }
+}
+
+/* GitHub Repos and LinkedIn section hover effects */
+.w3-col.l4 .w3-margin:nth-child(3) {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.w3-col.l4 .w3-margin:nth-child(3)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+    transition: left 0.5s ease;
+    z-index: 10;
+}
+
+.w3-col.l4 .w3-margin:nth-child(3):hover::before {
+    left: 100%;
+}
+
+.w3-col.l4 .w3-margin:nth-child(3):hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.3);
+}
+
+/* Resume, Games and Certifications section hover effects */
+.w3-col.l4 .w3-margin:nth-child(5) {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.w3-col.l4 .w3-margin:nth-child(5)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+    transition: left 0.5s ease;
+    z-index: 10;
+}
+
+.w3-col.l4 .w3-margin:nth-child(5):hover::before {
+    left: 100%;
+}
+
+.w3-col.l4 .w3-margin:nth-child(5):hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.3);
 }
 
 /* Social Icons in Sidebar Animation */
