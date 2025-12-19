@@ -7,6 +7,10 @@ h6 {
     font-family: "Oswald"
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: "Open Sans"
 }
