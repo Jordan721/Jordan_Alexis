@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Final_Project.css">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <title>Orbit Control - Interactive 3D Experience</title>
+</head>
+
+<body>
+    <!-- Simple Top Navbar -->
+    <nav class="top-nav">
+        <a href="https://jordan721.github.io/Jordan_Alexis/" target="_blank" class="portfolio-link">Jordan Alexis Portfolio</a>
+    </nav>
+
+    <!-- Toggle UI Button -->
+    <button id="toggleUI" class="toggle-ui-btn">Hide UI</button>
+
+    <!-- Main Content -->
+    <div class="content-wrapper" id="mainContent">
+        <h1>Interactive Orbit Control</h1>
+
+        <p class="subtitle">Control the 3D space with your mouse, keyboard, or potentiometers</p>
+
+        <p class="info-text">Use Potentiometers to move left or right on axis. (May work slow on certain browsers and or computers with low video memory.)</p>
+
+        <!-- Interactive Controls Panel -->
+        <div class="controls-panel">
+            <div class="control-group">
+                <button id="toggleRotation" class="control-btn">Pause Rotation</button>
+                <button id="resetView" class="control-btn">Reset View</button>
+                <button id="randomColors" class="control-btn">Random Colors</button>
+                <button id="toggleMusic" class="control-btn">Play Music</button>
+                <button id="aboutProject" class="control-btn">About This Project</button>
+            </div>
+
+            <div class="control-group">
+                <label for="rotationSpeed">Rotation Speed:</label>
+                <input type="range" id="rotationSpeed" min="0" max="10" value="2" step="0.5">
+                <span id="speedValue">2x</span>
+            </div>
+
+            <div class="control-group">
+                <label for="shapeType">Shape Mode:</label>
+                <select id="shapeType" class="control-select">
+                    <option value="mixed">Mixed (Default)</option>
+                    <option value="cones">Cones Only</option>
+                    <option value="boxes">Boxes Only</option>
+                    <option value="spheres">Spheres Only</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="colorScheme">Color Scheme:</label>
+                <select id="colorScheme" class="control-select">
+                    <option value="default">White & Teal</option>
+                    <option value="neon">Neon</option>
+                    <option value="rainbow">Rainbow</option>
+                    <option value="monochrome">Monochrome</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <div class="instructions">
+            <h3>Controls:</h3>
+            <ul>
+                <li><strong>Mouse:</strong> Move to orbit camera</li>
+                <li><strong>Arrow Keys:</strong> Fine-tune camera position</li>
+                <li><strong>Space:</strong> Toggle auto-rotation</li>
+                <li><strong>R:</strong> Reset view</li>
+                <li><strong>C:</strong> Cycle colors</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Canvas Container -->
+    <div id="canvas-container"></div>
+
+    <!-- About Project Modal -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>About This Project</h2>
+            <p>This was my final project for class, created to demonstrate interactive user experiences in 3D space.</p>
+
+            <h3>Project Goals</h3>
+            <p>The assignment was to create something that users could interact with in meaningful ways. This interactive orbital visualization is what I came up with - combining 3D graphics, responsive controls, and immersive audio.</p>
+
+            <h3>Arduino Integration</h3>
+            <p>This project was originally designed to work with an <strong>Arduino</strong> microcontroller using physical potentiometers (rotary knobs and dials). The Arduino would read the analog input from these physical controls and send the data through a serial port to control the 3D camera movement.</p>
+
+            <p>However, since most users don't have access to an Arduino and the necessary hardware setup, I adapted the project to use <strong>mouse and keyboard controls</strong> as an alternative input method. This way, everyone can experience and interact with the visualization!</p>
+
+            <h3>How It Works</h3>
+            <p>The code still maintains the serial port functionality for those who do have Arduino hardware. If you have an Arduino with two potentiometers connected to analog inputs, you can use them to control the orbital camera by adjusting the physical knobs and dials.</p>
+
+            <h3>Important Note</h3>
+            <p><strong>⚠️ Disclaimer:</strong> This website works best on desktop/laptop computers. Mobile devices are not fully supported and may experience performance issues or limited functionality. For the optimal experience, please view on a web browser on your computer. Sorry for any inconvenience!</p>
+        </div>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop>
+        <source src="1-10. Space Junk Road.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Scripts -->
+    <script src="p5.min.js"></script>
+    <script src="p5.serialport.js"></script>
+    <script src="sketch.js"></script>
+
+</body>
+
+</html>
