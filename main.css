@@ -337,7 +337,7 @@ hr {
     box-shadow: 0 12px 35px rgba(102, 126, 234, 0.3);
 }
 
-/* Resume, Games and Certifications section hover effects */
+/* Websites I Created section hover effects */
 .w3-col.l4 .w3-margin:nth-child(5) {
     transition: all 0.3s ease;
     position: relative;
@@ -361,6 +361,34 @@ hr {
 }
 
 .w3-col.l4 .w3-margin:nth-child(5):hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.3);
+}
+
+/* Resume, Games and Certifications section hover effects */
+.w3-col.l4 .w3-margin:nth-child(7) {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.w3-col.l4 .w3-margin:nth-child(7)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+    transition: left 0.5s ease;
+    z-index: 10;
+}
+
+.w3-col.l4 .w3-margin:nth-child(7):hover::before {
+    left: 100%;
+}
+
+.w3-col.l4 .w3-margin:nth-child(7):hover {
     transform: scale(1.02);
     box-shadow: 0 12px 35px rgba(102, 126, 234, 0.3);
 }
