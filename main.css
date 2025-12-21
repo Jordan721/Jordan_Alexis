@@ -705,6 +705,25 @@ footer .w3-button:hover i {
     transform: scale(1.1) rotateZ(-5deg);
 }
 
+/* Resume Viewer Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+    /* Hide PDF embed on mobile and show fallback for resume */
+    .resume-pdf {
+        display: none !important;
+    }
+
+    .mobile-pdf-fallback {
+        display: flex !important;
+    }
+
+    /* Make buttons stack vertically on mobile */
+    .resume-container .w3-center a {
+        display: block !important;
+        margin: 10px auto !important;
+        width: 90% !important;
+    }
+}
+
 /* Folder view responsive styles */
 @media screen and (max-width: 768px) {
     .folder-view {

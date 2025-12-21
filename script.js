@@ -217,4 +217,24 @@ window.onclick = function(event) {
   if (event.target == modal) {
     closeCertificatesCarousel();
   }
+
+  var resumeModal = document.getElementById('resumeModal');
+  if (event.target == resumeModal) {
+    closeResumeViewer();
+  }
+}
+
+// Resume Viewer functionality
+function openResumeViewer() {
+  var modal = document.getElementById('resumeModal');
+  if (modal) {
+    modal.style.display = 'block';
+  }
+}
+
+function closeResumeViewer() {
+  var modal = document.getElementById('resumeModal');
+  if (modal) {
+    modal.style.display = 'none';
+  }
 }
