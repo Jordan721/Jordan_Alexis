@@ -185,7 +185,7 @@ hr {
 
 .w3-container.w3-white:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    box-shadow: 0 15px 40px rgba(6, 182, 212, 0.3);
 }
 
 /* Section Headers */
@@ -770,4 +770,294 @@ footer .w3-button:hover i {
     .cert-folder p {
         font-size: 11px !important;
     }
+}
+
+/* ===============================================
+   MODERATE UPGRADE ENHANCEMENTS
+   =============================================== */
+
+/* Animated Skill Bars */
+.skill-item {
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.6s ease;
+}
+
+.skill-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.skill-name {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.skill-bar-container {
+    height: 12px;
+    background: rgba(6, 182, 212, 0.1);
+    border-radius: 50px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.skill-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #06b6d4 0%, #14b8a6 100%);
+    border-radius: 50px;
+    width: 0%;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-bar-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Floating Navigation Sidebar */
+.floating-sidebar {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.floating-nav-item {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #2c3e50;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.floating-nav-item:hover {
+    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    color: white;
+    transform: scale(1.15);
+    box-shadow: 0 5px 20px rgba(6, 182, 212, 0.4);
+}
+
+.floating-nav-item.active {
+    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    color: white;
+}
+
+/* Enhanced Scroll Animations */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Sidebar Cards */
+.w3-col.l4 .w3-white {
+    background: white;
+}
+
+/* Sticky Navigation Bar */
+.w3-bar.w3-black.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Progress Indicator */
+.progress-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #06b6d4, #14b8a6, #f97316);
+    width: 0%;
+    z-index: 9999;
+    transition: width 0.1s ease;
+}
+
+/* Enhanced Modal */
+.w3-modal {
+    background-color: rgba(0,0,0,0.4);
+}
+
+/* Responsive - Hide floating nav on mobile, show top nav */
+@media screen and (max-width: 968px) {
+    .floating-sidebar {
+        display: none;
+    }
+
+    .w3-bar.w3-black {
+        display: block !important;
+    }
+}
+
+/* Desktop - Hide top nav, show floating sidebar */
+@media screen and (min-width: 969px) {
+    .w3-bar.w3-black {
+        display: none !important;
+    }
+
+    .floating-sidebar {
+        display: flex;
+    }
+}
+
+/* Hover glow effect for skill bars */
+.skill-bar-container:hover .skill-bar-fill {
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.6);
+}
+
+/* Smooth section transitions */
+section {
+    scroll-margin-top: 80px;
+}
+
+/* Enhanced button ripple effect */
+.w3-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.w3-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.w3-button:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* Parallax effect for header */
+.parallax-header {
+    transition: transform 0.1s ease-out;
+}
+
+/* Personal GitHub button - bright cyan color */
+.floating-nav-item[title="GitHub - Personal"] {
+    background: rgba(34, 211, 238, 0.15) !important;
+    color: #22d3ee !important;
+    border: 2px solid rgba(34, 211, 238, 0.4) !important;
+}
+
+.floating-nav-item[title="GitHub - Personal"]:hover {
+    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%) !important;
+    color: white !important;
+    box-shadow: 0 5px 20px rgba(6, 182, 212, 0.5);
+}
+
+/* Year Up GitHub button - bright orange color */
+.floating-nav-item.year-up-btn {
+    background: rgba(251, 146, 60, 0.15) !important;
+    color: #fb923c !important;
+    border: 2px solid rgba(251, 146, 60, 0.4) !important;
+}
+
+.floating-nav-item.year-up-btn:hover {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%) !important;
+    color: white !important;
+    box-shadow: 0 5px 20px rgba(249, 115, 22, 0.5);
+}
+
+/* Social Links button - bright purple color */
+.floating-nav-item.social-links-btn {
+    background: rgba(168, 85, 247, 0.25) !important;
+    color: #c084fc !important;
+    border: 2px solid rgba(192, 132, 252, 0.6) !important;
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+    width: auto !important;
+    padding: 12px 15px !important;
+    border-radius: 25px !important;
+    min-width: 100px;
+}
+
+.floating-nav-item.social-links-btn .nav-text {
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.3;
+    text-align: center;
+    display: block;
+}
+
+.floating-nav-item.social-links-btn:hover {
+    background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%) !important;
+    color: white !important;
+    box-shadow: 0 5px 25px rgba(168, 85, 247, 0.7);
+}
+
+/* Linktree button - bright teal color */
+.floating-nav-item.linktree-btn {
+    background: rgba(20, 184, 166, 0.25) !important;
+    color: #5eead4 !important;
+    border: 2px solid rgba(94, 234, 212, 0.6) !important;
+    box-shadow: 0 0 15px rgba(20, 184, 166, 0.3);
+}
+
+.floating-nav-item.linktree-btn:hover {
+    background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%) !important;
+    color: white !important;
+    box-shadow: 0 5px 25px rgba(20, 184, 166, 0.7);
 }

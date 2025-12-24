@@ -238,3 +238,156 @@ function closeResumeViewer() {
     modal.style.display = 'none';
   }
 }
+
+
+
+// Scroll Progress Indicator
+function updateScrollProgress() {
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
+  var progressBar = document.querySelector('.progress-indicator');
+  if (progressBar) {
+    progressBar.style.width = scrolled + '%';
+  }
+}
+
+// Intersection Observer for Fade-in Animations
+function initScrollAnimations() {
+  var observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  // Observe all fade-in-up elements
+  var fadeElements = document.querySelectorAll('.fade-in-up');
+  fadeElements.forEach(function(element) {
+    observer.observe(element);
+  });
+
+  // Observe skill items
+  var skillItems = document.querySelectorAll('.skill-item');
+  skillItems.forEach(function(item) {
+    observer.observe(item);
+  });
+}
+
+// Animate Skill Bars
+function animateSkillBars() {
+  var skillBars = document.querySelectorAll('.skill-bar-fill');
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var bar = entry.target;
+        var percentage = bar.getAttribute('data-percentage');
+        if (percentage) {
+          setTimeout(function() {
+            bar.style.width = percentage + '%';
+          }, 200);
+        }
+        observer.unobserve(bar);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  skillBars.forEach(function(bar) {
+    observer.observe(bar);
+  });
+}
+
+// Floating Navigation Active State
+function updateFloatingNav() {
+  var sections = document.querySelectorAll('[id]');
+  var navItems = document.querySelectorAll('.floating-nav-item');
+
+  if (navItems.length === 0) return; // Exit if no floating nav
+
+  var scrollPosition = window.scrollY + 200;
+
+  sections.forEach(function(section) {
+    var sectionTop = section.offsetTop;
+    var sectionHeight = section.offsetHeight;
+    var sectionId = section.getAttribute('id');
+
+    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+      navItems.forEach(function(item) {
+        item.classList.remove('active');
+        var href = item.getAttribute('href');
+        if (href === '#' + sectionId) {
+          item.classList.add('active');
+        }
+      });
+    }
+  });
+}
+
+// Parallax Header Effect
+function initParallaxHeader() {
+  var header = document.querySelector('.w3-content > header');
+  if (!header) return;
+
+  header.classList.add('parallax-header');
+
+  window.addEventListener('scroll', function() {
+    var scrolled = window.pageYOffset;
+    if (scrolled < window.innerHeight) {
+      header.style.transform = 'translateY(' + (scrolled * 0.5) + 'px)';
+    }
+  });
+}
+
+// Initialize all enhancements when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  // Create progress indicator
+  var progressBar = document.createElement('div');
+  progressBar.className = 'progress-indicator';
+  document.body.appendChild(progressBar);
+
+  // Initialize animations
+  initScrollAnimations();
+  animateSkillBars();
+  initParallaxHeader();
+
+  // Add scroll event listeners
+  window.addEventListener('scroll', function() {
+    updateScrollProgress();
+    updateFloatingNav();
+  });
+
+  // Add smooth scroll to all anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var href = this.getAttribute('href');
+      if (href !== '#' && href.length > 1) {
+        e.preventDefault();
+        var target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }
+    });
+  });
+
+  // Add fade-in-up class to main content cards
+  var contentCards = document.querySelectorAll('.w3-col.l8 > .w3-container.w3-white, .w3-col.l4 > .w3-white, .w3-col.l4 > .w3-margin');
+  contentCards.forEach(function(card, index) {
+    card.classList.add('fade-in-up');
+    card.style.transitionDelay = (index * 0.1) + 's';
+  });
+
+  // Add console message
+  console.log('%c👋 Welcome to Jordan Alexis Portfolio!', 'color: #06b6d4; font-size: 20px; font-weight: bold;');
+  console.log('%c✨ Enhanced with modern animations and glassmorphism', 'color: #14b8a6; font-size: 14px;');
+});
