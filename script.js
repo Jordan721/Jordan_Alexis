@@ -345,20 +345,6 @@ function updateFloatingNav() {
   });
 }
 
-// Parallax Header Effect
-function initParallaxHeader() {
-  var header = document.querySelector('.w3-content > header');
-  if (!header) return;
-
-  header.classList.add('parallax-header');
-
-  window.addEventListener('scroll', function() {
-    var scrolled = window.pageYOffset;
-    if (scrolled < window.innerHeight) {
-      header.style.transform = 'translateY(' + (scrolled * 0.5) + 'px)';
-    }
-  });
-}
 
 // Initialize all enhancements when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
@@ -370,7 +356,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize animations
   initScrollAnimations();
   animateSkillBars();
-  initParallaxHeader();
 
   // Add scroll event listeners
   window.addEventListener('scroll', function() {
