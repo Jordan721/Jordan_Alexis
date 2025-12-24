@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- Modern Favicon System with Theme Support -->
+    
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -178,47 +178,176 @@
                         <hr>
                     </div>
 
-                    <div class="w3-justify">
-                        <p><strong>Business Operations & Support:</strong> Office Coordination, Client Engagement, Form Processing,
-                            Calendar Management</p>
-                        <hr>
-                        <p><strong>Project & Data Skills:</strong> Project Oversight, Research & Reporting, Data
-                            Analysis, Account Management</p>
-                        <hr>
-                        <p><strong>Software & Web Development Expertise:</strong> HTML/CSS, PHP, Responsive Design, jQuery, Adobe XD,
-                            Digital Illustration, Image Editing, Dreamweaver, Java, SQL Management & Dependencies,
-                            Postman API, IntelliJ</p>
-                        <hr>
-                        <p><strong>Tools & Platforms:</strong> GitHub, Eclipse, NetBeans, Visual Studio Code, Hootsuite, Microsoft
-                            Office Suite, Google Workspace, Microsoft Teams, Talend, DB Artisan, MongoDB, Copilot, Jira
-                        </p>
-                        <hr>
-                        <p><strong>Strategic & Interpersonal Skills:</strong> Training & Development, Relationship Building, Benefits
-                            Coordination, Social Media Strategy</p>
-                        <div id="demo3" style="display:none">
-
-                            <div class="w3-row w3-margin-bottom">
-                                <div class="w3-col l2 m3">
-
+                    <div class="w3-justify skills-container">
+                        <!-- Business Operations & Support -->
+                        <div class="skill-category">
+                            <div class="skill-category-header" onclick="toggleSkillCategory(this)">
+                                <span class="skill-category-icon">💼</span>
+                                <strong>Business Operations & Support</strong>
+                                <span class="skill-dropdown-arrow">▼</span>
+                            </div>
+                            <div class="skill-category-content">
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-calendar skill-icon"></i> Calendar Management
                                 </div>
-                                <div class="w3-col l10 m9">
-
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-users skill-icon"></i> Client Engagement
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-file-text-o skill-icon"></i> Form Processing
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-sitemap skill-icon"></i> Office Coordination
                                 </div>
                             </div>
-                            <div class="w3-row w3-margin-bottom">
-                                <div class="w3-col l2 m3">
+                        </div>
+                        <hr>
 
+                        <!-- Project & Data Skills -->
+                        <div class="skill-category">
+                            <div class="skill-category-header" onclick="toggleSkillCategory(this)">
+                                <span class="skill-category-icon">📊</span>
+                                <strong>Project & Data Skills</strong>
+                                <span class="skill-dropdown-arrow">▼</span>
+                            </div>
+                            <div class="skill-category-content">
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-briefcase skill-icon"></i> Account Management
                                 </div>
-                                <div class="w3-col l10 m9">
-
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-pie-chart skill-icon"></i> Data Analysis
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-bar-chart skill-icon"></i> Project Oversight
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-file-text skill-icon"></i> Research & Reporting
                                 </div>
                             </div>
-                            <div class="w3-row w3-margin-bottom">
-                                <div class="w3-col l2 m3">
+                        </div>
+                        <hr>
 
+                        <!-- Tech Stack -->
+                        <div class="skill-category">
+                            <div class="skill-category-header" onclick="toggleSkillCategory(this)">
+                                <span class="skill-category-icon">💻</span>
+                                <strong>Tech Stack</strong>
+                                <span class="skill-dropdown-arrow">▼</span>
+                            </div>
+                            <div class="skill-category-content">
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-paint-brush skill-icon"></i> Adobe XD
                                 </div>
-                                <div class="w3-col l10 m9">
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-pencil skill-icon"></i> Digital Illustration
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-desktop skill-icon"></i> Dreamweaver
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-html5 skill-icon"></i> HTML/CSS
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-picture-o skill-icon"></i> Image Editing
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-terminal skill-icon"></i> IntelliJ
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-coffee skill-icon"></i> Java
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-file-code-o skill-icon"></i> JavaScript
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-cog skill-icon"></i> jQuery
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-code skill-icon"></i> PHP
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-rocket skill-icon"></i> Postman API
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-mobile skill-icon"></i> Responsive Design
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-database skill-icon"></i> SQL Management & Dependencies
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
 
+                        <!-- Tools & Platforms -->
+                        <div class="skill-category">
+                            <div class="skill-category-header" onclick="toggleSkillCategory(this)">
+                                <span class="skill-category-icon">🛠️</span>
+                                <strong>Tools & Platforms</strong>
+                                <span class="skill-dropdown-arrow">▼</span>
+                            </div>
+                            <div class="skill-category-content">
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-magic skill-icon"></i> Copilot
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-server skill-icon"></i> DB Artisan
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-code skill-icon"></i> Eclipse
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-github skill-icon"></i> GitHub
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-google skill-icon"></i> Google Workspace
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-bullhorn skill-icon"></i> Hootsuite
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-tasks skill-icon"></i> Jira
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-windows skill-icon"></i> Microsoft Office Suite
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-users skill-icon"></i> Microsoft Teams
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-leaf skill-icon"></i> MongoDB
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-laptop skill-icon"></i> NetBeans
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-exchange skill-icon"></i> Talend
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-file-code-o skill-icon"></i> Visual Studio Code
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <!-- Strategic & Interpersonal Skills -->
+                        <div class="skill-category">
+                            <div class="skill-category-header" onclick="toggleSkillCategory(this)">
+                                <span class="skill-category-icon">🤝</span>
+                                <strong>Strategic & Interpersonal Skills</strong>
+                                <span class="skill-dropdown-arrow">▼</span>
+                            </div>
+                            <div class="skill-category-content">
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-heart skill-icon"></i> Benefits Coordination
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-handshake-o skill-icon"></i> Relationship Building
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-share-alt skill-icon"></i> Social Media Strategy
+                                </div>
+                                <div class="skill-item-detail">
+                                    <i class="fa fa-graduation-cap skill-icon"></i> Training & Development
                                 </div>
                             </div>
                         </div>

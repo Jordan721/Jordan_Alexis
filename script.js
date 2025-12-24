@@ -214,6 +214,25 @@ function addKeyboardSupport() {
   });
 }
 
+// Skills Category Dropdown Toggle
+function toggleSkillCategory(headerElement) {
+  var skillCategory = headerElement.parentElement;
+  var content = skillCategory.querySelector('.skill-category-content');
+  var arrow = headerElement.querySelector('.skill-dropdown-arrow');
+
+  // Toggle the active class
+  skillCategory.classList.toggle('active');
+
+  // Animate the arrow
+  if (skillCategory.classList.contains('active')) {
+    arrow.style.transform = 'rotate(180deg)';
+    content.style.maxHeight = content.scrollHeight + 'px';
+  } else {
+    arrow.style.transform = 'rotate(0deg)';
+    content.style.maxHeight = '0';
+  }
+}
+
 // Close modal when clicking outside of it
 window.onclick = function(event) {
   var modal = document.getElementById('certificatesModal');
