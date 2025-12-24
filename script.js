@@ -1,4 +1,8 @@
 // Toggle between hiding and showing blog replies/comments
+var myBtn = document.getElementById("myBtn");
+if (myBtn) {
+  myBtn.click();
+}
 function myFunction(id) {
   var x = document.getElementById(id);
   if (x.className.indexOf("w3-show") == -1) {
@@ -269,12 +273,24 @@ function initScrollAnimations() {
   // Observe all fade-in-up elements
   var fadeElements = document.querySelectorAll('.fade-in-up');
   fadeElements.forEach(function(element) {
+    // Check if element is already in viewport on page load
+    var rect = element.getBoundingClientRect();
+    var isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+    if (isInViewport) {
+      element.classList.add('visible');
+    }
     observer.observe(element);
   });
 
   // Observe skill items
   var skillItems = document.querySelectorAll('.skill-item');
   skillItems.forEach(function(item) {
+    // Check if element is already in viewport on page load
+    var rect = item.getBoundingClientRect();
+    var isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+    if (isInViewport) {
+      item.classList.add('visible');
+    }
     observer.observe(item);
   });
 }
@@ -377,13 +393,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
     });
-  });
-
-  // Add fade-in-up class to main content cards
-  var contentCards = document.querySelectorAll('.w3-col.l8 > .w3-container.w3-white, .w3-col.l4 > .w3-white, .w3-col.l4 > .w3-margin');
-  contentCards.forEach(function(card, index) {
-    card.classList.add('fade-in-up');
-    card.style.transitionDelay = (index * 0.1) + 's';
   });
 
   // Add console message
