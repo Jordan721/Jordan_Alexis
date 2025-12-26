@@ -226,7 +226,8 @@ function toggleSkillCategory(headerElement) {
   // Animate the arrow
   if (skillCategory.classList.contains('active')) {
     arrow.style.transform = 'rotate(180deg)';
-    content.style.maxHeight = content.scrollHeight + 'px';
+    // Set a generous max-height to ensure all content is visible
+    content.style.maxHeight = (content.scrollHeight + 100) + 'px';
   } else {
     arrow.style.transform = 'rotate(0deg)';
     content.style.maxHeight = '0';
