@@ -1349,3 +1349,357 @@ section {
         min-width: 20px;
     }
 }
+
+
+  /* TIMELINE ENHANCEMENTS - EMPLOYMENT & EDUCATION */
+
+
+.timeline-container {
+    position: relative;
+    padding: 30px 0 30px 50px;
+}
+
+/* Vertical timeline line */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, #06b6d4 0%, #14b8a6 50%, #f97316 100%);
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    padding-left: 30px;
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: slideInTimeline 0.6s ease forwards;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.2s; }
+.timeline-item:nth-child(3) { animation-delay: 0.3s; }
+.timeline-item:nth-child(4) { animation-delay: 0.4s; }
+.timeline-item:nth-child(5) { animation-delay: 0.5s; }
+.timeline-item:nth-child(6) { animation-delay: 0.6s; }
+.timeline-item:nth-child(7) { animation-delay: 0.7s; }
+
+@keyframes slideInTimeline {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Timeline dot/icon */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -38px;
+    top: 8px;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border: 4px solid #06b6d4;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.1);
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+/* Pulse animation for timeline dots */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    left: -38px;
+    top: 8px;
+    width: 18px;
+    height: 18px;
+    background: rgba(6, 182, 212, 0.3);
+    border-radius: 50%;
+    animation: pulse-dot 2s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes pulse-dot {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+
+.timeline-item:hover::before {
+    background: linear-gradient(135deg, #06b6d4 0%, #14b8a6 100%);
+    border-color: #14b8a6;
+    transform: scale(1.3);
+    box-shadow: 0 0 0 6px rgba(6, 182, 212, 0.2), 0 4px 12px rgba(6, 182, 212, 0.4);
+}
+
+/* Timeline content card */
+.timeline-content {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #06b6d4;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #06b6d4 0%, #14b8a6 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.timeline-item:hover .timeline-content {
+    transform: translateX(8px);
+    box-shadow: 0 8px 28px rgba(6, 182, 212, 0.2);
+    border-left-color: #14b8a6;
+}
+
+.timeline-item:hover .timeline-content::before {
+    transform: scaleX(1);
+}
+
+/* Timeline header (job title/school) */
+.timeline-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.timeline-icon {
+    font-size: 32px;
+    min-width: 40px;
+    filter: grayscale(0.2);
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-icon {
+    filter: grayscale(0);
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.timeline-title-group {
+    flex: 1;
+}
+
+.timeline-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 0 0 6px 0;
+    line-height: 1.3;
+    transition: color 0.3s ease;
+}
+
+.timeline-item:hover .timeline-title {
+    color: #06b6d4;
+}
+
+.timeline-company {
+    font-size: 15px;
+    color: #0891b2;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+}
+
+.timeline-date {
+    display: inline-block;
+    padding: 6px 14px;
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(20, 184, 166, 0.05) 100%);
+    border-radius: 20px;
+    font-size: 13px;
+    color: #0891b2;
+    font-weight: 600;
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-date {
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(20, 184, 166, 0.1) 100%);
+    border-color: rgba(6, 182, 212, 0.4);
+    transform: scale(1.05);
+}
+
+.timeline-description {
+    color: #555;
+    line-height: 1.7;
+    font-size: 15px;
+    margin: 15px 0 0 0;
+}
+
+/* Current position highlight */
+.timeline-item.current::before {
+    border-color: #f97316;
+    background: #f97316;
+    box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.2);
+    animation: pulse-current 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-current {
+    0%, 100% {
+        box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(249, 115, 22, 0.1);
+    }
+}
+
+.timeline-item.current .timeline-content {
+    border-left-color: #f97316;
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.02) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.timeline-item.current .timeline-date {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(249, 115, 22, 0.08) 100%);
+    color: #ea580c;
+    border-color: rgba(249, 115, 22, 0.3);
+}
+
+/* Badge for current position */
+.current-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    color: white;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 10px;
+    box-shadow: 0 2px 8px rgba(249, 115, 22, 0.3);
+    animation: pulse-badge 2s ease-in-out infinite;
+}
+
+@keyframes pulse-badge {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Responsive timeline - Mobile: Switch to simple card layout */
+@media screen and (max-width: 768px) {
+    /* Remove timeline line and dots on mobile */
+    .timeline-container {
+        padding: 0;
+    }
+
+    .timeline-container::before {
+        display: none;
+    }
+
+    .timeline-item {
+        padding-left: 0;
+        margin-bottom: 20px;
+    }
+
+    .timeline-item::before,
+    .timeline-item::after {
+        display: none;
+    }
+
+    /* Simplify content cards for mobile */
+    .timeline-content {
+        padding: 20px;
+        border-left: none;
+        border-top: 4px solid #06b6d4;
+        margin-bottom: 0;
+    }
+
+    .timeline-item.current .timeline-content {
+        border-top-color: #f97316;
+    }
+
+    .timeline-item:hover .timeline-content {
+        transform: none;
+    }
+
+    .timeline-header {
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+    }
+
+    .timeline-icon {
+        font-size: 28px;
+        min-width: 32px;
+    }
+
+    .timeline-title-group {
+        flex: 1;
+    }
+
+    .timeline-title {
+        font-size: 16px;
+        line-height: 1.4;
+        margin-bottom: 4px;
+    }
+
+    .timeline-company {
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+
+    .timeline-date {
+        font-size: 12px;
+        padding: 4px 10px;
+    }
+
+    .timeline-description {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .current-badge {
+        font-size: 10px;
+        padding: 3px 8px;
+        margin-left: 6px;
+    }
+
+    /* Remove hover effects on mobile for better performance */
+    .timeline-item:hover::before {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .timeline-item:hover .timeline-icon {
+        transform: none;
+        filter: grayscale(0.2);
+    }
+
+    .timeline-item:hover .timeline-title {
+        color: #2c3e50;
+    }
+
+    .timeline-item:hover .timeline-date {
+        transform: none;
+    }
+}
