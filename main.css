@@ -73,7 +73,7 @@ hr {
     position: absolute;
     right: 0;
     color: white;
-    animation: blink 0.75s step-end 2s 8 normal, cursorFadeOut 0.3s ease-in 8s forwards;
+    animation: blink 0.75s step-end 2s 4 normal, cursorFadeOut 0.2s ease-in 4s forwards;
 }
 
 @keyframes cursorFadeOut {
@@ -1062,9 +1062,7 @@ section {
     box-shadow: 0 5px 25px rgba(20, 184, 166, 0.7);
 }
 
-/* ===============================================
-   SKILLS ACCORDION ENHANCEMENTS
-   =============================================== */
+/* SKILLS ACCORDION ENHANCEMENTS */
 
 .skills-container {
     padding: 10px 0;
