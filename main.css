@@ -653,7 +653,7 @@ body {
 
 .feature-card p {
     font-size: 0.875rem;
-    color: var(--color-gray);
+    color: var(--color-gray-light);
     margin-bottom: 0;
 }
 
@@ -844,17 +844,21 @@ body {
     max-height: 0;
     overflow: hidden;
     transition: max-height var(--transition-slow);
+    position: relative;
 }
 
 .skill-category.active .skill-category-content {
     max-height: 1000px;
     padding: 0 var(--spacing-md) var(--spacing-md);
+    overflow: visible;
 }
 
 .skill-tags {
     display: flex;
     flex-wrap: wrap;
     gap: var(--spacing-sm);
+    position: relative;
+    z-index: 1;
 }
 
 .skill-tag {
@@ -865,12 +869,14 @@ body {
     font-size: 0.875rem;
     color: var(--color-primary);
     transition: all var(--transition-base);
+    position: relative;
 }
 
 .skill-tag:hover {
     background: rgba(6, 182, 212, 0.2);
     border-color: var(--color-primary);
     transform: translateY(-2px);
+    z-index: 10;
 }
 
 /* education section */
