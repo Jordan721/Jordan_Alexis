@@ -1,5 +1,3 @@
-// modern professional portfolio javascript - trail_7 - interactive features
-
 // Scroll Navigation
 document.addEventListener('DOMContentLoaded', () => {
     initScrollNavigation();
