@@ -1,8 +1,13 @@
 # 🎨 Jordan Alexis' Portfolio Website
 
-A responsive portfolio website showcasing my journey as a developer. Previous versions live in the Trail folder. 📂
+A sleek, modern portfolio website showcasing my journey as a developer. Built from scratch with a complete redesign - way different from Trail_7! 🚀✨
+
+Previous versions live in the Trail folder. 📂
 
 ## 📅 Recent Updates
+
+### December 26, 2025 🎨
+Complete redesign from the ground up! The entire website has been rebuilt with a modern, professional look - totally different from the old Trail_7 version. New animations, better layouts, improved navigation, and way cleaner design! 🚀✨
 
 ### December 19, 2025 📁
 Added folder-based navigation system to organize certifications by category! Now you can browse Year Up United and Data Analytics certs separately with a slick folder interface that's fun to click! 🎯
@@ -45,343 +50,194 @@ Your certs deserve their own filing cabinet! 🗄️ Click "View My Certificatio
 - 📄 Embedded PDF viewer + "Open in New Tab" button
 
 ### 📱 Mobile/Tablet (≤768px)
-- 👆 Swipe left/right to navigate
-- 🎯 Buttons hidden for cleaner look
-- 💡 Hint text: "← Swipe to navigate →"
+- ⬅️➡️ Visible navigation buttons (smaller size for mobile)
+- ⌨️ Keyboard controls work on tablets
+- 📄 PDF fallback message for devices that can't display PDFs
 - ✨ Optimized touch targets
 
 ---
 
-## ✨ Animation Enhancements
+## ✨ Modern Design Features
 
-Lightweight CSS animations that bring the site to life without overwhelming content.
+Clean, professional animations and interactions that enhance the experience.
 
-### 🎬 Header Animations
-- ⌨️ **Typing Effect** - Name appears typewriter-style (2s, 13 steps)
-- 💫 **Cursor Blink** - Blinks 8 times then fades out
-- 👋 **Hello Fade-In** - Greeting appears after name animation
-- 🌊 **Wave Emoji** - Waves on hover
+### 🎨 Visual Elements
+- 🌊 **Wave Emoji** - Interactive wave on hover
+- 📋 **Glass Cards** - Modern glassmorphism effect throughout
+- 🎪 **Smooth Transitions** - Hover effects on all interactive elements
+- 💫 **Gradient Orbs** - Animated floating background gradients
+- ⬆️ **Back to Top** - Mobile-only floating button
 
-### 🎯 Content Animations
-- 📋 **Card Fade-Ins** - Employment/skills sections animate in with staggered timing
-- 🎪 **Social Icons Bounce** - Icons bounce in with 0.1s delays
-- 🎪 **Carousel Title Bounce** - Subtle bounce on hover
-- ⬆️ **Arrow Bounce** - "Back to Top" bounces on hover
+### 🎯 Interactive Features
+- 📂 **Skill Categories** - Expandable/collapsible sections
+- 🎠 **Certificate Carousel** - Smooth navigation with folder organization
+- 📱 **Floating Navigation** - Fixed side navigation dots
+- 🔗 **Social Sidebar** - Fixed social links with tooltips
 
 ### 🚀 Why It Works
-- Subtle & non-intrusive
-- GPU-accelerated (CSS transforms + opacity)
-- Progressive disclosure through timing
-- No motion sickness risks
+- Professional & modern aesthetic
+- GPU-accelerated animations
+- Responsive across all devices
+- Accessibility-focused design
 
 ---
 
 ## 💻 Technical Implementation
 
-### 1. ⌨️ CSS Typing Animation
+### 1. 🎨 Glassmorphism Cards
 
-Typewriter effect with coordinated cursor blinking:
-
-```css
-/* Typing Animation for Name */
-.typing-name {
-    display: inline-block;
-    overflow: hidden;
-    white-space: nowrap;
-    animation: typing-name 2s steps(13) 0s 1 normal both;
-}
-
-.typing-name::after {
-    content: '|';
-    margin-left: 5px;
-    opacity: 1;
-    animation: blink 0.75s step-end 2s 8 normal,
-               cursorFadeOut 0.3s ease-in 8s forwards;
-}
-
-@keyframes typing-name {
-    0% {
-        width: 0;
-    }
-    100% {
-        width: 100%;
-    }
-}
-
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
-
-@keyframes cursorFadeOut {
-    to { opacity: 0; }
-}
-```
-
-💡 **Key insight:** `steps(13)` matches "Jordan Alexis" character count. Cursor blinks 8 times over 6s, then fades out.
-
-### 2. 👋 Interactive Wave Emoji
+Modern glass effect using CSS backdrop filters:
 
 ```css
-.wave-emoji {
-    display: inline-block;
-    animation-play-state: paused;
-}
-
-.wave-emoji:hover {
-    animation: wave 0.6s ease-in-out;
-}
-
-@keyframes wave {
-    0%, 100% { transform: rotate(0deg); }
-    10%, 30%, 50%, 70%, 90% { transform: rotate(14deg); }
-    20%, 40%, 60%, 80% { transform: rotate(-8deg); }
-}
-```
-
-🎯 **Design decision:** Hover-only animation avoids distraction. Uses `transform: rotate()` for smooth GPU acceleration.
-
-### 3. 👆 Touch Swipe Detection
-
-Horizontal swipes trigger navigation without hijacking vertical scrolling:
-
-```javascript
-// Add touch swipe support for mobile
-function addTouchSupport() {
-  var startX = 0, endX = 0;
-  var startY = 0, endY = 0;
-  var carouselContainer = document.querySelector('.carousel-slides');
-
-  if (carouselContainer) {
-    carouselContainer.addEventListener('touchstart', function(e) {
-      startX = e.touches[0].clientX;
-      startY = e.touches[0].clientY;
-    }, { passive: true });
-
-    carouselContainer.addEventListener('touchmove', function(e) {
-      endX = e.touches[0].clientX;
-      endY = e.touches[0].clientY;
-    }, { passive: true });
-
-    carouselContainer.addEventListener('touchend', function() {
-      var threshold = 50; // minimum swipe distance
-      var xDiff = startX - endX;
-      var yDiff = Math.abs(startY - endY);
-
-      // Only trigger if horizontal swipe is larger than vertical
-      if (Math.abs(xDiff) > threshold && Math.abs(xDiff) > yDiff) {
-        if (xDiff > 0) {
-          changeSlide(1);  // Swiped left = next
-        } else {
-          changeSlide(-1); // Swiped right = previous
-        }
-      }
-    });
-  }
-}
-```
-
-💡 **Key insight:** `yDiff` comparison prevents carousel from hijacking vertical scrolling.
-
-### 4. ⌨️ Keyboard Navigation
-
-```javascript
-// Add keyboard support for desktop
-function addKeyboardSupport() {
-  document.addEventListener('keydown', function(e) {
-    var modal = document.getElementById('certificatesModal');
-
-    // Only respond to keys if modal is open
-    if (modal && modal.style.display === 'block') {
-      if (e.key === 'ArrowLeft' || e.keyCode === 37) {
-        changeSlide(-1);
-        e.preventDefault();
-      } else if (e.key === 'ArrowRight' || e.keyCode === 39) {
-        changeSlide(1);
-        e.preventDefault();
-      } else if (e.key === 'Escape' || e.keyCode === 27) {
-        closeCertificatesCarousel();
-        e.preventDefault();
-      }
-    }
-  });
-}
-```
-
-💡 **Key insight:** Always check if modal is open to avoid interfering with other page interactions.
-
-### 6. 📁 Folder Navigation System
-
-Dynamic filtering shows only relevant certificates per category:
-
-```javascript
-function openFolder(folderName) {
-  currentFolder = folderName;
-
-  // Update modal title based on folder
-  if (folderName === 'yearup') {
-    modalTitle.innerHTML = 'Year Up United Certifications';
-  } else if (folderName === 'dataanalytics') {
-    modalTitle.innerHTML = 'Data Analytics Certifications';
-  }
-
-  // Filter slides by folder
-  filterSlidesByFolder(folderName);
-  showSlide();
-}
-
-function filterSlidesByFolder(folderName) {
-  var allSlides = document.getElementsByClassName('certificate-slide');
-
-  // Hide all slides first
-  for (var i = 0; i < allSlides.length; i++) {
-    allSlides[i].style.display = 'none';
-    allSlides[i].classList.remove('active-folder');
-  }
-
-  // Show only slides from selected folder
-  var folderClass = folderName + '-cert';
-  var folderSlides = document.getElementsByClassName(folderClass);
-
-  for (var i = 0; i < folderSlides.length; i++) {
-    folderSlides[i].classList.add('active-folder');
-  }
-}
-```
-
-🎯 **Design decision:** Each cert has a class like `yearup-cert` or `dataanalytics-cert`. The `active-folder` class tracks which slides to display, making it super easy to add more folders!
-
-### 7. 🎨 Folder Hover Effects
-
-Smooth CSS animations make folders feel interactive:
-
-```css
-.cert-folder {
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
     transition: all 0.3s ease;
 }
 
-.cert-folder:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.35);
-}
-
-.cert-folder:hover i {
-    transform: scale(1.1) rotateZ(-5deg);
+.glass-card:hover {
+    border-color: rgba(6, 182, 212, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(6, 182, 212, 0.2);
+    transform: translateY(-4px);
 }
 ```
 
-✨ **The magic:** Folders lift up (`translateY`), grow slightly (`scale`), get a bigger shadow, AND the folder icon tilts a bit. It's like they're jumping into your hand! 🤲
+💡 **Key insight:** Backdrop blur creates depth while maintaining readability.
 
-### 5. 📱 Responsive CSS
+### 2. ⌨️ Keyboard Navigation
+
+```javascript
+document.addEventListener('keydown', (e) => {
+    const modal = document.getElementById('certificatesModal');
+    if (!modal.classList.contains('active')) return;
+
+    if (e.key === 'Escape') {
+        closeCertificatesModal();
+    } else if (e.key === 'ArrowLeft') {
+        changeSlide(-1);
+    } else if (e.key === 'ArrowRight') {
+        changeSlide(1);
+    }
+});
+```
+
+💡 **Key insight:** Always check if modal is active to avoid interfering with other interactions.
+
+### 3. 📁 Certificate Carousel System
+
+Dynamic slide management with category filtering:
+
+```javascript
+function openCertFolder(category) {
+    currentCategory = category;
+    currentSlide = 0;
+
+    // Show cert view
+    document.getElementById('folderView').style.display = 'none';
+    document.getElementById('certView').style.display = 'block';
+
+    // Filter and display slides
+    const categorySlides = document.querySelectorAll(`.${category}-cert`);
+    categorySlides[currentSlide].classList.add('active');
+    updateSlideIndicator(categorySlides.length);
+}
+
+function changeSlide(direction) {
+    const categorySlides = document.querySelectorAll(`.${currentCategory}-cert`);
+    categorySlides[currentSlide].classList.remove('active');
+
+    currentSlide += direction;
+    if (currentSlide < 0) currentSlide = categorySlides.length - 1;
+    if (currentSlide >= categorySlides.length) currentSlide = 0;
+
+    categorySlides[currentSlide].classList.add('active');
+    updateSlideIndicator(categorySlides.length);
+}
+```
+
+🎯 **Design decision:** Each cert has a category class (`yearup-cert`, `dataanalytics-cert`) for easy filtering.
+
+### 4. 📱 Responsive Navigation Buttons
+
+Visible on all devices with adjusted sizing:
 
 ```css
-/* Carousel Mobile Responsive Styles */
-@media screen and (max-width: 768px) {
-    /* Hide navigation buttons on tablets and mobile - use swipe instead */
-    .carousel-btn-prev,
-    .carousel-btn-next {
-        display: none !important;
+.carousel-btn {
+    background: rgba(15, 23, 42, 0.9);
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    backdrop-filter: blur(10px);
+}
+
+@media (max-width: 968px) {
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 0.875rem;
     }
 
-    /* Add swipe hint text for mobile users */
-    .carousel-slides::after {
-        content: "← Swipe to navigate →";
-        display: block;
-        text-align: center;
-        color: #999;
-        font-size: 12px;
-        margin-top: 10px;
-        font-style: italic;
-    }
+    .prev-btn { left: 5px; }
+    .next-btn { right: 5px; }
 }
 ```
 
-🎯 **Design decision:** Swipe gestures > tiny buttons on mobile. Cleaner + contextual hints.
+🎯 **Design decision:** Buttons stay visible on mobile but smaller. Dark background ensures visibility on white PDFs.
 
 ---
 
 ## 🐛 Challenges & Solutions
 
-### Issue #1: 📱 Touch Events Not Working
-**Problem:** Click handlers ignored on mobile.
+### Issue #1: 🔘 Navigation Buttons at Screen Edge
+**Problem:** Carousel buttons positioned outside modal (`left: -60px`), making them hard to see.
 
 **Solution:**
-- Added `onclick` + `ontouchend` event handlers
-- Prevented default behavior (`return false;` + `event.preventDefault()`)
-- Added CSS `touch-action: manipulation` for faster response
-
-```html
-<button onclick="changeSlide(-1); return false;"
-        ontouchend="changeSlide(-1); event.preventDefault();"
-        type="button">
-    &#10094;
-</button>
-```
-
-### Issue #2: 🔁 Duplicate Event Listeners
-**Problem:** Multiple listeners added every time carousel opened = chaos.
-
-**Solution:** Flag variables ensure one-time setup:
-
-```javascript
-var touchListenersAdded = false;
-var keyboardListenerAdded = false;
-
-function openCertificatesCarousel() {
-  // ... modal opening code ...
-
-  if (!touchListenersAdded) {
-    addTouchSupport();
-    touchListenersAdded = true;
-  }
-  if (!keyboardListenerAdded) {
-    addKeyboardSupport();
-    keyboardListenerAdded = true;
-  }
-}
-```
-
-### Issue #3: ❌ Hidden Close Button
-**Problem:** Close button hidden behind browser bookmark bar.
-
-**Solution:**
-- Reduced max-height: 100vh → 85vh
-- Added 40px top margin
-- Better visibility across devices
+- Moved buttons inside modal: `left: 10px` and `right: 10px`
+- Added dark background with cyan border for visibility
+- Smaller sizing on mobile (`5px` from edges)
 
 ```css
-.carousel-modal-content {
-    max-width: 850px;
-    max-height: 85vh;
-    margin: auto;
-    margin-top: 40px;
+.carousel-btn {
+    background: rgba(15, 23, 42, 0.9);
+    border: 2px solid var(--color-primary);
+    backdrop-filter: blur(10px);
+}
+
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+```
+
+### Issue #2: 📱 No Mobile Navigation
+**Problem:** Buttons were hidden on mobile, making it impossible to view multiple certificates.
+
+**Solution:** Keep buttons visible but optimize for mobile:
+
+```css
+@media (max-width: 968px) {
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 0.875rem;
+    }
 }
 ```
 
-### Issue #4: 🖼️ Invisible Slides
-**Problem:** Slides sometimes didn't show when carousel opened.
+### Issue #3: 👁️ Low Visibility on White Background
+**Problem:** Transparent buttons hard to see over white PDF backgrounds.
 
-**Solution:** 100ms delay + null checks = DOM ready:
+**Solution:**
+- Solid dark background: `rgba(15, 23, 42, 0.9)`
+- Bright cyan border and icon color
+- Shadow for depth: `box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3)`
+- Hover state with glow effect
 
-```javascript
-function openCertificatesCarousel() {
-  var modal = document.getElementById('certificatesModal');
-  if (modal) {
-    modal.style.display = 'block';
-    setTimeout(function() {
-      showSlide(); // Ensure DOM is ready
-    }, 100);
-  }
-}
-
-function showSlide() {
-  var slides = document.getElementsByClassName('certificate-slide');
-
-  // Safety check
-  if (!slides || slides.length === 0) {
-    return;
-  }
-  // ... rest of the code ...
+```css
+.carousel-btn:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+    transform: translateY(-50%) scale(1.1);
 }
 ```
 
@@ -390,33 +246,33 @@ function showSlide() {
 ## 🎨 UX Improvements
 
 ### Visual Polish
-- ⌨️ **Header** - Typing animation + cursor blink
-- 👋 **Interactive** - Wave emoji on hover
-- 📝 **Modal** - "Hello" → "Resources & Portfolio"
-- 👣 **Footer** - "Welcome to the Footer Enjoy Your Stay 👋🏾"
-- ⬆️ **Button** - "To the top" → "Back to Top"
+- 🌊 **Interactive** - Wave emoji on hover
+- 💎 **Glass Cards** - Modern glassmorphism throughout
+- 🎨 **Gradient Orbs** - Animated floating backgrounds
+- 📂 **Certificate Folders** - Organized navigation system
+- ⬆️ **Back to Top** - Mobile-only floating button
 
-### Animation Philosophy
-- 🎯 **Purposeful** - Each serves a UX goal
-- ⚡ **Performant** - CSS transforms + opacity = 60fps
-- 🤫 **Subtle** - Enhances, doesn't distract
-- ♿ **Accessible** - No motion sickness triggers
+### Design Philosophy
+- 🎯 **Professional** - Clean, modern aesthetic
+- ⚡ **Performant** - Optimized animations and transitions
+- 🤫 **Subtle** - Enhances without overwhelming
+- ♿ **Accessible** - Keyboard navigation and semantic HTML
 
-### Responsive Magic
-- 📐 Adapts to viewport size
-- 📱 Touch-optimized for mobile
-- ⏱️ Staggered timing for natural flow
+### Responsive Excellence
+- 📐 Adapts seamlessly to any screen size
+- 📱 Touch-optimized for mobile devices
+- 🖥️ Desktop-enhanced with floating navigation
+- 🎯 Context-aware UI elements
 
 ---
 
 ## 🛠️ Technologies
 
-- 📝 **HTML5** - Semantic markup + W3.CSS
-- 🎨 **CSS3** - Responsive design + keyframe animations
-- ⚡ **JavaScript (ES5)** - Vanilla JS carousel + events
-- 🎯 **Font Awesome** - UI icons
-- 🎭 **W3.CSS** - Base framework
-- ✨ **CSS Animations** - Typing, transforms, fade-ins
+- 📝 **HTML5** - Semantic markup
+- 🎨 **CSS3** - Custom design with CSS variables, glassmorphism, animations
+- ⚡ **JavaScript (ES6)** - Vanilla JS for interactivity
+- 🎯 **Font Awesome** - Icon library
+- ✨ **Modern CSS** - Grid, Flexbox, backdrop-filter, transforms
 
 ---
 
@@ -445,8 +301,9 @@ Jordan_Alexis/
 - ⎋ Escape to close
 
 ### 📱 Mobile
-- 👆 Swipe left/right
+- ⬅️➡️ Tap arrow buttons to navigate
 - ❌ Tap X to close
+- ⬆️ Use "Back to Top" button for quick scrolling
 
 ---
 
@@ -464,7 +321,7 @@ Always evolving! More features and improvements coming based on new trends and i
 
 ---
 
-**Last Updated:** December 19, 2025 📅
+**Last Updated:** December 26, 2025 📅
 
 Made with 💻 and ☕ by Jordan Alexis
 
