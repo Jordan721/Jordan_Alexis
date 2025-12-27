@@ -201,7 +201,7 @@ body {
 
 .hero-description {
     font-size: 1.125rem;
-    color: var(--color-gray);
+    color: var(--color-gray-light);
     max-width: 600px;
     margin: 0 auto var(--spacing-xl);
 }
