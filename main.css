@@ -797,6 +797,57 @@ body {
 
 /* skills section */
 
+.skills-controls {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    justify-content: flex-end;
+}
+
+.skills-control-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    color: var(--color-primary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-base), opacity 0.075s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.skills-control-btn:hover {
+    background: rgba(6, 182, 212, 0.1);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.skills-control-btn i {
+    font-size: 0.75rem;
+    transition: transform var(--transition-base);
+}
+
+.skills-control-btn.changing {
+    animation: buttonPulse 0.3s ease;
+}
+
+@keyframes buttonPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 .skills-container {
     display: flex;
     flex-direction: column;
@@ -1443,6 +1494,10 @@ body {
 
     .pdf-fallback {
         display: flex;
+    }
+
+    .skills-controls {
+        justify-content: center;
     }
 }
 

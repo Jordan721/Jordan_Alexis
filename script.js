@@ -60,23 +60,47 @@ function initScrollNavigation() {
 
 function toggleSkillCategory(headerElement) {
     const category = headerElement.parentElement;
+
+    // Simply toggle the current category without affecting others
+    category.classList.toggle('active');
+}
+
+function toggleAllSkills() {
     const allCategories = document.querySelectorAll('.skill-category');
+    const button = document.getElementById('toggleAllSkillsBtn');
 
-    // Toggle current category
-    const isActive = category.classList.contains('active');
+    // Check if any category is open
+    const anyOpen = Array.from(allCategories).some(cat => cat.classList.contains('active'));
 
-    allCategories.forEach(cat => {
-        if (cat !== category) {
-            cat.classList.remove('active');
+    // Add animation class
+    button.classList.add('changing');
+
+    // Add fade-out effect
+    button.style.opacity = '0.5';
+
+    setTimeout(() => {
+        if (anyOpen) {
+            // If any are open, close all
+            allCategories.forEach(category => {
+                category.classList.remove('active');
+            });
+            button.innerHTML = '<i class="fas fa-chevron-down"></i> Expand All';
+        } else {
+            // If all are closed, open all
+            allCategories.forEach(category => {
+                category.classList.add('active');
+            });
+            button.innerHTML = '<i class="fas fa-chevron-up"></i> Collapse All';
         }
-    });
 
-    // Toggle current
-    if (isActive) {
-        category.classList.remove('active');
-    } else {
-        category.classList.add('active');
-    }
+        // Fade back in
+        button.style.opacity = '1';
+
+        // Remove animation class after animation completes
+        setTimeout(() => {
+            button.classList.remove('changing');
+        }, 150);
+    }, 75);
 }
 
 // scroll animations
