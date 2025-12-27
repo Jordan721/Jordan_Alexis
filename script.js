@@ -175,26 +175,65 @@ function openCertFolder(category) {
     currentCategory = category;
     currentSlide = 0;
 
-    // Hide folder view, show cert view
-    document.getElementById('folderView').style.display = 'none';
-    document.getElementById('certView').style.display = 'block';
+    const folderView = document.getElementById('folderView');
+    const certView = document.getElementById('certView');
 
-    // Show only certificates from selected category
-    const allSlides = document.querySelectorAll('.cert-slide');
-    allSlides.forEach(slide => {
-        slide.classList.remove('active');
-    });
+    // Add fade-out animation to folder view
+    folderView.style.opacity = '0';
+    folderView.style.transform = 'scale(0.95)';
 
-    const categorySlides = document.querySelectorAll(`.${category}-cert`);
-    if (categorySlides.length > 0) {
-        categorySlides[currentSlide].classList.add('active');
-        updateSlideIndicator(categorySlides.length);
-    }
+    setTimeout(() => {
+        // Hide folder view, show cert view
+        folderView.style.display = 'none';
+        certView.style.display = 'block';
+
+        // Reset cert view for animation
+        certView.style.opacity = '0';
+        certView.style.transform = 'scale(0.95)';
+
+        // Show only certificates from selected category
+        const allSlides = document.querySelectorAll('.cert-slide');
+        allSlides.forEach(slide => {
+            slide.classList.remove('active');
+        });
+
+        const categorySlides = document.querySelectorAll(`.${category}-cert`);
+        if (categorySlides.length > 0) {
+            categorySlides[currentSlide].classList.add('active');
+            updateSlideIndicator(categorySlides.length);
+        }
+
+        // Trigger fade-in animation
+        requestAnimationFrame(() => {
+            certView.style.opacity = '1';
+            certView.style.transform = 'scale(1)';
+        });
+    }, 300);
 }
 
 function backToFolders() {
-    document.getElementById('folderView').style.display = 'block';
-    document.getElementById('certView').style.display = 'none';
+    const folderView = document.getElementById('folderView');
+    const certView = document.getElementById('certView');
+
+    // Add fade-out animation to cert view
+    certView.style.opacity = '0';
+    certView.style.transform = 'scale(0.95)';
+
+    setTimeout(() => {
+        // Hide cert view, show folder view
+        certView.style.display = 'none';
+        folderView.style.display = 'block';
+
+        // Reset folder view for animation
+        folderView.style.opacity = '0';
+        folderView.style.transform = 'scale(0.95)';
+
+        // Trigger fade-in animation
+        requestAnimationFrame(() => {
+            folderView.style.opacity = '1';
+            folderView.style.transform = 'scale(1)';
+        });
+    }, 300);
 }
 
 function changeSlide(direction) {

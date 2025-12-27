@@ -1210,6 +1210,21 @@ body {
     text-align: center;
     cursor: pointer;
     transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.cert-folder::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
 }
 
 .cert-folder:hover {
@@ -1218,25 +1233,80 @@ body {
     box-shadow: 0 10px 30px rgba(6, 182, 212, 0.3);
 }
 
+.cert-folder:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.cert-folder:active {
+    transform: translateY(-3px) scale(0.98);
+}
+
 .folder-icon {
     font-size: 4rem;
     color: var(--color-primary);
     margin-bottom: var(--spacing-md);
+    transition: transform 0.4s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.cert-folder:hover .folder-icon {
+    transform: scale(1.1) rotateY(10deg);
+}
+
+.cert-folder:active .folder-icon {
+    animation: folderOpen 0.5s ease;
+}
+
+@keyframes folderOpen {
+    0% {
+        transform: scale(1) rotateY(0deg);
+    }
+    50% {
+        transform: scale(1.15) rotateY(15deg) translateY(-5px);
+    }
+    100% {
+        transform: scale(1) rotateY(0deg);
+    }
 }
 
 .cert-folder h3 {
     font-size: 1.25rem;
     color: var(--color-white);
     margin-bottom: var(--spacing-xs);
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+.cert-folder:hover h3 {
+    color: var(--color-primary-light);
 }
 
 .cert-folder p {
     color: var(--color-gray);
     font-size: 0.875rem;
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+.cert-folder:hover p {
+    color: var(--color-gray-light);
+}
+
+.folder-view {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 1;
+    transform: scale(1);
 }
 
 .cert-view {
     animation: fadeIn var(--transition-base);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 1;
+    transform: scale(1);
 }
 
 @keyframes fadeIn {

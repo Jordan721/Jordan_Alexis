@@ -6,6 +6,9 @@ Previous versions live in the Trail folder. 📂
 
 ## 📅 Recent Updates
 
+### December 27, 2025 ✨
+Added smooth animations to certification folders! Folders now have radial glow effects on hover, 3D icon rotations, and buttery-smooth fade transitions when opening/closing. The whole experience feels polished and professional! 🎭🎨
+
 ### December 26, 2025 🎨
 Complete redesign from the ground up! The entire website has been rebuilt with a modern, professional look - totally different from the old Trail_7 version. New animations, better layouts, improved navigation, and way cleaner design! 🚀✨
 
@@ -28,6 +31,17 @@ Your certs deserve their own filing cabinet! 🗄️ Click "View My Certificatio
 - 💜 **Year Up United** - That sweet purple gradient holds your bootcamp completion cert
 - 💖 **Data Analytics** - Pink vibes for your 2 Google Data Analytics course certificates
 - ✨ **Hover Magic** - Watch the folders lift and tilt when you hover! It's oddly satisfying 🤤
+
+### 🎭 Folder Animations
+The certification folders come alive with smooth, professional animations:
+
+- 🌟 **Radial Glow Effect** - A cyan glow expands from the center on hover (300px radial gradient)
+- 🔄 **3D Icon Rotation** - Folder icons scale up (1.1x) and rotate (10deg) with smooth transitions
+- 🎨 **Color Transitions** - Titles shift to cyan-light, descriptions brighten on hover
+- 📈 **Lift Animation** - Cards elevate with shadow (`translateY(-5px)`) for depth
+- 🎯 **Click Feedback** - Active state plays a special "folder open" animation with scale & rotate
+- 🔀 **View Transitions** - Smooth 300ms fade and scale animations when switching between folder/cert views
+- ⚡ **Hardware Accelerated** - Uses transform & opacity for 60fps performance
 
 ### 🚀 How It Works
 1. 👆 Click a folder card (they're basically begging to be clicked)
@@ -134,14 +148,30 @@ function openCertFolder(category) {
     currentCategory = category;
     currentSlide = 0;
 
-    // Show cert view
-    document.getElementById('folderView').style.display = 'none';
-    document.getElementById('certView').style.display = 'block';
+    const folderView = document.getElementById('folderView');
+    const certView = document.getElementById('certView');
 
-    // Filter and display slides
-    const categorySlides = document.querySelectorAll(`.${category}-cert`);
-    categorySlides[currentSlide].classList.add('active');
-    updateSlideIndicator(categorySlides.length);
+    // Fade out folder view
+    folderView.style.opacity = '0';
+    folderView.style.transform = 'scale(0.95)';
+
+    setTimeout(() => {
+        folderView.style.display = 'none';
+        certView.style.display = 'block';
+        certView.style.opacity = '0';
+        certView.style.transform = 'scale(0.95)';
+
+        // Filter and display slides
+        const categorySlides = document.querySelectorAll(`.${category}-cert`);
+        categorySlides[currentSlide].classList.add('active');
+        updateSlideIndicator(categorySlides.length);
+
+        // Fade in cert view
+        requestAnimationFrame(() => {
+            certView.style.opacity = '1';
+            certView.style.transform = 'scale(1)';
+        });
+    }, 300);
 }
 
 function changeSlide(direction) {
@@ -157,9 +187,64 @@ function changeSlide(direction) {
 }
 ```
 
-🎯 **Design decision:** Each cert has a category class (`yearup-cert`, `dataanalytics-cert`) for easy filtering.
+🎯 **Design decision:** Each cert has a category class (`yearup-cert`, `dataanalytics-cert`) for easy filtering. Smooth transitions use `requestAnimationFrame` for optimal timing.
 
-### 4. 📱 Responsive Navigation Buttons
+### 4. 🎭 Folder Hover Animations
+
+Multi-layered animation effects for engaging interactions:
+
+```css
+.cert-folder {
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-base);
+}
+
+/* Radial glow effect */
+.cert-folder::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.cert-folder:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* 3D icon animation */
+.folder-icon {
+    transition: transform 0.4s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.cert-folder:hover .folder-icon {
+    transform: scale(1.1) rotateY(10deg);
+}
+
+/* Click animation */
+.cert-folder:active .folder-icon {
+    animation: folderOpen 0.5s ease;
+}
+
+@keyframes folderOpen {
+    0% { transform: scale(1) rotateY(0deg); }
+    50% { transform: scale(1.15) rotateY(15deg) translateY(-5px); }
+    100% { transform: scale(1) rotateY(0deg); }
+}
+```
+
+💡 **Key insight:** Layered pseudo-element for glow effect keeps DOM clean. `z-index: 1` on content ensures it stays above the glow. Hardware-accelerated `transform` properties ensure 60fps animations.
+
+### 5. 📱 Responsive Navigation Buttons
 
 Visible on all devices with adjusted sizing:
 
@@ -321,7 +406,7 @@ Always evolving! More features and improvements coming based on new trends and i
 
 ---
 
-**Last Updated:** December 26, 2025 📅
+**Last Updated:** December 27, 2025 📅
 
 Made with 💻 and ☕ by Jordan Alexis
 
