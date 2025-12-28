@@ -1017,6 +1017,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
 }
 
 .contact-btn {
@@ -1042,6 +1043,14 @@ body {
     border-color: var(--color-primary);
     background: rgba(6, 182, 212, 0.1);
     transform: translateX(10px);
+}
+
+.resume-note {
+    text-align: center;
+    color: var(--color-gray-light);
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-top: var(--spacing-md);
 }
 
 /* footer */
