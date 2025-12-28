@@ -73,10 +73,13 @@ function filterExperienceByYear(year) {
     // Filter timeline items
     timelineItems.forEach(item => {
         const itemYear = item.getAttribute('data-year');
+        const yearRange = item.getAttribute('data-year-range');
 
         if (year === 'all') {
             item.classList.remove('hidden');
         } else if (itemYear === year) {
+            item.classList.remove('hidden');
+        } else if (yearRange && yearRange.includes(year)) {
             item.classList.remove('hidden');
         } else {
             item.classList.add('hidden');
