@@ -360,6 +360,10 @@ body {
     display: block;
 }
 
+.year-filter-buttons.desktop-only {
+    display: flex;
+}
+
 .mobile-only {
     display: none;
 }
@@ -674,6 +678,111 @@ body {
     transform: scale(1.1) rotate(5deg);
 }
 
+/* experience controls */
+
+.experience-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xl);
+    justify-content: center;
+    width: 100%;
+}
+
+.year-filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    width: 100%;
+}
+
+.year-filter-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    color: var(--color-gray-light);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+    min-width: 80px;
+}
+
+.year-filter-btn:hover {
+    background: rgba(6, 182, 212, 0.1);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.year-filter-btn.active {
+    background: var(--gradient-primary);
+    border-color: var(--color-primary);
+    color: var(--color-white);
+    box-shadow: var(--shadow-glow);
+}
+
+.year-filter-btn.active:hover {
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* Mobile dropdown */
+
+.year-filter-dropdown {
+    display: none;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.filter-label {
+    font-size: 0.875rem;
+    color: var(--color-gray-light);
+    font-weight: 500;
+    text-align: center;
+}
+
+.year-select {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    color: var(--color-white);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    font-family: var(--font-primary);
+    outline: none;
+    text-align: center;
+    text-align-last: center;
+}
+
+.year-select:hover {
+    background: rgba(6, 182, 212, 0.1);
+    border-color: var(--color-primary);
+}
+
+.year-select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+}
+
+.year-select option {
+    background: var(--color-dark-alt);
+    color: var(--color-white);
+    padding: var(--spacing-sm);
+}
+
 /* timeline (experience) */
 
 .timeline {
@@ -694,6 +803,18 @@ body {
 .timeline-item {
     position: relative;
     margin-bottom: var(--spacing-xl);
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.3s ease;
+}
+
+.timeline-item.hidden {
+    opacity: 0;
+    transform: scale(0.95);
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+    pointer-events: none;
 }
 
 .timeline-marker {
@@ -1530,7 +1651,7 @@ body {
     }
 
     .mobile-only {
-        display: block !important;
+        display: flex !important;
     }
 
     .timeline {
@@ -1613,6 +1734,10 @@ body {
 
     .cert-folders {
         grid-template-columns: 1fr;
+    }
+
+    .year-filter-dropdown {
+        max-width: 100%;
     }
 }
 

@@ -56,6 +56,34 @@ function initScrollNavigation() {
     });
 }
 
+// experience year filter
+
+function filterExperienceByYear(year) {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const filterButtons = document.querySelectorAll('.year-filter-btn');
+
+    // Update active button
+    filterButtons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('data-year') === year) {
+            btn.classList.add('active');
+        }
+    });
+
+    // Filter timeline items
+    timelineItems.forEach(item => {
+        const itemYear = item.getAttribute('data-year');
+
+        if (year === 'all') {
+            item.classList.remove('hidden');
+        } else if (itemYear === year) {
+            item.classList.remove('hidden');
+        } else {
+            item.classList.add('hidden');
+        }
+    });
+}
+
 // skill categories
 
 function toggleSkillCategory(headerElement) {

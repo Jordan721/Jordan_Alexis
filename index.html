@@ -181,9 +181,54 @@
                 <div class="section-line"></div>
             </div>
 
+            <div class="experience-controls">
+                <!-- Desktop: Buttons -->
+                <div class="year-filter-buttons desktop-only">
+                    <button class="year-filter-btn active" data-year="all" onclick="filterExperienceByYear('all')">
+                        View All
+                    </button>
+                    <button class="year-filter-btn" data-year="2025" onclick="filterExperienceByYear('2025')">
+                        2025
+                    </button>
+                    <button class="year-filter-btn" data-year="2023" onclick="filterExperienceByYear('2023')">
+                        2023
+                    </button>
+                    <button class="year-filter-btn" data-year="2021" onclick="filterExperienceByYear('2021')">
+                        2021
+                    </button>
+                    <button class="year-filter-btn" data-year="2020" onclick="filterExperienceByYear('2020')">
+                        2020
+                    </button>
+                    <button class="year-filter-btn" data-year="2019" onclick="filterExperienceByYear('2019')">
+                        2019
+                    </button>
+                    <button class="year-filter-btn" data-year="2018" onclick="filterExperienceByYear('2018')">
+                        2018
+                    </button>
+                    <button class="year-filter-btn" data-year="2017" onclick="filterExperienceByYear('2017')">
+                        2017
+                    </button>
+                </div>
+
+                <!-- Mobile: Dropdown -->
+                <div class="year-filter-dropdown mobile-only">
+                    <label for="yearSelect" class="filter-label">Filter by Year:</label>
+                    <select id="yearSelect" class="year-select" onchange="filterExperienceByYear(this.value)">
+                        <option value="all">View All</option>
+                        <option value="2025">2025</option>
+                        <option value="2023">2023</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                    </select>
+                </div>
+            </div>
+
             <div class="timeline">
                 <!-- Morgan Stanley -->
-                <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-item" data-aos="fade-up" data-year="2025">
                     <div class="timeline-marker current"></div>
                     <div class="timeline-content glass-card">
                         <div class="timeline-header">
@@ -203,7 +248,7 @@
                 </div>
 
                 <!-- B&A Appliances -->
-                <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-item" data-aos="fade-up" data-year="2020">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content glass-card">
                         <div class="timeline-header">
@@ -223,7 +268,7 @@
                 </div>
 
                 <!-- Tip Top Shoes -->
-                <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-item" data-aos="fade-up" data-year="2023">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content glass-card">
                         <div class="timeline-header">
@@ -243,7 +288,7 @@
                 </div>
 
                 <!-- Unadat -->
-                <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-item" data-aos="fade-up" data-year="2021">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content glass-card">
                         <div class="timeline-header">
@@ -263,7 +308,7 @@
                 </div>
 
                 <!-- WBAI Radio -->
-                <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-item" data-aos="fade-up" data-year="2019">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content glass-card">
                         <div class="timeline-header">
@@ -277,6 +322,65 @@
                             <li>Managed social media and event calendars to improve listener engagement</li>
                             <li>Created and scheduled social media posts using Hootsuite</li>
                             <li>Contributed to streamlining the station's social media strategy</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- The Challenge Publisher Group -->
+                <div class="timeline-item" data-aos="fade-up" data-year="2018">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="timeline-header">
+                            <div>
+                                <h3>Multimedia Intern</h3>
+                                <h4>The Challenge Publisher Group</h4>
+                            </div>
+                            <span class="timeline-date">July 2018 - Aug 2018</span>
+                        </div>
+                        <ul class="timeline-list">
+                            <li>Spearheaded the transition of the New American newspaper to a fully digital format, significantly reducing print costs and expanding distribution reach across NYC</li>
+                            <li>Served as project lead, overseeing all phases of the transition to ensure timely and successful implementation</li>
+                            <li>Designed the digital newspaper layout using Microsoft Publisher and enhanced visual content with Adobe Photoshop to improve image clarity and consistency</li>
+                            <li>Collaborated directly with the head of the company to align the digital strategy with organizational goals, and worked closely with the creative team to maintain visual cohesion and elevate the overall reader experience</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- BNIA -->
+                <div class="timeline-item" data-aos="fade-up" data-year="2017">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="timeline-header">
+                            <div>
+                                <h3>Office Assistant Intern</h3>
+                                <h4>Brooklyn Neighborhood Improvement Association (BNIA)</h4>
+                            </div>
+                            <span class="timeline-date">Aug 2017</span>
+                        </div>
+                        <ul class="timeline-list">
+                            <li>Supported the management of Summer Youth Interns by ensuring adherence to established workflows, resolving day-to-day issues, and maintaining accurate timesheets for over 50 participants</li>
+                            <li>Acted as a point of contact for intern questions and concerns, helping foster a supportive and organized environment</li>
+                            <li>Assisted with onboarding and orientation processes, clarifying expectations and program goals</li>
+                            <li>Helped improve the efficiency of the internship program by identifying bottlenecks, streamlining communication, and contributing to documentation efforts for future cohorts</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- St. John's Recreation Center -->
+                <div class="timeline-item" data-aos="fade-up" data-year="2017">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="timeline-header">
+                            <div>
+                                <h3>Multimedia Developer Intern</h3>
+                                <h4>St. John's Recreation Center</h4>
+                            </div>
+                            <span class="timeline-date">July 2017 - Aug 2017</span>
+                        </div>
+                        <ul class="timeline-list">
+                            <li>Gained practical experience with Adobe Creative Suite, including Premiere Pro for video editing, Illustrator for creating digital artwork, and Photoshop for retouching and manipulating images</li>
+                            <li>Supported multimedia projects by applying these tools to enhance visual quality and storytelling</li>
+                            <li>Strengthened technical proficiency through hands-on experimentation and collaboration, contributing to the overall creative output of the team</li>
                         </ul>
                     </div>
                 </div>
