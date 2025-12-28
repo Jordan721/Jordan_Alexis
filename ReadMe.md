@@ -6,6 +6,9 @@ Previous versions live in the Trail folder. 📂
 
 ## 📅 Recent Updates
 
+### December 28, 2025 📱
+Implemented responsive year filtering for Work Experience! Desktop shows interactive button filters, while mobile gets a clean dropdown menu. Multi-year positions (like B&A Appliances: 2020-2025) now appear when filtering by ANY year within their range. Smart UX for both platforms! 🎯✨
+
 ### December 27, 2025 ✨
 Added smooth animations to certification folders! Folders now have radial glow effects on hover, 3D icon rotations, and buttery-smooth fade transitions when opening/closing. The whole experience feels polished and professional! 🎭🎨
 
@@ -20,6 +23,86 @@ Added CSS animations (typing effects, wave emoji, card fade-ins), improved foote
 
 ### December 16, 2025 🎠
 Implemented interactive certificate carousel with responsive design and multiple navigation methods.
+
+---
+
+## 📊 Work Experience Year Filter
+
+A smart, responsive filtering system that adapts to your device! 🎯
+
+### 🖥️ Desktop Experience
+- 🔘 **Interactive Buttons** - Click any year (2017-2025) or "View All"
+- ✨ **Active State** - Selected year highlights with gradient and glow
+- 🎨 **Hover Effects** - Smooth transitions with cyan accent color
+- ⚡ **Instant Filtering** - Timeline items show/hide instantly
+
+### 📱 Mobile Experience
+- 📋 **Clean Dropdown** - Single select menu replaces buttons
+- 🎯 **Centered Layout** - Label and options centered for better mobile UX
+- 🎨 **Matching Style** - Same glass morphism design as rest of site
+- 💨 **Space Saving** - No button wrapping on small screens
+
+### 🧠 Smart Multi-Year Handling
+Positions spanning multiple years show up correctly across filters:
+
+```html
+<div class="timeline-item" data-year="2020" data-year-range="2020,2021,2022,2023,2024,2025">
+    <!-- B&A Appliances: Jan 2020 - Mar 2025 -->
+</div>
+```
+
+**How it works:**
+- 📅 Filter by **2020**: Shows B&A Appliances ✅
+- 📅 Filter by **2023**: Still shows B&A Appliances ✅
+- 📅 Filter by **2018**: Hides B&A Appliances ❌
+- 🌟 Filter by **View All**: Shows everything ✅
+
+### 🎯 Implementation Details
+
+**JavaScript Logic:**
+```javascript
+function filterExperienceByYear(year) {
+    timelineItems.forEach(item => {
+        const itemYear = item.getAttribute('data-year');
+        const yearRange = item.getAttribute('data-year-range');
+
+        if (year === 'all') {
+            item.classList.remove('hidden');
+        } else if (itemYear === year) {
+            item.classList.remove('hidden');
+        } else if (yearRange && yearRange.includes(year)) {
+            item.classList.remove('hidden'); // Multi-year magic! ✨
+        } else {
+            item.classList.add('hidden');
+        }
+    });
+}
+```
+
+**Responsive CSS:**
+```css
+/* Desktop: Show buttons */
+.year-filter-buttons.desktop-only {
+    display: flex;
+}
+
+/* Mobile: Show dropdown */
+@media (max-width: 968px) {
+    .year-filter-buttons.desktop-only {
+        display: none;
+    }
+    .year-filter-dropdown.mobile-only {
+        display: flex;
+    }
+}
+```
+
+### ✨ Why It's Awesome
+- 🎯 **Context-Aware** - Different UI for different devices
+- 🚀 **Performance** - Instant filtering with CSS classes
+- 💡 **Intuitive** - Works exactly how you'd expect
+- ♿ **Accessible** - Keyboard navigation on both platforms
+- 🎨 **Consistent** - Matches overall design aesthetic
 
 ---
 
@@ -406,7 +489,7 @@ Always evolving! More features and improvements coming based on new trends and i
 
 ---
 
-**Last Updated:** December 27, 2025 📅
+**Last Updated:** December 28, 2025 📅
 
 Made with 💻 and ☕ by Jordan Alexis
 
