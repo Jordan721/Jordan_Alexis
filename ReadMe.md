@@ -538,6 +538,6 @@ Always evolving! More features and improvements coming based on new trends and i
 
 **Last Updated:** January 3, 2026 📅
 
-Made with 💻 and ☕ by Jordan Alexis
+Made with 💻 and 🍫 by Jordan Alexis
 
 P.S. - Click those folders, they're fun! 📁✨
