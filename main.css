@@ -1942,6 +1942,7 @@ body {
 /* GAMIFICATION SETTINGS PANEL */
 
 .gamification-toggle {
+    position: relative;
     position: fixed;
     bottom: 30px;
     right: 30px;
@@ -1980,6 +1981,52 @@ body {
 .gamification-toggle:active {
     transform: scale(0.95);
     background: rgba(6, 182, 212, 0.3);
+}
+
+/* Click Me Tooltip */
+.click-me-tooltip {
+    position: absolute;
+    bottom: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(6, 182, 212, 0.95);
+    color: var(--color-white);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-base);
+    pointer-events: none;
+    z-index: 10000;
+}
+
+.click-me-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: rgba(6, 182, 212, 0.95);
+}
+
+.click-me-tooltip.show {
+    opacity: 1;
+    visibility: visible;
+    animation: tooltipBounce 2s ease-in-out infinite;
+}
+
+@keyframes tooltipBounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-5px);
+    }
 }
 
 .gamification-panel {
@@ -2169,6 +2216,12 @@ body {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+    .click-me-tooltip {
+        bottom: 65px;
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+
     .gamification-toggle {
         width: 50px;
         height: 50px;

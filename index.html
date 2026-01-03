@@ -103,6 +103,7 @@
     <!-- Gamification Settings Toggle -->
     <button class="gamification-toggle" id="gamificationToggle" onclick="toggleGamificationSettings()" aria-label="Gamification Settings">
         <i class="fas fa-gamepad"></i>
+        <span class="click-me-tooltip" id="clickMeTooltip">Click me!</span>
     </button>
 
     <!-- Gamification Settings Panel -->
@@ -120,7 +121,7 @@
                     <span>Cursor Trail</span>
                 </div>
                 <label class="toggle-switch">
-                    <input type="checkbox" id="cursorTrailToggle" checked onchange="toggleCursorTrail()">
+                    <input type="checkbox" id="cursorTrailToggle" onchange="toggleCursorTrail()">
                     <span class="slider"></span>
                 </label>
             </div>
@@ -130,7 +131,7 @@
                     <span>Floating Particles</span>
                 </div>
                 <label class="toggle-switch">
-                    <input type="checkbox" id="particlesToggle" checked onchange="toggleParticles()">
+                    <input type="checkbox" id="particlesToggle" onchange="toggleParticles()">
                     <span class="slider"></span>
                 </label>
             </div>
@@ -140,7 +141,7 @@
                     <span>Card Tilt Effect</span>
                 </div>
                 <label class="toggle-switch">
-                    <input type="checkbox" id="cardTiltToggle" checked onchange="toggleCardTilt()">
+                    <input type="checkbox" id="cardTiltToggle" onchange="toggleCardTilt()">
                     <span class="slider"></span>
                 </label>
             </div>
@@ -150,7 +151,7 @@
                     <span>Click Ripples</span>
                 </div>
                 <label class="toggle-switch">
-                    <input type="checkbox" id="rippleToggle" checked onchange="toggleRipple()">
+                    <input type="checkbox" id="rippleToggle" onchange="toggleRipple()">
                     <span class="slider"></span>
                 </label>
             </div>
@@ -160,7 +161,7 @@
                     <span>Icon Color Change</span>
                 </div>
                 <label class="toggle-switch">
-                    <input type="checkbox" id="iconColorToggle" checked onchange="toggleIconColor()">
+                    <input type="checkbox" id="iconColorToggle" onchange="toggleIconColor()">
                     <span class="slider"></span>
                 </label>
             </div>

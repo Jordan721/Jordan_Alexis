@@ -424,13 +424,13 @@ console.log('%chttps://github.com/Jordan721', 'color: #06b6d4; font-size: 12px;'
 
 // GAMIFICATION FEATURES
 
-// Gamification Settings State
+// Gamification Settings State - Default OFF for first-time visitors
 const gamificationState = {
-    cursorTrail: localStorage.getItem('cursorTrail') !== 'false',
-    particles: localStorage.getItem('particles') !== 'false',
-    cardTilt: localStorage.getItem('cardTilt') !== 'false',
-    ripple: localStorage.getItem('ripple') !== 'false',
-    iconColor: localStorage.getItem('iconColor') !== 'false'
+    cursorTrail: localStorage.getItem('cursorTrail') === 'true',
+    particles: localStorage.getItem('particles') === 'true',
+    cardTilt: localStorage.getItem('cardTilt') === 'true',
+    ripple: localStorage.getItem('ripple') === 'true',
+    iconColor: localStorage.getItem('iconColor') === 'true'
 };
 
 // Initialize settings from localStorage
@@ -445,7 +445,15 @@ function initializeGamificationSettings() {
 // Toggle Gamification Settings Panel
 function toggleGamificationSettings() {
     const panel = document.getElementById('gamificationPanel');
+    const tooltip = document.getElementById('clickMeTooltip');
+
     panel.classList.toggle('active');
+
+    // Hide tooltip and mark as seen when opening panel
+    if (panel.classList.contains('active')) {
+        tooltip.classList.remove('show');
+        localStorage.setItem('hasSeenGamificationTooltip', 'true');
+    }
 }
 
 // Close panel when clicking outside
@@ -521,8 +529,31 @@ function toggleIconColor() {
     }
 }
 
+// Show "Click me!" tooltip for first-time visitors
+function showClickMeTooltip() {
+    const hasSeenTooltip = localStorage.getItem('hasSeenGamificationTooltip');
+
+    if (!hasSeenTooltip) {
+        const tooltip = document.getElementById('clickMeTooltip');
+
+        // Show tooltip after 2 seconds
+        setTimeout(() => {
+            tooltip.classList.add('show');
+        }, 2000);
+
+        // Auto-hide after 5 seconds
+        setTimeout(() => {
+            tooltip.classList.remove('show');
+            localStorage.setItem('hasSeenGamificationTooltip', 'true');
+        }, 7000);
+    }
+}
+
 // Initialize on page load
-document.addEventListener('DOMContentLoaded', initializeGamificationSettings);
+document.addEventListener('DOMContentLoaded', () => {
+    initializeGamificationSettings();
+    showClickMeTooltip();
+});
 
 // Cursor Trail Effect (Desktop Only)
 let cursorTrail = [];
