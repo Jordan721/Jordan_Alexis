@@ -6,6 +6,9 @@ Previous versions live in the Trail folder. 📂
 
 ## 📅 Recent Updates
 
+### January 3, 2026 ✨
+Added interactive letter hover effects to my name in the hero section! Each letter in "Jordan Alexis" now bounces up, scales, rotates, changes color, and glows when you hover over it individually. Smooth gradient text with playful animations create a memorable first impression! 🎨💫
+
 ### December 28, 2025 📱
 Implemented responsive year filtering for Work Experience! Desktop shows interactive button filters, while mobile gets a clean dropdown menu. Multi-year positions (like B&A Appliances: 2020-2025) now appear when filtering by ANY year within their range. Smart UX for both platforms! 🎯✨
 
@@ -159,6 +162,7 @@ The certification folders come alive with smooth, professional animations:
 Clean, professional animations and interactions that enhance the experience.
 
 ### 🎨 Visual Elements
+- ✨ **Animated Name Letters** - Each letter in "Jordan Alexis" bounces and glows on hover
 - 🌊 **Wave Emoji** - Interactive wave on hover
 - 📋 **Glass Cards** - Modern glassmorphism effect throughout
 - 🎪 **Smooth Transitions** - Hover effects on all interactive elements
@@ -181,7 +185,50 @@ Clean, professional animations and interactions that enhance the experience.
 
 ## 💻 Technical Implementation
 
-### 1. 🎨 Glassmorphism Cards
+### 1. ✨ Interactive Name Letter Animations
+
+Individual letter hover effects for the hero section name:
+
+**HTML Structure:**
+```html
+<h1 class="hero-title fade-in-up">
+    I'm <span class="gradient-text animated-name">
+        <span class="letter">J</span><span class="letter">o</span><span class="letter">r</span><span class="letter">d</span><span class="letter">a</span><span class="letter">n</span><span class="letter space"> </span><span class="letter">A</span><span class="letter">l</span><span class="letter">e</span><span class="letter">x</span><span class="letter">i</span><span class="letter">s</span>
+    </span>
+</h1>
+```
+
+**CSS Animation:**
+```css
+.animated-name .letter {
+    display: inline-block;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    cursor: pointer;
+    background: inherit;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    user-select: none;
+}
+
+.animated-name .letter:hover {
+    transform: translateY(-20px) scale(1.2) rotate(5deg);
+    filter: hue-rotate(180deg) brightness(1.5) drop-shadow(0 0 10px rgba(6, 182, 212, 0.8));
+}
+```
+
+💡 **Key Features:**
+- 🎯 **Individual Control** - Each letter is wrapped in a `<span>` for independent animation
+- 🎨 **Gradient Inheritance** - Letters inherit the gradient from parent while maintaining transparency
+- 🎪 **Bouncy Easing** - Custom cubic-bezier creates playful bounce effect
+- 🌈 **Color Shift** - `hue-rotate(180deg)` cycles through rainbow colors
+- ✨ **Glow Effect** - Cyan drop-shadow creates luminous hover state
+- 📍 **Stays Elevated** - Letter remains transformed while hovering
+- 🔄 **Smooth Return** - Transitions back naturally when hover ends
+
+🎯 **Design Decision:** Used CSS-only solution (no JavaScript) for optimal performance. Each letter animates independently, creating an engaging, playful interaction that draws attention to the hero section.
+
+### 2. 🎨 Glassmorphism Cards
 
 Modern glass effect using CSS backdrop filters:
 
@@ -489,7 +536,7 @@ Always evolving! More features and improvements coming based on new trends and i
 
 ---
 
-**Last Updated:** December 28, 2025 📅
+**Last Updated:** January 3, 2026 📅
 
 Made with 💻 and ☕ by Jordan Alexis
 
