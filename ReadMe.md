@@ -456,6 +456,71 @@ Visible on all devices with adjusted sizing:
 }
 ```
 
+### Issue #4: 🎯 Multi-Year Work Experience Filtering
+**Problem:** Positions spanning multiple years (like B&A Appliances: 2020-2025) would only show when filtering by their start year, making it confusing when users filtered by intermediate years.
+
+**Solution:**
+- Added `data-year-range` attribute to track all years a position spans
+- Modified filter logic to check both `data-year` and `data-year-range`
+- Now positions appear when filtering by ANY year within their duration
+
+```javascript
+if (yearRange && yearRange.includes(year)) {
+    item.classList.remove('hidden'); // Multi-year magic! ✨
+}
+```
+
+### Issue #5: 📱 Year Filter Button Wrapping on Mobile
+**Problem:** Year filter buttons (2017-2025 + "View All") wrapped awkwardly on mobile screens, creating a cluttered UI with multiple rows.
+
+**Solution:**
+- Created two separate filter UIs: buttons for desktop, dropdown for mobile
+- Used media queries to show/hide based on screen size
+- Centered dropdown layout for better mobile UX
+
+```css
+@media (max-width: 968px) {
+    .year-filter-buttons.desktop-only { display: none; }
+    .year-filter-dropdown.mobile-only { display: flex; }
+}
+```
+
+### Issue #6: ✨ Name Animation Performance with Gradient Text
+**Problem:** Animating individual letters while maintaining smooth gradient text effect required careful CSS architecture to avoid flickering or gradient breaks.
+
+**Solution:**
+- Used `background-clip: text` inheritance from parent gradient
+- Each letter maintains transparency with `-webkit-text-fill-color: transparent`
+- Applied `display: inline-block` to allow transforms without breaking text flow
+- Used hardware-accelerated properties (`transform`, not `margin/position`) for 60fps performance
+
+```css
+.animated-name .letter {
+    background: inherit;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+```
+
+### Issue #7: 🎭 Smooth Folder-to-Carousel Transitions
+**Problem:** Instant view switching between folder grid and certificate carousel felt jarring and unprofessional.
+
+**Solution:**
+- Implemented staged animation sequence using `setTimeout` and `requestAnimationFrame`
+- Fade-out current view → Hide → Show next view → Fade-in
+- Used scale transforms (`scale(0.95)` to `scale(1)`) for depth perception
+- 300ms timing creates smooth, premium feel
+
+```javascript
+setTimeout(() => {
+    requestAnimationFrame(() => {
+        certView.style.opacity = '1';
+        certView.style.transform = 'scale(1)';
+    });
+}, 300);
+```
+
 ---
 
 ## 🎨 UX Improvements
