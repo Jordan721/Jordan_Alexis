@@ -730,6 +730,37 @@ body {
     transform: scale(1.1) rotate(5deg);
 }
 
+/* Enhanced transparent glass effect for feature cards */
+.feature-card.glass-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow:
+        0 8px 32px 0 rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+}
+
+.feature-card.glass-card:hover {
+    background: rgba(6, 182, 212, 0.05);
+    border-color: rgba(6, 182, 212, 0.4);
+    box-shadow:
+        0 12px 40px 0 rgba(6, 182, 212, 0.2),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+        0 0 30px rgba(6, 182, 212, 0.15);
+    transform: translateY(-8px);
+}
+
+.feature-card.glass-card .feature-icon {
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.8) 0%, rgba(139, 92, 246, 0.8) 100%);
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+}
+
+.feature-card.glass-card:hover .feature-icon {
+    background: linear-gradient(135deg, rgba(6, 182, 212, 1) 0%, rgba(139, 92, 246, 1) 100%);
+    box-shadow: 0 6px 20px rgba(6, 182, 212, 0.5);
+}
+
 /* experience controls */
 
 .experience-controls {
@@ -1292,6 +1323,8 @@ body {
 @media (max-width: 768px) {
     .back-to-top {
         display: flex;
+        left: 20px;
+        right: auto;
     }
 }
 
@@ -1904,4 +1937,265 @@ body {
 
 .game-note p:last-child {
     margin-bottom: 0;
+}
+
+/* GAMIFICATION SETTINGS PANEL */
+
+.gamification-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(6, 182, 212, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    color: var(--color-primary);
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-base);
+    box-shadow:
+        0 8px 32px 0 rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+        0 0 20px rgba(6, 182, 212, 0.2);
+}
+
+.gamification-toggle:hover {
+    background: rgba(6, 182, 212, 0.25);
+    border-color: rgba(6, 182, 212, 0.6);
+    transform: scale(1.1) rotate(15deg);
+    box-shadow:
+        0 12px 40px 0 rgba(6, 182, 212, 0.3),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
+        0 0 40px rgba(6, 182, 212, 0.4);
+    color: var(--color-primary-light);
+}
+
+.gamification-toggle:active {
+    transform: scale(0.95);
+    background: rgba(6, 182, 212, 0.3);
+}
+
+.gamification-panel {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 350px;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: var(--shadow-xl);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.9);
+    transition: all var(--transition-base);
+}
+
+.gamification-panel.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.gamification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gamification-header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.gamification-header i {
+    color: var(--color-primary);
+}
+
+.close-panel {
+    background: transparent;
+    border: none;
+    color: var(--color-gray-light);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all var(--transition-base);
+}
+
+.close-panel:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-white);
+    transform: rotate(90deg);
+}
+
+.gamification-options {
+    padding: var(--spacing-md);
+}
+
+.gamification-panel::-webkit-scrollbar {
+    width: 6px;
+}
+
+.gamification-panel::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.gamification-panel::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 10px;
+}
+
+.gamification-panel::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-light);
+}
+
+.option-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.option-item:last-of-type {
+    border-bottom: none;
+}
+
+.option-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--color-light);
+    font-size: 0.95rem;
+}
+
+.option-label i {
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    width: 20px;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: var(--transition-base);
+    border-radius: 34px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: var(--color-white);
+    transition: var(--transition-base);
+    border-radius: 50%;
+}
+
+.toggle-switch input:checked + .slider {
+    background: var(--gradient-primary);
+    border-color: var(--color-primary);
+}
+
+.toggle-switch input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+.slider:hover {
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
+}
+
+.option-hint {
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-gray-light);
+}
+
+.option-hint i {
+    color: var(--color-primary);
+}
+
+.option-hint small {
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .gamification-toggle {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9998;
+    }
+
+    .gamification-panel {
+        width: calc(100vw - 40px);
+        right: 20px;
+        bottom: 85px;
+        max-height: calc(100vh - 120px);
+        overflow-y: auto;
+    }
+
+    .gamification-header h3 {
+        font-size: 1rem;
+    }
+
+    .option-label {
+        font-size: 0.9rem;
+    }
+
+    /* Hide cursor trail option on mobile since it doesn't work on mobile */
+    .option-item:has(#cursorTrailToggle) {
+        display: none;
+    }
 }

@@ -421,3 +421,333 @@ backToTopButton.addEventListener('click', () => {
 console.log('%c👋🏾 Welcome to Jordan Alexis Portfolio!', 'color: #06b6d4; font-size: 20px; font-weight: bold;');
 console.log('%cInterested in the code? Check it out on GitHub!', 'color: #8b5cf6; font-size: 14px;');
 console.log('%chttps://github.com/Jordan721', 'color: #06b6d4; font-size: 12px;');
+
+// GAMIFICATION FEATURES
+
+// Gamification Settings State
+const gamificationState = {
+    cursorTrail: localStorage.getItem('cursorTrail') !== 'false',
+    particles: localStorage.getItem('particles') !== 'false',
+    cardTilt: localStorage.getItem('cardTilt') !== 'false',
+    ripple: localStorage.getItem('ripple') !== 'false',
+    iconColor: localStorage.getItem('iconColor') !== 'false'
+};
+
+// Initialize settings from localStorage
+function initializeGamificationSettings() {
+    document.getElementById('cursorTrailToggle').checked = gamificationState.cursorTrail;
+    document.getElementById('particlesToggle').checked = gamificationState.particles;
+    document.getElementById('cardTiltToggle').checked = gamificationState.cardTilt;
+    document.getElementById('rippleToggle').checked = gamificationState.ripple;
+    document.getElementById('iconColorToggle').checked = gamificationState.iconColor;
+}
+
+// Toggle Gamification Settings Panel
+function toggleGamificationSettings() {
+    const panel = document.getElementById('gamificationPanel');
+    panel.classList.toggle('active');
+}
+
+// Close panel when clicking outside
+document.addEventListener('click', function(e) {
+    const panel = document.getElementById('gamificationPanel');
+    const toggle = document.getElementById('gamificationToggle');
+
+    if (panel.classList.contains('active') &&
+        !panel.contains(e.target) &&
+        !toggle.contains(e.target)) {
+        panel.classList.remove('active');
+    }
+});
+
+// Individual Toggle Functions
+function toggleCursorTrail() {
+    gamificationState.cursorTrail = document.getElementById('cursorTrailToggle').checked;
+    localStorage.setItem('cursorTrail', gamificationState.cursorTrail);
+
+    if (!gamificationState.cursorTrail) {
+        // Remove all cursor dots
+        document.querySelectorAll('.cursor-dot').forEach(dot => dot.remove());
+        cursorTrail = [];
+    }
+}
+
+function toggleParticles() {
+    gamificationState.particles = document.getElementById('particlesToggle').checked;
+    localStorage.setItem('particles', gamificationState.particles);
+
+    const particleContainer = document.querySelector('.particles');
+    if (gamificationState.particles) {
+        if (!particleContainer) {
+            createParticles();
+        }
+    } else {
+        if (particleContainer) {
+            particleContainer.remove();
+        }
+    }
+}
+
+function toggleCardTilt() {
+    gamificationState.cardTilt = document.getElementById('cardTiltToggle').checked;
+    localStorage.setItem('cardTilt', gamificationState.cardTilt);
+
+    if (!gamificationState.cardTilt) {
+        // Reset all card transforms
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+        });
+    }
+}
+
+function toggleRipple() {
+    gamificationState.ripple = document.getElementById('rippleToggle').checked;
+    localStorage.setItem('ripple', gamificationState.ripple);
+}
+
+function toggleIconColor() {
+    gamificationState.iconColor = document.getElementById('iconColorToggle').checked;
+    localStorage.setItem('iconColor', gamificationState.iconColor);
+
+    if (!gamificationState.iconColor) {
+        // Reset all icon styles
+        document.querySelectorAll('.section-header i, .card-header i').forEach(icon => {
+            icon.style.background = '';
+            icon.style.webkitBackgroundClip = '';
+            icon.style.webkitTextFillColor = '';
+            icon.style.backgroundClip = '';
+            icon.style.transform = 'scale(1) rotate(0deg)';
+        });
+    }
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', initializeGamificationSettings);
+
+// Cursor Trail Effect (Desktop Only)
+let cursorTrail = [];
+const maxTrailLength = 15;
+
+document.addEventListener('mousemove', function(e) {
+    if (window.innerWidth > 768 && gamificationState.cursorTrail) { // Only on desktop and if enabled
+        createCursorDot(e.pageX, e.pageY);
+    }
+});
+
+function createCursorDot(x, y) {
+    const dot = document.createElement('div');
+    dot.className = 'cursor-dot';
+    dot.style.cssText = `
+        position: absolute;
+        left: ${x}px;
+        top: ${y}px;
+        width: 8px;
+        height: 8px;
+        background: rgba(6, 182, 212, 0.6);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transition: all 0.5s ease;
+    `;
+
+    document.body.appendChild(dot);
+    cursorTrail.push(dot);
+
+    if (cursorTrail.length > maxTrailLength) {
+        const oldDot = cursorTrail.shift();
+        oldDot.remove();
+    }
+
+    setTimeout(() => {
+        dot.style.opacity = '0';
+        dot.style.transform = 'scale(0)';
+        setTimeout(() => dot.remove(), 500);
+    }, 100);
+}
+
+// Floating Particles Background
+function createParticles() {
+    const particleContainer = document.createElement('div');
+    particleContainer.className = 'particles';
+    particleContainer.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+    `;
+
+    document.body.appendChild(particleContainer);
+
+    for (let i = 0; i < 30; i++) {
+        createParticle(particleContainer);
+    }
+}
+
+function createParticle(container) {
+    const particle = document.createElement('div');
+    const size = Math.random() * 5 + 2;
+    const startX = Math.random() * window.innerWidth;
+    const duration = Math.random() * 20 + 15;
+    const delay = Math.random() * 5;
+
+    particle.style.cssText = `
+        position: absolute;
+        width: ${size}px;
+        height: ${size}px;
+        background: rgba(6, 182, 212, 0.3);
+        border-radius: 50%;
+        left: ${startX}px;
+        bottom: -10px;
+        animation: float-up ${duration}s ${delay}s infinite ease-in-out;
+        box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+    `;
+
+    container.appendChild(particle);
+
+    // Add keyframes if not already added
+    if (!document.getElementById('particle-animation')) {
+        const style = document.createElement('style');
+        style.id = 'particle-animation';
+        style.textContent = `
+            @keyframes float-up {
+                0% {
+                    transform: translateY(0) translateX(0);
+                    opacity: 0;
+                }
+                10% {
+                    opacity: 1;
+                }
+                90% {
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(-100vh) translateX(${Math.random() * 200 - 100}px);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+}
+
+// Initialize particles if enabled
+if (gamificationState.particles) {
+    createParticles();
+}
+
+// Interactive Card Tilt Effect
+const glassCards = document.querySelectorAll('.glass-card');
+
+glassCards.forEach(card => {
+    card.addEventListener('mousemove', function(e) {
+        if (window.innerWidth <= 768 || !gamificationState.cardTilt) return; // Skip on mobile or if disabled
+
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = (y - centerY) / 20;
+        const rotateY = (centerX - x) / 20;
+
+        this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    card.addEventListener('mouseleave', function() {
+        this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+    });
+});
+
+// Ripple Click Effect
+document.addEventListener('click', function(e) {
+    const button = e.target.closest('.btn, .contact-btn, .download-btn, .view-cert-btn, .feature-card');
+
+    if (button && gamificationState.ripple) {
+        const ripple = document.createElement('span');
+        const rect = button.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+
+        ripple.style.cssText = `
+            position: absolute;
+            width: ${size}px;
+            height: ${size}px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            left: ${x}px;
+            top: ${y}px;
+            transform: scale(0);
+            animation: ripple-effect 0.6s ease-out;
+            pointer-events: none;
+        `;
+
+        const currentPosition = window.getComputedStyle(button).position;
+        if (currentPosition === 'static') {
+            button.style.position = 'relative';
+        }
+        button.style.overflow = 'hidden';
+        button.appendChild(ripple);
+
+        if (!document.getElementById('ripple-animation')) {
+            const style = document.createElement('style');
+            style.id = 'ripple-animation';
+            style.textContent = `
+                @keyframes ripple-effect {
+                    to {
+                        transform: scale(2);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        setTimeout(() => ripple.remove(), 600);
+    }
+});
+
+// Enhanced Section Icons Color Change
+const sectionIcons = document.querySelectorAll('.section-header i, .card-header i');
+const iconGradients = [
+    'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+    'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+    'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+    'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
+];
+
+sectionIcons.forEach(icon => {
+    icon.addEventListener('mouseenter', function() {
+        if (!gamificationState.iconColor) return;
+
+        const randomGradient = iconGradients[Math.floor(Math.random() * iconGradients.length)];
+        this.style.background = randomGradient;
+        this.style.webkitBackgroundClip = 'text';
+        this.style.webkitTextFillColor = 'transparent';
+        this.style.backgroundClip = 'text';
+        this.style.transform = 'scale(1.2) rotate(10deg)';
+    });
+
+    icon.addEventListener('mouseleave', function() {
+        if (!gamificationState.iconColor) return;
+
+        this.style.background = '';
+        this.style.webkitBackgroundClip = '';
+        this.style.webkitTextFillColor = '';
+        this.style.backgroundClip = '';
+        this.style.transform = 'scale(1) rotate(0deg)';
+    });
+});
+
+// Performance: Reduce animations on low-end devices
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.cursor-dot, .particles').forEach(element => {
+        element.remove();
+    });
+}
