@@ -188,6 +188,27 @@ body {
     background-clip: text;
 }
 
+.animated-name .letter {
+    display: inline-block;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    cursor: pointer;
+    background: inherit;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.animated-name .letter.space {
+    width: 0.3em;
+}
+
+.animated-name .letter:hover {
+    transform: translateY(-20px) scale(1.2) rotate(5deg);
+    filter: hue-rotate(180deg) brightness(1.5) drop-shadow(0 0 10px rgba(6, 182, 212, 0.8));
+}
+
 .hero-subtitle {
     font-size: clamp(1.25rem, 3vw, 1.75rem);
     color: var(--color-gray-light);
