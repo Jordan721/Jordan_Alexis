@@ -2199,7 +2199,7 @@ body {
     margin-top: var(--spacing-md);
     padding-top: var(--spacing-md);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
+    display: none; /* Hidden by default on desktop */
     align-items: center;
     gap: 8px;
     color: var(--color-gray-light);
@@ -2247,8 +2247,15 @@ body {
         font-size: 0.9rem;
     }
 
-    /* Hide cursor trail option on mobile since it doesn't work on mobile */
-    .option-item:has(#cursorTrailToggle) {
+    /* Hide cursor trail, card tilt, and click ripples options on mobile since they don't work on mobile */
+    .option-item:has(#cursorTrailToggle),
+    .option-item:has(#cardTiltToggle),
+    .option-item:has(#rippleToggle) {
         display: none;
+    }
+
+    /* Show desktop hint only on mobile */
+    .option-hint {
+        display: flex;
     }
 }

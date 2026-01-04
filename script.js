@@ -429,8 +429,7 @@ const gamificationState = {
     cursorTrail: localStorage.getItem('cursorTrail') === 'true',
     particles: localStorage.getItem('particles') === 'true',
     cardTilt: localStorage.getItem('cardTilt') === 'true',
-    ripple: localStorage.getItem('ripple') === 'true',
-    iconColor: localStorage.getItem('iconColor') === 'true'
+    ripple: localStorage.getItem('ripple') === 'true'
 };
 
 // Initialize settings from localStorage
@@ -439,7 +438,6 @@ function initializeGamificationSettings() {
     document.getElementById('particlesToggle').checked = gamificationState.particles;
     document.getElementById('cardTiltToggle').checked = gamificationState.cardTilt;
     document.getElementById('rippleToggle').checked = gamificationState.ripple;
-    document.getElementById('iconColorToggle').checked = gamificationState.iconColor;
 }
 
 // Toggle Gamification Settings Panel
@@ -511,22 +509,6 @@ function toggleCardTilt() {
 function toggleRipple() {
     gamificationState.ripple = document.getElementById('rippleToggle').checked;
     localStorage.setItem('ripple', gamificationState.ripple);
-}
-
-function toggleIconColor() {
-    gamificationState.iconColor = document.getElementById('iconColorToggle').checked;
-    localStorage.setItem('iconColor', gamificationState.iconColor);
-
-    if (!gamificationState.iconColor) {
-        // Reset all icon styles
-        document.querySelectorAll('.section-header i, .card-header i').forEach(icon => {
-            icon.style.background = '';
-            icon.style.webkitBackgroundClip = '';
-            icon.style.webkitTextFillColor = '';
-            icon.style.backgroundClip = '';
-            icon.style.transform = 'scale(1) rotate(0deg)';
-        });
-    }
 }
 
 // Show "Click me!" tooltip for first-time visitors
@@ -694,8 +676,10 @@ glassCards.forEach(card => {
     });
 });
 
-// Ripple Click Effect
+// Ripple Click Effect (Desktop Only)
 document.addEventListener('click', function(e) {
+    if (window.innerWidth <= 768) return; // Skip on mobile
+
     const button = e.target.closest('.btn, .contact-btn, .download-btn, .view-cert-btn, .feature-card');
 
     if (button && gamificationState.ripple) {
@@ -741,39 +725,6 @@ document.addEventListener('click', function(e) {
 
         setTimeout(() => ripple.remove(), 600);
     }
-});
-
-// Enhanced Section Icons Color Change
-const sectionIcons = document.querySelectorAll('.section-header i, .card-header i');
-const iconGradients = [
-    'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-    'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-    'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-    'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
-];
-
-sectionIcons.forEach(icon => {
-    icon.addEventListener('mouseenter', function() {
-        if (!gamificationState.iconColor) return;
-
-        const randomGradient = iconGradients[Math.floor(Math.random() * iconGradients.length)];
-        this.style.background = randomGradient;
-        this.style.webkitBackgroundClip = 'text';
-        this.style.webkitTextFillColor = 'transparent';
-        this.style.backgroundClip = 'text';
-        this.style.transform = 'scale(1.2) rotate(10deg)';
-    });
-
-    icon.addEventListener('mouseleave', function() {
-        if (!gamificationState.iconColor) return;
-
-        this.style.background = '';
-        this.style.webkitBackgroundClip = '';
-        this.style.webkitTextFillColor = '';
-        this.style.backgroundClip = '';
-        this.style.transform = 'scale(1) rotate(0deg)';
-    });
 });
 
 // Performance: Reduce animations on low-end devices
