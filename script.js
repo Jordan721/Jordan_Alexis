@@ -429,7 +429,7 @@ const gamificationState = {
     cursorTrail: localStorage.getItem('cursorTrail') === 'true',
     particles: localStorage.getItem('particles') === 'true',
     cardTilt: localStorage.getItem('cardTilt') === 'true',
-    ripple: localStorage.getItem('ripple') === 'true'
+    ripple: localStorage.getItem('ripple') !== 'false'
 };
 
 // Initialize settings from localStorage
