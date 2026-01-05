@@ -209,6 +209,15 @@ function openCertFolder(category) {
     const folderView = document.getElementById('folderView');
     const certView = document.getElementById('certView');
 
+    // Check if certificates exist for this category first
+    const categorySlides = document.querySelectorAll(`.${category}-cert`);
+
+    if (categorySlides.length === 0) {
+        console.error(`No certificates found for category: ${category}`);
+        // Don't proceed if no certificates found
+        return;
+    }
+
     // Add fade-out animation to folder view
     folderView.style.opacity = '0';
     folderView.style.transform = 'scale(0.95)';
@@ -228,11 +237,9 @@ function openCertFolder(category) {
             slide.classList.remove('active');
         });
 
-        const categorySlides = document.querySelectorAll(`.${category}-cert`);
-        if (categorySlides.length > 0) {
-            categorySlides[currentSlide].classList.add('active');
-            updateSlideIndicator(categorySlides.length);
-        }
+        // Show first certificate of the selected category
+        categorySlides[currentSlide].classList.add('active');
+        updateSlideIndicator(categorySlides.length);
 
         // Trigger fade-in animation
         requestAnimationFrame(() => {
@@ -268,12 +275,22 @@ function backToFolders() {
 }
 
 function changeSlide(direction) {
+    if (!currentCategory) {
+        console.error('No category selected');
+        return;
+    }
+
     const categorySlides = document.querySelectorAll(`.${currentCategory}-cert`);
 
-    if (categorySlides.length === 0) return;
+    if (categorySlides.length === 0) {
+        console.error(`No certificates found for category: ${currentCategory}`);
+        return;
+    }
 
-    // Remove active class from current slide
-    categorySlides[currentSlide].classList.remove('active');
+    // Remove active class from current slide (with safety check)
+    if (categorySlides[currentSlide]) {
+        categorySlides[currentSlide].classList.remove('active');
+    }
 
     // Calculate new slide index
     currentSlide += direction;
@@ -286,8 +303,10 @@ function changeSlide(direction) {
     }
 
     // Add active class to new slide
-    categorySlides[currentSlide].classList.add('active');
-    updateSlideIndicator(categorySlides.length);
+    if (categorySlides[currentSlide]) {
+        categorySlides[currentSlide].classList.add('active');
+        updateSlideIndicator(categorySlides.length);
+    }
 }
 
 function updateSlideIndicator(total) {
