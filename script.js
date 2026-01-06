@@ -752,3 +752,95 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         element.remove();
     });
 }
+
+// new scroll animations
+
+// scroll progress indicator
+function updateScrollProgress() {
+    const scrollProgress = document.querySelector('.scroll-progress-bar');
+    if (!scrollProgress) return;
+
+    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (window.scrollY / windowHeight) * 100;
+    scrollProgress.style.width = scrolled + '%';
+}
+
+window.addEventListener('scroll', updateScrollProgress);
+window.addEventListener('load', updateScrollProgress);
+
+// parallax scrolling for hero background orbs
+function updateParallaxOrbs() {
+    const orbs = document.querySelectorAll('.gradient-orb');
+    const scrolled = window.scrollY;
+
+    orbs.forEach((orb, index) => {
+        // Different speeds for each orb (0.3, 0.5, 0.7)
+        const speed = 0.3 + (index * 0.2);
+        const yPos = scrolled * speed;
+        orb.style.transform = `translateY(${yPos}px)`;
+    });
+}
+
+window.addEventListener('scroll', updateParallaxOrbs);
+
+// section header reveal animations
+function initSectionHeaderAnimations() {
+    const sectionHeaders = document.querySelectorAll('.section-header');
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.2
+    };
+
+    const observerCallback = (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('revealed')) {
+                entry.target.classList.add('revealed');
+            }
+        });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sectionHeaders.forEach(header => {
+        observer.observe(header);
+    });
+}
+
+// Initialize when DOM is loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSectionHeaderAnimations);
+} else {
+    initSectionHeaderAnimations();
+}
+
+// timeline line drawing animation
+function initTimelineAnimation() {
+    const timeline = document.querySelector('.experience-timeline');
+    if (!timeline) return;
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observerCallback = (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                timeline.classList.add('draw-line');
+            }
+        });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    observer.observe(timeline);
+}
+
+// Initialize timeline animation
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTimelineAnimation);
+} else {
+    initTimelineAnimation();
+}
