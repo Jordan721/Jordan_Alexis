@@ -74,6 +74,31 @@ body {
     position: relative;
 }
 
+/* custom scrollbar */
+
+/* webkit browsers (chrome, safari, edge) */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-dark-alt);
+    border-radius: 10px;
+}
+
+/* scrollbar thumb styles will be dynamically updated by javascript */
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    border: 2px solid var(--color-dark-alt);
+    transition: all 0.3s ease;
+}
+
+/* firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #06b6d4 var(--color-dark-alt);
+}
+
 /* animated background */
 
 .animated-background {

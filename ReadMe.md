@@ -23,8 +23,9 @@ Each section title has its own unique hover animation:
 - 🎡 **Education** - 3D spin rotation with cyan glow
 - 🌈 **Get In Touch** - Animated rainbow gradient flow
 
-**Navigation Enhancement:**
+**Navigation & Scrollbar Enhancements:**
 - 🎨 **Rainbow Trail Effect** - Navigation dots change colors per section (cyan, purple, orange, green, pink, red)
+- 🌈 **Dynamic Scrollbar** - Custom gradient scrollbar that changes colors as you scroll (cyan → purple → orange) with matching glow effects
 
 All animations are smooth, GPU-accelerated, and respect user's motion preferences!
 

@@ -763,6 +763,57 @@ function updateScrollProgress() {
     const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const scrolled = (window.scrollY / windowHeight) * 100;
     scrollProgress.style.width = scrolled + '%';
+
+    // update scrollbar color based on scroll position
+    updateScrollbarColor(scrolled);
+}
+
+// dynamic scrollbar color based on scroll position
+function updateScrollbarColor(scrollPercentage) {
+    // create dynamic gradient based on scroll position
+    let color1, color2, color3, shadow;
+
+    if (scrollPercentage < 33) {
+        // top third: cyan dominant
+        color1 = '#06b6d4';
+        color2 = '#06b6d4';
+        color3 = '#8b5cf6';
+        shadow = 'rgba(6, 182, 212, 0.5)';
+    } else if (scrollPercentage < 66) {
+        // middle third: purple dominant
+        color1 = '#06b6d4';
+        color2 = '#8b5cf6';
+        color3 = '#f59e0b';
+        shadow = 'rgba(139, 92, 246, 0.5)';
+    } else {
+        // bottom third: orange dominant
+        color1 = '#8b5cf6';
+        color2 = '#f59e0b';
+        color3 = '#f59e0b';
+        shadow = 'rgba(245, 158, 11, 0.5)';
+    }
+
+    // update or create the style element
+    let style = document.getElementById('dynamic-scrollbar-style');
+    if (!style) {
+        style = document.createElement('style');
+        style.id = 'dynamic-scrollbar-style';
+        document.head.appendChild(style);
+    }
+
+    style.textContent = `
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, ${color1} 0%, ${color2} 50%, ${color3} 100%);
+            border-radius: 10px;
+            border: 2px solid #1e293b;
+            box-shadow: 0 0 10px ${shadow};
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            box-shadow: 0 0 20px ${shadow}, 0 0 30px rgba(139, 92, 246, 0.6);
+            filter: brightness(1.2);
+        }
+    `;
 }
 
 window.addEventListener('scroll', updateScrollProgress);
