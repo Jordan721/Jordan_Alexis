@@ -1218,7 +1218,13 @@ function displayRecentRepos(repos) {
 function displayRecentCommits(events) {
     const commitsContainer = document.getElementById('recentCommits');
 
+    // Debug: log events to console
+    console.log('All GitHub events:', events);
+
     const pushEvents = events.filter(event => event.type === 'PushEvent');
+
+    // Debug: log push events
+    console.log('Push events found:', pushEvents.length);
 
     if (pushEvents.length === 0) {
         commitsContainer.innerHTML = '<p style="text-align: center; color: var(--color-gray-light);">No recent commits found</p>';
@@ -1238,6 +1244,14 @@ function displayRecentCommits(events) {
             });
         }
     });
+
+    // Debug: log commits
+    console.log('Commits to display:', commits);
+
+    if (commits.length === 0) {
+        commitsContainer.innerHTML = '<p style="text-align: center; color: var(--color-gray-light);">No recent commits found</p>';
+        return;
+    }
 
     commitsContainer.innerHTML = commits.slice(0, 5).map(commit => `
         <div class="activity-item">
