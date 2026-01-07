@@ -80,11 +80,17 @@
         <a href="#experience" class="nav-dot" data-section="experience">
             <span class="nav-tooltip">Experience</span>
         </a>
+        <a href="#journey" class="nav-dot" data-section="journey">
+            <span class="nav-tooltip">Journey</span>
+        </a>
         <a href="#skills" class="nav-dot" data-section="skills">
             <span class="nav-tooltip">Skills</span>
         </a>
         <a href="#education" class="nav-dot" data-section="education">
             <span class="nav-tooltip">Education</span>
+        </a>
+        <a href="#github-activity" class="nav-dot" data-section="github-activity">
+            <span class="nav-tooltip">Activity</span>
         </a>
         <a href="#contact" class="nav-dot" data-section="contact">
             <span class="nav-tooltip">Contact</span>
@@ -157,6 +163,16 @@
                 </div>
                 <label class="toggle-switch">
                     <input type="checkbox" id="rippleToggle" onchange="toggleRipple()">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="option-item">
+                <div class="option-label">
+                    <i class="fas fa-cube"></i>
+                    <span>3D Floating Shapes</span>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="shapes3DToggle" onchange="toggle3DShapes()">
                     <span class="slider"></span>
                 </label>
             </div>
@@ -461,6 +477,120 @@
             </div>
         </section>
 
+        <!-- Career Journey Timeline Section -->
+        <section id="journey" class="section journey-section">
+            <div class="section-header">
+                <span class="section-number">02.5</span>
+                <h2 class="section-title hover-shimmer">Career Journey</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="journey-container">
+                <div class="journey-timeline-visual">
+                    <!-- Timeline Line -->
+                    <div class="journey-line"></div>
+
+                    <!-- Journey Milestones -->
+                    <div class="journey-milestone" data-year="2014">
+                        <div class="milestone-dot" data-category="education"></div>
+                        <div class="milestone-content glass-card">
+                            <span class="milestone-year">2014</span>
+                            <h3>🎮 Game Design Journey Begins</h3>
+                            <p>Started at Bramson ORT College, learning Java, JavaScript, C++, and game development with Unity</p>
+                        </div>
+                    </div>
+
+                    <div class="journey-milestone" data-year="2017">
+                        <div class="milestone-dot" data-category="work"></div>
+                        <div class="milestone-content glass-card">
+                            <span class="milestone-year">2017</span>
+                            <h3>💼 First Professional Experience</h3>
+                            <p>Multimedia Developer at St. John's Recreation Center & Office Assistant at BNIA</p>
+                        </div>
+                    </div>
+
+                    <div class="journey-milestone" data-year="2018">
+                        <div class="milestone-dot" data-category="work"></div>
+                        <div class="milestone-content glass-card">
+                            <span class="milestone-year">2018</span>
+                            <h3>📰 Digital Transformation Lead</h3>
+                            <p>Led newspaper transition from print to digital at The Challenge Publisher Group</p>
+                        </div>
+                    </div>
+
+                    <div class="journey-milestone" data-year="2019">
+                        <div class="milestone-dot" data-category="education"></div>
+                        <div class="milestone-content glass-card">
+                            <span class="milestone-year">2019</span>
+                            <h3>🎓 Associate Degree</h3>
+                            <p>Graduated from CUNY BMCC with A.S. in Multimedia Programming and Design</p>
+                        </div>
+                    </div>
+
+                    <div class="journey-milestone" data-year="2020">
+                        <div class="milestone-dot" data-category="work"></div>
+                        <div class="milestone-content glass-card">
+                            <span class="milestone-year">2020</span>
+                            <h3>📊 Data Entry Specialist</h3>
+                            <p>Started data management role at B&A Appliances, handling inventory and customer data</p>
+                        </div>
+                    </div>
+
+                    <div class="journey-milestone" data-year="2021">
+                        <div class="milestone-dot" data-category="work"></div>
+                        <div class="milestone-content glass-card">
+                            <span class="milestone-year">2021</span>
+                            <h3>💻 Software Engineering Intern</h3>
+                            <p>Developed dark mode and optimized UX at Unadat</p>
+                        </div>
+                    </div>
+
+                    <div class="journey-milestone" data-year="2023">
+                        <div class="milestone-dot" data-category="work"></div>
+                        <div class="milestone-content glass-card">
+                            <span class="milestone-year">2023</span>
+                            <h3>🛍️ E-commerce Optimization</h3>
+                            <p>Product listing and SEO optimization at Tip Top Shoes</p>
+                        </div>
+                    </div>
+
+                    <div class="journey-milestone" data-year="2025">
+                        <div class="milestone-dot current" data-category="current"></div>
+                        <div class="milestone-content glass-card">
+                            <span class="milestone-year">2025</span>
+                            <h3>🚀 Data Analytics Developer</h3>
+                            <p>Currently at Morgan Stanley, processing 10,000+ row datasets and implementing automation</p>
+                            <span class="current-badge-small">Current Position</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Journey Stats -->
+                <div class="journey-stats">
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-number" data-target="11">0</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon">💼</div>
+                        <div class="stat-number" data-target="8">0</div>
+                        <div class="stat-label">Organizations</div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon">🎓</div>
+                        <div class="stat-number" data-target="5">0</div>
+                        <div class="stat-label">Degrees/Programs</div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon">📜</div>
+                        <div class="stat-number" data-target="4">0</div>
+                        <div class="stat-label">Certifications</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Skills Section -->
         <section id="skills" class="section">
             <div class="section-header">
@@ -699,6 +829,74 @@
                         Introduced to programming languages including Java, JavaScript, C++, HTML, and CSS. Explored game design and 
                         programming through Unity, Unreal Engine, and GameMaker platforms.
                     </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- GitHub Activity Feed Section -->
+        <section id="github-activity" class="section github-section">
+            <div class="section-header">
+                <span class="section-number">04.5</span>
+                <h2 class="section-title hover-code">Latest Activity</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="github-activity-container">
+                <div class="activity-header glass-card">
+                    <div class="activity-header-content">
+                        <i class="fab fa-github github-icon"></i>
+                        <div>
+                            <h3>Recent GitHub Activity</h3>
+                            <p>My latest commits, repositories, and contributions</p>
+                        </div>
+                    </div>
+                    <a href="https://github.com/Jordan721" target="_blank" class="github-profile-btn">
+                        <i class="fab fa-github"></i> View Profile
+                    </a>
+                </div>
+
+                <div class="activity-grid">
+                    <!-- Latest Commits -->
+                    <div class="activity-card glass-card">
+                        <div class="activity-card-header">
+                            <i class="fas fa-code-branch"></i>
+                            <h4>Recent Commits</h4>
+                        </div>
+                        <div id="recentCommits" class="activity-list">
+                            <div class="activity-loading">
+                                <div class="loading-spinner"></div>
+                                <p>Loading commits...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Latest Repositories -->
+                    <div class="activity-card glass-card">
+                        <div class="activity-card-header">
+                            <i class="fas fa-folder"></i>
+                            <h4>Recent Repositories</h4>
+                        </div>
+                        <div id="recentRepos" class="activity-list">
+                            <div class="activity-loading">
+                                <div class="loading-spinner"></div>
+                                <p>Loading repositories...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GitHub Stats -->
+                    <div class="activity-card glass-card github-stats-card">
+                        <div class="activity-card-header">
+                            <i class="fas fa-chart-line"></i>
+                            <h4>GitHub Stats</h4>
+                        </div>
+                        <div id="githubStats" class="github-stats">
+                            <div class="activity-loading">
+                                <div class="loading-spinner"></div>
+                                <p>Loading stats...</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

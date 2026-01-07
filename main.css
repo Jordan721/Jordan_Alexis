@@ -2574,3 +2574,568 @@ body {
         transform: translateY(0);
     }
 }
+
+/* Career Journey Timeline Section */
+
+.journey-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.journey-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.journey-timeline-visual {
+    position: relative;
+    padding: var(--spacing-xl) 0;
+}
+
+.journey-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg,
+        var(--color-primary) 0%,
+        var(--color-secondary) 50%,
+        var(--color-accent) 100%);
+    transform: translateX(-50%) scaleY(0);
+    transform-origin: top;
+    transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.journey-section.animated .journey-line {
+    transform: translateX(-50%) scaleY(1);
+}
+
+.journey-milestone {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-2xl);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.journey-section.animated .journey-milestone {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.journey-milestone:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.journey-milestone:nth-child(1) { transition-delay: 0.2s; }
+.journey-milestone:nth-child(2) { transition-delay: 0.3s; }
+.journey-milestone:nth-child(3) { transition-delay: 0.4s; }
+.journey-milestone:nth-child(4) { transition-delay: 0.5s; }
+.journey-milestone:nth-child(5) { transition-delay: 0.6s; }
+.journey-milestone:nth-child(6) { transition-delay: 0.7s; }
+.journey-milestone:nth-child(7) { transition-delay: 0.8s; }
+.journey-milestone:nth-child(8) { transition-delay: 0.9s; }
+.journey-milestone:nth-child(9) { transition-delay: 1.0s; }
+
+.milestone-dot {
+    position: absolute;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    border: 3px solid var(--color-dark);
+    transform: translateX(-50%);
+    z-index: 2;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7);
+    animation: pulse-dot 2s infinite;
+}
+
+.milestone-dot[data-category="education"] {
+    background: var(--color-secondary);
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.7);
+}
+
+.milestone-dot[data-category="work"] {
+    background: var(--color-primary);
+    box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7);
+}
+
+.milestone-dot[data-category="current"] {
+    background: var(--color-accent);
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.8);
+    animation: pulse-current 1.5s infinite;
+}
+
+.milestone-dot.current {
+    width: 24px;
+    height: 24px;
+}
+
+@keyframes pulse-dot {
+    0% {
+        box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(6, 182, 212, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(6, 182, 212, 0);
+    }
+}
+
+@keyframes pulse-current {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(245, 158, 11, 0.8);
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(245, 158, 11, 1);
+        transform: translateX(-50%) scale(1.1);
+    }
+}
+
+.milestone-content {
+    width: 45%;
+    padding: var(--spacing-lg);
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.milestone-content:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl), 0 0 30px rgba(6, 182, 212, 0.3);
+}
+
+.journey-milestone:nth-child(even) .milestone-content {
+    text-align: left;
+}
+
+.journey-milestone:nth-child(odd) .milestone-content {
+    text-align: right;
+}
+
+.milestone-year {
+    display: inline-block;
+    font-family: var(--font-code);
+    font-size: 0.875rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    padding: 4px 12px;
+    background: rgba(6, 182, 212, 0.1);
+    border-radius: 20px;
+    border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+.milestone-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-light);
+}
+
+.milestone-content p {
+    font-size: 0.9375rem;
+    color: var(--color-gray-light);
+    line-height: 1.5;
+}
+
+.current-badge-small {
+    display: inline-block;
+    margin-top: var(--spacing-sm);
+    padding: 4px 12px;
+    background: var(--gradient-accent);
+    color: var(--color-white);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Journey Stats */
+
+.journey-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-2xl);
+}
+
+.stat-card {
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl), 0 0 30px rgba(6, 182, 212, 0.2);
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: var(--spacing-xs);
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--color-gray-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Hover effect for section title */
+.hover-shimmer {
+    position: relative;
+    overflow: hidden;
+}
+
+.hover-shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.hover-shimmer:hover::after {
+    left: 100%;
+}
+
+/* Navigation dot color for journey section */
+.nav-dot[data-section="journey"].active {
+    background: #10b981;
+    border-color: #10b981;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
+}
+
+/* Navigation dot color for github-activity section */
+.nav-dot[data-section="github-activity"].active {
+    background: #8b5cf6;
+    border-color: #8b5cf6;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .journey-line {
+        left: 20px;
+    }
+
+    .journey-milestone {
+        flex-direction: column !important;
+        align-items: flex-start;
+        padding-left: 50px;
+    }
+
+    .milestone-dot {
+        left: 20px;
+    }
+
+    .milestone-content {
+        width: 100%;
+        text-align: left !important;
+    }
+
+    .journey-milestone:nth-child(odd) .milestone-content {
+        text-align: left;
+    }
+
+    .journey-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    .stat-icon {
+        font-size: 2rem;
+    }
+}
+
+/* GitHub Activity Section */
+
+.github-section {
+    position: relative;
+}
+
+.github-activity-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.activity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.activity-header-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.github-icon {
+    font-size: 3rem;
+    color: var(--color-primary);
+}
+
+.activity-header h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-light);
+}
+
+.activity-header p {
+    color: var(--color-gray-light);
+    font-size: 0.875rem;
+}
+
+.github-profile-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: var(--gradient-primary);
+    color: var(--color-white);
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.github-profile-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.5);
+}
+
+.activity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.activity-card {
+    padding: var(--spacing-lg);
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.activity-card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--glass-border);
+}
+
+.activity-card-header i {
+    color: var(--color-primary);
+    font-size: 1.25rem;
+}
+
+.activity-card-header h4 {
+    font-size: 1.125rem;
+    color: var(--color-light);
+}
+
+.activity-list {
+    flex: 1;
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+.activity-item {
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    border-left: 3px solid var(--color-primary);
+    transition: all 0.3s ease;
+}
+
+.activity-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-left-color: var(--color-secondary);
+    transform: translateX(5px);
+}
+
+.activity-item-title {
+    font-weight: 600;
+    color: var(--color-light);
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+}
+
+.activity-item-desc {
+    font-size: 0.875rem;
+    color: var(--color-gray-light);
+    margin-bottom: 4px;
+}
+
+.activity-item-time {
+    font-size: 0.75rem;
+    color: var(--color-gray);
+    font-family: var(--font-code);
+}
+
+.activity-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    gap: var(--spacing-md);
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(6, 182, 212, 0.1);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.activity-loading p {
+    color: var(--color-gray-light);
+    font-size: 0.875rem;
+}
+
+.activity-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    gap: var(--spacing-sm);
+    color: var(--color-error);
+}
+
+.activity-error i {
+    font-size: 2rem;
+}
+
+.github-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+}
+
+.stat-item {
+    text-align: center;
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-3px);
+}
+
+.stat-item-number {
+    font-size: 2rem;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+    margin-bottom: var(--spacing-xs);
+}
+
+.stat-item-label {
+    font-size: 0.875rem;
+    color: var(--color-gray-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.repo-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.repo-link:hover {
+    color: var(--color-primary-light);
+    text-decoration: underline;
+}
+
+.hover-code {
+    position: relative;
+    font-family: var(--font-code);
+}
+
+.hover-code::before {
+    content: '< ';
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.hover-code::after {
+    content: ' />';
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.hover-code:hover::before,
+.hover-code:hover::after {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .activity-header {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        text-align: center;
+    }
+
+    .activity-header-content {
+        flex-direction: column;
+    }
+
+    .activity-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .github-stats {
+        grid-template-columns: 1fr;
+    }
+}

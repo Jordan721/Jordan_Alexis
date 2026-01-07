@@ -448,7 +448,8 @@ const gamificationState = {
     cursorTrail: localStorage.getItem('cursorTrail') === 'true',
     particles: localStorage.getItem('particles') === 'true',
     cardTilt: localStorage.getItem('cardTilt') === 'true',
-    ripple: localStorage.getItem('ripple') !== 'false'
+    ripple: localStorage.getItem('ripple') !== 'false',
+    shapes3D: localStorage.getItem('shapes3D') === 'true'
 };
 
 // Initialize settings from localStorage
@@ -457,6 +458,7 @@ function initializeGamificationSettings() {
     document.getElementById('particlesToggle').checked = gamificationState.particles;
     document.getElementById('cardTiltToggle').checked = gamificationState.cardTilt;
     document.getElementById('rippleToggle').checked = gamificationState.ripple;
+    document.getElementById('shapes3DToggle').checked = gamificationState.shapes3D;
 }
 
 // Toggle Gamification Settings Panel
@@ -894,4 +896,426 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initTimelineAnimation);
 } else {
     initTimelineAnimation();
+}
+
+// Career Journey Timeline Animation
+function initJourneyTimeline() {
+    const journeySection = document.querySelector('.journey-section');
+    if (!journeySection) return;
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.2
+    };
+
+    const observerCallback = (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                entry.target.classList.add('animated');
+                // Start counting stats when section is visible
+                animateStats();
+            }
+        });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    observer.observe(journeySection);
+}
+
+// Animate stat counters
+function animateStats() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+
+    statNumbers.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-target'));
+        const duration = 2000; // 2 seconds
+        const increment = target / (duration / 16); // 60fps
+        let current = 0;
+
+        const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+                stat.textContent = Math.floor(current);
+                requestAnimationFrame(updateCounter);
+            } else {
+                stat.textContent = target;
+            }
+        };
+
+        updateCounter();
+    });
+}
+
+// Initialize journey timeline
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initJourneyTimeline);
+} else {
+    initJourneyTimeline();
+}
+
+// 3D Floating Shapes
+function toggle3DShapes() {
+    gamificationState.shapes3D = document.getElementById('shapes3DToggle').checked;
+    localStorage.setItem('shapes3D', gamificationState.shapes3D);
+
+    const shapesContainer = document.querySelector('.shapes-3d-container');
+    if (gamificationState.shapes3D) {
+        if (!shapesContainer) {
+            create3DShapes();
+        }
+    } else {
+        if (shapesContainer) {
+            shapesContainer.remove();
+        }
+    }
+}
+
+function create3DShapes() {
+    const shapesContainer = document.createElement('div');
+    shapesContainer.className = 'shapes-3d-container';
+    shapesContainer.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+        perspective: 1000px;
+    `;
+
+    document.body.appendChild(shapesContainer);
+
+    // Create different 3D shapes
+    const shapes = [
+        { type: 'cube', count: 3 },
+        { type: 'pyramid', count: 3 },
+        { type: 'sphere', count: 4 }
+    ];
+
+    shapes.forEach(shapeType => {
+        for (let i = 0; i < shapeType.count; i++) {
+            create3DShape(shapesContainer, shapeType.type);
+        }
+    });
+}
+
+function create3DShape(container, type) {
+    const shape = document.createElement('div');
+    const size = Math.random() * 60 + 40;
+    const startX = Math.random() * window.innerWidth;
+    const startY = Math.random() * window.innerHeight;
+    const duration = Math.random() * 20 + 15;
+    const delay = Math.random() * 5;
+    const rotationSpeed = Math.random() * 10 + 5;
+
+    shape.className = `shape-3d shape-${type}`;
+    shape.style.cssText = `
+        position: absolute;
+        width: ${size}px;
+        height: ${size}px;
+        left: ${startX}px;
+        top: ${startY}px;
+        animation: float-3d ${duration}s ${delay}s infinite ease-in-out;
+        transform-style: preserve-3d;
+    `;
+
+    // Create shape based on type
+    if (type === 'cube') {
+        shape.innerHTML = `
+            <div class="cube-face front"></div>
+            <div class="cube-face back"></div>
+            <div class="cube-face right"></div>
+            <div class="cube-face left"></div>
+            <div class="cube-face top"></div>
+            <div class="cube-face bottom"></div>
+        `;
+        shape.style.animation += `, rotate-cube ${rotationSpeed}s linear infinite`;
+    } else if (type === 'pyramid') {
+        shape.innerHTML = `
+            <div class="pyramid-face base"></div>
+            <div class="pyramid-face side1"></div>
+            <div class="pyramid-face side2"></div>
+            <div class="pyramid-face side3"></div>
+            <div class="pyramid-face side4"></div>
+        `;
+        shape.style.animation += `, rotate-pyramid ${rotationSpeed}s linear infinite`;
+    } else if (type === 'sphere') {
+        shape.style.borderRadius = '50%';
+        shape.style.background = 'radial-gradient(circle at 30% 30%, rgba(6, 182, 212, 0.3), rgba(139, 92, 246, 0.2))';
+        shape.style.boxShadow = '0 0 30px rgba(6, 182, 212, 0.4)';
+        shape.style.animation += `, rotate-sphere ${rotationSpeed}s linear infinite`;
+    }
+
+    container.appendChild(shape);
+}
+
+// Add CSS for 3D shapes if not already added
+if (!document.getElementById('shapes-3d-styles')) {
+    const style = document.createElement('style');
+    style.id = 'shapes-3d-styles';
+    style.textContent = `
+        @keyframes float-3d {
+            0%, 100% {
+                transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
+            }
+            25% {
+                transform: translate3d(100px, -100px, 100px) rotateX(90deg) rotateY(90deg);
+            }
+            50% {
+                transform: translate3d(200px, 0, 0) rotateX(180deg) rotateY(180deg);
+            }
+            75% {
+                transform: translate3d(100px, 100px, -100px) rotateX(270deg) rotateY(270deg);
+            }
+        }
+
+        @keyframes rotate-cube {
+            from { transform: rotateX(0deg) rotateY(0deg); }
+            to { transform: rotateX(360deg) rotateY(360deg); }
+        }
+
+        @keyframes rotate-pyramid {
+            from { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+            to { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+        }
+
+        @keyframes rotate-sphere {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
+
+        .shape-3d {
+            opacity: 0.6;
+        }
+
+        .cube-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(6, 182, 212, 0.2);
+            border: 1px solid rgba(6, 182, 212, 0.5);
+            box-shadow: inset 0 0 20px rgba(6, 182, 212, 0.3);
+        }
+
+        .cube-face.front  { transform: translateZ(calc(var(--size) / 2)); }
+        .cube-face.back   { transform: rotateY(180deg) translateZ(calc(var(--size) / 2)); }
+        .cube-face.right  { transform: rotateY(90deg) translateZ(calc(var(--size) / 2)); }
+        .cube-face.left   { transform: rotateY(-90deg) translateZ(calc(var(--size) / 2)); }
+        .cube-face.top    { transform: rotateX(90deg) translateZ(calc(var(--size) / 2)); }
+        .cube-face.bottom { transform: rotateX(-90deg) translateZ(calc(var(--size) / 2)); }
+
+        .pyramid-face {
+            position: absolute;
+            background: rgba(139, 92, 246, 0.2);
+            border: 1px solid rgba(139, 92, 246, 0.5);
+            box-shadow: inset 0 0 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .pyramid-face.base {
+            width: 100%;
+            height: 100%;
+            transform: translateY(50%);
+        }
+
+        .pyramid-face.side1,
+        .pyramid-face.side2,
+        .pyramid-face.side3,
+        .pyramid-face.side4 {
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 86px solid rgba(139, 92, 246, 0.3);
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// Initialize 3D shapes if enabled
+if (gamificationState.shapes3D) {
+    create3DShapes();
+}
+
+// GitHub Activity Feed
+async function fetchGitHubActivity() {
+    const username = 'Jordan721';
+
+    try {
+        // Fetch user data
+        const userResponse = await fetch(`https://api.github.com/users/${username}`);
+        const userData = await userResponse.json();
+
+        // Fetch repositories
+        const reposResponse = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=5`);
+        const reposData = await reposResponse.json();
+
+        // Fetch events (for commits)
+        const eventsResponse = await fetch(`https://api.github.com/users/${username}/events/public?per_page=10`);
+        const eventsData = await eventsResponse.json();
+
+        // Display GitHub stats
+        displayGitHubStats(userData);
+
+        // Display recent repositories
+        displayRecentRepos(reposData);
+
+        // Display recent commits
+        displayRecentCommits(eventsData);
+
+    } catch (error) {
+        console.error('Error fetching GitHub activity:', error);
+        showError();
+    }
+}
+
+function displayGitHubStats(userData) {
+    const statsContainer = document.getElementById('githubStats');
+
+    statsContainer.innerHTML = `
+        <div class="stat-item">
+            <span class="stat-item-number">${userData.public_repos || 0}</span>
+            <span class="stat-item-label">Repositories</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-item-number">${userData.followers || 0}</span>
+            <span class="stat-item-label">Followers</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-item-number">${userData.following || 0}</span>
+            <span class="stat-item-label">Following</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-item-number">${userData.public_gists || 0}</span>
+            <span class="stat-item-label">Gists</span>
+        </div>
+    `;
+}
+
+function displayRecentRepos(repos) {
+    const reposContainer = document.getElementById('recentRepos');
+
+    if (!repos || repos.length === 0) {
+        reposContainer.innerHTML = '<p style="text-align: center; color: var(--color-gray-light);">No repositories found</p>';
+        return;
+    }
+
+    reposContainer.innerHTML = repos.slice(0, 5).map(repo => `
+        <div class="activity-item">
+            <div class="activity-item-title">
+                <a href="${repo.html_url}" target="_blank" class="repo-link">${repo.name}</a>
+            </div>
+            <div class="activity-item-desc">${repo.description || 'No description'}</div>
+            <div class="activity-item-time">
+                ${repo.language ? `<i class="fas fa-circle" style="color: ${getLanguageColor(repo.language)}; font-size: 0.5rem;"></i> ${repo.language} • ` : ''}
+                ⭐ ${repo.stargazers_count} • Updated ${getTimeAgo(repo.updated_at)}
+            </div>
+        </div>
+    `).join('');
+}
+
+function displayRecentCommits(events) {
+    const commitsContainer = document.getElementById('recentCommits');
+
+    const pushEvents = events.filter(event => event.type === 'PushEvent');
+
+    if (pushEvents.length === 0) {
+        commitsContainer.innerHTML = '<p style="text-align: center; color: var(--color-gray-light);">No recent commits found</p>';
+        return;
+    }
+
+    const commits = [];
+    pushEvents.forEach(event => {
+        if (event.payload && event.payload.commits) {
+            event.payload.commits.forEach(commit => {
+                commits.push({
+                    message: commit.message,
+                    repo: event.repo.name,
+                    time: event.created_at,
+                    url: `https://github.com/${event.repo.name}`
+                });
+            });
+        }
+    });
+
+    commitsContainer.innerHTML = commits.slice(0, 5).map(commit => `
+        <div class="activity-item">
+            <div class="activity-item-title">${truncateText(commit.message, 50)}</div>
+            <div class="activity-item-desc">
+                <a href="${commit.url}" target="_blank" class="repo-link">${commit.repo}</a>
+            </div>
+            <div class="activity-item-time">${getTimeAgo(commit.time)}</div>
+        </div>
+    `).join('');
+}
+
+function getTimeAgo(dateString) {
+    const date = new Date(dateString);
+    const now = new Date();
+    const seconds = Math.floor((now - date) / 1000);
+
+    const intervals = {
+        year: 31536000,
+        month: 2592000,
+        week: 604800,
+        day: 86400,
+        hour: 3600,
+        minute: 60
+    };
+
+    for (const [unit, secondsInUnit] of Object.entries(intervals)) {
+        const interval = Math.floor(seconds / secondsInUnit);
+        if (interval >= 1) {
+            return `${interval} ${unit}${interval > 1 ? 's' : ''} ago`;
+        }
+    }
+
+    return 'just now';
+}
+
+function truncateText(text, maxLength) {
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength) + '...';
+}
+
+function getLanguageColor(language) {
+    const colors = {
+        JavaScript: '#f1e05a',
+        Python: '#3572A5',
+        Java: '#b07219',
+        HTML: '#e34c26',
+        CSS: '#563d7c',
+        TypeScript: '#2b7489',
+        PHP: '#4F5D95',
+        Ruby: '#701516',
+        Go: '#00ADD8',
+        Rust: '#dea584',
+        C: '#555555',
+        'C++': '#f34b7d',
+        'C#': '#178600',
+        Shell: '#89e051'
+    };
+    return colors[language] || '#8b8b8b';
+}
+
+function showError() {
+    const containers = ['recentCommits', 'recentRepos', 'githubStats'];
+    containers.forEach(id => {
+        const container = document.getElementById(id);
+        container.innerHTML = `
+            <div class="activity-error">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p>Failed to load GitHub activity</p>
+                <small>API rate limit may have been reached</small>
+            </div>
+        `;
+    });
+}
+
+// Initialize GitHub activity feed
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fetchGitHubActivity);
+} else {
+    fetchGitHubActivity();
 }

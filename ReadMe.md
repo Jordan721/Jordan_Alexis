@@ -6,6 +6,38 @@ Previous versions live in the Trail folder. 📂
 
 ## 📅 Recent Updates
 
+### January 7, 2026 🚀✨
+Added three major new features to showcase my work and career journey!
+
+**New Sections:**
+- 🗺️ **Career Journey Timeline** (Section 02.5) - Interactive visual timeline showing career milestones from 2014-2025
+  - Color-coded dots for education vs work experiences
+  - Animated timeline that "draws" as you scroll
+  - Stats cards with animated counters (11 years experience, 8 organizations, 5 degrees, 4 certs)
+  - Alternating left/right layout on desktop, mobile-optimized view
+  - Positioned after Work Experience for logical flow
+
+- 🐙 **GitHub Activity Feed** (Section 04.5) - Live GitHub activity showcasing recent work
+  - Real-time data from GitHub API
+  - Recent commits with timestamps and repo links
+  - Latest repositories with descriptions, languages, and star counts
+  - GitHub stats (repos, followers, following, gists)
+  - Language color indicators
+  - Positioned after Education section
+
+- 🎲 **3D Floating Shapes** - New gamification toggle for immersive effects
+  - Floating 3D cubes, pyramids, and spheres
+  - Smooth rotation and movement animations
+  - Toggle on/off in gamification panel
+  - Desktop-only for performance
+  - Settings saved to localStorage
+
+**Navigation Updates:**
+- Updated floating nav to include Journey (after Experience) and Activity (after Education)
+- Color-coded dots: Home (cyan), About (purple), Experience (orange), Journey (green), Skills (green), Education (pink), Activity (purple), Contact (red)
+
+All three features integrate seamlessly with existing design language - glass cards, gradients, and smooth animations! 🎨
+
 ### January 6, 2026 🎨✨
 Added advanced scroll animations and interactive effects throughout the site!
 
@@ -68,6 +100,185 @@ Implemented interactive certificate carousel with responsive design and multiple
 
 ---
 
+## 🗺️ Career Journey Timeline
+
+A beautiful, interactive timeline visualizing your professional journey from 2014 to present! 🚀
+
+### ✨ Visual Design
+- **Animated Timeline Line** - Gradient line (cyan → purple → orange) that draws from top to bottom as you scroll
+- **Color-Coded Milestones** - Purple dots for education, cyan dots for work, orange glow for current position
+- **Alternating Layout** - Cards alternate left/right on desktop for visual interest
+- **Pulsing Dots** - Each milestone dot has a gentle pulsing animation with colored glow
+- **Glass Cards** - Consistent glassmorphism design matching site aesthetic
+
+### 📊 Journey Stats
+Four animated stat cards displaying your career highlights:
+- 📅 **11 Years Experience** - Total professional journey
+- 💼 **8 Organizations** - Companies and institutions worked with
+- 🎓 **5 Degrees/Programs** - Educational achievements
+- 📜 **4 Certifications** - Professional certifications earned
+
+Numbers count up from 0 when section enters viewport for engaging reveal! ⚡
+
+### 🎯 Key Milestones
+- **2014** - 🎮 Game Design Journey Begins (Bramson ORT)
+- **2017** - 💼 First Professional Experience (St. John's & BNIA)
+- **2018** - 📰 Digital Transformation Lead (Challenge Publisher Group)
+- **2019** - 🎓 Associate Degree (CUNY BMCC)
+- **2020** - 📊 Data Entry Specialist (B&A Appliances)
+- **2021** - 💻 Software Engineering Intern (Unadat)
+- **2023** - 🛍️ E-commerce Optimization (Tip Top Shoes)
+- **2025** - 🚀 Data Analytics Developer (Morgan Stanley) - Current!
+
+### 📱 Mobile Responsive
+- Timeline moves to left side with all cards stacking vertically
+- Maintains readability and visual hierarchy
+- Stats grid adapts to 2-column layout
+- Smooth animations preserved across devices
+
+### 🎨 Technical Implementation
+```javascript
+// Timeline animation triggers on scroll
+const observerCallback = (entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animated');
+            animateStats(); // Start counting animation
+        }
+    });
+};
+```
+
+---
+
+## 🐙 GitHub Activity Feed
+
+Live integration with GitHub API showcasing your latest coding activity! 🚀
+
+### 📊 Three Activity Cards
+
+1. **Recent Commits** 💻
+   - Latest commit messages from push events
+   - Repository names with links
+   - Time ago formatting ("2 days ago")
+   - Truncated messages for clean display
+   - Shows up to 5 most recent commits
+
+2. **Recent Repositories** 📁
+   - 5 most recently updated repos
+   - Repo descriptions
+   - Programming language indicators with color coding
+   - Star counts
+   - Direct links to GitHub repos
+   - "Updated X time ago" timestamps
+
+3. **GitHub Stats** 📈
+   - Total public repositories
+   - Follower count
+   - Following count
+   - Public gists
+   - All stats displayed in gradient numbers
+
+### 🎨 Language Colors
+Repos display language indicators with authentic GitHub colors:
+- 🟨 JavaScript: `#f1e05a`
+- 🔵 Python: `#3572A5`
+- 🟤 Java: `#b07219`
+- 🟠 HTML: `#e34c26`
+- 🟣 CSS: `#563d7c`
+- And more!
+
+### ⚡ Real-Time Data
+- Fetches data on page load
+- Uses GitHub REST API (no auth required for public data)
+- Graceful error handling for rate limits
+- Loading spinners while fetching
+- Error messages if API fails
+
+### 💡 Smart Features
+- **Time Ago** - Converts timestamps to readable format (2 hours ago, 3 days ago)
+- **Text Truncation** - Long commit messages shortened with ellipsis
+- **Clickable Links** - Everything links back to GitHub
+- **Responsive Grid** - Adapts from 3 columns to single column on mobile
+- **Glass Cards** - Consistent design with rest of portfolio
+
+### 🎯 API Integration
+```javascript
+async function fetchGitHubActivity() {
+    const username = 'Jordan721';
+
+    // Fetch user stats, repos, and events
+    const userResponse = await fetch(`https://api.github.com/users/${username}`);
+    const reposResponse = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=5`);
+    const eventsResponse = await fetch(`https://api.github.com/users/${username}/events/public?per_page=10`);
+
+    // Display all data with formatted output
+}
+```
+
+---
+
+## 🎲 3D Floating Shapes
+
+Immersive 3D geometric shapes floating across your screen! 🌟
+
+### 🎨 Shape Types
+- **🔷 Cubes** - 6-sided geometric shapes with transparent faces
+- **🔺 Pyramids** - Triangular polyhedra with base and sides
+- **⚪ Spheres** - Radial gradient orbs with glow effects
+
+### ✨ Animations
+- **3D Rotation** - Shapes continuously rotate on X, Y, and Z axes
+- **Float Movement** - Complex path animations using translate3d
+- **Perspective** - CSS 3D transforms for depth perception
+- **Varied Speeds** - Each shape has unique animation duration (15-35 seconds)
+- **Random Positioning** - Shapes start at random screen positions
+- **Smooth Easing** - Ease-in-out timing for natural movement
+
+### 🎛️ User Control
+- Toggle on/off via gamification panel
+- Settings persist via localStorage
+- Dynamic creation/removal without page reload
+- Desktop-only feature (hidden on mobile for performance)
+- No impact on site performance when disabled
+
+### 🎯 Technical Details
+```javascript
+function create3DShape(container, type) {
+    // Create 3D shape with CSS transforms
+    const shape = document.createElement('div');
+
+    if (type === 'cube') {
+        // 6 faces with CSS 3D positioning
+        shape.innerHTML = `
+            <div class="cube-face front"></div>
+            <div class="cube-face back"></div>
+            <!-- 4 more faces... -->
+        `;
+    }
+
+    // Add complex 3D animation
+    shape.style.animation = `float-3d ${duration}s infinite, rotate-cube ${speed}s infinite`;
+}
+```
+
+### 🎨 Visual Design
+- **Transparent** - Semi-transparent (opacity: 0.6) for subtle effect
+- **Colored Borders** - Cyan borders on cubes, purple on pyramids
+- **Glow Effects** - Box shadows create luminous appearance
+- **Layered Depth** - z-index: 1 keeps shapes behind content
+- **Blur Background** - Backdrop blur for glass morphism
+- **Gradient Colors** - Matches site color scheme (cyan/purple/orange)
+
+### 📱 Performance
+- **Hardware Accelerated** - Uses CSS transforms (not positions)
+- **Conditional Loading** - Only creates shapes when toggle is ON
+- **Clean Removal** - Fully removes DOM elements when disabled
+- **Desktop Only** - Mobile devices skip creation for better performance
+- **Smooth 60fps** - GPU-accelerated animations maintain frame rate
+
+---
+
 ## 🎮 Gamification System
 
 A fully customizable interactive experience system that lets users control exactly which effects they want! 🎯
@@ -108,7 +319,14 @@ Interactive control panel with individual toggles for each effect:
    - Smooth scale animation with fade-out
    - Dynamic positioning from click location
 
-5. **🎨 Icon Color Change**
+5. **🎲 3D Floating Shapes** (NEW!)
+   - Floating geometric 3D shapes (cubes, pyramids, spheres)
+   - Complex 3D rotation and movement animations
+   - Transparent with colored borders and glow effects
+   - Desktop-only for optimal performance
+   - Toggle on/off dynamically
+
+6. **🎨 Icon Color Change**
    - Section header icons change to random gradients on hover
    - 5 vibrant gradient options
    - Scale and rotation animation
@@ -177,6 +395,7 @@ const gamificationState = {
     particles: localStorage.getItem('particles') !== 'false',
     cardTilt: localStorage.getItem('cardTilt') !== 'false',
     ripple: localStorage.getItem('ripple') !== 'false',
+    shapes3D: localStorage.getItem('shapes3D') === 'true', // NEW!
     iconColor: localStorage.getItem('iconColor') !== 'false'
 };
 ```
@@ -787,9 +1006,10 @@ Always evolving! More features and improvements coming based on new trends and i
 
 ---
 
-**Last Updated:** January 6, 2026 📅
+**Last Updated:** January 7, 2026 📅
 
 Made with 💻 and 🍫 by Jordan Alexis
 
 P.S. - Click those folders, they're fun! 📁✨
 P.P.S. - Don't forget to check out the gamification toggle! 🎮
+P.P.P.S. - Try the 3D shapes toggle for an immersive experience! 🎲
