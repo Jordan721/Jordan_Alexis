@@ -1151,18 +1151,14 @@ async function fetchGitHubActivity() {
         const reposResponse = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=5`);
         const reposData = await reposResponse.json();
 
-        // Fetch events (for commits)
-        const eventsResponse = await fetch(`https://api.github.com/users/${username}/events/public?per_page=10`);
-        const eventsData = await eventsResponse.json();
-
         // Display GitHub stats
         displayGitHubStats(userData);
 
         // Display recent repositories
         displayRecentRepos(reposData);
 
-        // Display recent commits
-        displayRecentCommits(eventsData);
+        // Fetch and display recent commits from the user's repositories
+        await fetchRecentCommits(username, reposData);
 
     } catch (error) {
         console.error('Error fetching GitHub activity:', error);
@@ -1215,53 +1211,58 @@ function displayRecentRepos(repos) {
     `).join('');
 }
 
-function displayRecentCommits(events) {
+async function fetchRecentCommits(username, repos) {
     const commitsContainer = document.getElementById('recentCommits');
 
-    // Debug: log events to console
-    console.log('All GitHub events:', events);
+    try {
+        const allCommits = [];
 
-    const pushEvents = events.filter(event => event.type === 'PushEvent');
+        // Fetch commits from the most recently updated repositories
+        for (const repo of repos.slice(0, 3)) {
+            try {
+                const commitsResponse = await fetch(`https://api.github.com/repos/${username}/${repo.name}/commits?per_page=5`);
+                const commitsData = await commitsResponse.json();
 
-    // Debug: log push events
-    console.log('Push events found:', pushEvents.length);
-
-    if (pushEvents.length === 0) {
-        commitsContainer.innerHTML = '<p style="text-align: center; color: var(--color-gray-light);">No recent commits found</p>';
-        return;
-    }
-
-    const commits = [];
-    pushEvents.forEach(event => {
-        if (event.payload && event.payload.commits) {
-            event.payload.commits.forEach(commit => {
-                commits.push({
-                    message: commit.message,
-                    repo: event.repo.name,
-                    time: event.created_at,
-                    url: `https://github.com/${event.repo.name}`
-                });
-            });
+                if (Array.isArray(commitsData)) {
+                    commitsData.forEach(commitData => {
+                        allCommits.push({
+                            message: commitData.commit.message,
+                            repo: repo.name,
+                            time: commitData.commit.author.date,
+                            url: commitData.html_url,
+                            sha: commitData.sha.substring(0, 7)
+                        });
+                    });
+                }
+            } catch (error) {
+                console.error(`Error fetching commits for ${repo.name}:`, error);
+            }
         }
-    });
 
-    // Debug: log commits
-    console.log('Commits to display:', commits);
+        // Sort commits by date (most recent first)
+        allCommits.sort((a, b) => new Date(b.time) - new Date(a.time));
 
-    if (commits.length === 0) {
-        commitsContainer.innerHTML = '<p style="text-align: center; color: var(--color-gray-light);">No recent commits found</p>';
-        return;
-    }
+        if (allCommits.length === 0) {
+            commitsContainer.innerHTML = '<p style="text-align: center; color: var(--color-gray-light);">No recent commits found</p>';
+            return;
+        }
 
-    commitsContainer.innerHTML = commits.slice(0, 5).map(commit => `
-        <div class="activity-item">
-            <div class="activity-item-title">${truncateText(commit.message, 50)}</div>
-            <div class="activity-item-desc">
-                <a href="${commit.url}" target="_blank" class="repo-link">${commit.repo}</a>
+        // Display the 5 most recent commits
+        commitsContainer.innerHTML = allCommits.slice(0, 5).map(commit => `
+            <div class="activity-item">
+                <div class="activity-item-title">${truncateText(commit.message.split('\n')[0], 50)}</div>
+                <div class="activity-item-desc">
+                    <a href="${commit.url}" target="_blank" class="repo-link">${commit.repo}</a>
+                    <span style="color: var(--color-gray-light); margin-left: 8px;">@${commit.sha}</span>
+                </div>
+                <div class="activity-item-time">${getTimeAgo(commit.time)}</div>
             </div>
-            <div class="activity-item-time">${getTimeAgo(commit.time)}</div>
-        </div>
-    `).join('');
+        `).join('');
+
+    } catch (error) {
+        console.error('Error displaying commits:', error);
+        commitsContainer.innerHTML = '<p style="text-align: center; color: var(--color-gray-light);">Failed to load commits</p>';
+    }
 }
 
 function getTimeAgo(dateString) {
