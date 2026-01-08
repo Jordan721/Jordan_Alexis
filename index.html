@@ -961,17 +961,27 @@
                 <p class="modal-subtitle">Select a category to view certificates</p>
 
                 <div class="cert-folders">
-                    <button class="cert-folder" onclick="openCertFolder('yearup')">
-                        <div class="folder-icon"><i class="fas fa-folder"></i></div>
-                        <h3>Year Up United</h3>
-                        <p>1 certificate</p>
-                    </button>
+                    <div class="cert-folder-wrapper">
+                        <button class="cert-folder" onclick="openCertFolder('yearup')">
+                            <div class="folder-icon"><i class="fas fa-folder"></i></div>
+                            <h3>Year Up United</h3>
+                            <p>1 certificate</p>
+                        </button>
+                        <div class="cert-info-btn" onclick="openYearUpInfoModal();" role="button" tabindex="0" aria-label="Program Information">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                    </div>
 
-                    <button class="cert-folder" onclick="openCertFolder('dataanalytics')">
-                        <div class="folder-icon"><i class="fas fa-folder"></i></div>
-                        <h3>Data Analytics</h3>
-                        <p>3 certificates</p>
-                    </button>
+                    <div class="cert-folder-wrapper">
+                        <button class="cert-folder" onclick="openCertFolder('dataanalytics')">
+                            <div class="folder-icon"><i class="fas fa-folder"></i></div>
+                            <h3>Data Analytics</h3>
+                            <p>3 certificates</p>
+                        </button>
+                        <div class="cert-info-btn" onclick="openCourseInfoModal();" role="button" tabindex="0" aria-label="Course Information">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                    </div>
 
                     <!-- <button class="cert-folder" onclick="openCertFolder('cybersecurity')">
                         <div class="folder-icon"><i class="fas fa-folder"></i></div>
@@ -1250,6 +1260,205 @@
                     </div>
                     <p>These games were created years ago using FPS Creator for a class I was taking. They were made in the style of "I Wanna Be The Guy" games, known for their <em>extreme</em> difficulty and challenging gameplay.</p>
                     <p><strong>Each game download includes documentation</strong> explaining the story behind the game. Keep in mind these are old projects, so set your expectations accordingly!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Year Up United Info Modal -->
+    <div id="yearUpInfoModal" class="modal">
+        <div class="modal-overlay" onclick="closeYearUpInfoModal()"></div>
+        <div class="modal-content glass-modal course-info-modal">
+            <button class="modal-close" onclick="closeYearUpInfoModal()">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="course-info-content">
+                <div class="course-header">
+                    <div class="course-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h2>Year Up United - App Dev Track</h2>
+                    <p class="course-subtitle">Intensive Career Development Program</p>
+                </div>
+
+                <div class="course-section">
+                    <h3><i class="fas fa-book"></i> Program Overview</h3>
+                    <p>Year Up United is an intensive career accelerator partnering with 250+ leading corporations. The program combines professional development with hands-on technical training in software development, preparing participants for high-growth tech careers through real-world application and enterprise-focused learning.</p>
+                </div>
+
+                <div class="course-section">
+                    <h3><i class="fas fa-code"></i> App Dev Track Focus</h3>
+                    <p>Specialized in the Application Development track with an emphasis on Java programming fundamentals, enterprise development patterns, and full-stack integration. The curriculum focused on building production-ready applications and understanding the critical role Java plays in enterprise software development.</p>
+                </div>
+
+                <div class="course-section">
+                    <h3><i class="fas fa-tools"></i> Technologies & Tools</h3>
+                    <div class="course-tools">
+                        <span class="tool-badge"><i class="fab fa-java"></i> Java</span>
+                        <span class="tool-badge"><i class="fas fa-code"></i> JetBrains IDEs</span>
+                        <span class="tool-badge"><i class="fas fa-database"></i> SQL</span>
+                        <span class="tool-badge"><i class="fas fa-leaf"></i> Spring Boot</span>
+                        <span class="tool-badge"><i class="fas fa-book-open"></i> Java Libraries</span>
+                        <span class="tool-badge"><i class="fas fa-table"></i> Excel</span>
+                    </div>
+                </div>
+
+                <div class="course-section">
+                    <h3><i class="fas fa-graduation-cap"></i> Technical Skills Developed</h3>
+                    <ul class="course-skills-list">
+                        <li><i class="fas fa-check-circle"></i> Core Java Programming & OOP Principles</li>
+                        <li><i class="fas fa-check-circle"></i> Java Libraries & Framework Integration</li>
+                        <li><i class="fas fa-check-circle"></i> JetBrains IDE Proficiency (IntelliJ IDEA)</li>
+                        <li><i class="fas fa-check-circle"></i> SQL Database Design & Management</li>
+                        <li><i class="fas fa-check-circle"></i> Java-SQL Integration (JDBC)</li>
+                        <li><i class="fas fa-check-circle"></i> Spring Boot Framework Fundamentals</li>
+                        <li><i class="fas fa-check-circle"></i> RESTful API Development</li>
+                        <li><i class="fas fa-check-circle"></i> Database-Driven Web Applications</li>
+                        <li><i class="fas fa-check-circle"></i> Software Testing & Debugging</li>
+                        <li><i class="fas fa-check-circle"></i> Code Execution & Deployment</li>
+                    </ul>
+                </div>
+
+                <div class="course-section">
+                    <h3><i class="fas fa-briefcase"></i> Professional Skills</h3>
+                    <ul class="course-skills-list">
+                        <li><i class="fas fa-check-circle"></i> Business Writing</li>
+                        <li><i class="fas fa-check-circle"></i> Public Speaking & Presentations</li>
+                        <li><i class="fas fa-check-circle"></i> Excel for Business Analysis</li>
+                        <li><i class="fas fa-check-circle"></i> Professional Communication</li>
+                    </ul>
+                </div>
+
+                <div class="course-section">
+                    <h3><i class="fas fa-laptop-code"></i> Key Learning Areas</h3>
+                    <div class="learning-highlights">
+                        <div class="highlight-item">
+                            <h4><i class="fas fa-book"></i> Java Ecosystem</h4>
+                            <p>Deep dive into Java libraries, understanding how they function internally and how to leverage them effectively in application development.</p>
+                        </div>
+                        <div class="highlight-item">
+                            <h4><i class="fas fa-database"></i> Database Integration</h4>
+                            <p>Learned how SQL databases interact with Java applications, implementing JDBC connections and executing database operations programmatically.</p>
+                        </div>
+                        <div class="highlight-item">
+                            <h4><i class="fas fa-leaf"></i> Spring Boot Development</h4>
+                            <p>Introduction to Spring Boot framework for building web applications and RESTful APIs with integrated database connectivity.</p>
+                        </div>
+                        <div class="highlight-item">
+                            <h4><i class="fas fa-code"></i> Enterprise Development</h4>
+                            <p>Explored the importance of Java in enterprise environments and its role in building scalable, maintainable applications.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-footer">
+                    <a href="https://www.yearup.org/" target="_blank" class="course-link-btn">
+                        <i class="fas fa-external-link-alt"></i> Learn More About Year Up United
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Course Info Modal -->
+    <div id="courseInfoModal" class="modal">
+        <div class="modal-overlay" onclick="closeCourseInfoModal()"></div>
+        <div class="modal-content glass-modal course-info-modal">
+            <button class="modal-close" onclick="closeCourseInfoModal()">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="course-info-content">
+                <div class="course-header">
+                    <div class="course-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h2>Google Data Analytics Professional Certificate</h2>
+                    <p class="course-subtitle">Job-Ready Data Analytics Skills</p>
+                </div>
+
+                <div class="course-section">
+                    <h3><i class="fas fa-book"></i> Course Overview</h3>
+                    <p>This certificate course is designed to build practical, job‑ready data analytics skills, including hands‑on experience in junior‑level data cleaning, analysis, and visualization using spreadsheets, SQL, R, and Tableau. It also includes organizing datasets, performing calculations, and presenting insights through dashboards and presentations.</p>
+                </div>
+
+                <div class="course-section">
+                    <h3><i class="fas fa-tools"></i> Tools & Technologies Covered</h3>
+                    <div class="course-tools">
+                        <span class="tool-badge"><i class="fas fa-table"></i> Spreadsheets (Excel/Sheets)</span>
+                        <span class="tool-badge"><i class="fas fa-database"></i> SQL</span>
+                        <span class="tool-badge"><i class="fas fa-code"></i> R Programming</span>
+                        <span class="tool-badge"><i class="fas fa-chart-bar"></i> Tableau</span>
+                        <span class="tool-badge"><i class="fas fa-chart-pie"></i> Data Visualization</span>
+                        <span class="tool-badge"><i class="fas fa-file-alt"></i> RStudio</span>
+                    </div>
+                </div>
+
+                <div class="course-section">
+                    <h3><i class="fas fa-graduation-cap"></i> Skills Developed</h3>
+                    <ul class="course-skills-list">
+                        <li><i class="fas fa-check-circle"></i> Data Cleaning & Preparation</li>
+                        <li><i class="fas fa-check-circle"></i> Data Analysis & Exploration</li>
+                        <li><i class="fas fa-check-circle"></i> Data Visualization & Storytelling</li>
+                        <li><i class="fas fa-check-circle"></i> SQL Query Writing</li>
+                        <li><i class="fas fa-check-circle"></i> R Programming for Analysis</li>
+                        <li><i class="fas fa-check-circle"></i> Dashboard Creation</li>
+                        <li><i class="fas fa-check-circle"></i> Statistical Analysis</li>
+                        <li><i class="fas fa-check-circle"></i> Data-Driven Decision Making</li>
+                        <li><i class="fas fa-check-circle"></i> Presenting Insights to Stakeholders</li>
+                    </ul>
+                </div>
+
+                <div class="course-section">
+                    <h3><i class="fas fa-certificate"></i> Completed Courses (3 of 8)</h3>
+                    <div class="course-progress">
+                        <div class="course-module completed">
+                            <i class="fas fa-check"></i>
+                            <span>Foundations: Data, Data, Everywhere</span>
+                        </div>
+                        <div class="course-module completed">
+                            <i class="fas fa-check"></i>
+                            <span>Ask Questions to Make Data-Driven Decisions</span>
+                        </div>
+                        <div class="course-module completed">
+                            <i class="fas fa-check"></i>
+                            <span>Prepare Data for Exploration</span>
+                        </div>
+                        <div class="course-module upcoming">
+                            <i class="fas fa-circle"></i>
+                            <span>Process Data from Dirty to Clean</span>
+                        </div>
+                        <div class="course-module upcoming">
+                            <i class="fas fa-circle"></i>
+                            <span>Analyze Data to Answer Questions</span>
+                        </div>
+                        <div class="course-module upcoming">
+                            <i class="fas fa-circle"></i>
+                            <span>Share Data Through the Art of Visualization</span>
+                        </div>
+                        <div class="course-module upcoming">
+                            <i class="fas fa-circle"></i>
+                            <span>Data Analysis with R Programming</span>
+                        </div>
+                        <div class="course-module upcoming">
+                            <i class="fas fa-circle"></i>
+                            <span>Google Data Analytics Capstone</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 37.5%;">
+                                <span class="progress-text">37.5% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-footer">
+                    <a href="https://www.coursera.org/professional-certificates/google-data-analytics" target="_blank" class="course-link-btn">
+                        <i class="fas fa-external-link-alt"></i> View Course on Coursera
+                    </a>
                 </div>
             </div>
         </div>

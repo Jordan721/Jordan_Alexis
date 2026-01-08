@@ -1592,6 +1592,12 @@ body {
     gap: var(--spacing-lg);
 }
 
+.cert-folder-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
 .cert-folder {
     background: var(--glass-bg);
     border: 2px solid var(--glass-border);
@@ -1602,6 +1608,8 @@ body {
     transition: all var(--transition-base);
     position: relative;
     overflow: hidden;
+    width: 100%;
+    height: 100%;
 }
 
 .cert-folder::before {
@@ -1684,6 +1692,318 @@ body {
 
 .cert-folder:hover p {
     color: var(--color-gray-light);
+}
+
+.folder-description {
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--glass-border);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--color-gray);
+    text-align: left;
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+.cert-folder:hover .folder-description {
+    color: var(--color-gray-light);
+}
+
+/* Info Button */
+.cert-info-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(6, 182, 212, 0.2);
+    border: 1px solid var(--color-primary);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    color: var(--color-primary);
+    padding: 0;
+    margin: 0;
+}
+
+.cert-folder-wrapper:hover .cert-info-btn {
+    opacity: 1;
+}
+
+.cert-info-btn:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.6);
+}
+
+.cert-info-btn i {
+    font-size: 1rem;
+}
+
+/* Course Info Modal */
+.course-info-modal {
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.course-info-content {
+    padding: var(--spacing-xl);
+}
+
+.course-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 2px solid var(--glass-border);
+}
+
+.course-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--spacing-md);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--color-white);
+    box-shadow: 0 10px 30px rgba(6, 182, 212, 0.3);
+}
+
+.course-header h2 {
+    font-size: 1.75rem;
+    color: var(--color-white);
+    margin-bottom: var(--spacing-xs);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.course-subtitle {
+    color: var(--color-gray);
+    font-size: 1rem;
+}
+
+.course-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.course-section h3 {
+    font-size: 1.25rem;
+    color: var(--color-white);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.course-section h3 i {
+    color: var(--color-primary);
+}
+
+.course-section p {
+    color: var(--color-gray-light);
+    line-height: 1.8;
+}
+
+.course-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.tool-badge {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: var(--spacing-xs) var(--spacing-md);
+    color: var(--color-gray-light);
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    transition: all 0.3s ease;
+}
+
+.tool-badge:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.tool-badge i {
+    color: var(--color-primary);
+}
+
+.course-skills-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-sm);
+}
+
+.course-skills-list li {
+    color: var(--color-gray-light);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs);
+}
+
+.course-skills-list li i {
+    color: var(--color-primary);
+    font-size: 0.875rem;
+}
+
+.course-progress {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.course-module {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.course-module.completed {
+    border-color: var(--color-primary);
+}
+
+.course-module.completed i {
+    color: var(--color-primary);
+    font-size: 1rem;
+}
+
+.course-module.upcoming i {
+    color: var(--color-gray);
+    font-size: 0.5rem;
+}
+
+.course-module span {
+    color: var(--color-gray-light);
+    flex: 1;
+}
+
+.course-module.completed span {
+    color: var(--color-white);
+}
+
+.progress-bar-container {
+    margin-top: var(--spacing-lg);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 30px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 0.5s ease;
+    position: relative;
+}
+
+.progress-text {
+    color: var(--color-white);
+    font-weight: 600;
+    font-size: 0.875rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+}
+
+.course-footer {
+    text-align: center;
+    padding-top: var(--spacing-lg);
+    border-top: 2px solid var(--glass-border);
+}
+
+.course-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: var(--color-white);
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(6, 182, 212, 0.3);
+}
+
+.course-link-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(6, 182, 212, 0.5);
+}
+
+.learning-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.highlight-item {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: var(--spacing-md);
+    transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(6, 182, 212, 0.2);
+}
+
+.highlight-item h4 {
+    font-size: 1rem;
+    color: var(--color-white);
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.highlight-item h4 i {
+    color: var(--color-primary);
+}
+
+.highlight-item p {
+    font-size: 0.875rem;
+    color: var(--color-gray-light);
+    line-height: 1.6;
 }
 
 .folder-view {
@@ -3137,5 +3457,59 @@ body {
 
     .github-stats {
         grid-template-columns: 1fr;
+    }
+
+    /* Course Info Modal Mobile Styles */
+    .course-info-modal {
+        max-width: 95%;
+        margin: 20px;
+    }
+
+    .course-info-content {
+        padding: var(--spacing-md);
+    }
+
+    .course-header h2 {
+        font-size: 1.25rem;
+    }
+
+    .course-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+
+    .course-section h3 {
+        font-size: 1.1rem;
+    }
+
+    .course-skills-list {
+        grid-template-columns: 1fr;
+    }
+
+    .tool-badge {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+
+    .progress-text {
+        font-size: 0.75rem;
+    }
+
+    .course-link-btn {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.875rem;
+    }
+
+    .learning-highlights {
+        grid-template-columns: 1fr;
+    }
+
+    .highlight-item h4 {
+        font-size: 0.95rem;
+    }
+
+    .highlight-item p {
+        font-size: 0.825rem;
     }
 }

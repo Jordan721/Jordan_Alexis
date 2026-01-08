@@ -202,6 +202,30 @@ function closeCertificatesModal() {
     document.getElementById('certView').style.display = 'none';
 }
 
+function openYearUpInfoModal() {
+    const modal = document.getElementById('yearUpInfoModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeYearUpInfoModal() {
+    const modal = document.getElementById('yearUpInfoModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function openCourseInfoModal() {
+    const modal = document.getElementById('courseInfoModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCourseInfoModal() {
+    const modal = document.getElementById('courseInfoModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
 function openCertFolder(category) {
     currentCategory = category;
     currentSlide = 0;

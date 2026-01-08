@@ -6,6 +6,30 @@ Previous versions live in the Trail folder. 📂
 
 ## 📅 Recent Updates
 
+### January 8, 2026 ℹ️✨
+Added interactive info modals to certification folders!
+
+**Certification Details:**
+- ℹ️ **Info Buttons** - Cyan circular info icons on Year Up United and Data Analytics folders
+- 📋 **Detailed Modals** - Comprehensive course/program information on click
+- 🎓 **Year Up United Modal** - App Dev track details with Java, Spring Boot, JetBrains, SQL integration
+- 📊 **Data Analytics Modal** - Google certificate course info with progress tracking (3 of 8 courses completed)
+- 🎨 **Learning Highlights** - Key learning areas in interactive cards (Java Ecosystem, Database Integration, Spring Boot, Enterprise Development)
+- 🛠️ **Technology Badges** - Visual display of tools learned (Java, SQL, R, Tableau, Excel, etc.)
+- ✅ **Skills Checklists** - Professional and technical skills with checkmarks
+- 📈 **Progress Bar** - Visual completion tracker for Data Analytics (37.5% complete)
+- 🔗 **External Links** - Direct links to Year Up United and Coursera
+- 📱 **Responsive Design** - Fully optimized for mobile and desktop viewing
+
+**Technical Implementation:**
+- Clean HTML structure with separate modals for each folder
+- Reusable CSS classes (`.course-info-modal`, `.learning-highlights`, `.tool-badge`)
+- JavaScript functions (`openYearUpInfoModal()`, `openCourseInfoModal()`)
+- Glass morphism design matching portfolio aesthetic
+- Fixed nested button issue with wrapper divs
+
+Perfect for recruiters and hiring managers who want detailed information about my certifications! 🎯
+
 ### January 7, 2026 🚀✨
 Added three major new features to showcase my work and career journey!
 
@@ -514,6 +538,153 @@ function filterExperienceByYear(year) {
 
 ---
 
+## ℹ️ Certification Info Modals
+
+Detailed program and course information at your fingertips! 🎓
+
+### 🎯 Overview
+Each certification folder now has an interactive info button (ℹ️) that opens a comprehensive modal with detailed information about the program or course. Perfect for recruiters and hiring managers who want to understand the depth of your training!
+
+### 🎓 Year Up United Info Modal
+
+**Program Details:**
+- 🚀 **Career Accelerator** - Intensive program partnering with 250+ leading corporations
+- 💻 **App Dev Track Focus** - Java-centered curriculum with enterprise development
+- 🛠️ **Technologies**: Java, JetBrains IDEs, SQL, Spring Boot, Java Libraries, Excel
+- ✅ **10 Technical Skills**: Core Java, OOP, JDBC, Spring Boot, RESTful APIs, Testing, etc.
+- 💼 **4 Professional Skills**: Business Writing, Public Speaking, Excel, Communication
+
+**Key Learning Areas** (Interactive Cards):
+1. **Java Ecosystem** 📚
+   - Deep dive into Java libraries and internal functions
+   - Effective usage in application development
+
+2. **Database Integration** 🗄️
+   - SQL interaction with Java applications
+   - JDBC connections and database operations
+
+3. **Spring Boot Development** 🌱
+   - Web application and RESTful API development
+   - Integrated database connectivity
+
+4. **Enterprise Development** 🏢
+   - Java's role in enterprise environments
+   - Building scalable, maintainable applications
+
+### 📊 Data Analytics Info Modal
+
+**Course Details:**
+- 📜 **Google Data Analytics Professional Certificate**
+- 🎯 **Job-Ready Skills** - Practical data cleaning, analysis, and visualization
+- 🛠️ **Technologies**: Spreadsheets, SQL, R, Tableau, RStudio
+- ✅ **9 Core Skills**: Data Cleaning, Analysis, Visualization, SQL, R Programming, etc.
+
+**Progress Tracking:**
+- 📈 **Visual Progress Bar** - Shows 37.5% completion (3 of 8 courses)
+- ✅ **Completed Courses** (highlighted in cyan):
+  1. Foundations: Data, Data, Everywhere
+  2. Ask Questions to Make Data-Driven Decisions
+  3. Prepare Data for Exploration
+- ⭕ **Upcoming Courses** (5 remaining):
+  - Process Data from Dirty to Clean
+  - Analyze Data to Answer Questions
+  - Share Data Through the Art of Visualization
+  - Data Analysis with R Programming
+  - Google Data Analytics Capstone
+
+### 🎨 Visual Design
+
+**Info Button:**
+- 🔵 Circular cyan button in top-right corner of folder
+- 💡 Subtle glow effect on hover
+- 🎯 Positioned absolutely to not interfere with folder click
+- ⚡ `event.stopPropagation()` prevents folder opening when clicking info
+
+**Modal Layout:**
+- 🎨 Glass morphism design matching portfolio aesthetic
+- 🌈 Gradient icon backgrounds (rocket for Year Up, chart for Data Analytics)
+- 📋 Organized sections with icons
+- 🏷️ Technology badges with hover effects
+- ✅ Checklist format for skills
+- 📊 Progress visualization for Data Analytics
+
+**Responsive Design:**
+- 📱 Smaller modal on mobile (95% width)
+- 📐 Single column layouts for skills and highlights
+- 🔤 Reduced font sizes for readability
+- 👆 Optimized touch targets
+
+### 🛠️ Technical Implementation
+
+**HTML Structure:**
+```html
+<div class="cert-folder-wrapper">
+    <button class="cert-folder" onclick="openCertFolder('yearup')">
+        <!-- Folder content -->
+    </button>
+    <div class="cert-info-btn" onclick="openYearUpInfoModal();" role="button">
+        <i class="fas fa-info-circle"></i>
+    </div>
+</div>
+```
+
+**CSS Classes:**
+```css
+.course-info-modal        /* Main modal container */
+.course-header           /* Title section with icon */
+.course-section          /* Each content section */
+.course-tools            /* Technology badge grid */
+.tool-badge              /* Individual tech badges */
+.course-skills-list      /* Skills checklist grid */
+.learning-highlights     /* Learning areas grid */
+.highlight-item          /* Individual highlight cards */
+.course-progress         /* Progress bar container */
+.course-module           /* Course module items */
+.progress-fill           /* Animated progress bar */
+```
+
+**JavaScript Functions:**
+```javascript
+// Year Up Modal
+function openYearUpInfoModal() {
+    const modal = document.getElementById('yearUpInfoModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeYearUpInfoModal() {
+    const modal = document.getElementById('yearUpInfoModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Data Analytics Modal
+function openCourseInfoModal() { /* ... */ }
+function closeCourseInfoModal() { /* ... */ }
+```
+
+### 💡 Why This Feature Rocks
+
+**For Recruiters:**
+- 📋 Instant access to detailed curriculum information
+- 🎯 Clear understanding of skills gained
+- 📊 Visual progress tracking for ongoing courses
+- 🔗 Direct links to official course pages
+
+**For You:**
+- 🎨 Professional presentation of credentials
+- 📱 Works perfectly on mobile during interviews
+- ✨ Engaging, interactive showcase
+- 🚀 Demonstrates attention to detail and UX skills
+
+**Design Philosophy:**
+- 🎯 Information on demand (not overwhelming the main page)
+- ⚡ Quick access without navigating away
+- 🎨 Consistent with overall portfolio aesthetic
+- 📱 Mobile-first responsive design
+
+---
+
 ## 📁 Certificate Folder System
 
 Your certs deserve their own filing cabinet! 🗄️ Click "View My Certifications" and you'll see gorgeous gradient folder cards for different categories. It's like a digital office but way cooler! 😎
@@ -1006,7 +1177,7 @@ Always evolving! More features and improvements coming based on new trends and i
 
 ---
 
-**Last Updated:** January 7, 2026 📅
+**Last Updated:** January 8, 2026 📅
 
 Made with 💻 and 🍫 by Jordan Alexis
 
