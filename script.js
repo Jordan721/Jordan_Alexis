@@ -194,12 +194,18 @@ function openCertificatesModal() {
 
 function closeCertificatesModal() {
     const modal = document.getElementById('certificatesModal');
+    const folderView = document.getElementById('folderView');
+    const certView = document.getElementById('certView');
+
     modal.classList.remove('active');
     document.body.style.overflow = '';
 
-    // Reset to folder view
-    document.getElementById('folderView').style.display = 'block';
-    document.getElementById('certView').style.display = 'none';
+    // Reset to folder view with proper styles
+    folderView.style.display = 'block';
+    folderView.style.opacity = '1';
+    folderView.style.transform = 'scale(1)';
+
+    certView.style.display = 'none';
 }
 
 function openYearUpInfoModal() {
