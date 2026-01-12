@@ -152,7 +152,7 @@ Numbers count up from 0 when section enters viewport for engaging reveal! ⚡
 - **2020** - 📊 Data Entry Specialist (B&A Appliances)
 - **2021** - 💻 Software Engineering Intern (Unadat)
 - **2023** - 🛍️ E-commerce Optimization (Tip Top Shoes)
-- **2025** - 🚀 Data Analytics Developer (Morgan Stanley) - Current!
+- **2025** - 🚀 Data Analytics Developer (Morgan Stanley)
 
 ### 📱 Mobile Responsive
 - Timeline moves to left side with all cards stacking vertically
