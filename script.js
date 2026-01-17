@@ -479,7 +479,9 @@ const gamificationState = {
     particles: localStorage.getItem('particles') === 'true',
     cardTilt: localStorage.getItem('cardTilt') === 'true',
     ripple: localStorage.getItem('ripple') !== 'false',
-    shapes3D: localStorage.getItem('shapes3D') === 'true'
+    shapes3D: localStorage.getItem('shapes3D') === 'true',
+    gradientMesh: localStorage.getItem('gradientMesh') !== 'false',
+    scanLines: localStorage.getItem('scanLines') !== 'false'
 };
 
 // Initialize settings from localStorage
@@ -489,6 +491,50 @@ function initializeGamificationSettings() {
     document.getElementById('cardTiltToggle').checked = gamificationState.cardTilt;
     document.getElementById('rippleToggle').checked = gamificationState.ripple;
     document.getElementById('shapes3DToggle').checked = gamificationState.shapes3D;
+
+    // Initialize gradient mesh toggle (mobile only)
+    const gradientMeshToggle = document.getElementById('gradientMeshToggle');
+    if (gradientMeshToggle) {
+        gradientMeshToggle.checked = gamificationState.gradientMesh;
+        applyGradientMeshState();
+    }
+
+    // Initialize scan lines toggle (mobile only)
+    const scanLinesToggle = document.getElementById('scanLinesToggle');
+    if (scanLinesToggle) {
+        scanLinesToggle.checked = gamificationState.scanLines;
+        applyScanLinesState();
+    }
+}
+
+// Toggle Gradient Mesh (mobile only)
+function toggleGradientMesh() {
+    gamificationState.gradientMesh = document.getElementById('gradientMeshToggle').checked;
+    localStorage.setItem('gradientMesh', gamificationState.gradientMesh);
+    applyGradientMeshState();
+}
+
+// Apply gradient mesh visibility
+function applyGradientMeshState() {
+    const gradientMesh = document.querySelector('.gradient-mesh');
+    if (gradientMesh) {
+        gradientMesh.style.display = gamificationState.gradientMesh ? '' : 'none';
+    }
+}
+
+// Toggle Scan Lines (mobile only)
+function toggleScanLines() {
+    gamificationState.scanLines = document.getElementById('scanLinesToggle').checked;
+    localStorage.setItem('scanLines', gamificationState.scanLines);
+    applyScanLinesState();
+}
+
+// Apply scan lines visibility
+function applyScanLinesState() {
+    const scanLines = document.querySelector('.scan-lines');
+    if (scanLines) {
+        scanLines.style.display = gamificationState.scanLines ? '' : 'none';
+    }
 }
 
 // Toggle Gamification Settings Panel
