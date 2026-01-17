@@ -6,6 +6,22 @@ Previous versions live in the Trail folder. 📂
 
 ## 📅 Recent Updates
 
+### January 16, 2026 🔲✨
+Replaced 3D Floating Shapes with a sleeker Animated Grid background effect!
+
+**New Animated Grid:**
+- 🔲 **Interactive Grid** - Subtle moving grid lines with glowing intersection points
+- 🖱️ **Mouse Responsive** - Grid brightens and intersections glow larger near your cursor
+- 🌊 **Wave Animation** - Gentle wave effect flows through the grid lines
+- 💜 **Gradient Glow** - Intersection points pulse with cyan-to-purple gradient
+- 🎨 **Canvas-Based** - Uses HTML5 Canvas for smooth 60fps performance
+- ⚡ **Optimized** - Minimal CPU usage, only runs when enabled
+
+**Why the change?**
+The new Animated Grid provides a cleaner, more professional tech aesthetic compared to the previous 3D shapes. It's subtle enough to not distract from content while still adding visual interest and interactivity.
+
+Toggle it on in the gamification panel to see the effect!
+
 ### January 8, 2026 ℹ️✨
 Added interactive info modals to certification folders!
 
@@ -49,12 +65,12 @@ Added three major new features to showcase my work and career journey!
   - Language color indicators
   - Positioned after Education section
 
-- 🎲 **3D Floating Shapes** - New gamification toggle for immersive effects
-  - Floating 3D cubes, pyramids, and spheres
-  - Smooth rotation and movement animations
+- 🔲 **Animated Grid** - Interactive grid background effect
+  - Subtle moving grid lines with glowing intersections
+  - Mouse-responsive - grid brightens near cursor
+  - Pulsing intersection points with cyan-purple gradient
   - Toggle on/off in gamification panel
-  - Desktop-only for performance
-  - Settings saved to localStorage
+  - Canvas-based for smooth 60fps performance
 
 **Navigation Updates:**
 - Updated floating nav to include Journey (after Experience) and Activity (after Education)
@@ -242,64 +258,58 @@ async function fetchGitHubActivity() {
 
 ---
 
-## 🎲 3D Floating Shapes
+## 🔲 Animated Grid Background
 
-Immersive 3D geometric shapes floating across your screen! 🌟
+A sleek, interactive grid effect that responds to your mouse! 🌟
 
-### 🎨 Shape Types
-- **🔷 Cubes** - 6-sided geometric shapes with transparent faces
-- **🔺 Pyramids** - Triangular polyhedra with base and sides
-- **⚪ Spheres** - Radial gradient orbs with glow effects
+### 🎨 Visual Design
+- **Grid Lines** - Subtle cyan grid lines that subtly breathe and move
+- **Glowing Intersections** - Each intersection point pulses with a cyan-to-purple gradient
+- **Wave Effect** - Gentle wave animation flows through the grid lines
+- **Mouse Glow** - Grid brightens as your cursor moves near it
 
-### ✨ Animations
-- **3D Rotation** - Shapes continuously rotate on X, Y, and Z axes
-- **Float Movement** - Complex path animations using translate3d
-- **Perspective** - CSS 3D transforms for depth perception
-- **Varied Speeds** - Each shape has unique animation duration (15-35 seconds)
-- **Random Positioning** - Shapes start at random screen positions
-- **Smooth Easing** - Ease-in-out timing for natural movement
+### ✨ Interactive Features
+- **Mouse Tracking** - Grid responds to cursor position in real-time
+- **Dynamic Brightness** - Intersections grow and glow brighter near the mouse
+- **Pulse Animation** - Each point has a unique pulse timing for organic feel
+- **Subtle Movement** - Grid slowly shifts position for living background effect
 
 ### 🎛️ User Control
-- Toggle on/off via gamification panel
+- Toggle on/off via gamification panel (under "Animated Grid")
 - Settings persist via localStorage
-- Dynamic creation/removal without page reload
-- Desktop-only feature (hidden on mobile for performance)
-- No impact on site performance when disabled
+- Dynamic enable/disable without page reload
+- Canvas element hidden when disabled (no performance impact)
 
 ### 🎯 Technical Details
 ```javascript
-function create3DShape(container, type) {
-    // Create 3D shape with CSS transforms
-    const shape = document.createElement('div');
+function createAnimatedGrid() {
+    const canvas = document.createElement('canvas');
+    canvas.id = 'gridCanvas';
 
-    if (type === 'cube') {
-        // 6 faces with CSS 3D positioning
-        shape.innerHTML = `
-            <div class="cube-face front"></div>
-            <div class="cube-face back"></div>
-            <!-- 4 more faces... -->
-        `;
+    function drawGrid() {
+        // Draw grid lines with distance-based opacity
+        for (let x = offsetX % gridSize; x < width; x += gridSize) {
+            const dist = Math.sqrt(distX * distX + distY * distY);
+            let alpha = dist < glowRadius ? 0.1 + (1 - dist / glowRadius) * 0.4 : 0.1;
+            ctx.fillStyle = `rgba(6, 182, 212, ${alpha})`;
+        }
+
+        // Draw glowing intersection points
+        const gradient = ctx.createRadialGradient(x, y, 0, x, y, glowSize * 3);
+        gradient.addColorStop(0, `rgba(6, 182, 212, ${alpha})`);
+        gradient.addColorStop(0.5, `rgba(139, 92, 246, ${alpha * 0.5})`);
+
+        requestAnimationFrame(drawGrid);
     }
-
-    // Add complex 3D animation
-    shape.style.animation = `float-3d ${duration}s infinite, rotate-cube ${speed}s infinite`;
 }
 ```
 
-### 🎨 Visual Design
-- **Transparent** - Semi-transparent (opacity: 0.6) for subtle effect
-- **Colored Borders** - Cyan borders on cubes, purple on pyramids
-- **Glow Effects** - Box shadows create luminous appearance
-- **Layered Depth** - z-index: 1 keeps shapes behind content
-- **Blur Background** - Backdrop blur for glass morphism
-- **Gradient Colors** - Matches site color scheme (cyan/purple/orange)
-
 ### 📱 Performance
-- **Hardware Accelerated** - Uses CSS transforms (not positions)
-- **Conditional Loading** - Only creates shapes when toggle is ON
-- **Clean Removal** - Fully removes DOM elements when disabled
-- **Desktop Only** - Mobile devices skip creation for better performance
-- **Smooth 60fps** - GPU-accelerated animations maintain frame rate
+- **Canvas-Based** - Uses HTML5 Canvas for efficient rendering
+- **60fps Smooth** - requestAnimationFrame for optimal frame rate
+- **Conditional Loading** - Only runs animation loop when enabled
+- **Low CPU Usage** - Optimized drawing with minimal calculations
+- **Responsive** - Automatically resizes with window
 
 ---
 
@@ -343,11 +353,11 @@ Interactive control panel with individual toggles for each effect:
    - Smooth scale animation with fade-out
    - Dynamic positioning from click location
 
-5. **🎲 3D Floating Shapes** (NEW!)
-   - Floating geometric 3D shapes (cubes, pyramids, spheres)
-   - Complex 3D rotation and movement animations
-   - Transparent with colored borders and glow effects
-   - Desktop-only for optimal performance
+5. **🔲 Animated Grid**
+   - Interactive grid background with glowing intersections
+   - Mouse-responsive brightness and glow effects
+   - Pulsing points with cyan-purple gradient
+   - Canvas-based for smooth 60fps performance
    - Toggle on/off dynamically
 
 6. **🎨 Icon Color Change**
@@ -419,7 +429,7 @@ const gamificationState = {
     particles: localStorage.getItem('particles') !== 'false',
     cardTilt: localStorage.getItem('cardTilt') !== 'false',
     ripple: localStorage.getItem('ripple') !== 'false',
-    shapes3D: localStorage.getItem('shapes3D') === 'true', // NEW!
+    shapes3D: localStorage.getItem('shapes3D') === 'true', // Animated Grid
     iconColor: localStorage.getItem('iconColor') !== 'false'
 };
 ```
@@ -1177,10 +1187,10 @@ Always evolving! More features and improvements coming based on new trends and i
 
 ---
 
-**Last Updated:** January 8, 2026 📅
+**Last Updated:** January 16, 2026 📅
 
 Made with 💻 and 🍫 by Jordan Alexis
 
 P.S. - Click those folders, they're fun! 📁✨
 P.P.S. - Don't forget to check out the gamification toggle! 🎮
-P.P.P.S. - Try the 3D shapes toggle for an immersive experience! 🎲
+P.P.P.S. - Try the Animated Grid toggle for a sleek tech vibe! 🔲

@@ -984,27 +984,33 @@ if (document.readyState === 'loading') {
     initJourneyTimeline();
 }
 
-// 3D Floating Shapes
+// Animated Grid Background
 function toggle3DShapes() {
     gamificationState.shapes3D = document.getElementById('shapes3DToggle').checked;
     localStorage.setItem('shapes3D', gamificationState.shapes3D);
 
-    const shapesContainer = document.querySelector('.shapes-3d-container');
+    const gridCanvas = document.getElementById('gridCanvas');
     if (gamificationState.shapes3D) {
-        if (!shapesContainer) {
-            create3DShapes();
+        if (!gridCanvas) {
+            createAnimatedGrid();
+        } else {
+            gridCanvas.style.display = 'block';
         }
     } else {
-        if (shapesContainer) {
-            shapesContainer.remove();
+        if (gridCanvas) {
+            gridCanvas.style.display = 'none';
         }
     }
 }
 
-function create3DShapes() {
-    const shapesContainer = document.createElement('div');
-    shapesContainer.className = 'shapes-3d-container';
-    shapesContainer.style.cssText = `
+// Animated Grid Effect
+let gridAnimation = null;
+
+function createAnimatedGrid() {
+    // Create canvas element
+    const canvas = document.createElement('canvas');
+    canvas.id = 'gridCanvas';
+    canvas.style.cssText = `
         position: fixed;
         top: 0;
         left: 0;
@@ -1012,160 +1018,137 @@ function create3DShapes() {
         height: 100%;
         pointer-events: none;
         z-index: 1;
-        perspective: 1000px;
+        opacity: 0.6;
     `;
+    document.body.insertBefore(canvas, document.body.firstChild);
 
-    document.body.appendChild(shapesContainer);
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let mouseX = 0, mouseY = 0;
+    let time = 0;
 
-    // Create different 3D shapes
-    const shapes = [
-        { type: 'cube', count: 3 },
-        { type: 'pyramid', count: 3 },
-        { type: 'sphere', count: 4 }
-    ];
+    // Grid settings
+    const gridSize = 60;
+    const glowRadius = 150;
 
-    shapes.forEach(shapeType => {
-        for (let i = 0; i < shapeType.count; i++) {
-            create3DShape(shapesContainer, shapeType.type);
-        }
-    });
-}
-
-function create3DShape(container, type) {
-    const shape = document.createElement('div');
-    const size = Math.random() * 60 + 40;
-    const startX = Math.random() * window.innerWidth;
-    const startY = Math.random() * window.innerHeight;
-    const duration = Math.random() * 20 + 15;
-    const delay = Math.random() * 5;
-    const rotationSpeed = Math.random() * 10 + 5;
-
-    shape.className = `shape-3d shape-${type}`;
-    shape.style.cssText = `
-        position: absolute;
-        width: ${size}px;
-        height: ${size}px;
-        left: ${startX}px;
-        top: ${startY}px;
-        animation: float-3d ${duration}s ${delay}s infinite ease-in-out;
-        transform-style: preserve-3d;
-    `;
-
-    // Create shape based on type
-    if (type === 'cube') {
-        shape.innerHTML = `
-            <div class="cube-face front"></div>
-            <div class="cube-face back"></div>
-            <div class="cube-face right"></div>
-            <div class="cube-face left"></div>
-            <div class="cube-face top"></div>
-            <div class="cube-face bottom"></div>
-        `;
-        shape.style.animation += `, rotate-cube ${rotationSpeed}s linear infinite`;
-    } else if (type === 'pyramid') {
-        shape.innerHTML = `
-            <div class="pyramid-face base"></div>
-            <div class="pyramid-face side1"></div>
-            <div class="pyramid-face side2"></div>
-            <div class="pyramid-face side3"></div>
-            <div class="pyramid-face side4"></div>
-        `;
-        shape.style.animation += `, rotate-pyramid ${rotationSpeed}s linear infinite`;
-    } else if (type === 'sphere') {
-        shape.style.borderRadius = '50%';
-        shape.style.background = 'radial-gradient(circle at 30% 30%, rgba(6, 182, 212, 0.3), rgba(139, 92, 246, 0.2))';
-        shape.style.boxShadow = '0 0 30px rgba(6, 182, 212, 0.4)';
-        shape.style.animation += `, rotate-sphere ${rotationSpeed}s linear infinite`;
+    function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
     }
 
-    container.appendChild(shape);
+    function drawGrid() {
+        ctx.clearRect(0, 0, width, height);
+        time += 0.01;
+
+        // Calculate grid offset for subtle movement
+        const offsetX = Math.sin(time * 0.5) * 10;
+        const offsetY = Math.cos(time * 0.3) * 10;
+
+        // Draw vertical lines
+        for (let x = offsetX % gridSize; x < width; x += gridSize) {
+            const distX = Math.abs(x - mouseX);
+
+            for (let y = 0; y < height; y += 2) {
+                const distY = Math.abs(y - mouseY);
+                const dist = Math.sqrt(distX * distX + distY * distY);
+
+                // Calculate opacity based on distance from mouse
+                let alpha = 0.1;
+                if (dist < glowRadius) {
+                    alpha = 0.1 + (1 - dist / glowRadius) * 0.4;
+                }
+
+                // Add wave effect
+                const wave = Math.sin((y + time * 50) * 0.02) * 0.05;
+                alpha += wave;
+
+                ctx.fillStyle = `rgba(6, 182, 212, ${Math.max(0.05, Math.min(0.5, alpha))})`;
+                ctx.fillRect(x, y, 1, 1);
+            }
+        }
+
+        // Draw horizontal lines
+        for (let y = offsetY % gridSize; y < height; y += gridSize) {
+            const distY = Math.abs(y - mouseY);
+
+            for (let x = 0; x < width; x += 2) {
+                const distX = Math.abs(x - mouseX);
+                const dist = Math.sqrt(distX * distX + distY * distY);
+
+                let alpha = 0.1;
+                if (dist < glowRadius) {
+                    alpha = 0.1 + (1 - dist / glowRadius) * 0.4;
+                }
+
+                const wave = Math.sin((x + time * 50) * 0.02) * 0.05;
+                alpha += wave;
+
+                ctx.fillStyle = `rgba(6, 182, 212, ${Math.max(0.05, Math.min(0.5, alpha))})`;
+                ctx.fillRect(x, y, 1, 1);
+            }
+        }
+
+        // Draw intersection points with glow
+        for (let x = offsetX % gridSize; x < width; x += gridSize) {
+            for (let y = offsetY % gridSize; y < height; y += gridSize) {
+                const distX = Math.abs(x - mouseX);
+                const distY = Math.abs(y - mouseY);
+                const dist = Math.sqrt(distX * distX + distY * distY);
+
+                // Base glow
+                let glowSize = 2;
+                let alpha = 0.3;
+
+                // Enhanced glow near mouse
+                if (dist < glowRadius) {
+                    const intensity = 1 - dist / glowRadius;
+                    glowSize = 2 + intensity * 6;
+                    alpha = 0.3 + intensity * 0.7;
+                }
+
+                // Pulse effect
+                const pulse = Math.sin(time * 2 + x * 0.01 + y * 0.01) * 0.2 + 0.8;
+                glowSize *= pulse;
+
+                // Draw outer glow
+                const gradient = ctx.createRadialGradient(x, y, 0, x, y, glowSize * 3);
+                gradient.addColorStop(0, `rgba(6, 182, 212, ${alpha})`);
+                gradient.addColorStop(0.5, `rgba(139, 92, 246, ${alpha * 0.5})`);
+                gradient.addColorStop(1, 'rgba(6, 182, 212, 0)');
+
+                ctx.beginPath();
+                ctx.arc(x, y, glowSize * 3, 0, Math.PI * 2);
+                ctx.fillStyle = gradient;
+                ctx.fill();
+
+                // Draw center point
+                ctx.beginPath();
+                ctx.arc(x, y, glowSize, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+                ctx.fill();
+            }
+        }
+
+        gridAnimation = requestAnimationFrame(drawGrid);
+    }
+
+    // Track mouse position
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    // Handle resize
+    window.addEventListener('resize', resize);
+
+    // Initialize
+    resize();
+    drawGrid();
 }
 
-// Add CSS for 3D shapes if not already added
-if (!document.getElementById('shapes-3d-styles')) {
-    const style = document.createElement('style');
-    style.id = 'shapes-3d-styles';
-    style.textContent = `
-        @keyframes float-3d {
-            0%, 100% {
-                transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
-            }
-            25% {
-                transform: translate3d(100px, -100px, 100px) rotateX(90deg) rotateY(90deg);
-            }
-            50% {
-                transform: translate3d(200px, 0, 0) rotateX(180deg) rotateY(180deg);
-            }
-            75% {
-                transform: translate3d(100px, 100px, -100px) rotateX(270deg) rotateY(270deg);
-            }
-        }
-
-        @keyframes rotate-cube {
-            from { transform: rotateX(0deg) rotateY(0deg); }
-            to { transform: rotateX(360deg) rotateY(360deg); }
-        }
-
-        @keyframes rotate-pyramid {
-            from { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
-            to { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
-        }
-
-        @keyframes rotate-sphere {
-            from { transform: rotateY(0deg); }
-            to { transform: rotateY(360deg); }
-        }
-
-        .shape-3d {
-            opacity: 0.6;
-        }
-
-        .cube-face {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: rgba(6, 182, 212, 0.2);
-            border: 1px solid rgba(6, 182, 212, 0.5);
-            box-shadow: inset 0 0 20px rgba(6, 182, 212, 0.3);
-        }
-
-        .cube-face.front  { transform: translateZ(calc(var(--size) / 2)); }
-        .cube-face.back   { transform: rotateY(180deg) translateZ(calc(var(--size) / 2)); }
-        .cube-face.right  { transform: rotateY(90deg) translateZ(calc(var(--size) / 2)); }
-        .cube-face.left   { transform: rotateY(-90deg) translateZ(calc(var(--size) / 2)); }
-        .cube-face.top    { transform: rotateX(90deg) translateZ(calc(var(--size) / 2)); }
-        .cube-face.bottom { transform: rotateX(-90deg) translateZ(calc(var(--size) / 2)); }
-
-        .pyramid-face {
-            position: absolute;
-            background: rgba(139, 92, 246, 0.2);
-            border: 1px solid rgba(139, 92, 246, 0.5);
-            box-shadow: inset 0 0 20px rgba(139, 92, 246, 0.3);
-        }
-
-        .pyramid-face.base {
-            width: 100%;
-            height: 100%;
-            transform: translateY(50%);
-        }
-
-        .pyramid-face.side1,
-        .pyramid-face.side2,
-        .pyramid-face.side3,
-        .pyramid-face.side4 {
-            width: 0;
-            height: 0;
-            border-left: 50px solid transparent;
-            border-right: 50px solid transparent;
-            border-bottom: 86px solid rgba(139, 92, 246, 0.3);
-        }
-    `;
-    document.head.appendChild(style);
-}
-
-// Initialize 3D shapes if enabled
+// Initialize animated grid if enabled
 if (gamificationState.shapes3D) {
-    create3DShapes();
+    createAnimatedGrid();
 }
 
 // GitHub Activity Feed
