@@ -2763,6 +2763,11 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* Hide mobile-only options on desktop */
+.option-item.mobile-only {
+    display: none;
+}
+
 .option-item:last-of-type {
     border-bottom: none;
 }
