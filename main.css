@@ -2236,11 +2236,32 @@ body {
 .progress-fill {
     height: 100%;
     background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    background-size: 200% 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: width 0.5s ease;
     position: relative;
+    width: 0;
+    animation: progressFillWidth 1.5s ease-out forwards, progressShimmer 2s ease-in-out infinite;
+    animation-delay: 0.3s, 1.8s;
+}
+
+@keyframes progressFillWidth {
+    from {
+        width: 0;
+    }
+    to {
+        width: var(--target-width, 50%);
+    }
+}
+
+@keyframes progressShimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
 }
 
 .progress-text {
