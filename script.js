@@ -232,6 +232,16 @@ function closeCourseInfoModal() {
     document.body.style.overflow = '';
 }
 
+// Toggle course module details dropdown
+function toggleCourseDetails(element) {
+    const wrapper = element.parentElement;
+    const details = wrapper.querySelector('.course-module-details');
+
+    // Toggle expanded class on both the module and details
+    element.classList.toggle('expanded');
+    details.classList.toggle('expanded');
+}
+
 function openCertFolder(category) {
     currentCategory = category;
     currentSlide = 0;
