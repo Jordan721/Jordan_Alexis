@@ -153,32 +153,101 @@ function initScrollAnimations() {
         });
     }, observerOptions);
 
-    // Observe timeline items
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    timelineItems.forEach((item, index) => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(30px)';
-        item.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-        observer.observe(item);
-    });
+    // Helper to stagger-animate a group of elements
+    function staggerObserve(selector, delay = 0.1) {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = `opacity 0.6s ease ${index * delay}s, transform 0.6s ease ${index * delay}s`;
+            observer.observe(el);
+        });
+    }
 
-    // Observe education cards
-    const educationCards = document.querySelectorAll('.education-card');
-    educationCards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-        observer.observe(card);
-    });
+    // Observe all key sections with staggered delays
+    staggerObserve('.timeline-item', 0.1);
+    staggerObserve('.education-card', 0.12);
+    staggerObserve('.skill-category', 0.1);
+    staggerObserve('.feature-card', 0.15);
+    staggerObserve('.contact-btn', 0.1);
+    staggerObserve('.section-header', 0.05);
 
-    // Observe skill categories
-    const skillCards = document.querySelectorAll('.skill-category');
-    skillCards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-        observer.observe(card);
+    // Hero parallax depth on scroll
+    initHeroParallax();
+
+    // Scroll-progress animations
+    initScrollProgress();
+}
+
+// Hero parallax - text shifts on scroll for depth effect (scroll indicator stays fixed)
+function initHeroParallax() {
+    const hero = document.querySelector('.hero');
+    const heroText = document.querySelector('.hero-text');
+    if (!hero || !heroText) return;
+
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        const heroHeight = hero.offsetHeight;
+
+        if (scrollY < heroHeight) {
+            const progress = scrollY / heroHeight;
+            heroText.style.transform = `translateY(${scrollY * 0.3}px)`;
+            heroText.style.opacity = 1 - progress * 1.2;
+        }
+    }, { passive: true });
+}
+
+// Scroll-progress: animate counters and progress elements when in view
+function initScrollProgress() {
+    const progressObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.dataset.animated) {
+                entry.target.dataset.animated = 'true';
+                animateCounter(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    // Observe stat numbers for counter animation
+    const statNumbers = document.querySelectorAll('.stat-number');
+    statNumbers.forEach(stat => progressObserver.observe(stat));
+
+    // Observe progress bars for fill animation
+    const progressBars = document.querySelectorAll('.progress-fill');
+    progressBars.forEach(bar => {
+        const targetWidth = bar.style.getPropertyValue('--target-width');
+        bar.style.width = '0%';
+        const barObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.dataset.animated) {
+                    entry.target.dataset.animated = 'true';
+                    entry.target.style.transition = 'width 1.5s ease-out';
+                    entry.target.style.width = targetWidth;
+                }
+            });
+        }, { threshold: 0.5 });
+        barObserver.observe(bar);
     });
+}
+
+function animateCounter(element) {
+    const text = element.textContent;
+    const match = text.match(/(\d+)/);
+    if (!match) return;
+
+    const target = parseInt(match[0]);
+    const suffix = text.replace(match[0], '');
+    const prefix = text.substring(0, text.indexOf(match[0]));
+    let current = 0;
+    const increment = target / 40;
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            current = target;
+            clearInterval(timer);
+        }
+        element.textContent = prefix + Math.floor(current) + suffix;
+    }, 30);
 }
 
 // certificates modal
