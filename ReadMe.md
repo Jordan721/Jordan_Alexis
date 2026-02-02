@@ -586,8 +586,8 @@ Each certification folder now has an interactive info button (ℹ️) that opens
 **Course Details:**
 - 📜 **Google Data Analytics Professional Certificate**
 - 🎯 **Job-Ready Skills** - Practical data cleaning, analysis, and visualization
-- 🛠️ **Technologies**: Spreadsheets, SQL, R, Tableau, RStudio
-- ✅ **9 Core Skills**: Data Cleaning, Analysis, Visualization, SQL, R Programming, etc.
+- 🛠️ **Technologies**: Spreadsheets, SQL, Python, Tableau, Jupyter Notebooks, NumPy, Pandas
+- ✅ **9 Core Skills**: Data Cleaning, Analysis, Visualization, SQL, Python, etc.
 
 **Progress Tracking:**
 - 📈 **Visual Progress Bar** - Shows 37.5% completion (3 of 8 courses)
@@ -599,7 +599,7 @@ Each certification folder now has an interactive info button (ℹ️) that opens
   - Process Data from Dirty to Clean
   - Analyze Data to Answer Questions
   - Share Data Through the Art of Visualization
-  - Data Analysis with R Programming
+  - Introduction to Data Analysis Using Python
   - Google Data Analytics Capstone
 
 ### 🎨 Visual Design
