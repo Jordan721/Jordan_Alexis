@@ -1,5 +1,5 @@
 /* Main.css */
- :root {
+:root {
     /* Professional Color Palette */
     --color-primary: #06b6d4;
     --color-primary-dark: #0891b2;
@@ -724,7 +724,7 @@ body {
     box-shadow: 0 0 20px rgba(245, 158, 11, 0.6);
 }
 
-.nav-dot[data-section="skills"].active {
+.nav-dot[data-section="arsenal"].active {
     background: #10b981;
     border-color: #10b981;
     box-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
@@ -1884,6 +1884,176 @@ body {
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3), 0 0 20px rgba(139, 92, 246, 0.15);
     z-index: 10;
+}
+
+/* ── Tag Cloud (desktop) & Arsenal Legend ── */
+
+.arsenal-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xl);
+}
+
+.legend-item {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 0.4rem 1.1rem;
+    font-size: 0.85rem;
+    color: var(--color-gray-light);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    font-family: var(--font-primary);
+}
+
+.legend-item:hover {
+    border-color: var(--cat-color, var(--color-primary));
+    color: var(--cat-color, var(--color-primary));
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+.legend-item.active {
+    background: var(--cat-color, var(--color-primary));
+    border-color: var(--cat-color, var(--color-primary));
+    color: var(--color-dark);
+    font-weight: 600;
+    box-shadow: 0 0 16px rgba(6, 182, 212, 0.25);
+}
+
+/* Tag Cloud Container */
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    padding: var(--spacing-lg) 0;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Individual Cloud Tag */
+.cloud-tag {
+    display: inline-block;
+    padding: 0.45rem 1rem;
+    border-radius: 20px;
+    border: 1px solid var(--tag-color, var(--color-primary));
+    color: var(--tag-color, var(--color-primary));
+    background: rgba(0, 0, 0, 0.15);
+    cursor: default;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    animation: tagFloat 6s ease-in-out infinite;
+    animation-delay: var(--float-delay, 0s);
+    white-space: nowrap;
+}
+
+.cloud-tag.size-sm {
+    font-size: 0.78rem;
+    padding: 0.35rem 0.8rem;
+}
+
+.cloud-tag.size-md {
+    font-size: 0.92rem;
+    padding: 0.45rem 1rem;
+    font-weight: 500;
+}
+
+.cloud-tag.size-lg {
+    font-size: 1.12rem;
+    padding: 0.55rem 1.25rem;
+    font-weight: 600;
+    border-width: 1.5px;
+}
+
+/* Hover glow effect */
+.cloud-tag:hover {
+    transform: translateY(-5px) scale(1.12);
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow:
+        0 0 12px var(--tag-color),
+        0 0 30px rgba(0, 0, 0, 0.2),
+        inset 0 0 8px rgba(255, 255, 255, 0.05);
+    border-color: var(--tag-color);
+    color: #fff;
+    z-index: 10;
+}
+
+/* Filtered out state */
+.cloud-tag.filtered-out {
+    opacity: 0.08;
+    transform: scale(0.9);
+    pointer-events: none;
+}
+
+/* Staggered entrance animation */
+.cloud-tag.tag-enter {
+    animation: tagEnter 0.5s ease forwards;
+    animation-delay: var(--enter-delay, 0s);
+    opacity: 0;
+    transform: translateY(15px) scale(0.85);
+}
+
+@keyframes tagEnter {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Subtle idle float */
+@keyframes tagFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+/* Vary float speed via nth-child for organic feel */
+.cloud-tag:nth-child(5n) {
+    animation-duration: 7s;
+}
+
+.cloud-tag:nth-child(7n) {
+    animation-duration: 5s;
+}
+
+.cloud-tag:nth-child(11n) {
+    animation-duration: 8s;
+}
+
+/* Desktop: show tag cloud, hide accordion */
+@media (min-width: 769px) {
+    .tag-cloud {
+        display: flex;
+    }
+
+    .skills-controls,
+    .skills-container {
+        display: none;
+    }
+}
+
+/* Mobile: show accordion, hide tag cloud & legend */
+@media (max-width: 768px) {
+
+    .tag-cloud,
+    .arsenal-legend {
+        display: none;
+    }
+
+    .skills-controls,
+    .skills-container {
+        display: flex;
+    }
 }
 
 /* education section */

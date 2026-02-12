@@ -1,7 +1,7 @@
 // Scroll Navigation
 document.addEventListener('DOMContentLoaded', () => {
     initScrollNavigation();
-    initSkillCategories();
+    initTagCloud();
     initScrollAnimations();
 });
 
@@ -134,6 +134,66 @@ function toggleAllSkills() {
     }, 75);
 }
 
+// tag cloud filter & animation
+
+function initTagCloud() {
+    const legend = document.querySelector('.arsenal-legend');
+    const tags = document.querySelectorAll('.cloud-tag');
+
+    if (!legend || !tags.length) return;
+
+    // Assign staggered float delays for organic movement
+    tags.forEach((tag, i) => {
+        tag.style.setProperty('--float-delay', (Math.random() * 5).toFixed(2) + 's');
+    });
+
+    // Staggered entrance on first scroll into view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                tags.forEach((tag, i) => {
+                    const delay = i * 0.025;
+                    tag.classList.add('tag-enter');
+                    tag.style.setProperty('--enter-delay', delay.toFixed(3) + 's');
+                    // Remove entrance class after it finishes so float animation resumes
+                    setTimeout(() => tag.classList.remove('tag-enter'), (delay + 0.5) * 1000);
+                });
+                observer.disconnect();
+            }
+        });
+    }, {
+        threshold: 0.15
+    });
+
+    const cloud = document.querySelector('.tag-cloud');
+    if (cloud) observer.observe(cloud);
+
+    // Category filter
+    legend.addEventListener('click', (e) => {
+        const btn = e.target.closest('.legend-item');
+        if (!btn) return;
+
+        const category = btn.dataset.category;
+
+        // Update active legend button
+        legend.querySelectorAll('.legend-item').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Filter tags
+        if (category === 'all') {
+            tags.forEach(tag => tag.classList.remove('filtered-out'));
+        } else {
+            tags.forEach(tag => {
+                if (tag.dataset.category === category) {
+                    tag.classList.remove('filtered-out');
+                } else {
+                    tag.classList.add('filtered-out');
+                }
+            });
+        }
+    });
+}
+
 // scroll animations
 
 function initScrollAnimations() {
@@ -194,7 +254,9 @@ function initHeroParallax() {
             heroText.style.transform = `translateY(${scrollY * 0.3}px)`;
             heroText.style.opacity = 1 - progress * 1.2;
         }
-    }, { passive: true });
+    }, {
+        passive: true
+    });
 }
 
 // Scroll-progress: animate counters and progress elements when in view
@@ -206,7 +268,9 @@ function initScrollProgress() {
                 animateCounter(entry.target);
             }
         });
-    }, { threshold: 0.5 });
+    }, {
+        threshold: 0.5
+    });
 
     // Observe stat numbers for counter animation
     const statNumbers = document.querySelectorAll('.stat-number');
@@ -225,7 +289,9 @@ function initScrollProgress() {
                     entry.target.style.width = targetWidth;
                 }
             });
-        }, { threshold: 0.5 });
+        }, {
+            threshold: 0.5
+        });
         barObserver.observe(bar);
     });
 }
@@ -472,7 +538,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Throttle function for scroll events
 function throttle(func, limit) {
     let inThrottle;
-    return function() {
+    return function () {
         const args = arguments;
         const context = this;
         if (!inThrottle) {
@@ -631,7 +697,7 @@ function toggleGamificationSettings() {
 }
 
 // Close panel when clicking outside
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function (e) {
     const panel = document.getElementById('gamificationPanel');
     const toggle = document.getElementById('gamificationToggle');
 
@@ -717,7 +783,7 @@ document.addEventListener('DOMContentLoaded', () => {
 let cursorTrail = [];
 const maxTrailLength = 15;
 
-document.addEventListener('mousemove', function(e) {
+document.addEventListener('mousemove', function (e) {
     if (window.innerWidth > 768 && gamificationState.cursorTrail) { // Only on desktop and if enabled
         createCursorDot(e.pageX, e.pageY);
     }
@@ -831,7 +897,7 @@ if (gamificationState.particles) {
 const glassCards = document.querySelectorAll('.glass-card');
 
 glassCards.forEach(card => {
-    card.addEventListener('mousemove', function(e) {
+    card.addEventListener('mousemove', function (e) {
         if (window.innerWidth <= 768 || !gamificationState.cardTilt) return; // Skip on mobile or if disabled
 
         const rect = this.getBoundingClientRect();
@@ -847,13 +913,13 @@ glassCards.forEach(card => {
         this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     });
 
-    card.addEventListener('mouseleave', function() {
+    card.addEventListener('mouseleave', function () {
         this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
     });
 });
 
 // Ripple Click Effect (Desktop Only)
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function (e) {
     if (window.innerWidth <= 768) return; // Skip on mobile
 
     const button = e.target.closest('.btn, .contact-btn, .download-btn, .view-cert-btn, .feature-card');
@@ -1149,7 +1215,8 @@ function createAnimatedGrid() {
 
     const ctx = canvas.getContext('2d');
     let width, height;
-    let mouseX = 0, mouseY = 0;
+    let mouseX = 0,
+        mouseY = 0;
     let time = 0;
 
     // Grid settings
