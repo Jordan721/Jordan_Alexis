@@ -6,6 +6,25 @@ Previous versions live in the Trail folder. 📂
 
 ## 📅 Recent Updates
 
+### February 13, 2026 🧱✨
+Swapped the horizontal timeline for a bento grid and upgraded Tech Arsenal filtering!
+
+**Experience Section — Bento Grid:**
+- 🧱 **Bento Layout** - Replaced horizontal scrolling timeline with a CSS Grid bento layout — everything visible at a glance
+- 🔥 **Featured Card** - Morgan Stanley role gets a large 2-column card with green accent and "Latest" badge
+- 📐 **Mixed Sizes** - Large (2-col) for key roles, medium and small for others — visual hierarchy at a glance
+- 🏷️ **Year Badges** - Each card has a pill-style year badge in the top-right corner
+- 🎯 **Click to Expand** - Job cards still expand to show bullet details, only the clicked card grows (neighbors stay put)
+- 📂 **Expand All** - Still works to open/close all job cards at once
+- 🔍 **Filters Preserved** - Year and type filters still work, hiding non-matching cards from the grid
+- 📱 **Mobile** - Collapses to a single-column stack on small screens
+
+**Tech Arsenal — Filter Upgrade:**
+- 🚫 **Hide Non-Matching Tags** - Filtered-out tags now fully disappear instead of fading to near-invisible
+- ⬆️ **Reflow** - Remaining tags move up to fill the space, no empty gaps left behind
+- 💫 **Pop-In Animation** - Matching tags re-enter with a staggered bouncy pop-in effect
+- 🔄 **Two-Phase Transition** - Tags fade out and shrink first (300ms), then get removed from layout and matching tags pop in
+
 ### February 12, 2026 🔥✨
 Major portfolio redesign — restructured sections, new interactions, and a cleaner experience!
 
@@ -18,13 +37,13 @@ Major portfolio redesign — restructured sections, new interactions, and a clea
 - 🎨 **Glass Card Styling** - Consistent hover lift and glow effects
 
 **Experience Section (Merged with Career Journey):**
-- 🔀 **Merged Sections** - Combined Work Experience and Career Journey Timeline into one horizontal timeline
-- ⏳ **Horizontal Scroll Timeline** - Chronological cards from 2014–2025 with left/right arrow navigation
+- 🔀 **Merged Sections** - Combined Work Experience and Career Journey into a bento grid layout
+- 🧱 **Bento Grid** - Mixed-size cards visible at a glance — no scrolling needed
 - 📊 **Stats Bar** - Animated counters for Years, Organizations, Degrees, and Certs
 - 🏷️ **Two Card Types** - Job cards (expandable with bullet points) and milestone cards (key career moments)
 - 🔍 **Dual Filters** - Filter by year and by type (Jobs vs Milestones), both work independently
 - 📂 **Expand All Button** - One-click to expand/collapse all job card details
-- 📱 **Mobile Fallback** - Switches to vertical timeline layout on small screens
+- 📱 **Mobile Fallback** - Collapses to single-column stack on small screens
 
 **Tech Arsenal (formerly Skills & Competencies):**
 - ☁️ **Interactive Tag Cloud** - Desktop shows floating, filterable skill tags with category colors
@@ -184,15 +203,15 @@ Implemented interactive certificate carousel with responsive design and multiple
 
 ---
 
-## 🗺️ Career Journey Timeline
+## 🧱 Experience Bento Grid
 
-A beautiful, interactive timeline visualizing your professional journey from 2014 to present! 🚀
+A glanceable, modern bento grid showcasing your professional journey from 2014 to present! 🚀
 
 ### ✨ Visual Design
-- **Animated Timeline Line** - Gradient line (cyan → purple → orange) that draws from top to bottom as you scroll
-- **Color-Coded Milestones** - Purple dots for education, cyan dots for work, orange glow for current position
-- **Alternating Layout** - Cards alternate left/right on desktop for visual interest
-- **Pulsing Dots** - Each milestone dot has a gentle pulsing animation with colored glow
+- **Bento Layout** - CSS Grid with mixed-size cards for visual hierarchy
+- **Featured Card** - Latest role (Morgan Stanley) spans 2 columns with green accent border and "Latest" badge
+- **Milestone Cards** - Amber accent border with emoji badges (🎮 🎓 💼 🚀)
+- **Year Badges** - Pill-style badges showing the year in each card's header
 - **Glass Cards** - Consistent glassmorphism design matching site aesthetic
 
 ### 📊 Journey Stats
@@ -215,23 +234,10 @@ Numbers count up from 0 when section enters viewport for engaging reveal! ⚡
 - **2025** - 🚀 Data Analytics Developer (Morgan Stanley)
 
 ### 📱 Mobile Responsive
-- Timeline moves to left side with all cards stacking vertically
-- Maintains readability and visual hierarchy
-- Stats grid adapts to 2-column layout
-- Smooth animations preserved across devices
-
-### 🎨 Technical Implementation
-```javascript
-// Timeline animation triggers on scroll
-const observerCallback = (entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animated');
-            animateStats(); // Start counting animation
-        }
-    });
-};
-```
+- Grid collapses to single-column stack on small screens
+- All cards become full-width for easy reading
+- Filter buttons shrink for compact mobile display
+- Expand/collapse interactions preserved
 
 ---
 
@@ -1231,7 +1237,7 @@ Always evolving! More features and improvements coming based on new trends and i
 
 ---
 
-**Last Updated:** February 12, 2026 📅
+**Last Updated:** February 13, 2026 📅
 
 Made with 💻 and 🍫 by Jordan Alexis
 

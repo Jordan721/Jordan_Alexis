@@ -247,47 +247,9 @@ function initFlipCards() {
     // legacy — no longer used
 }
 
-// horizontal timeline
+// bento grid
 
 function initHTimeline() {
-    const timeline = document.querySelector('.h-timeline');
-    const leftArrow = document.querySelector('.h-timeline-arrow-left');
-    const rightArrow = document.querySelector('.h-timeline-arrow-right');
-
-    if (!timeline || !leftArrow || !rightArrow) return;
-
-    const scrollSpeed = 12;
-    let scrollInterval = null;
-
-    function startScroll(direction) {
-        stopScroll();
-        scrollInterval = setInterval(() => {
-            timeline.scrollLeft += direction * scrollSpeed;
-        }, 10);
-    }
-
-    function stopScroll() {
-        if (scrollInterval) {
-            clearInterval(scrollInterval);
-            scrollInterval = null;
-        }
-    }
-
-    leftArrow.addEventListener('mousedown', () => startScroll(-1));
-    rightArrow.addEventListener('mousedown', () => startScroll(1));
-    leftArrow.addEventListener('touchstart', (e) => {
-        e.preventDefault();
-        startScroll(-1);
-    });
-    rightArrow.addEventListener('touchstart', (e) => {
-        e.preventDefault();
-        startScroll(1);
-    });
-
-    document.addEventListener('mouseup', stopScroll);
-    document.addEventListener('touchend', stopScroll);
-    document.addEventListener('mouseleave', stopScroll);
-
     // Stat counter animation
     const statObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -325,7 +287,7 @@ function toggleHCard(el) {
 
 function toggleExpandAll() {
     const btn = document.querySelector('.h-expand-all-btn');
-    const bodies = document.querySelectorAll('.job .h-card-body');
+    const bodies = document.querySelectorAll('.bento-card.job .bento-card-inner');
     const isExpanding = !btn.classList.contains('active');
 
     btn.classList.toggle('active');
@@ -359,7 +321,7 @@ function filterTimeline(value, filterType) {
     });
 
     // Apply both filters to every card
-    const cards = document.querySelectorAll('.h-timeline-card');
+    const cards = document.querySelectorAll('.bento-card');
     cards.forEach(card => {
         const yearMatch = timelineFilterState.year === 'all' || card.dataset.year === timelineFilterState.year;
         const typeMatch = timelineFilterState.type === 'all' || card.dataset.type === timelineFilterState.type;
@@ -432,7 +394,7 @@ function initScrollAnimations() {
     staggerObserve('.section-header', 0.05);
     staggerObserve('.about-card', 0.12);
     staggerObserve('.project-card', 0.12);
-    staggerObserve('.h-timeline-card', 0.08);
+    staggerObserve('.bento-card', 0.08);
     staggerObserve('.edu-chip', 0.1);
     staggerObserve('.exp-stat-pill', 0.08);
 

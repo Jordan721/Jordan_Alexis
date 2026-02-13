@@ -1738,8 +1738,8 @@ body {
     background: var(--color-secondary);
 }
 
-/* Hidden timeline card during filtering */
-.h-timeline-card.filtered-out {
+/* Hidden bento card during filtering */
+.bento-card.filtered-out {
     display: none;
 }
 
@@ -1775,165 +1775,74 @@ body {
     color: var(--color-dark);
 }
 
-/* Timeline wrapper with nav arrows */
-.h-timeline-wrapper {
-    position: relative;
-    padding: 0 40px;
-}
-
-.h-timeline-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    color: var(--color-primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 5;
-    transition: all var(--transition-base);
-    font-size: 0.85rem;
-}
-
-.h-timeline-arrow:hover {
-    background: rgba(6, 182, 212, 0.15);
-    border-color: var(--color-primary);
-    transform: translateY(-50%) scale(1.1);
-}
-
-.h-timeline-arrow-left {
-    left: 0;
-}
-
-.h-timeline-arrow-right {
-    right: 0;
-}
-
-/* Scrollable container */
-.h-timeline {
-    overflow-x: auto;
-    scroll-snap-type: none;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding: 20px 0 30px 0;
-}
-
-.h-timeline::-webkit-scrollbar {
-    display: none;
-}
-
-/* Track with horizontal line */
-.h-timeline-track {
-    display: flex;
-    align-items: flex-start;
+/* ── Bento Grid ── */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
     gap: var(--spacing-md);
-    position: relative;
-    min-width: max-content;
-    padding: 20px 20px 20px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-/* The horizontal line — runs through the center of all dots */
-.h-timeline-track::before {
-    content: '';
-    position: absolute;
-    top: 50px;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--gradient-primary);
-    border-radius: 2px;
+/* Card sizes */
+.bento-card.bento-lg {
+    grid-column: span 2;
 }
 
-/* Individual cards */
-.h-timeline-card {
-    flex: 0 0 280px;
-    scroll-snap-align: none;
-    position: relative;
-    padding-top: 50px;
+.bento-card.bento-md {
+    grid-column: span 1;
 }
 
-.h-timeline-card.job {
-    flex: 0 0 300px;
+.bento-card.bento-sm {
+    grid-column: span 1;
 }
 
-.h-timeline-card.milestone {
-    flex: 0 0 230px;
-}
-
-/* Year label — absolutely positioned above the line */
-.h-card-year {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    font-family: var(--font-code);
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--color-primary);
-    text-align: center;
-}
-
-/* Dot — absolutely positioned, centered on the line */
-.h-card-dot {
-    position: absolute;
-    top: 30px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: var(--color-primary);
-    border: 3px solid var(--color-dark);
-    z-index: 2;
-    transition: all var(--transition-base);
-    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
-}
-
-.h-card-dot.milestone-dot {
-    width: 18px;
-    height: 18px;
-    background: var(--color-accent);
-    border-color: var(--color-dark);
-    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.25), 0 0 12px rgba(245, 158, 11, 0.4);
-}
-
-.h-card-dot.current-dot {
-    width: 18px;
-    height: 18px;
-    background: var(--color-success);
-    border-color: var(--color-dark);
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25), 0 0 12px rgba(16, 185, 129, 0.4);
-    animation: pulse 2s ease-in-out infinite;
-}
-
-/* Card body below dot */
-.h-card-body {
+/* Card inner — the visible glass surface */
+.bento-card-inner {
     padding: var(--spacing-md) !important;
-    width: 100%;
+    height: 100%;
     cursor: pointer;
     transition: all var(--transition-base);
     white-space: normal;
+    display: flex;
+    flex-direction: column;
 }
 
-.h-card-body:hover {
+.bento-card-inner:hover {
     transform: translateY(-4px);
     border-color: rgba(6, 182, 212, 0.3);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(6, 182, 212, 0.1);
 }
 
-.h-card-body h3 {
+/* Card header — badges and year */
+.bento-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.h-card-year-badge {
+    font-family: var(--font-code);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    background: rgba(6, 182, 212, 0.1);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    padding: 0.15rem 0.5rem;
+    border-radius: 10px;
+    margin-left: auto;
+}
+
+.bento-card-inner h3 {
     font-size: 1rem;
     color: var(--color-white);
     margin-bottom: 0.25rem;
     line-height: 1.3;
 }
 
-.h-card-body h4 {
+.bento-card-inner h4 {
     font-size: 0.85rem;
     color: var(--color-primary);
     font-weight: 500;
@@ -1955,7 +1864,6 @@ body {
     font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
-    margin-bottom: 0.5rem;
 }
 
 .milestone-badge {
@@ -1970,19 +1878,19 @@ body {
     border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
-/* Milestone card body */
-.milestone .h-card-body {
+/* Milestone cards — accent border */
+.bento-milestone {
     border-left: 3px solid var(--color-accent);
 }
 
-.milestone .h-card-body p {
+.bento-milestone p {
     font-size: 0.85rem;
     color: var(--color-gray-light);
     line-height: 1.5;
 }
 
 /* Expand arrow on job cards */
-.job .h-card-body::after {
+.bento-card.job .bento-card-inner::after {
     content: '\f078';
     font-family: 'Font Awesome 6 Free';
     font-weight: 900;
@@ -1990,16 +1898,17 @@ body {
     text-align: center;
     color: var(--color-primary);
     font-size: 0.7rem;
-    margin-top: 0.4rem;
+    margin-top: auto;
+    padding-top: 0.4rem;
     transition: transform var(--transition-base);
     opacity: 0.6;
 }
 
-.job .h-card-body.expanded::after {
+.bento-card.job .bento-card-inner.expanded::after {
     transform: rotate(180deg);
 }
 
-/* Expandable details on job cards */
+/* Expandable details */
 .h-card-details {
     max-height: 0;
     overflow: hidden;
@@ -2009,7 +1918,7 @@ body {
     margin: 0;
 }
 
-.h-card-body.expanded .h-card-details {
+.bento-card-inner.expanded .h-card-details {
     max-height: 500px;
     margin-top: 0.5rem;
 }
@@ -2030,12 +1939,12 @@ body {
     color: var(--color-primary);
 }
 
-/* Current role highlight */
-.current-role .h-card-body {
+/* Featured card (latest role) accent */
+.bento-card.bento-lg:first-child .bento-card-inner {
     border-left: 3px solid var(--color-success);
 }
 
-/* Mobile: vertical layout */
+/* Mobile: single column stack */
 @media (max-width: 768px) {
     .h-timeline-filters {
         gap: 0.5rem;
@@ -2051,62 +1960,14 @@ body {
         font-size: 0.65rem;
     }
 
-    .h-timeline-wrapper {
-        padding: 0;
+    .bento-grid {
+        grid-template-columns: 1fr;
     }
 
-    .h-timeline-arrow {
-        display: none;
-    }
-
-    .h-timeline {
-        overflow-x: visible;
-        overflow-y: visible;
-        scroll-snap-type: none;
-        padding: 0;
-    }
-
-    .h-timeline-track {
-        flex-direction: column;
-        min-width: unset;
-        padding: 0 0 0 30px;
-        gap: var(--spacing-md);
-    }
-
-    .h-timeline-track::before {
-        top: 0;
-        bottom: 0;
-        left: 10px;
-        right: auto;
-        width: 3px;
-        height: 100%;
-    }
-
-    .h-timeline-card {
-        flex: 1 1 auto;
-        position: relative;
-        padding-top: 0;
-    }
-
-    .h-timeline-card.job,
-    .h-timeline-card.milestone {
-        flex: 1 1 auto;
-    }
-
-    .h-card-year {
-        position: static;
-        margin-bottom: var(--spacing-xs);
-    }
-
-    .h-card-dot {
-        position: absolute;
-        left: -20px;
-        top: 14px;
-        transform: translateX(-50%);
-    }
-
-    .h-card-body {
-        width: 100%;
+    .bento-card.bento-lg,
+    .bento-card.bento-md,
+    .bento-card.bento-sm {
+        grid-column: span 1;
     }
 
     .exp-stats-bar {
