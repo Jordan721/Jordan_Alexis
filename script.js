@@ -2,6 +2,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     initScrollNavigation();
     initTagCloud();
+    initFlipCards();
+    initHTimeline();
     initScrollAnimations();
 });
 
@@ -194,6 +196,127 @@ function initTagCloud() {
     });
 }
 
+// flip cards (mobile tap-to-flip)
+
+function toggleAboutCard(el) {
+    el.classList.toggle('expanded');
+}
+
+function initFlipCards() {
+    // legacy — no longer used
+}
+
+// horizontal timeline
+
+function initHTimeline() {
+    const timeline = document.querySelector('.h-timeline');
+    const leftArrow = document.querySelector('.h-timeline-arrow-left');
+    const rightArrow = document.querySelector('.h-timeline-arrow-right');
+
+    if (!timeline || !leftArrow || !rightArrow) return;
+
+    const scrollAmount = 320;
+
+    leftArrow.addEventListener('click', () => {
+        timeline.scrollBy({
+            left: -scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+
+    rightArrow.addEventListener('click', () => {
+        timeline.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+
+    // Stat counter animation
+    const statObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const nums = document.querySelectorAll('.exp-stat-num');
+                nums.forEach(num => {
+                    const target = parseInt(num.dataset.target);
+                    if (!target || num.dataset.animated) return;
+                    num.dataset.animated = 'true';
+                    let current = 0;
+                    const step = Math.ceil(target / 30);
+                    const interval = setInterval(() => {
+                        current += step;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(interval);
+                        }
+                        num.textContent = current;
+                    }, 40);
+                });
+                statObserver.disconnect();
+            }
+        });
+    }, {
+        threshold: 0.3
+    });
+
+    const statsBar = document.querySelector('.exp-stats-bar');
+    if (statsBar) statObserver.observe(statsBar);
+}
+
+function toggleHCard(el) {
+    el.classList.toggle('expanded');
+}
+
+function toggleExpandAll() {
+    const btn = document.querySelector('.h-expand-all-btn');
+    const bodies = document.querySelectorAll('.job .h-card-body');
+    const isExpanding = !btn.classList.contains('active');
+
+    btn.classList.toggle('active');
+    btn.innerHTML = isExpanding ?
+        '<i class="fas fa-compress-alt"></i> Collapse All' :
+        '<i class="fas fa-expand-alt"></i> Expand All';
+
+    bodies.forEach(body => {
+        if (isExpanding) {
+            body.classList.add('expanded');
+        } else {
+            body.classList.remove('expanded');
+        }
+    });
+}
+
+/* Timeline filter state — tracks active year and type independently */
+const timelineFilterState = {
+    year: 'all',
+    type: 'all'
+};
+
+function filterTimeline(value, filterType) {
+    // Update state
+    timelineFilterState[filterType] = value;
+
+    // Update active button styles for this filter group
+    const groupClass = filterType === 'type' ? '.h-filter-type' : '.h-filter-group:not(.h-filter-type)';
+    document.querySelectorAll(`${groupClass} .h-filter-btn`).forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.filter === value);
+    });
+
+    // Apply both filters to every card
+    const cards = document.querySelectorAll('.h-timeline-card');
+    cards.forEach(card => {
+        const yearMatch = timelineFilterState.year === 'all' || card.dataset.year === timelineFilterState.year;
+        const typeMatch = timelineFilterState.type === 'all' || card.dataset.type === timelineFilterState.type;
+        card.classList.toggle('filtered-out', !(yearMatch && typeMatch));
+    });
+}
+
+function toggleEduChip(el) {
+    const wasExpanded = el.classList.contains('expanded');
+    // close all other chips
+    document.querySelectorAll('.edu-chip.expanded').forEach(c => c.classList.remove('expanded'));
+    if (!wasExpanded) el.classList.add('expanded');
+}
+
 // scroll animations
 
 function initScrollAnimations() {
@@ -231,6 +354,11 @@ function initScrollAnimations() {
     staggerObserve('.feature-card', 0.15);
     staggerObserve('.contact-btn', 0.1);
     staggerObserve('.section-header', 0.05);
+    staggerObserve('.about-card', 0.12);
+    staggerObserve('.project-card', 0.12);
+    staggerObserve('.h-timeline-card', 0.08);
+    staggerObserve('.edu-chip', 0.1);
+    staggerObserve('.exp-stat-pill', 0.08);
 
     // Hero parallax depth on scroll
     initHeroParallax();

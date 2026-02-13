@@ -52,7 +52,10 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-text">
-                <div class="greeting fade-in">Hello World <span class="wave">👋🏾</span></div>
+                <div class="greeting fade-in terminal-greeting">
+                    <span class="terminal-text">&gt; const developer = new Jordan("Programmer")</span><span
+                        class="terminal-cursor">|</span>
+                </div>
                 <h1 class="hero-title fade-in-up">
                     I'm <span class="gradient-text animated-name">
                         <span class="letter">J</span><span class="letter">o</span><span class="letter">r</span><span
@@ -98,11 +101,11 @@
         <a href="#experience" class="nav-dot" data-section="experience">
             <span class="nav-tooltip">Experience</span>
         </a>
-        <a href="#journey" class="nav-dot" data-section="journey">
-            <span class="nav-tooltip">Journey</span>
-        </a>
         <a href="#arsenal" class="nav-dot" data-section="arsenal">
             <span class="nav-tooltip">Arsenal</span>
+        </a>
+        <a href="#projects" class="nav-dot" data-section="projects">
+            <span class="nav-tooltip">Projects</span>
         </a>
         <a href="#education" class="nav-dot" data-section="education">
             <span class="nav-tooltip">Education</span>
@@ -260,446 +263,350 @@
                 <div class="section-line"></div>
             </div>
 
-            <div class="about-grid">
-                <div class="about-content glass-card">
-                    <p class="about-intro">
-                        I am a Multimedia and Data Analytics Developer who blends creativity with technical
-                        problem solving. My work focuses on building digital experiences that are intuitive,
-                        visually engaging, and grounded in strong engineering principles. I enjoy bridging
-                        the gap between design, development, and data to create solutions that feel both
-                        smart and human centered.
-                    </p>
-                    <p>
-                        My technical background spans programming and full stack development, including
-                        <strong>Python, SQL, Java, HTML, CSS, JavaScript, Bootstrap, and Talend</strong>.
-                        I also bring hands-on experience with Adobe Creative Suite such as Photoshop,
-                        Illustrator, Premiere, and XD to support multimedia design and front-end storytelling.
-                        This combination allows me to build systems that are functional, scalable, and
-                        visually polished.
-                    </p>
-                    <p>
-                        On the data side, I specialize in processing and analyzing large datasets often
-                        exceeding 10,000 rows and transforming them into meaningful insights. I use tools
-                        like <strong>Power BI, SQL, Python, and enterprise data management systems</strong>
-                        to automate workflows, optimize operations, and support data-driven decision making.
-                        My goal is always to turn raw information into clear, actionable narratives.
-                    </p>
+            <div class="about-cards-grid">
+                <!-- Card 1: Who I Am -->
+                <div class="about-card glass-card" onclick="toggleAboutCard(this)">
+                    <div class="about-card-header">
+                        <div class="about-card-icon"><i class="fas fa-user"></i></div>
+                        <h3>Who I Am</h3>
+                        <i class="fas fa-chevron-down about-card-arrow"></i>
+                    </div>
+                    <div class="about-card-content">
+                        <p>I am a Multimedia and Data Analytics Developer who blends creativity with technical
+                            problem solving. I enjoy bridging the gap between design, development, and data
+                            to create solutions that feel both smart and human centered.</p>
+                    </div>
+                </div>
 
-                    <div class="tech-stack">
-                        <h3>Technologies I work with:</h3>
-                        <div class="tech-grid">
-                            <div class="tech-item"><i class="fas fa-code"></i> Python</div>
-                            <div class="tech-item"><i class="fab fa-java"></i> Java</div>
-                            <div class="tech-item"><i class="fab fa-js"></i> JavaScript</div>
-                            <div class="tech-item"><i class="fab fa-html5"></i> HTML/CSS</div>
-                            <div class="tech-item"><i class="fas fa-database"></i> SQL</div>
-                            <div class="tech-item"><i class="fas fa-chart-line"></i> Power BI</div>
-                            <div class="tech-item"><i class="fas fa-project-diagram"></i> Talend</div>
-                            <div class="tech-item"><i class="fas fa-file-excel"></i> Excel</div>
-                            <div class="tech-item"><i class="fab fa-bootstrap"></i> Bootstrap</div>
-                            <div class="tech-item"><i class="fas fa-pencil-ruler"></i> Adobe XD</div>
-                            <div class="tech-item"><i class="fab fa-git-alt"></i> Git</div>
-                            <div class="tech-item"><i class="fab fa-linux"></i> Unix</div>
-                            <div class="tech-item"><i class="fas fa-terminal"></i> PowerShell</div>
-                            <div class="tech-item"><i class="fab fa-windows"></i> CMD</div>
+                <!-- Card 2: What I Build -->
+                <div class="about-card glass-card" onclick="toggleAboutCard(this)">
+                    <div class="about-card-header">
+                        <div class="about-card-icon"><i class="fas fa-code"></i></div>
+                        <h3>What I Build</h3>
+                        <i class="fas fa-chevron-down about-card-arrow"></i>
+                    </div>
+                    <div class="about-card-content">
+                        <p>Full-stack applications with <strong>Python, Java, JavaScript, and SQL</strong>.
+                            I also specialize in processing large datasets exceeding 10,000 rows, using
+                            <strong>Power BI, Talend, and enterprise systems</strong> to automate workflows
+                            and deliver actionable insights.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3: My Stack -->
+                <div class="about-card glass-card" onclick="toggleAboutCard(this)">
+                    <div class="about-card-header">
+                        <div class="about-card-icon"><i class="fas fa-layer-group"></i></div>
+                        <h3>My Stack</h3>
+                        <i class="fas fa-chevron-down about-card-arrow"></i>
+                    </div>
+                    <div class="about-card-content">
+                        <div class="tech-grid-mini">
+                            <span class="tech-chip"><i class="fas fa-code"></i> Python</span>
+                            <span class="tech-chip"><i class="fab fa-java"></i> Java</span>
+                            <span class="tech-chip"><i class="fab fa-js"></i> JavaScript</span>
+                            <span class="tech-chip"><i class="fab fa-html5"></i> HTML/CSS</span>
+                            <span class="tech-chip"><i class="fas fa-database"></i> SQL</span>
+                            <span class="tech-chip"><i class="fas fa-chart-line"></i> Power BI</span>
+                            <span class="tech-chip"><i class="fab fa-git-alt"></i> Git</span>
+                            <span class="tech-chip"><i class="fas fa-terminal"></i> PowerShell</span>
+                            <span class="tech-chip"><i class="fab fa-bootstrap"></i> Bootstrap</span>
+                            <span class="tech-chip"><i class="fas fa-pencil-ruler"></i> Adobe XD</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="about-links">
-                    <a href="https://jordan721.github.io/Development-Showcase/" target="_blank"
-                        class="feature-card glass-card hover-code-rain">
-                        <div class="feature-icon">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <div class="feature-content">
-                            <h3>Development Showcase</h3>
-                            <p>Coding projects & interactive applications</p>
-                        </div>
-                        <span class="feature-arrow"><i class="fas fa-arrow-right"></i></span>
-                    </a>
-
-                    <button onclick="openCertificatesModal()" class="feature-card glass-card hover-shine">
-                        <div class="feature-icon">
-                            <i class="fas fa-certificate"></i>
-                        </div>
-                        <div class="feature-content">
-                            <h3>Certifications</h3>
-                            <p>Professional Credentials & Certificates</p>
-                        </div>
-                        <span class="feature-arrow"><i class="fas fa-arrow-right"></i></span>
-                    </button>
-
+                <!-- Card 4: Certifications -->
+                <div class="about-card glass-card" onclick="toggleAboutCard(this)">
+                    <div class="about-card-header">
+                        <div class="about-card-icon"><i class="fas fa-certificate"></i></div>
+                        <h3>Certifications</h3>
+                        <i class="fas fa-chevron-down about-card-arrow"></i>
+                    </div>
+                    <div class="about-card-content">
+                        <p>Professional credentials including Year Up United completion and Google Data Analytics
+                            coursework.</p>
+                        <button onclick="openCertificatesModal(); event.stopPropagation();" class="about-cta-btn">
+                            View Certificates <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Experience Section -->
+        <!-- Experience Section (merged with Career Journey) -->
         <section id="experience" class="section">
             <div class="section-header">
                 <span class="section-number">02.</span>
-                <h2 class="section-title hover-glitch">Work Experience</h2>
+                <h2 class="section-title hover-glitch">Experience</h2>
                 <div class="section-line"></div>
             </div>
 
-            <div class="experience-controls">
-                <!-- Desktop: Buttons -->
-                <div class="year-filter-buttons desktop-only">
-                    <button class="year-filter-btn active" data-year="all" onclick="filterExperienceByYear('all')">
-                        View All
-                    </button>
-                    <button class="year-filter-btn" data-year="2025" onclick="filterExperienceByYear('2025')">
-                        2025
-                    </button>
-                    <button class="year-filter-btn" data-year="2023" onclick="filterExperienceByYear('2023')">
-                        2023
-                    </button>
-                    <button class="year-filter-btn" data-year="2021" onclick="filterExperienceByYear('2021')">
-                        2021
-                    </button>
-                    <button class="year-filter-btn" data-year="2020" onclick="filterExperienceByYear('2020')">
-                        2020
-                    </button>
-                    <button class="year-filter-btn" data-year="2019" onclick="filterExperienceByYear('2019')">
-                        2019
-                    </button>
-                    <button class="year-filter-btn" data-year="2018" onclick="filterExperienceByYear('2018')">
-                        2018
-                    </button>
-                    <button class="year-filter-btn" data-year="2017" onclick="filterExperienceByYear('2017')">
-                        2017
-                    </button>
+            <!-- Stats Bar -->
+            <div class="exp-stats-bar">
+                <div class="exp-stat-pill glass-card">
+                    <span class="exp-stat-num" data-target="11">0</span>
+                    <span class="exp-stat-label">Years</span>
                 </div>
-
-                <!-- Mobile: Dropdown -->
-                <div class="year-filter-dropdown mobile-only">
-                    <label for="yearSelect" class="filter-label">Filter by Year:</label>
-                    <select id="yearSelect" class="year-select" onchange="filterExperienceByYear(this.value)">
-                        <option value="all">View All</option>
-                        <option value="2025">2025</option>
-                        <option value="2023">2023</option>
-                        <option value="2021">2021</option>
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                    </select>
+                <div class="exp-stat-pill glass-card">
+                    <span class="exp-stat-num" data-target="8">0</span>
+                    <span class="exp-stat-label">Organizations</span>
+                </div>
+                <div class="exp-stat-pill glass-card">
+                    <span class="exp-stat-num" data-target="5">0</span>
+                    <span class="exp-stat-label">Degrees</span>
+                </div>
+                <div class="exp-stat-pill glass-card">
+                    <span class="exp-stat-num" data-target="5">0</span>
+                    <span class="exp-stat-label">Certs</span>
                 </div>
             </div>
 
-            <div class="timeline">
-                <!-- Morgan Stanley -->
-                <div class="timeline-item" data-aos="fade-up" data-year="2025">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-header">
-                            <div>
-                                <h3>Data Analytics and Visualization Developer Apprentice</h3>
-                                <h4>Morgan Stanley</h4>
-                            </div>
-                            <span class="timeline-date">July 2025 - Jan 2026</span>
-                        </div>
-                        <ul class="timeline-list">
-                            <li>Driving data-driven development by processing large datasets (10,000+ rows) and
-                                converting raw information into reliable, actionable outputs for engineering workflows.
-                            </li>
-                            <li>Overseeing multiple databases and structuring information systems to support diverse
-                                project requirements and maintain operational efficiency.</li>
-                            <li>Building scalable data analysis solutions using Java, Python, and SQL to enhance
-                                automation, accuracy, and system performance.</li>
-                            <li>Integrating Copilot into development workflows to accelerate coding tasks, reduce manual
-                                effort, and improve overall productivity.</li>
-                            <li>Created a Python-based automation tool that parses text documents, extracts structured
-                                data, and generates Excel reports to streamline analysis and reporting processes.</li>
-                        </ul>
-                    </div>
+            <!-- Timeline Filters -->
+            <div class="h-timeline-filters">
+                <div class="h-filter-group">
+                    <button class="h-filter-btn active" data-filter="all"
+                        onclick="filterTimeline('all', 'year')">All</button>
+                    <button class="h-filter-btn" data-filter="2025"
+                        onclick="filterTimeline('2025', 'year')">2025</button>
+                    <button class="h-filter-btn" data-filter="2023"
+                        onclick="filterTimeline('2023', 'year')">2023</button>
+                    <button class="h-filter-btn" data-filter="2021"
+                        onclick="filterTimeline('2021', 'year')">2021</button>
+                    <button class="h-filter-btn" data-filter="2020"
+                        onclick="filterTimeline('2020', 'year')">2020</button>
+                    <button class="h-filter-btn" data-filter="2019"
+                        onclick="filterTimeline('2019', 'year')">2019</button>
+                    <button class="h-filter-btn" data-filter="2018"
+                        onclick="filterTimeline('2018', 'year')">2018</button>
+                    <button class="h-filter-btn" data-filter="2017"
+                        onclick="filterTimeline('2017', 'year')">2017</button>
+                    <button class="h-filter-btn" data-filter="2014"
+                        onclick="filterTimeline('2014', 'year')">2014</button>
                 </div>
-
-                <!-- B&A Appliances -->
-                <div class="timeline-item" data-aos="fade-up" data-year="2020"
-                    data-year-range="2020,2021,2022,2023,2024,2025">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-header">
-                            <div>
-                                <h3>Data Entry Associate</h3>
-                                <h4>B&A Appliances (Family Business)</h4>
-                            </div>
-                            <span class="timeline-date">Jan 2020 - Mar 2025</span>
-                        </div>
-                        <ul class="timeline-list">
-                            <li>Managed customer and inventory data with precision, maintaining database integrity and
-                                streamlining operations.</li>
-                            <li>Processed transactions and resolved inquiries, boosting customer satisfaction.</li>
-                            <li>Supported implementation of a data tracking system that reduced inventory errors.</li>
-                            <li>Collaborated with cross-functional teams to improve workflow efficiency and reporting
-                                accuracy.</li>
-                        </ul>
-                    </div>
+                <div class="h-filter-group h-filter-type">
+                    <button class="h-filter-btn type-btn active" data-filter="all"
+                        onclick="filterTimeline('all', 'type')">All</button>
+                    <button class="h-filter-btn type-btn" data-filter="job"
+                        onclick="filterTimeline('job', 'type')">Jobs</button>
+                    <button class="h-filter-btn type-btn" data-filter="milestone"
+                        onclick="filterTimeline('milestone', 'type')">Milestones</button>
                 </div>
+            </div>
 
-                <!-- Tip Top Shoes -->
-                <div class="timeline-item" data-aos="fade-up" data-year="2023">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-header">
-                            <div>
-                                <h3>Product Lister & Data Entry</h3>
-                                <h4>Tip Top Shoes</h4>
+            <div class="h-timeline-actions">
+                <button class="h-expand-all-btn" onclick="toggleExpandAll()">
+                    <i class="fas fa-expand-alt"></i> Expand All
+                </button>
+            </div>
+
+            <!-- Horizontal Timeline (desktop) / Vertical (mobile) -->
+            <div class="h-timeline-wrapper">
+                <button class="h-timeline-arrow h-timeline-arrow-left" aria-label="Scroll left">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="h-timeline">
+                    <div class="h-timeline-track">
+
+                        <!-- 2014 Milestone -->
+                        <div class="h-timeline-card milestone" data-year="2014" data-type="milestone">
+                            <div class="h-card-year">2014</div>
+                            <div class="h-card-dot milestone-dot"></div>
+                            <div class="h-card-body glass-card">
+                                <span class="h-card-badge milestone-badge">🎮 Milestone</span>
+                                <h3>Game Design Journey Begins</h3>
+                                <p>Started at Bramson ORT College, learning Java, JavaScript, C++, and game development
+                                    with Unity</p>
                             </div>
-                            <span class="timeline-date">Dec 2023</span>
                         </div>
-                        <ul class="timeline-list">
-                            <li>Optimized Shopify product listings by improving descriptions, pricing accuracy, and
-                                visual presentation to strengthen overall product quality and customer experience.</li>
-                            <li>Boosted website traffic and product discoverability by applying SEO best practices
-                                across titles, tags, and metadata.</li>
-                            <li>Automated repetitive data-entry workflows to increase operational efficiency and
-                                significantly reduce manual errors.</li>
-                            <li>Tracked performance metrics and leveraged analytics insights to refine listings and
-                                drive continuous improvement.</li>
-                        </ul>
-                    </div>
-                </div>
 
-                <!-- Unadat -->
-                <div class="timeline-item" data-aos="fade-up" data-year="2021">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-header">
-                            <div>
-                                <h3>Software Engineer Intern</h3>
-                                <h4>Unadat</h4>
+                        <!-- 2017 Milestone -->
+                        <div class="h-timeline-card milestone" data-year="2017" data-type="milestone">
+                            <div class="h-card-year">2017</div>
+                            <div class="h-card-dot milestone-dot"></div>
+                            <div class="h-card-body glass-card">
+                                <span class="h-card-badge milestone-badge">💼 Milestone</span>
+                                <h3>First Professional Experience</h3>
+                                <p>Multimedia Developer at St. John's & Office Assistant at BNIA</p>
                             </div>
-                            <span class="timeline-date">July 2021 - Aug 2021</span>
                         </div>
-                        <ul class="timeline-list">
-                            <li>Led the end-to-end development of a dark mode feature and enhanced mobile UX for the
-                                Unadat portal, improving accessibility and user engagement.</li>
-                            <li>Executed user research, usability testing, and A/B experiments to validate design
-                                decisions and guide data-driven UX improvements.</li>
-                            <li>Partnered closely with design and engineering teams to refine UI components, streamline
-                                workflows, and ensure alignment with product requirements.</li>
-                            <li>Applied responsive design best practices and implemented performance optimizations to
-                                deliver a faster, more consistent experience across devices.</li>
-                        </ul>
-                    </div>
-                </div>
 
-                <!-- WBAI Radio -->
-                <div class="timeline-item" data-aos="fade-up" data-year="2019">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-header">
-                            <div>
-                                <h3>Spring Intern</h3>
-                                <h4>WBAI Radio 99.5FM NYC</h4>
-                            </div>
-                            <span class="timeline-date">Jan 2019 - May 2019</span>
-                        </div>
-                        <ul class="timeline-list">
-                            <li>Managed social media and event calendars to improve listener engagement, coordinating
-                                promotional campaigns across Facebook, Twitter, and Instagram to increase station
-                                visibility.</li>
-                            <li>Created and scheduled social media posts using Hootsuite, developing content calendars
-                                that aligned with programming schedules and community events.</li>
-                            <li>Monitored social media analytics and listener feedback to identify trending topics and
-                                optimize posting times for maximum reach.</li>
-                            <li>Contributed to streamlining the station's social media presence by maintaining
-                                consistent posting schedules and organizing promotional content across multiple
-                                platforms.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- The Challenge Publisher Group -->
-                <div class="timeline-item" data-aos="fade-up" data-year="2018">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-header">
-                            <div>
-                                <h3>Multimedia Intern</h3>
-                                <h4>The Challenge Publisher Group</h4>
-                            </div>
-                            <span class="timeline-date">July 2018 - Aug 2018</span>
-                        </div>
-                        <ul class="timeline-list">
-                            <li>Spearheaded the transition of the New American newspaper to a fully digital format,
-                                significantly reducing print costs and expanding distribution reach across NYC.</li>
-                            <li>Served as project lead, overseeing all phases of the transition to ensure timely and
-                                successful implementation.</li>
-                            <li>Designed the digital newspaper layout using Microsoft Publisher and enhanced visual
-                                content with Adobe Photoshop to improve image clarity and consistency.</li>
-                            <li>Collaborated directly with the head of the company to align the digital strategy with
-                                organizational goals, and worked closely with the creative team to maintain visual
-                                cohesion and elevate the overall reader experience.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- BNIA -->
-                <div class="timeline-item" data-aos="fade-up" data-year="2017">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-header">
-                            <div>
-                                <h3>Office Assistant Intern</h3>
-                                <h4>Brooklyn Neighborhood Improvement Association (BNIA)</h4>
-                            </div>
-                            <span class="timeline-date">Aug 2017</span>
-                        </div>
-                        <ul class="timeline-list">
-                            <li>Supported the management of Summer Youth Interns by ensuring adherence to established
-                                workflows, resolving day-to-day issues, and maintaining accurate timesheets for over 50
-                                participants.</li>
-                            <li>Acted as a point of contact for intern questions and concerns, helping foster a
-                                supportive and organized environment.</li>
-                            <li>Assisted with onboarding and orientation processes, clarifying expectations and program
-                                goals.</li>
-                            <li>Helped improve the efficiency of the internship program by identifying bottlenecks,
-                                streamlining communication, and contributing to documentation efforts for future
-                                cohorts.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- St. John's Recreation Center -->
-                <div class="timeline-item" data-aos="fade-up" data-year="2017">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-header">
-                            <div>
+                        <!-- 2017 St. John's -->
+                        <div class="h-timeline-card job" data-year="2017" data-type="job">
+                            <div class="h-card-year">2017</div>
+                            <div class="h-card-dot"></div>
+                            <div class="h-card-body glass-card" onclick="toggleHCard(this)">
                                 <h3>Multimedia Developer Intern</h3>
                                 <h4>St. John's Recreation Center</h4>
+                                <span class="h-card-date">July - Aug 2017</span>
+                                <ul class="h-card-details">
+                                    <li>Gained practical experience with Adobe Creative Suite, including Premiere Pro,
+                                        Illustrator, and Photoshop.</li>
+                                    <li>Supported multimedia projects to enhance visual quality and storytelling.</li>
+                                    <li>Strengthened technical proficiency through hands-on experimentation and
+                                        collaboration.</li>
+                                </ul>
                             </div>
-                            <span class="timeline-date">July 2017 - Aug 2017</span>
                         </div>
-                        <ul class="timeline-list">
-                            <li>Gained practical experience with Adobe Creative Suite, including Premiere Pro for video
-                                editing, Illustrator for creating digital artwork, and Photoshop for retouching and
-                                manipulating images.</li>
-                            <li>Supported multimedia projects by applying these tools to enhance visual quality and
-                                storytelling.</li>
-                            <li>Strengthened technical proficiency through hands-on experimentation and collaboration,
-                                contributing to the overall creative output of the team.</li>
-                        </ul>
+
+                        <!-- 2017 BNIA -->
+                        <div class="h-timeline-card job" data-year="2017" data-type="job">
+                            <div class="h-card-year">2017</div>
+                            <div class="h-card-dot"></div>
+                            <div class="h-card-body glass-card" onclick="toggleHCard(this)">
+                                <h3>Office Assistant Intern</h3>
+                                <h4>BNIA</h4>
+                                <span class="h-card-date">Aug 2017</span>
+                                <ul class="h-card-details">
+                                    <li>Managed Summer Youth Interns, maintaining timesheets for 50+ participants.</li>
+                                    <li>Acted as point of contact for intern questions and concerns.</li>
+                                    <li>Assisted with onboarding and orientation processes.</li>
+                                    <li>Streamlined communication and contributed to documentation for future cohorts.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- 2018 Challenge Publisher -->
+                        <div class="h-timeline-card job" data-year="2018" data-type="job">
+                            <div class="h-card-year">2018</div>
+                            <div class="h-card-dot"></div>
+                            <div class="h-card-body glass-card" onclick="toggleHCard(this)">
+                                <h3>Multimedia Intern</h3>
+                                <h4>The Challenge Publisher Group</h4>
+                                <span class="h-card-date">July - Aug 2018</span>
+                                <ul class="h-card-details">
+                                    <li>Spearheaded transition of the New American newspaper to a fully digital format.
+                                    </li>
+                                    <li>Served as project lead overseeing all phases of the digital transition.</li>
+                                    <li>Designed layouts using Microsoft Publisher and enhanced visuals with Adobe
+                                        Photoshop.</li>
+                                    <li>Collaborated directly with leadership to align digital strategy with
+                                        organizational goals.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- 2019 Milestone: Associate Degree -->
+                        <div class="h-timeline-card milestone" data-year="2019" data-type="milestone">
+                            <div class="h-card-year">2019</div>
+                            <div class="h-card-dot milestone-dot"></div>
+                            <div class="h-card-body glass-card">
+                                <span class="h-card-badge milestone-badge">🎓 Milestone</span>
+                                <h3>Associate Degree</h3>
+                                <p>Graduated from CUNY BMCC with A.S. in Multimedia Programming and Design</p>
+                            </div>
+                        </div>
+
+                        <!-- 2019 WBAI -->
+                        <div class="h-timeline-card job" data-year="2019" data-type="job">
+                            <div class="h-card-year">2019</div>
+                            <div class="h-card-dot"></div>
+                            <div class="h-card-body glass-card" onclick="toggleHCard(this)">
+                                <h3>Spring Intern</h3>
+                                <h4>WBAI Radio 99.5FM NYC</h4>
+                                <span class="h-card-date">Jan - May 2019</span>
+                                <ul class="h-card-details">
+                                    <li>Managed social media and event calendars to improve listener engagement.</li>
+                                    <li>Created and scheduled posts using Hootsuite, aligning with programming
+                                        schedules.</li>
+                                    <li>Monitored analytics to identify trending topics and optimize posting times.</li>
+                                    <li>Streamlined social media presence across multiple platforms.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- 2020 B&A Appliances -->
+                        <div class="h-timeline-card job" data-year="2020" data-type="job">
+                            <div class="h-card-year">2020</div>
+                            <div class="h-card-dot"></div>
+                            <div class="h-card-body glass-card" onclick="toggleHCard(this)">
+                                <h3>Data Entry Associate</h3>
+                                <h4>B&A Appliances</h4>
+                                <span class="h-card-date">Jan 2020 - Mar 2025</span>
+                                <ul class="h-card-details">
+                                    <li>Managed customer and inventory data, maintaining database integrity.</li>
+                                    <li>Processed transactions and resolved inquiries, boosting customer satisfaction.
+                                    </li>
+                                    <li>Supported implementation of a data tracking system that reduced inventory
+                                        errors.</li>
+                                    <li>Collaborated with cross-functional teams to improve workflow efficiency.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- 2021 Unadat -->
+                        <div class="h-timeline-card job" data-year="2021" data-type="job">
+                            <div class="h-card-year">2021</div>
+                            <div class="h-card-dot"></div>
+                            <div class="h-card-body glass-card" onclick="toggleHCard(this)">
+                                <h3>Software Engineer Intern</h3>
+                                <h4>Unadat</h4>
+                                <span class="h-card-date">July - Aug 2021</span>
+                                <ul class="h-card-details">
+                                    <li>Led end-to-end development of dark mode feature and enhanced mobile UX.</li>
+                                    <li>Executed user research, usability testing, and A/B experiments.</li>
+                                    <li>Partnered with design and engineering teams to refine UI components.</li>
+                                    <li>Applied responsive design best practices and performance optimizations.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- 2023 Tip Top Shoes -->
+                        <div class="h-timeline-card job" data-year="2023" data-type="job">
+                            <div class="h-card-year">2023</div>
+                            <div class="h-card-dot"></div>
+                            <div class="h-card-body glass-card" onclick="toggleHCard(this)">
+                                <h3>Product Lister & Data Entry</h3>
+                                <h4>Tip Top Shoes</h4>
+                                <span class="h-card-date">Dec 2023</span>
+                                <ul class="h-card-details">
+                                    <li>Optimized Shopify product listings for quality and customer experience.</li>
+                                    <li>Boosted website traffic by applying SEO best practices.</li>
+                                    <li>Automated repetitive data-entry workflows to reduce manual errors.</li>
+                                    <li>Tracked performance metrics and leveraged analytics for continuous improvement.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- 2025 Milestone -->
+                        <div class="h-timeline-card milestone" data-year="2025" data-type="milestone">
+                            <div class="h-card-year">2025</div>
+                            <div class="h-card-dot milestone-dot"></div>
+                            <div class="h-card-body glass-card">
+                                <span class="h-card-badge milestone-badge">🚀 Milestone</span>
+                                <h3>Year Up &rarr; Morgan Stanley</h3>
+                                <p>Completed Year Up United Software Development Training and began Morgan Stanley
+                                    apprenticeship</p>
+                            </div>
+                        </div>
+
+                        <!-- 2025 Morgan Stanley -->
+                        <div class="h-timeline-card job" data-year="2025" data-type="job">
+                            <div class="h-card-year">2025</div>
+                            <div class="h-card-dot"></div>
+                            <div class="h-card-body glass-card" onclick="toggleHCard(this)">
+                                <h3>Data Analytics Developer Apprentice</h3>
+                                <h4>Morgan Stanley</h4>
+                                <span class="h-card-date">July 2025 - Jan 2026</span>
+                                <ul class="h-card-details">
+                                    <li>Processing large datasets (10,000+ rows) and converting raw data into actionable
+                                        outputs.</li>
+                                    <li>Overseeing multiple databases to support diverse project requirements.</li>
+                                    <li>Building scalable solutions using Java, Python, and SQL.</li>
+                                    <li>Integrating Copilot into development workflows to accelerate coding tasks.</li>
+                                    <li>Created a Python automation tool for parsing documents and generating Excel
+                                        reports.</li>
+                                </ul>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Career Journey Timeline Section -->
-        <section id="journey" class="section journey-section">
-            <div class="section-header">
-                <span class="section-number">02.5</span>
-                <h2 class="section-title hover-shimmer">Career Journey</h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="journey-container">
-                <div class="journey-timeline-visual">
-                    <!-- Timeline Line -->
-                    <div class="journey-line"></div>
-
-                    <!-- Journey Milestones -->
-                    <div class="journey-milestone" data-year="2014">
-                        <div class="milestone-dot" data-category="education"></div>
-                        <div class="milestone-content glass-card">
-                            <span class="milestone-year">2014</span>
-                            <h3>🎮 Game Design Journey Begins</h3>
-                            <p>Started at Bramson ORT College, learning Java, JavaScript, C++, and game development with
-                                Unity</p>
-                        </div>
-                    </div>
-
-                    <div class="journey-milestone" data-year="2017">
-                        <div class="milestone-dot" data-category="work"></div>
-                        <div class="milestone-content glass-card">
-                            <span class="milestone-year">2017</span>
-                            <h3>💼 First Professional Experience</h3>
-                            <p>Multimedia Developer at St. John's Recreation Center & Office Assistant at BNIA</p>
-                        </div>
-                    </div>
-
-                    <div class="journey-milestone" data-year="2018">
-                        <div class="milestone-dot" data-category="work"></div>
-                        <div class="milestone-content glass-card">
-                            <span class="milestone-year">2018</span>
-                            <h3>📰 Digital Transformation Lead</h3>
-                            <p>Led newspaper transition from print to digital at The Challenge Publisher Group</p>
-                        </div>
-                    </div>
-
-                    <div class="journey-milestone" data-year="2019">
-                        <div class="milestone-dot" data-category="education"></div>
-                        <div class="milestone-content glass-card">
-                            <span class="milestone-year">2019</span>
-                            <h3>🎓 Associate Degree</h3>
-                            <p>Graduated from CUNY BMCC with A.S. in Multimedia Programming and Design</p>
-                        </div>
-                    </div>
-
-                    <div class="journey-milestone" data-year="2020">
-                        <div class="milestone-dot" data-category="work"></div>
-                        <div class="milestone-content glass-card">
-                            <span class="milestone-year">2020</span>
-                            <h3>📊 Data Entry Specialist</h3>
-                            <p>Started data management role at B&A Appliances, handling inventory and customer data</p>
-                        </div>
-                    </div>
-
-                    <div class="journey-milestone" data-year="2021">
-                        <div class="milestone-dot" data-category="work"></div>
-                        <div class="milestone-content glass-card">
-                            <span class="milestone-year">2021</span>
-                            <h3>💻 Software Engineering Intern</h3>
-                            <p>Developed dark mode and optimized UX at Unadat</p>
-                        </div>
-                    </div>
-
-                    <div class="journey-milestone" data-year="2023">
-                        <div class="milestone-dot" data-category="work"></div>
-                        <div class="milestone-content glass-card">
-                            <span class="milestone-year">2023</span>
-                            <h3>🛍️ E-commerce Optimization</h3>
-                            <p>Product listing and SEO optimization at Tip Top Shoes</p>
-                        </div>
-                    </div>
-
-                    <div class="journey-milestone" data-year="2025">
-                        <div class="milestone-dot" data-category="work"></div>
-                        <div class="milestone-content glass-card">
-                            <span class="milestone-year">2025</span>
-                            <h3>🚀 Data Analytics Developer</h3>
-                            <p>Data Analytics and Visualization Developer Apprentice at Morgan Stanley, processing
-                                10,000+ row datasets and implementing automation</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Journey Stats -->
-                <div class="journey-stats">
-                    <div class="stat-card glass-card">
-                        <div class="stat-icon">📅</div>
-                        <div class="stat-number" data-target="11">0</div>
-                        <div class="stat-label">Years Experience</div>
-                    </div>
-                    <div class="stat-card glass-card">
-                        <div class="stat-icon">💼</div>
-                        <div class="stat-number" data-target="8">0</div>
-                        <div class="stat-label">Organizations</div>
-                    </div>
-                    <div class="stat-card glass-card">
-                        <div class="stat-icon">🎓</div>
-                        <div class="stat-number" data-target="5">0</div>
-                        <div class="stat-label">Degrees/Programs</div>
-                    </div>
-                    <div class="stat-card glass-card">
-                        <div class="stat-icon">📜</div>
-                        <div class="stat-number" data-target="5">0</div>
-                        <div class="stat-label">Certifications</div>
-                    </div>
-                </div>
+                <button class="h-timeline-arrow h-timeline-arrow-right" aria-label="Scroll right">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
         </section>
 
@@ -1021,80 +928,160 @@
             </div>
         </section>
 
+        <!-- Featured Projects Section -->
+        <section id="projects" class="section">
+            <div class="section-header">
+                <span class="section-number">04.</span>
+                <h2 class="section-title hover-pulse">Featured Projects</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="projects-grid">
+                <a href="https://jordan721.github.io/Development-Showcase/Game_Vault/index.html" target="_blank"
+                    class="project-card glass-card" data-aos="fade-up">
+                    <div class="project-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Game Vault</h3>
+                        <p>A collection of browser-based games I've created from scratch using JavaScript, HTML, and
+                            CSS.</p>
+                    </div>
+                    <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
+                </a>
+
+                <a href="https://jordan721.github.io/Development-Showcase/Personal_Projects/AnimateLab/index.html"
+                    target="_blank" class="project-card glass-card" data-aos="fade-up">
+                    <div class="project-icon">
+                        <i class="fas fa-wand-magic-sparkles"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>AnimateLab</h3>
+                        <p>Interactive showcase of web animation techniques and effects you can achieve on the web.</p>
+                    </div>
+                    <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
+                </a>
+
+                <a href="https://jordan721.github.io/Development-Showcase/Personal_Projects/Bagely_Bytes_Programming/index.html"
+                    target="_blank" class="project-card glass-card" data-aos="fade-up">
+                    <div class="project-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Bagely Bytes</h3>
+                        <p>An educational platform teaching programming across different languages and tools.</p>
+                    </div>
+                    <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
+                </a>
+
+                <a href="https://jordan721.github.io/Development-Showcase/Professional_Projects/Data_Pipeline/index.html"
+                    target="_blank" class="project-card glass-card" data-aos="fade-up">
+                    <div class="project-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Data Pipeline</h3>
+                        <p>An interactive simulation of an enterprise data pipeline with automated processing, cleaning,
+                            and Excel export.</p>
+                    </div>
+                    <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+
+            <div class="view-all-projects">
+                <a href="https://jordan721.github.io/Development-Showcase/" target="_blank" class="view-all-link">
+                    View All Projects <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
         <!-- Education Section -->
         <section id="education" class="section">
             <div class="section-header">
-                <span class="section-number">04.</span>
+                <span class="section-number">05.</span>
                 <h2 class="section-title hover-rotate">Education</h2>
                 <div class="section-line"></div>
             </div>
 
-            <div class="education-grid">
-                <!-- Year Up United -->
+            <!-- Primary Tier: Current / Recent Programs -->
+            <div class="edu-primary">
                 <div class="education-card glass-card" data-aos="fade-up">
                     <div class="edu-icon">🎓</div>
+                    <div class="edu-status completed"><i class="fas fa-check-circle"></i> Completed</div>
                     <h3>Software Development Training</h3>
                     <h4>Year Up United | Pluralsight</h4>
                     <span class="edu-date">Feb 2025 - Jan 2026</span>
                     <p>
                         Intensive career development program collaborating with 250 corporate partners. Completed
-                        coursework in Excel,
-                        Business Writing, Public Speaking, and specialized Software Development training encompassing
-                        database management,
-                        IDE proficiency, software testing, programming, and code execution.
+                        coursework in Excel, Business Writing, Public Speaking, and specialized Software Development
+                        training encompassing database management, IDE proficiency, software testing, programming,
+                        and code execution.
                     </p>
+                    <div class="edu-progress">
+                        <div class="edu-progress-bar" style="width: 100%"></div>
+                    </div>
                 </div>
 
-                <!-- CUNY Brooklyn College -->
                 <div class="education-card glass-card current" data-aos="fade-up">
-                    <div class="edu-badge"><i class="fas fa-star"></i> Current</div>
                     <div class="edu-icon">🏫</div>
+                    <div class="edu-status in-progress"><i class="fas fa-spinner"></i> In Progress</div>
                     <h3>B.S in Multimedia Computing and Information Science</h3>
                     <h4>CUNY Brooklyn College</h4>
                     <span class="edu-date">Aug 2019 - Present</span>
                     <p>
-                        Gaining strong foundation in computing frameworks and mathematical principles that drive digital
-                        innovation.
-                        Coursework emphasizes multimedia computing, digital arts, software engineering, and distributed
-                        computing.
+                        Gaining strong foundation in computing frameworks and mathematical principles that drive
+                        digital innovation. Coursework emphasizes multimedia computing, digital arts, software
+                        engineering, and distributed computing.
                     </p>
+                    <div class="edu-progress">
+                        <div class="edu-progress-bar" style="width: 75%"></div>
+                    </div>
                 </div>
+            </div>
 
-                <!-- CUNY BMCC -->
-                <div class="education-card glass-card" data-aos="fade-up">
-                    <div class="edu-icon">📚</div>
-                    <h3>A.S in Multimedia Programming and Design</h3>
-                    <h4>CUNY Borough of Manhattan Community College (BMCC)</h4>
-                    <span class="edu-date">Aug 2017 - May 2019</span>
-                    <p>
-                        Prepared for careers in technical industries developing computer-based interactive products.
-                        Gained hands-on experience working with text, graphics, sound, animation, and video.
-                    </p>
+            <!-- Secondary Tier: Earlier Programs (click to expand) -->
+            <div class="edu-secondary">
+                <div class="edu-chip glass-card" data-aos="fade-up" onclick="toggleEduChip(this)">
+                    <div class="edu-chip-header">
+                        <span class="edu-chip-icon">📚</span>
+                        <div class="edu-chip-info">
+                            <strong>A.S Multimedia Programming & Design</strong>
+                            <span>CUNY BMCC &middot; 2017 - 2019</span>
+                        </div>
+                        <i class="fas fa-chevron-down edu-chip-arrow"></i>
+                    </div>
+                    <div class="edu-chip-detail">
+                        <p>Prepared for careers in technical industries developing computer-based interactive products.
+                            Gained hands-on experience working with text, graphics, sound, animation, and video.</p>
+                    </div>
                 </div>
-
-                <!-- TCI College -->
-                <div class="education-card glass-card" data-aos="fade-up">
-                    <div class="edu-icon">🌐</div>
-                    <h3>Credits Towards A.S Computer Systems Networking and Telecommunications</h3>
-                    <h4>TCI College of Technology</h4>
-                    <span class="edu-date">Feb 2017 - May 2017</span>
-                    <p>
-                        Gained foundational knowledge of computer networking across various business environments.
-                        Developed skills in supporting, installing, and designing information systems.
-                    </p>
+                <div class="edu-chip glass-card" data-aos="fade-up" onclick="toggleEduChip(this)">
+                    <div class="edu-chip-header">
+                        <span class="edu-chip-icon">🌐</span>
+                        <div class="edu-chip-info">
+                            <strong>Credits: A.S Computer Networking</strong>
+                            <span>TCI College &middot; 2017</span>
+                        </div>
+                        <i class="fas fa-chevron-down edu-chip-arrow"></i>
+                    </div>
+                    <div class="edu-chip-detail">
+                        <p>Gained foundational knowledge of computer networking across various business environments.
+                            Developed skills in supporting, installing, and designing information systems.</p>
+                    </div>
                 </div>
-
-                <!-- Bramson ORT College -->
-                <div class="education-card glass-card" data-aos="fade-up">
-                    <div class="edu-icon">🎮</div>
-                    <h3>Credits Towards A.S Computer Information Systems (Game Design)</h3>
-                    <h4>Bramson ORT College</h4>
-                    <span class="edu-date">Oct 2014 - Jan 2017</span>
-                    <p>
-                        Introduced to programming languages including Java, JavaScript, C++, HTML, and CSS. Explored
-                        game design and
-                        programming through Unity, Unreal Engine, and GameMaker platforms.
-                    </p>
+                <div class="edu-chip glass-card" data-aos="fade-up" onclick="toggleEduChip(this)">
+                    <div class="edu-chip-header">
+                        <span class="edu-chip-icon">🎮</span>
+                        <div class="edu-chip-info">
+                            <strong>Credits: A.S Game Design</strong>
+                            <span>Bramson ORT &middot; 2014 - 2017</span>
+                        </div>
+                        <i class="fas fa-chevron-down edu-chip-arrow"></i>
+                    </div>
+                    <div class="edu-chip-detail">
+                        <p>Introduced to programming languages including Java, JavaScript, C++, HTML, and CSS. Explored
+                            game design and programming through Unity, Unreal Engine, and GameMaker platforms.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1102,7 +1089,7 @@
         <!-- GitHub Activity Feed Section -->
         <section id="github-activity" class="section github-section">
             <div class="section-header">
-                <span class="section-number">04.5</span>
+                <span class="section-number">06.</span>
                 <h2 class="section-title hover-code">Latest Activity</h2>
                 <div class="section-line"></div>
             </div>
@@ -1119,6 +1106,13 @@
                     <a href="https://github.com/Jordan721" target="_blank" class="github-profile-btn">
                         <i class="fab fa-github"></i> View Profile
                     </a>
+                </div>
+
+                <!-- Contribution Heatmap -->
+                <div class="contribution-chart glass-card">
+                    <h4><i class="fas fa-fire"></i> Contribution Activity</h4>
+                    <img src="https://ghchart.rshah.org/06b6d4/Jordan721" alt="Jordan721's GitHub Contribution Chart"
+                        loading="lazy">
                 </div>
 
                 <div class="activity-grid">
@@ -1170,7 +1164,7 @@
         <!-- Contact Section -->
         <section id="contact" class="section">
             <div class="section-header">
-                <span class="section-number">05.</span>
+                <span class="section-number">07.</span>
                 <h2 class="section-title hover-rainbow">Get In Touch</h2>
                 <div class="section-line"></div>
             </div>

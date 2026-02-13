@@ -6,6 +6,50 @@ Previous versions live in the Trail folder. 📂
 
 ## 📅 Recent Updates
 
+### February 12, 2026 🔥✨
+Major portfolio redesign — restructured sections, new interactions, and a cleaner experience!
+
+**Hero Section:**
+- 💻 **Terminal Greeting** - Replaced "Hello World" with a CSS typing animation: `> const developer = new Jordan("Programmer")` with a blinking cursor
+
+**About Me Section:**
+- 🃏 **Click-to-Reveal Cards** - Replaced flip cards with 4 expandable cards (Who I Am, What I Build, My Stack, Certifications)
+- ⬇️ **Smooth Expand** - Click any card to slide open its content with chevron arrow indicator
+- 🎨 **Glass Card Styling** - Consistent hover lift and glow effects
+
+**Experience Section (Merged with Career Journey):**
+- 🔀 **Merged Sections** - Combined Work Experience and Career Journey Timeline into one horizontal timeline
+- ⏳ **Horizontal Scroll Timeline** - Chronological cards from 2014–2025 with left/right arrow navigation
+- 📊 **Stats Bar** - Animated counters for Years, Organizations, Degrees, and Certs
+- 🏷️ **Two Card Types** - Job cards (expandable with bullet points) and milestone cards (key career moments)
+- 🔍 **Dual Filters** - Filter by year and by type (Jobs vs Milestones), both work independently
+- 📂 **Expand All Button** - One-click to expand/collapse all job card details
+- 📱 **Mobile Fallback** - Switches to vertical timeline layout on small screens
+
+**Tech Arsenal (formerly Skills & Competencies):**
+- ☁️ **Interactive Tag Cloud** - Desktop shows floating, filterable skill tags with category colors
+- 🏷️ **Category Filters** - Filter by Business, Data, Tech, Tools, or Strategic
+- 📱 **Mobile Accordion** - Kept the existing accordion layout for mobile
+
+**New Featured Projects Section:**
+- 🎮 **Game Vault** - Browser-based games collection
+- ✨ **AnimateLab** - Web animation techniques showcase
+- 📚 **Bagely Bytes** - Programming education platform
+- 🗄️ **Data Pipeline** - Interactive enterprise data pipeline simulation
+- 🔗 **View All Projects** link to full Development Showcase
+
+**Education Section:**
+- 🏗️ **Stacked Hierarchy** - Primary tier (large cards with progress bars) for current/recent programs
+- 💊 **Expandable Chips** - Secondary tier shows older programs as compact chips that expand on click
+
+**GitHub Activity:**
+- 📊 **Contribution Heatmap** - Added visual contribution chart above the activity grid
+
+**Sitewide:**
+- 🔢 **Section Renumbering** - Cleaned up to 01–07 sequential ordering
+- 🧭 **Updated Navigation** - Removed Journey dot, added Projects dot, renamed Skills to Arsenal
+- 🧹 **Removed "Current Role"** - Morgan Stanley card updated to reflect completed apprenticeship (July 2025 – Jan 2026)
+
 ### January 16, 2026 🔲✨
 Replaced 3D Floating Shapes with a sleeker Animated Grid background effect!
 
@@ -1187,7 +1231,7 @@ Always evolving! More features and improvements coming based on new trends and i
 
 ---
 
-**Last Updated:** January 16, 2026 📅
+**Last Updated:** February 12, 2026 📅
 
 Made with 💻 and 🍫 by Jordan Alexis
 
