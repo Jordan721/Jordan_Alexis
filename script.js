@@ -181,18 +181,40 @@ function initTagCloud() {
         legend.querySelectorAll('.legend-item').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
-        // Filter tags
-        if (category === 'all') {
-            tags.forEach(tag => tag.classList.remove('filtered-out'));
-        } else {
-            tags.forEach(tag => {
-                if (tag.dataset.category === category) {
-                    tag.classList.remove('filtered-out');
-                } else {
-                    tag.classList.add('filtered-out');
-                }
+        const toShow = [];
+        const toHide = [];
+
+        tags.forEach(tag => {
+            const matches = category === 'all' || tag.dataset.category === category;
+            if (matches) {
+                toShow.push(tag);
+            } else {
+                toHide.push(tag);
+            }
+        });
+
+        // Phase 1: Fade out non-matching tags
+        toHide.forEach(tag => {
+            tag.classList.remove('filtered-out', 'filtering-in');
+            tag.classList.add('filtering-out');
+        });
+
+        // Phase 2: After fade-out transition, hide them and pop in the matching ones
+        setTimeout(() => {
+            toHide.forEach(tag => {
+                tag.classList.remove('filtering-out');
+                tag.classList.add('filtered-out');
             });
-        }
+
+            // Show matching tags with staggered pop-in
+            toShow.forEach((tag, i) => {
+                tag.classList.remove('filtered-out', 'filtering-out');
+                tag.classList.add('filtering-in');
+                tag.style.animationDelay = (i * 0.03) + 's';
+                // Clean up animation class after it finishes
+                setTimeout(() => tag.classList.remove('filtering-in'), 350 + i * 30);
+            });
+        }, 300);
     });
 }
 
@@ -253,8 +275,14 @@ function initHTimeline() {
 
     leftArrow.addEventListener('mousedown', () => startScroll(-1));
     rightArrow.addEventListener('mousedown', () => startScroll(1));
-    leftArrow.addEventListener('touchstart', (e) => { e.preventDefault(); startScroll(-1); });
-    rightArrow.addEventListener('touchstart', (e) => { e.preventDefault(); startScroll(1); });
+    leftArrow.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        startScroll(-1);
+    });
+    rightArrow.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        startScroll(1);
+    });
 
     document.addEventListener('mouseup', stopScroll);
     document.addEventListener('touchend', stopScroll);
