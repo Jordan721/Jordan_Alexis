@@ -202,6 +202,25 @@ function toggleAboutCard(el) {
     el.classList.toggle('expanded');
 }
 
+function toggleAboutExpandAll() {
+    const btn = document.querySelector('.about-expand-actions .h-expand-all-btn');
+    const cards = document.querySelectorAll('.about-card');
+    const isExpanding = !btn.classList.contains('active');
+
+    btn.classList.toggle('active');
+    btn.innerHTML = isExpanding ?
+        '<i class="fas fa-compress-alt"></i> Collapse All' :
+        '<i class="fas fa-expand-alt"></i> Expand All';
+
+    cards.forEach(card => {
+        if (isExpanding) {
+            card.classList.add('expanded');
+        } else {
+            card.classList.remove('expanded');
+        }
+    });
+}
+
 function initFlipCards() {
     // legacy — no longer used
 }
@@ -215,21 +234,33 @@ function initHTimeline() {
 
     if (!timeline || !leftArrow || !rightArrow) return;
 
-    const scrollAmount = 320;
+    const scrollSpeed = 5;
+    let scrollInterval = null;
 
-    leftArrow.addEventListener('click', () => {
-        timeline.scrollBy({
-            left: -scrollAmount,
-            behavior: 'smooth'
-        });
-    });
+    function startScroll(direction) {
+        stopScroll();
+        timeline.style.scrollSnapType = 'none';
+        scrollInterval = setInterval(() => {
+            timeline.scrollLeft += direction * scrollSpeed;
+        }, 10);
+    }
 
-    rightArrow.addEventListener('click', () => {
-        timeline.scrollBy({
-            left: scrollAmount,
-            behavior: 'smooth'
-        });
-    });
+    function stopScroll() {
+        if (scrollInterval) {
+            clearInterval(scrollInterval);
+            scrollInterval = null;
+            timeline.style.scrollSnapType = '';
+        }
+    }
+
+    leftArrow.addEventListener('mousedown', () => startScroll(-1));
+    rightArrow.addEventListener('mousedown', () => startScroll(1));
+    leftArrow.addEventListener('touchstart', (e) => { e.preventDefault(); startScroll(-1); });
+    rightArrow.addEventListener('touchstart', (e) => { e.preventDefault(); startScroll(1); });
+
+    document.addEventListener('mouseup', stopScroll);
+    document.addEventListener('touchend', stopScroll);
+    document.addEventListener('mouseleave', stopScroll);
 
     // Stat counter animation
     const statObserver = new IntersectionObserver((entries) => {
@@ -315,6 +346,25 @@ function toggleEduChip(el) {
     // close all other chips
     document.querySelectorAll('.edu-chip.expanded').forEach(c => c.classList.remove('expanded'));
     if (!wasExpanded) el.classList.add('expanded');
+}
+
+function toggleEduExpandAll() {
+    const btn = document.querySelector('.edu-expand-actions .h-expand-all-btn');
+    const chips = document.querySelectorAll('.edu-chip');
+    const isExpanding = !btn.classList.contains('active');
+
+    btn.classList.toggle('active');
+    btn.innerHTML = isExpanding ?
+        '<i class="fas fa-compress-alt"></i> Collapse All' :
+        '<i class="fas fa-expand-alt"></i> Expand All';
+
+    chips.forEach(chip => {
+        if (isExpanding) {
+            chip.classList.add('expanded');
+        } else {
+            chip.classList.remove('expanded');
+        }
+    });
 }
 
 // scroll animations
