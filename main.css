@@ -1817,7 +1817,7 @@ body {
 /* Scrollable container */
 .h-timeline {
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: none;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     padding: 20px 0 30px 0;
@@ -1852,7 +1852,7 @@ body {
 /* Individual cards */
 .h-timeline-card {
     flex: 0 0 280px;
-    scroll-snap-align: center;
+    scroll-snap-align: none;
     position: relative;
     padding-top: 50px;
 }

@@ -234,12 +234,11 @@ function initHTimeline() {
 
     if (!timeline || !leftArrow || !rightArrow) return;
 
-    const scrollSpeed = 5;
+    const scrollSpeed = 12;
     let scrollInterval = null;
 
     function startScroll(direction) {
         stopScroll();
-        timeline.style.scrollSnapType = 'none';
         scrollInterval = setInterval(() => {
             timeline.scrollLeft += direction * scrollSpeed;
         }, 10);
@@ -249,7 +248,6 @@ function initHTimeline() {
         if (scrollInterval) {
             clearInterval(scrollInterval);
             scrollInterval = null;
-            timeline.style.scrollSnapType = '';
         }
     }
 
