@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -107,49 +107,162 @@
         </div>
     </section>
 
-    <!-- Floating Navigation -->
-    <nav class="floating-nav">
-        <a href="#home" class="nav-dot active" data-section="home">
-            <span class="nav-tooltip">Home</span>
-        </a>
-        <a href="#about" class="nav-dot" data-section="about">
-            <span class="nav-tooltip">About</span>
-        </a>
-        <a href="#experience" class="nav-dot" data-section="experience">
-            <span class="nav-tooltip">Experience</span>
-        </a>
-        <a href="#arsenal" class="nav-dot" data-section="arsenal">
-            <span class="nav-tooltip">Arsenal</span>
-        </a>
-        <a href="#projects" class="nav-dot" data-section="projects">
-            <span class="nav-tooltip">Projects</span>
-        </a>
-        <a href="#education" class="nav-dot" data-section="education">
-            <span class="nav-tooltip">Education</span>
-        </a>
-        <a href="#github-activity" class="nav-dot" data-section="github-activity">
-            <span class="nav-tooltip">Activity</span>
-        </a>
-        <a href="#contact" class="nav-dot" data-section="contact">
-            <span class="nav-tooltip">Contact</span>
-        </a>
-    </nav>
+    <!-- Dashboard Side Navigation -->
+    <aside class="side-nav" id="sideNav">
 
-    <!-- Social Links Sidebar -->
-    <div class="social-sidebar">
-        <a href="https://github.com/Jordan721" target="_blank" class="social-link" data-tooltip="GitHub Personal">
-            <i class="fab fa-github"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/jordan-alexis/" target="_blank" class="social-link"
-            data-tooltip="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://linktr.ee/Jordan_Alexis_" target="_blank" class="social-link social-linktree"
-            data-tooltip="Linktree">
-            <i class="fas fa-tree"></i>
-        </a>
-        <div class="social-line"></div>
-    </div>
+        <!-- Icon Rail (always visible) -->
+        <div class="side-nav-rail">
+            <div class="rail-logo">JA</div>
+
+            <div class="rail-icons">
+                <a href="#home" class="rail-icon active" data-section="home">
+                    <i class="fas fa-house"></i>
+                    <span class="rail-tooltip">Home</span>
+                </a>
+                <a href="#about" class="rail-icon" data-section="about">
+                    <i class="fas fa-user"></i>
+                    <span class="rail-tooltip">About</span>
+                </a>
+                <a href="#experience" class="rail-icon" data-section="experience">
+                    <i class="fas fa-briefcase"></i>
+                    <span class="rail-tooltip">Experience</span>
+                </a>
+                <a href="#arsenal" class="rail-icon" data-section="arsenal">
+                    <i class="fas fa-code"></i>
+                    <span class="rail-tooltip">Arsenal</span>
+                </a>
+                <a href="#projects" class="rail-icon" data-section="projects">
+                    <i class="fas fa-folder-open"></i>
+                    <span class="rail-tooltip">Projects</span>
+                </a>
+                <a href="#education" class="rail-icon" data-section="education">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span class="rail-tooltip">Education</span>
+                </a>
+                <a href="#github-activity" class="rail-icon" data-section="github-activity">
+                    <i class="fab fa-github-alt"></i>
+                    <span class="rail-tooltip">Activity</span>
+                </a>
+                <a href="#contact" class="rail-icon" data-section="contact">
+                    <i class="fas fa-envelope"></i>
+                    <span class="rail-tooltip">Contact</span>
+                </a>
+            </div>
+
+            <div class="rail-socials">
+                <a href="https://github.com/Jordan721" target="_blank" class="rail-icon rail-social-icon">
+                    <i class="fab fa-github"></i>
+                    <span class="rail-tooltip">GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/jordan-alexis/" target="_blank" class="rail-icon rail-social-icon">
+                    <i class="fab fa-linkedin-in"></i>
+                    <span class="rail-tooltip">LinkedIn</span>
+                </a>
+                <a href="https://linktr.ee/Jordan_Alexis_" target="_blank" class="rail-icon rail-social-icon">
+                    <i class="fas fa-tree"></i>
+                    <span class="rail-tooltip">Linktree</span>
+                </a>
+            </div>
+
+            <div class="rail-footer">
+                <button class="rail-theme-btn" onclick="toggleTheme()" title="Toggle light/dark mode">
+                    <i class="fas fa-moon" id="themeIconRail"></i>
+                </button>
+                <button class="rail-expand-btn" id="sideNavToggle" title="Expand menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Expanded Panel -->
+        <div class="side-nav-panel" id="sideNavPanel">
+            <div class="panel-header">
+                <div class="panel-profile">
+                    <img src="Me.png" alt="Jordan Alexis" class="panel-avatar">
+                    <div class="panel-profile-info">
+                        <span class="panel-name">Jordan Alexis</span>
+                        <span class="panel-role">Developer</span>
+                    </div>
+                </div>
+                <button class="panel-close-btn" id="sideNavClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <nav class="panel-nav">
+                <div class="panel-section-label">Navigation</div>
+                <a href="#home" class="panel-nav-item active" data-section="home">
+                    <i class="fas fa-house"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#about" class="panel-nav-item" data-section="about">
+                    <i class="fas fa-user"></i>
+                    <span>About</span>
+                </a>
+                <a href="#experience" class="panel-nav-item" data-section="experience">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Experience</span>
+                </a>
+                <a href="#arsenal" class="panel-nav-item" data-section="arsenal">
+                    <i class="fas fa-code"></i>
+                    <span>Arsenal</span>
+                </a>
+                <a href="#projects" class="panel-nav-item" data-section="projects">
+                    <i class="fas fa-folder-open"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="#education" class="panel-nav-item" data-section="education">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Education</span>
+                </a>
+                <a href="#github-activity" class="panel-nav-item" data-section="github-activity">
+                    <i class="fab fa-github-alt"></i>
+                    <span>Activity</span>
+                </a>
+                <a href="#contact" class="panel-nav-item" data-section="contact">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact</span>
+                </a>
+            </nav>
+
+            <div class="panel-socials">
+                <div class="panel-section-label">Connect</div>
+                <a href="https://github.com/Jordan721" target="_blank" class="panel-social-link">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/jordan-alexis/" target="_blank" class="panel-social-link">
+                    <i class="fab fa-linkedin-in"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://linktr.ee/Jordan_Alexis_" target="_blank" class="panel-social-link">
+                    <i class="fas fa-tree"></i>
+                    <span>Linktree</span>
+                </a>
+            </div>
+
+            <div class="panel-footer">
+                <button class="panel-theme-btn" onclick="toggleTheme()">
+                    <i class="fas fa-moon" id="themeIconPanel"></i>
+                    <span id="themeLabel">Dark Mode</span>
+                    <div class="toggle-track" id="themeToggleTrack">
+                        <div class="toggle-thumb"></div>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+    </aside>
+
+    <!-- Side nav overlay for mobile -->
+    <div class="side-nav-overlay" id="sideNavOverlay"></div>
+
+    <!-- Mobile Hamburger Button (visible only on mobile) -->
+    <button class="mobile-hamburger" id="mobileHamburger" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
     <!-- Gamification Settings Toggle -->
     <button class="gamification-toggle" id="gamificationToggle" onclick="toggleGamificationSettings()"

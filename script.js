@@ -1,5 +1,7 @@
 // Scroll Navigation
 document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
+    initSideNav();
     initScrollNavigation();
     initTagCloud();
     initFlipCards();
@@ -10,47 +12,33 @@ document.addEventListener('DOMContentLoaded', () => {
 // scroll navigation
 
 function initScrollNavigation() {
-    const navDots = document.querySelectorAll('.nav-dot');
     const sections = document.querySelectorAll('.section, .hero');
 
-    // Smooth scroll to section
-    navDots.forEach(dot => {
-        dot.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = dot.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
+    // Update active state across all nav elements for a given section id
+    function setActiveSection(sectionId) {
+        document.querySelectorAll('.rail-icon').forEach(el => {
+            el.classList.toggle('active', el.getAttribute('data-section') === sectionId);
         });
-    });
+        document.querySelectorAll('.panel-nav-item').forEach(el => {
+            el.classList.toggle('active', el.getAttribute('data-section') === sectionId);
+        });
+    }
 
-    // Update active dot on scroll
+    // Update active section on scroll
     const observerOptions = {
         root: null,
         rootMargin: '-50% 0px -50% 0px',
         threshold: 0
     };
 
-    const observerCallback = (entries) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const sectionId = entry.target.getAttribute('id');
-                navDots.forEach(dot => {
-                    dot.classList.remove('active');
-                    if (dot.getAttribute('data-section') === sectionId) {
-                        dot.classList.add('active');
-                    }
-                });
+                setActiveSection(entry.target.getAttribute('id'));
             }
         });
-    };
+    }, observerOptions);
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
     sections.forEach(section => {
         if (section.getAttribute('id')) {
             observer.observe(section);
@@ -1601,4 +1589,113 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', fetchGitHubActivity);
 } else {
     fetchGitHubActivity();
+}
+
+// ============================================================
+// THEME SYSTEM (dark / light)
+// ============================================================
+
+function initTheme() {
+    const saved = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', saved);
+    applyThemeIcons(saved);
+}
+
+function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    applyThemeIcons(next);
+}
+
+function applyThemeIcons(theme) {
+    const isLight = theme === 'light';
+    const iconClass = isLight ? 'fa-sun' : 'fa-moon';
+    const oppositeClass = isLight ? 'fa-moon' : 'fa-sun';
+
+    ['themeIconRail', 'themeIconPanel'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.classList.remove('fa-moon', 'fa-sun');
+            el.classList.add(iconClass);
+        }
+    });
+
+    const label = document.getElementById('themeLabel');
+    if (label) label.textContent = isLight ? 'Light Mode' : 'Dark Mode';
+
+    const track = document.getElementById('themeToggleTrack');
+    if (track) track.classList.toggle('active', isLight);
+}
+
+// ============================================================
+// SIDE NAV (expand / collapse panel)
+// ============================================================
+
+function openSideNav() {
+    document.getElementById('sideNavPanel').classList.add('open');
+    document.getElementById('sideNavOverlay').classList.add('active');
+    const hamburger = document.getElementById('mobileHamburger');
+    if (hamburger) hamburger.classList.add('open');
+}
+
+function closeSideNav() {
+    const panel = document.getElementById('sideNavPanel');
+    const overlay = document.getElementById('sideNavOverlay');
+    const hamburger = document.getElementById('mobileHamburger');
+    if (panel) panel.classList.remove('open');
+    if (overlay) overlay.classList.remove('active');
+    if (hamburger) hamburger.classList.remove('open');
+}
+
+function initSideNav() {
+    // Desktop: expand / collapse toggle button on the rail
+    const toggleBtn = document.getElementById('sideNavToggle');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            const panel = document.getElementById('sideNavPanel');
+            if (panel && panel.classList.contains('open')) {
+                closeSideNav();
+            } else {
+                openSideNav();
+            }
+        });
+    }
+
+    // Mobile: floating hamburger button
+    const hamburger = document.getElementById('mobileHamburger');
+    if (hamburger) {
+        hamburger.addEventListener('click', () => {
+            const panel = document.getElementById('sideNavPanel');
+            if (panel && panel.classList.contains('open')) {
+                closeSideNav();
+            } else {
+                openSideNav();
+            }
+        });
+    }
+
+    // Close button inside the panel
+    const closeBtn = document.getElementById('sideNavClose');
+    if (closeBtn) closeBtn.addEventListener('click', closeSideNav);
+
+    // Overlay click closes the panel
+    const overlay = document.getElementById('sideNavOverlay');
+    if (overlay) overlay.addEventListener('click', closeSideNav);
+
+    // Smooth scroll + close panel when a nav item is clicked
+    document.querySelectorAll('.rail-icon, .panel-nav-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            const href = item.getAttribute('href');
+            if (href && href !== '#') {
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+            closeSideNav();
+        });
+    });
 }
