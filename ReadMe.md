@@ -5,7 +5,12 @@ A sleek, modern portfolio built from scratch showcasing my journey as a develope
 ## 📅 Recent Updates
 
 ### ✨ February 17, 2026
-Redesigned Experience section with a **Split Panel layout** — year/company on the left, role and details on the right, connected by a glowing divider line. All information visible at a glance, no expand/collapse needed. Filters and stats bar preserved.
+Big UX overhaul — removed accordions and hidden content across the site in favor of always-visible layouts.
+
+- **Experience** — Replaced bento grid with a **Split Panel layout** (year/company on left, role + details on right, glowing divider line). All info visible, no expand/collapse. Filters and stats bar preserved.
+- **About Me** — Replaced 6 expandable cards with a single **Tabbed Profile Card**. Click tabs to swap content. Mobile tabs scroll with a fade hint.
+- **Education** — Unified into a **split-panel timeline** matching the experience section. Primary programs show progress bars and status badges, secondary programs flow seamlessly below. All details visible.
+- **Tech Arsenal** — Each category now has a **unique visual identity** beyond color: Business (pills + bottom border), Data (sharp corners + stripes), Tech (angled clips + terminal bg), Tools (dashed border + shimmer), Strategic (soft glow + no border). Unique hover animations per category (lift, pulse, glitch, shake, bloom). Mobile redesigned as a **tabbed interface** replacing the old accordion.
 
 ### 🧱 February 13, 2026
 Swapped horizontal timeline for a bento grid and upgraded Tech Arsenal tag filtering with hide/reflow animations.
@@ -36,7 +41,9 @@ Certificate folder system with carousel, responsive year filtering, folder hover
 ## ⚡ Key Features
 
 - 📊 **Split Panel Experience** — Clean left/right layout with year filters, type filters, and animated stat counters
-- ☁️ **Interactive Tag Cloud** — Filterable skill tags by category with pop-in animations
+- 🪪 **Tabbed About Me** — Single profile card with 6 tabs (Who I Am, What I Build, How I Work, What Drives Me, Fun Facts, Certifications)
+- 🎓 **Split Panel Education** — Unified timeline with progress bars, status badges, and full details for all 5 programs
+- ☁️ **Interactive Tag Cloud** — Filterable skill tags with unique shapes, borders, backgrounds, and hover animations per category
 - 🐙 **GitHub Activity Feed** — Live commits, repos, and stats from GitHub API
 - 📜 **Certificate System** — Folder-based navigation with carousel viewer and info modals
 - 🎮 **Gamification Panel** — Toggle cursor trails, particles, card tilt, ripples, grid, and icon effects

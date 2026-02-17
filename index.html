@@ -280,99 +280,64 @@
                 <div class="section-line"></div>
             </div>
 
-            <div class="about-expand-actions">
-                <button class="h-expand-all-btn" onclick="toggleAboutExpandAll()">
-                    <i class="fas fa-expand-alt"></i> Expand All
-                </button>
-            </div>
+            <!-- Tabbed Profile Card -->
+            <div class="profile-card glass-card">
+                <div class="profile-tabs">
+                    <button class="profile-tab active" data-tab="who" onclick="switchProfileTab('who')">
+                        <i class="fas fa-user"></i> <span>Who I Am</span>
+                    </button>
+                    <button class="profile-tab" data-tab="build" onclick="switchProfileTab('build')">
+                        <i class="fas fa-code"></i> <span>What I Build</span>
+                    </button>
+                    <button class="profile-tab" data-tab="work" onclick="switchProfileTab('work')">
+                        <i class="fas fa-cogs"></i> <span>How I Work</span>
+                    </button>
+                    <button class="profile-tab" data-tab="drives" onclick="switchProfileTab('drives')">
+                        <i class="fas fa-bolt"></i> <span>What Drives Me</span>
+                    </button>
+                    <button class="profile-tab" data-tab="fun" onclick="switchProfileTab('fun')">
+                        <i class="fas fa-gamepad"></i> <span>Fun Facts</span>
+                    </button>
+                    <button class="profile-tab" data-tab="certs" onclick="switchProfileTab('certs')">
+                        <i class="fas fa-certificate"></i> <span>Certifications</span>
+                    </button>
+                </div>
 
-            <div class="about-cards-grid">
-                <!-- Card 1: Who I Am -->
-                <div class="about-card glass-card" onclick="toggleAboutCard(this)">
-                    <div class="about-card-header">
-                        <div class="about-card-icon"><i class="fas fa-user"></i></div>
-                        <h3>Who I Am</h3>
-                        <i class="fas fa-chevron-down about-card-arrow"></i>
-                    </div>
-                    <div class="about-card-content">
+                <div class="profile-panels">
+                    <div class="profile-panel active" data-panel="who">
                         <p>I am a Multimedia and Data Analytics Developer who blends creativity with technical
                             problem solving. I enjoy bridging the gap between design, development, and data
                             to create solutions that feel both smart and human centered.</p>
                     </div>
-                </div>
-
-                <!-- Card 2: What I Build -->
-                <div class="about-card glass-card" onclick="toggleAboutCard(this)">
-                    <div class="about-card-header">
-                        <div class="about-card-icon"><i class="fas fa-code"></i></div>
-                        <h3>What I Build</h3>
-                        <i class="fas fa-chevron-down about-card-arrow"></i>
-                    </div>
-                    <div class="about-card-content">
+                    <div class="profile-panel" data-panel="build">
                         <p>Full-stack applications with <strong>Python, Java, JavaScript, and SQL</strong>.
                             I also specialize in processing large datasets exceeding 10,000 rows, using
                             <strong>Power BI, Talend, and enterprise systems</strong> to automate workflows
                             and deliver actionable insights.</p>
                     </div>
-                </div>
-
-                <!-- Card 3: How I Work -->
-                <div class="about-card glass-card" onclick="toggleAboutCard(this)">
-                    <div class="about-card-header">
-                        <div class="about-card-icon"><i class="fas fa-cogs"></i></div>
-                        <h3>How I Work</h3>
-                        <i class="fas fa-chevron-down about-card-arrow"></i>
-                    </div>
-                    <div class="about-card-content">
+                    <div class="profile-panel" data-panel="work">
                         <p>I start by breaking problems into smaller pieces and tackling them one at a time.
                             I like writing clean, readable code and testing as I go. Whether it's a solo project
                             or a team sprint, I stay organized with version control and clear documentation so
                             nothing falls through the cracks.</p>
                     </div>
-                </div>
-
-                <!-- Card 4: What Drives Me -->
-                <div class="about-card glass-card" onclick="toggleAboutCard(this)">
-                    <div class="about-card-header">
-                        <div class="about-card-icon"><i class="fas fa-bolt"></i></div>
-                        <h3>What Drives Me</h3>
-                        <i class="fas fa-chevron-down about-card-arrow"></i>
-                    </div>
-                    <div class="about-card-content">
+                    <div class="profile-panel" data-panel="drives">
                         <p>I'm driven by the moment something finally clicks — when messy data becomes a clear
                             story, or a feature I've been wrestling with just works. I want to build things
                             that make people's lives easier and keep pushing myself to learn what's next in
                             tech.</p>
                     </div>
-                </div>
-
-                <!-- Card 5: Fun Facts -->
-                <div class="about-card glass-card" onclick="toggleAboutCard(this)">
-                    <div class="about-card-header">
-                        <div class="about-card-icon"><i class="fas fa-gamepad"></i></div>
-                        <h3>Fun Facts</h3>
-                        <i class="fas fa-chevron-down about-card-arrow"></i>
-                    </div>
-                    <div class="about-card-content">
+                    <div class="profile-panel" data-panel="fun">
                         <p>When I'm not coding, I'm probably gaming. I love <strong>platformers</strong> and
                             <strong>metroidvanias</strong> like Metroid and Monster Tale, strategic games that
                             make me think, and the occasional horror title to keep things interesting. Shooters
                             like <strong>Splatoon</strong> are in the mix too. I also enjoy tinkering with
                             side projects, exploring new tech, and finding ways to blend creativity with code.</p>
                     </div>
-                </div>
-
-                <!-- Card 6: Certifications -->
-                <div class="about-card glass-card" onclick="toggleAboutCard(this)">
-                    <div class="about-card-header">
-                        <div class="about-card-icon"><i class="fas fa-certificate"></i></div>
-                        <h3>Certifications</h3>
-                        <i class="fas fa-chevron-down about-card-arrow"></i>
-                    </div>
-                    <div class="about-card-content">
+                    <div class="profile-panel" data-panel="certs">
                         <p>Professional credentials including Year Up United completion and Google Data Analytics
                             coursework.</p>
-                        <button onclick="openCertificatesModal(); event.stopPropagation();" class="about-cta-btn">
+                        <button onclick="openCertificatesModal();" class="about-cta-btn">
                             View Certificates <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
@@ -809,168 +774,127 @@
                     Development</span>
             </div>
 
-            <!-- Mobile: Original Accordion (hidden on desktop) -->
-            <div class="skills-controls">
-                <button id="toggleAllSkillsBtn" onclick="toggleAllSkills()" class="skills-control-btn">
-                    <i class="fas fa-chevron-down"></i> Expand All
-                </button>
-            </div>
-
-            <div class="skills-container">
-                <!-- Business Operations & Support -->
-                <div class="skill-category glass-card" data-aos="fade-up">
-                    <div class="skill-category-header" onclick="toggleSkillCategory(this)">
-                        <div class="skill-category-title">
-                            <span class="skill-icon">💼</span>
-                            <h3>Business Operations & Support</h3>
-                        </div>
-                        <i class="fas fa-chevron-down skill-arrow"></i>
-                    </div>
-                    <div class="skill-category-content">
-                        <div class="skill-tags">
-                            <span class="skill-tag">Calendar Management</span>
-                            <span class="skill-tag">Client Engagement</span>
-                            <span class="skill-tag">Data Entry</span>
-                            <span class="skill-tag">Data Ethics</span>
-                            <span class="skill-tag">Form Processing</span>
-                            <span class="skill-tag">Office Coordination</span>
-                        </div>
-                    </div>
+            <!-- Mobile: Tabbed Interface (hidden on desktop) -->
+            <div class="mobile-arsenal">
+                <div class="mobile-arsenal-tabs">
+                    <button class="mobile-tab active" data-tab="business" onclick="switchArsenalTab('business')" style="--tab-color: #06b6d4">💼 Business</button>
+                    <button class="mobile-tab" data-tab="data" onclick="switchArsenalTab('data')" style="--tab-color: #8b5cf6">📊 Data</button>
+                    <button class="mobile-tab" data-tab="tech" onclick="switchArsenalTab('tech')" style="--tab-color: #10b981">💻 Tech</button>
+                    <button class="mobile-tab" data-tab="tools" onclick="switchArsenalTab('tools')" style="--tab-color: #f59e0b">🛠️ Tools</button>
+                    <button class="mobile-tab" data-tab="strategic" onclick="switchArsenalTab('strategic')" style="--tab-color: #ec4899">🤝 Strategic</button>
                 </div>
 
-                <!-- Project & Data Skills -->
-                <div class="skill-category glass-card" data-aos="fade-up">
-                    <div class="skill-category-header" onclick="toggleSkillCategory(this)">
-                        <div class="skill-category-title">
-                            <span class="skill-icon">📊</span>
-                            <h3>Project & Data Skills</h3>
-                        </div>
-                        <i class="fas fa-chevron-down skill-arrow"></i>
-                    </div>
-                    <div class="skill-category-content">
-                        <div class="skill-tags">
-                            <span class="skill-tag">Account Management</span>
-                            <span class="skill-tag">Analytics</span>
-                            <span class="skill-tag">Business Analysis</span>
-                            <span class="skill-tag">Business Analytics</span>
-                            <span class="skill-tag">Data Analysis</span>
-                            <span class="skill-tag">Data Cleansing</span>
-                            <span class="skill-tag">Data Collection</span>
-                            <span class="skill-tag">Data-Driven Decision-Making</span>
-                            <span class="skill-tag">Data Import/Export</span>
-                            <span class="skill-tag">Data Integrity</span>
-                            <span class="skill-tag">Data Management</span>
-                            <span class="skill-tag">Data Processing</span>
-                            <span class="skill-tag">Data Quality</span>
-                            <span class="skill-tag">Data Security</span>
-                            <span class="skill-tag">Data Storage</span>
-                            <span class="skill-tag">Data Transformation</span>
-                            <span class="skill-tag">Data Validation</span>
-                            <span class="skill-tag">Data Visualization</span>
-                            <span class="skill-tag">Database Management</span>
-                            <span class="skill-tag">Metadata Management</span>
-                            <span class="skill-tag">Project Management</span>
-                            <span class="skill-tag">Quantitative Research</span>
-                            <span class="skill-tag">Research & Reporting</span>
-                            <span class="skill-tag">Sample Size Determination</span>
-                            <span class="skill-tag">Sampling (Statistics)</span>
-                            <span class="skill-tag">Spreadsheet Software</span>
-                            <span class="skill-tag">Unstructured Data</span>
+                <div class="mobile-tab-panels">
+                    <!-- Business -->
+                    <div class="mobile-tab-panel active" data-panel="business">
+                        <div class="mobile-skill-tags" data-category="business">
+                            <span class="m-tag m-business">Calendar Management</span>
+                            <span class="m-tag m-business">Client Engagement</span>
+                            <span class="m-tag m-business">Data Entry</span>
+                            <span class="m-tag m-business">Data Ethics</span>
+                            <span class="m-tag m-business">Form Processing</span>
+                            <span class="m-tag m-business">Office Coordination</span>
                         </div>
                     </div>
-                </div>
 
-                <!-- Tech Stack -->
-                <div class="skill-category glass-card" data-aos="fade-up">
-                    <div class="skill-category-header" onclick="toggleSkillCategory(this)">
-                        <div class="skill-category-title">
-                            <span class="skill-icon">💻</span>
-                            <h3>Tech Stack</h3>
+                    <!-- Data -->
+                    <div class="mobile-tab-panel" data-panel="data">
+                        <div class="mobile-skill-tags" data-category="data">
+                            <span class="m-tag m-data">Account Management</span>
+                            <span class="m-tag m-data">Analytics</span>
+                            <span class="m-tag m-data">Business Analysis</span>
+                            <span class="m-tag m-data">Business Analytics</span>
+                            <span class="m-tag m-data">Data Analysis</span>
+                            <span class="m-tag m-data">Data Cleansing</span>
+                            <span class="m-tag m-data">Data Collection</span>
+                            <span class="m-tag m-data">Data-Driven Decision-Making</span>
+                            <span class="m-tag m-data">Data Import/Export</span>
+                            <span class="m-tag m-data">Data Integrity</span>
+                            <span class="m-tag m-data">Data Management</span>
+                            <span class="m-tag m-data">Data Processing</span>
+                            <span class="m-tag m-data">Data Quality</span>
+                            <span class="m-tag m-data">Data Security</span>
+                            <span class="m-tag m-data">Data Storage</span>
+                            <span class="m-tag m-data">Data Transformation</span>
+                            <span class="m-tag m-data">Data Validation</span>
+                            <span class="m-tag m-data">Data Visualization</span>
+                            <span class="m-tag m-data">Database Management</span>
+                            <span class="m-tag m-data">Metadata Management</span>
+                            <span class="m-tag m-data">Project Management</span>
+                            <span class="m-tag m-data">Quantitative Research</span>
+                            <span class="m-tag m-data">Research & Reporting</span>
+                            <span class="m-tag m-data">Sample Size Determination</span>
+                            <span class="m-tag m-data">Sampling (Statistics)</span>
+                            <span class="m-tag m-data">Spreadsheet Software</span>
+                            <span class="m-tag m-data">Unstructured Data</span>
                         </div>
-                        <i class="fas fa-chevron-down skill-arrow"></i>
                     </div>
-                    <div class="skill-category-content">
-                        <div class="skill-tags">
-                            <span class="skill-tag">HTML/CSS</span>
-                            <span class="skill-tag">Java</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">jQuery</span>
-                            <span class="skill-tag">PHP</span>
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Responsive Design</span>
-                            <span class="skill-tag">SQL</span>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Tools & Platforms -->
-                <div class="skill-category glass-card" data-aos="fade-up">
-                    <div class="skill-category-header" onclick="toggleSkillCategory(this)">
-                        <div class="skill-category-title">
-                            <span class="skill-icon">🛠️</span>
-                            <h3>Tools & Platforms</h3>
-                        </div>
-                        <i class="fas fa-chevron-down skill-arrow"></i>
-                    </div>
-                    <div class="skill-category-content">
-                        <div class="skill-tags">
-                            <span class="skill-tag">Adobe Illustrator</span>
-                            <span class="skill-tag">Adobe Photoshop</span>
-                            <span class="skill-tag">Adobe Premiere Pro</span>
-                            <span class="skill-tag">Adobe XD</span>
-                            <span class="skill-tag">Command Prompt (CMD)</span>
-                            <span class="skill-tag">Copilot</span>
-                            <span class="skill-tag">DBArtisan</span>
-                            <span class="skill-tag">DBeaver</span>
-                            <span class="skill-tag">Draw.io</span>
-                            <span class="skill-tag">Dreamweaver</span>
-                            <span class="skill-tag">Eclipse</span>
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">Git Bash</span>
-                            <span class="skill-tag">GitHub</span>
-                            <span class="skill-tag">Google Docs</span>
-                            <span class="skill-tag">Google Sheets</span>
-                            <span class="skill-tag">Google Slides</span>
-                            <span class="skill-tag">Hootsuite</span>
-                            <span class="skill-tag">IntelliJ</span>
-                            <span class="skill-tag">Jira</span>
-                            <span class="skill-tag">Microsoft Excel</span>
-                            <span class="skill-tag">Microsoft PowerPoint</span>
-                            <span class="skill-tag">Microsoft Teams</span>
-                            <span class="skill-tag">Microsoft Word</span>
-                            <span class="skill-tag">MongoDB</span>
-                            <span class="skill-tag">MySQL</span>
-                            <span class="skill-tag">NetBeans</span>
-                            <span class="skill-tag">Obsidian.md</span>
-                            <span class="skill-tag">Postman</span>
-                            <span class="skill-tag">Power BI</span>
-                            <span class="skill-tag">PowerShell</span>
-                            <span class="skill-tag">Talend</span>
-                            <span class="skill-tag">Unix</span>
-                            <span class="skill-tag">Linux</span>
-                            <span class="skill-tag">Visual Studio Code</span>
+                    <!-- Tech -->
+                    <div class="mobile-tab-panel" data-panel="tech">
+                        <div class="mobile-skill-tags" data-category="tech">
+                            <span class="m-tag m-tech">HTML/CSS</span>
+                            <span class="m-tag m-tech">Java</span>
+                            <span class="m-tag m-tech">JavaScript</span>
+                            <span class="m-tag m-tech">jQuery</span>
+                            <span class="m-tag m-tech">PHP</span>
+                            <span class="m-tag m-tech">Python</span>
+                            <span class="m-tag m-tech">Responsive Design</span>
+                            <span class="m-tag m-tech">SQL</span>
                         </div>
                     </div>
-                </div>
 
-                <!-- Strategic & Interpersonal Skills -->
-                <div class="skill-category glass-card" data-aos="fade-up">
-                    <div class="skill-category-header" onclick="toggleSkillCategory(this)">
-                        <div class="skill-category-title">
-                            <span class="skill-icon">🤝</span>
-                            <h3>Strategic & Interpersonal Skills</h3>
+                    <!-- Tools -->
+                    <div class="mobile-tab-panel" data-panel="tools">
+                        <div class="mobile-skill-tags" data-category="tools">
+                            <span class="m-tag m-tools">Adobe Illustrator</span>
+                            <span class="m-tag m-tools">Adobe Photoshop</span>
+                            <span class="m-tag m-tools">Adobe Premiere Pro</span>
+                            <span class="m-tag m-tools">Adobe XD</span>
+                            <span class="m-tag m-tools">Command Prompt (CMD)</span>
+                            <span class="m-tag m-tools">Copilot</span>
+                            <span class="m-tag m-tools">DBArtisan</span>
+                            <span class="m-tag m-tools">DBeaver</span>
+                            <span class="m-tag m-tools">Draw.io</span>
+                            <span class="m-tag m-tools">Dreamweaver</span>
+                            <span class="m-tag m-tools">Eclipse</span>
+                            <span class="m-tag m-tools">Git</span>
+                            <span class="m-tag m-tools">Git Bash</span>
+                            <span class="m-tag m-tools">GitHub</span>
+                            <span class="m-tag m-tools">Google Docs</span>
+                            <span class="m-tag m-tools">Google Sheets</span>
+                            <span class="m-tag m-tools">Google Slides</span>
+                            <span class="m-tag m-tools">Hootsuite</span>
+                            <span class="m-tag m-tools">IntelliJ</span>
+                            <span class="m-tag m-tools">Jira</span>
+                            <span class="m-tag m-tools">Microsoft Excel</span>
+                            <span class="m-tag m-tools">Microsoft PowerPoint</span>
+                            <span class="m-tag m-tools">Microsoft Teams</span>
+                            <span class="m-tag m-tools">Microsoft Word</span>
+                            <span class="m-tag m-tools">MongoDB</span>
+                            <span class="m-tag m-tools">MySQL</span>
+                            <span class="m-tag m-tools">NetBeans</span>
+                            <span class="m-tag m-tools">Obsidian.md</span>
+                            <span class="m-tag m-tools">Postman</span>
+                            <span class="m-tag m-tools">Power BI</span>
+                            <span class="m-tag m-tools">PowerShell</span>
+                            <span class="m-tag m-tools">Talend</span>
+                            <span class="m-tag m-tools">Unix</span>
+                            <span class="m-tag m-tools">Linux</span>
+                            <span class="m-tag m-tools">Visual Studio Code</span>
                         </div>
-                        <i class="fas fa-chevron-down skill-arrow"></i>
                     </div>
-                    <div class="skill-category-content">
-                        <div class="skill-tags">
-                            <span class="skill-tag">Benefits Coordination</span>
-                            <span class="skill-tag">Problem Solving</span>
-                            <span class="skill-tag">Relationship Building</span>
-                            <span class="skill-tag">Smart Goals</span>
-                            <span class="skill-tag">Social Media Strategy</span>
-                            <span class="skill-tag">Stakeholder Communications</span>
-                            <span class="skill-tag">Training & Development</span>
+
+                    <!-- Strategic -->
+                    <div class="mobile-tab-panel" data-panel="strategic">
+                        <div class="mobile-skill-tags" data-category="strategic">
+                            <span class="m-tag m-strategic">Benefits Coordination</span>
+                            <span class="m-tag m-strategic">Problem Solving</span>
+                            <span class="m-tag m-strategic">Relationship Building</span>
+                            <span class="m-tag m-strategic">Smart Goals</span>
+                            <span class="m-tag m-strategic">Social Media Strategy</span>
+                            <span class="m-tag m-strategic">Stakeholder Communications</span>
+                            <span class="m-tag m-strategic">Training & Development</span>
                         </div>
                     </div>
                 </div>
@@ -1078,93 +1002,102 @@
                 <div class="section-line"></div>
             </div>
 
-            <!-- Primary Tier: Current / Recent Programs -->
-            <div class="edu-primary">
-                <div class="education-card glass-card" data-aos="fade-up">
-                    <div class="edu-icon">🎓</div>
-                    <div class="edu-status completed"><i class="fas fa-check-circle"></i> Completed</div>
-                    <h3>Software Development Training</h3>
-                    <h4>Year Up United | Pluralsight</h4>
-                    <span class="edu-date">Feb 2025 - Jan 2026</span>
-                    <p>
-                        Intensive career development program collaborating with 250 corporate partners. Completed
-                        coursework in Excel, Business Writing, Public Speaking, and specialized Software Development
-                        training encompassing database management, IDE proficiency, software testing, programming,
-                        and code execution.
-                    </p>
-                    <div class="edu-progress">
-                        <div class="edu-progress-bar" style="width: 100%"></div>
+            <!-- Unified Education List -->
+            <div class="edu-list">
+
+                <div class="edu-entry" data-aos="fade-up">
+                    <div class="edu-entry-left">
+                        <span class="edu-entry-icon">🎓</span>
+                        <span class="edu-entry-year">2025</span>
+                        <span class="edu-entry-status completed"><i class="fas fa-check-circle"></i> Completed</span>
+                    </div>
+                    <div class="edu-entry-line"><span class="edu-entry-dot"></span></div>
+                    <div class="edu-entry-right">
+                        <h3>Software Development Training</h3>
+                        <h4>Year Up United | Pluralsight</h4>
+                        <span class="edu-entry-date">Feb 2025 - Jan 2026</span>
+                        <p>Intensive career development program collaborating with 250 corporate partners. Completed
+                            coursework in Excel, Business Writing, Public Speaking, and specialized Software Development
+                            training encompassing database management, IDE proficiency, software testing, programming,
+                            and code execution.</p>
+                        <div class="edu-entry-progress">
+                            <div class="edu-entry-progress-fill" style="width: 100%"></div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="education-card glass-card current" data-aos="fade-up">
-                    <div class="edu-icon">🏫</div>
-                    <div class="edu-status in-progress"><i class="fas fa-spinner"></i> In Progress</div>
-                    <h3>B.S in Multimedia Computing and Information Science</h3>
-                    <h4>CUNY Brooklyn College</h4>
-                    <span class="edu-date">Aug 2019 - Present</span>
-                    <p>
-                        Gaining strong foundation in computing frameworks and mathematical principles that drive
-                        digital innovation. Coursework emphasizes multimedia computing, digital arts, software
-                        engineering, and distributed computing.
-                    </p>
-                    <div class="edu-progress">
-                        <div class="edu-progress-bar" style="width: 75%"></div>
+                <div class="edu-entry" data-aos="fade-up">
+                    <div class="edu-entry-left">
+                        <span class="edu-entry-icon">🏫</span>
+                        <span class="edu-entry-year">2019</span>
+                        <span class="edu-entry-status in-progress"><i class="fas fa-spinner fa-spin"></i> In Progress</span>
+                    </div>
+                    <div class="edu-entry-line"><span class="edu-entry-dot current-dot"></span></div>
+                    <div class="edu-entry-right">
+                        <h3>B.S in Multimedia Computing and Information Science</h3>
+                        <h4>CUNY Brooklyn College</h4>
+                        <span class="edu-entry-date">Aug 2019 - Present</span>
+                        <p>Building a strong foundation in computing frameworks and the mathematical principles behind
+                            digital innovation. Coursework spans multimedia computing, digital arts, software engineering,
+                            and distributed computing. Applying classroom concepts to real-world projects in web development,
+                            data structures, and system design.</p>
+                        <div class="edu-entry-progress">
+                            <div class="edu-entry-progress-fill" style="width: 75%"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Secondary Tier: Earlier Programs (click to expand) -->
-            <div class="edu-expand-actions">
-                <button class="h-expand-all-btn" onclick="toggleEduExpandAll()">
-                    <i class="fas fa-expand-alt"></i> Expand All
-                </button>
-            </div>
-            <div class="edu-secondary">
-                <div class="edu-chip glass-card" data-aos="fade-up" onclick="toggleEduChip(this)">
-                    <div class="edu-chip-header">
-                        <span class="edu-chip-icon">📚</span>
-                        <div class="edu-chip-info">
-                            <strong>A.S Multimedia Programming & Design</strong>
-                            <span>CUNY BMCC &middot; 2017 - 2019</span>
-                        </div>
-                        <i class="fas fa-chevron-down edu-chip-arrow"></i>
+                <div class="edu-entry edu-entry-secondary" data-aos="fade-up">
+                    <div class="edu-entry-left">
+                        <span class="edu-entry-icon">📚</span>
+                        <span class="edu-entry-year">2017</span>
                     </div>
-                    <div class="edu-chip-detail">
-                        <p>Prepared for careers in technical industries developing computer-based interactive products.
-                            Gained hands-on experience working with text, graphics, sound, animation, and video.</p>
+                    <div class="edu-entry-line"><span class="edu-entry-dot small-dot"></span></div>
+                    <div class="edu-entry-right">
+                        <h3>A.S Multimedia Programming & Design</h3>
+                        <h4>CUNY BMCC</h4>
+                        <span class="edu-entry-date">2017 - 2019</span>
+                        <p>Focused on developing computer-based interactive products for technical industries.
+                            Gained hands-on experience with text, graphics, sound, animation, and video production.
+                            Built a foundation in HTML, CSS, JavaScript, and multimedia authoring tools that
+                            carried into every role since.</p>
                     </div>
                 </div>
-                <div class="edu-chip glass-card" data-aos="fade-up" onclick="toggleEduChip(this)">
-                    <div class="edu-chip-header">
-                        <span class="edu-chip-icon">🌐</span>
-                        <div class="edu-chip-info">
-                            <strong>Credits: A.S Computer Networking</strong>
-                            <span>TCI College &middot; 2017</span>
-                        </div>
-                        <i class="fas fa-chevron-down edu-chip-arrow"></i>
+
+                <div class="edu-entry edu-entry-secondary" data-aos="fade-up">
+                    <div class="edu-entry-left">
+                        <span class="edu-entry-icon">🌐</span>
+                        <span class="edu-entry-year">2017</span>
                     </div>
-                    <div class="edu-chip-detail">
-                        <p>Gained foundational knowledge of computer networking across various business environments.
-                            Developed skills in supporting, installing, and designing information systems. Transferred
-                            to CUNY BMCC to pursue Multimedia Programming & Design.</p>
-                    </div>
-                </div>
-                <div class="edu-chip glass-card" data-aos="fade-up" onclick="toggleEduChip(this)">
-                    <div class="edu-chip-header">
-                        <span class="edu-chip-icon">🎮</span>
-                        <div class="edu-chip-info">
-                            <strong>Credits: A.S Game Design</strong>
-                            <span>Bramson ORT &middot; 2014 - 2017</span>
-                        </div>
-                        <i class="fas fa-chevron-down edu-chip-arrow"></i>
-                    </div>
-                    <div class="edu-chip-detail">
-                        <p>Introduced to programming languages including Java, JavaScript, C++, HTML, and CSS. Explored
-                            game design and programming through Unity, Unreal Engine, and GameMaker platforms. College
-                            closed; credits transferred toward further studies.</p>
+                    <div class="edu-entry-line"><span class="edu-entry-dot small-dot"></span></div>
+                    <div class="edu-entry-right">
+                        <h3>Credits: A.S Computer Networking</h3>
+                        <h4>TCI College</h4>
+                        <span class="edu-entry-date">2017</span>
+                        <p>Studied computer networking fundamentals including network architecture, protocols, and
+                            troubleshooting across business environments. Developed skills in supporting, installing,
+                            and designing information systems. Transferred to CUNY BMCC to shift focus toward
+                            Multimedia Programming & Design.</p>
                     </div>
                 </div>
+
+                <div class="edu-entry edu-entry-secondary" data-aos="fade-up">
+                    <div class="edu-entry-left">
+                        <span class="edu-entry-icon">🎮</span>
+                        <span class="edu-entry-year">2014</span>
+                    </div>
+                    <div class="edu-entry-line"><span class="edu-entry-dot small-dot"></span></div>
+                    <div class="edu-entry-right">
+                        <h3>Credits: A.S Game Design</h3>
+                        <h4>Bramson ORT</h4>
+                        <span class="edu-entry-date">2014 - 2017</span>
+                        <p>First introduction to programming through Java, JavaScript, C++, HTML, and CSS. Explored
+                            game design and development using Unity, Unreal Engine, and GameMaker. This is where
+                            the passion for coding started. College closed before completion; credits transferred
+                            toward further studies at TCI and BMCC.</p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
