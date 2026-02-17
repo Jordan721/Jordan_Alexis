@@ -281,29 +281,6 @@ function initHTimeline() {
     if (statsBar) statObserver.observe(statsBar);
 }
 
-function toggleHCard(el) {
-    el.classList.toggle('expanded');
-}
-
-function toggleExpandAll() {
-    const btn = document.querySelector('.h-expand-all-btn');
-    const bodies = document.querySelectorAll('.bento-card.job .bento-card-inner');
-    const isExpanding = !btn.classList.contains('active');
-
-    btn.classList.toggle('active');
-    btn.innerHTML = isExpanding ?
-        '<i class="fas fa-compress-alt"></i> Collapse All' :
-        '<i class="fas fa-expand-alt"></i> Expand All';
-
-    bodies.forEach(body => {
-        if (isExpanding) {
-            body.classList.add('expanded');
-        } else {
-            body.classList.remove('expanded');
-        }
-    });
-}
-
 /* Timeline filter state — tracks active year and type independently */
 const timelineFilterState = {
     year: 'all',
@@ -320,12 +297,12 @@ function filterTimeline(value, filterType) {
         btn.classList.toggle('active', btn.dataset.filter === value);
     });
 
-    // Apply both filters to every card
-    const cards = document.querySelectorAll('.bento-card');
-    cards.forEach(card => {
-        const yearMatch = timelineFilterState.year === 'all' || card.dataset.year === timelineFilterState.year;
-        const typeMatch = timelineFilterState.type === 'all' || card.dataset.type === timelineFilterState.type;
-        card.classList.toggle('filtered-out', !(yearMatch && typeMatch));
+    // Apply both filters to every entry
+    const entries = document.querySelectorAll('.split-entry');
+    entries.forEach(entry => {
+        const yearMatch = timelineFilterState.year === 'all' || entry.dataset.year === timelineFilterState.year;
+        const typeMatch = timelineFilterState.type === 'all' || entry.dataset.type === timelineFilterState.type;
+        entry.classList.toggle('filtered-out', !(yearMatch && typeMatch));
     });
 }
 

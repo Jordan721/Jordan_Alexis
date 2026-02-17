@@ -1738,125 +1738,122 @@ body {
     background: var(--color-secondary);
 }
 
-/* Hidden bento card during filtering */
-.bento-card.filtered-out {
+/* Hidden entry during filtering */
+.split-entry.filtered-out {
     display: none;
 }
 
-/* Expand All button */
-.h-timeline-actions {
+/* ── Split Panel Layout ── */
+.split-panel-list {
     display: flex;
-    justify-content: flex-end;
-    margin-bottom: var(--spacing-sm);
-}
-
-.h-expand-all-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.4rem 1rem;
-    border: 1px solid rgba(6, 182, 212, 0.3);
-    border-radius: 999px;
-    background: rgba(6, 182, 212, 0.08);
-    color: var(--color-primary);
-    font-family: var(--font-code);
-    font-size: 0.75rem;
-    cursor: pointer;
-    transition: all var(--transition-base);
-}
-
-.h-expand-all-btn:hover {
-    background: rgba(6, 182, 212, 0.15);
-    border-color: var(--color-primary);
-}
-
-.h-expand-all-btn.active {
-    background: var(--color-primary);
-    color: var(--color-dark);
-}
-
-/* ── Bento Grid ── */
-.bento-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: start;
-    gap: var(--spacing-md);
-    max-width: 1100px;
+    flex-direction: column;
+    max-width: 900px;
     margin: 0 auto;
 }
 
-/* Card sizes */
-.bento-card.bento-lg {
-    grid-column: span 2;
+/* Each entry row */
+.split-entry {
+    display: flex;
+    align-items: stretch;
+    padding: 1.5rem 0;
+    transition: opacity 0.3s ease;
 }
 
-.bento-card.bento-md {
-    grid-column: span 1;
+.split-entry:first-child {
+    padding-top: 0;
 }
 
-.bento-card.bento-sm {
-    grid-column: span 1;
-}
-
-/* Card inner — the visible glass surface */
-.bento-card-inner {
-    padding: var(--spacing-md) !important;
-    height: 100%;
-    cursor: pointer;
-    transition: all var(--transition-base);
-    white-space: normal;
+/* Left column — year, company, badge */
+.split-left {
+    flex: 0 0 200px;
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
+    padding-right: 1.5rem;
+    text-align: right;
 }
 
-.bento-card-inner:hover {
-    transform: translateY(-4px);
-    border-color: rgba(6, 182, 212, 0.3);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(6, 182, 212, 0.1);
-}
-
-/* Card header — badges and year */
-.bento-card-header {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.h-card-year-badge {
+.split-year {
     font-family: var(--font-code);
-    font-size: 0.7rem;
-    font-weight: 600;
+    font-size: 1.6rem;
+    font-weight: 700;
     color: var(--color-primary);
-    background: rgba(6, 182, 212, 0.1);
-    border: 1px solid rgba(6, 182, 212, 0.2);
-    padding: 0.15rem 0.5rem;
-    border-radius: 10px;
-    margin-left: auto;
-}
-
-.bento-card-inner h3 {
-    font-size: 1rem;
-    color: var(--color-white);
-    margin-bottom: 0.25rem;
-    line-height: 1.3;
-}
-
-.bento-card-inner h4 {
-    font-size: 0.85rem;
-    color: var(--color-primary);
-    font-weight: 500;
+    line-height: 1;
     margin-bottom: 0.4rem;
 }
 
-.h-card-date {
+.split-company {
+    font-size: 0.85rem;
+    color: var(--color-gray-light);
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+}
+
+.split-left .h-card-badge {
+    margin-top: 0.3rem;
+}
+
+/* Center divider line with dot */
+.split-divider {
+    flex: 0 0 20px;
+    position: relative;
+}
+
+.split-divider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    transform: translateX(-50%);
+    background: rgba(6, 182, 212, 0.15);
+}
+
+.split-dot {
+    position: absolute;
+    top: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    box-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
+    z-index: 1;
+}
+
+.split-dot.milestone-dot {
+    background: #f59e0b;
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.5);
+    width: 12px;
+    height: 12px;
+}
+
+/* Right column — role, date, details */
+.split-right {
+    flex: 1;
+    padding-left: 1.5rem;
+    min-width: 0;
+}
+
+.split-right h3 {
+    font-size: 1.05rem;
+    color: var(--color-white);
+    margin-bottom: 0.2rem;
+    line-height: 1.3;
+}
+
+.split-date {
     display: inline-block;
     font-size: 0.75rem;
     color: var(--color-gray);
     font-family: var(--font-code);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
 }
 
+/* Badges */
 .h-card-badge {
     display: inline-block;
     padding: 0.2rem 0.6rem;
@@ -1878,52 +1875,14 @@ body {
     border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
-/* Milestone cards — accent border */
-.bento-milestone {
-    border-left: 3px solid var(--color-accent);
-}
-
-.bento-milestone p {
-    font-size: 0.85rem;
-    color: var(--color-gray-light);
-    line-height: 1.5;
-}
-
-/* Expand arrow on job cards */
-.bento-card.job .bento-card-inner::after {
-    content: '\f078';
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
-    display: block;
-    text-align: center;
-    color: var(--color-primary);
-    font-size: 0.7rem;
-    margin-top: auto;
-    padding-top: 0.4rem;
-    transition: transform var(--transition-base);
-    opacity: 0.6;
-}
-
-.bento-card.job .bento-card-inner.expanded::after {
-    transform: rotate(180deg);
-}
-
-/* Expandable details */
-.h-card-details {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, margin-top 0.4s ease;
+/* Details list — always visible */
+.split-details {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.bento-card-inner.expanded .h-card-details {
-    max-height: 500px;
-    margin-top: 0.5rem;
-}
-
-.h-card-details li {
+.split-details li {
     position: relative;
     padding-left: 1rem;
     font-size: 0.82rem;
@@ -1932,19 +1891,49 @@ body {
     margin-bottom: 0.4rem;
 }
 
-.h-card-details li::before {
+.split-details li::before {
     content: '▹';
     position: absolute;
     left: 0;
     color: var(--color-primary);
 }
 
-/* Featured card (latest role) accent */
-.bento-card.bento-lg:first-child .bento-card-inner {
-    border-left: 3px solid var(--color-success);
+/* Milestone entries — special styling */
+.split-milestone-content {
+    padding-left: 1.5rem;
 }
 
-/* Mobile: single column stack */
+.split-entry.milestone .split-divider::before {
+    background: rgba(245, 158, 11, 0.3);
+}
+
+.split-milestone-content .h-card-badge {
+    margin-bottom: 0.4rem;
+}
+
+.split-milestone-content p {
+    font-size: 0.85rem;
+    color: var(--color-gray-light);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Hover effect on entries */
+.split-entry:hover .split-right h3 {
+    color: var(--color-primary);
+    transition: color var(--transition-base);
+}
+
+.split-entry:hover .split-dot {
+    box-shadow: 0 0 14px rgba(6, 182, 212, 0.8);
+    transition: box-shadow var(--transition-base);
+}
+
+.split-entry.milestone:hover .split-dot.milestone-dot {
+    box-shadow: 0 0 14px rgba(245, 158, 11, 0.8);
+}
+
+/* Mobile responsive */
 @media (max-width: 768px) {
     .h-timeline-filters {
         gap: 0.5rem;
@@ -1960,14 +1949,29 @@ body {
         font-size: 0.65rem;
     }
 
-    .bento-grid {
-        grid-template-columns: 1fr;
+    .split-left {
+        flex: 0 0 80px;
+        padding-right: 0.8rem;
     }
 
-    .bento-card.bento-lg,
-    .bento-card.bento-md,
-    .bento-card.bento-sm {
-        grid-column: span 1;
+    .split-year {
+        font-size: 1.1rem;
+    }
+
+    .split-company {
+        font-size: 0.7rem;
+    }
+
+    .split-right {
+        padding-left: 0.8rem;
+    }
+
+    .split-right h3 {
+        font-size: 0.9rem;
+    }
+
+    .split-details li {
+        font-size: 0.75rem;
     }
 
     .exp-stats-bar {
