@@ -393,67 +393,75 @@
                 <div class="section-line"></div>
             </div>
 
-            <!-- Tabbed Profile Card -->
+            <!-- Profile Card -->
             <div class="profile-card glass-card">
-                <div class="profile-tabs">
-                    <button class="profile-tab active" data-tab="who" onclick="switchProfileTab('who')">
-                        <i class="fas fa-user"></i> <span>Who I Am</span>
-                    </button>
-                    <button class="profile-tab" data-tab="build" onclick="switchProfileTab('build')">
-                        <i class="fas fa-code"></i> <span>What I Build</span>
-                    </button>
-                    <button class="profile-tab" data-tab="work" onclick="switchProfileTab('work')">
-                        <i class="fas fa-cogs"></i> <span>How I Work</span>
-                    </button>
-                    <button class="profile-tab" data-tab="drives" onclick="switchProfileTab('drives')">
-                        <i class="fas fa-bolt"></i> <span>What Drives Me</span>
-                    </button>
-                    <button class="profile-tab" data-tab="fun" onclick="switchProfileTab('fun')">
-                        <i class="fas fa-gamepad"></i> <span>Fun Facts</span>
-                    </button>
-                    <button class="profile-tab" data-tab="certs" onclick="switchProfileTab('certs')">
-                        <i class="fas fa-certificate"></i> <span>Certifications</span>
-                    </button>
+                <div class="about-flow-section">
+                    <div class="about-flow-header"><i class="fas fa-user"></i>
+                        <h3>Who I Am</h3>
+                    </div>
+                    <p>I’m a Multimedia and Data Analytics Developer who enjoys blending creativity with technical
+                        problem solving. I like connecting design, development, and data in ways that feel intuitive,
+                        thoughtful, and genuinely human centered.</p>
                 </div>
 
-                <div class="profile-panels">
-                    <div class="profile-panel active" data-panel="who">
-                        <p>I am a Multimedia and Data Analytics Developer who blends creativity with technical
-                            problem solving. I enjoy bridging the gap between design, development, and data
-                            to create solutions that feel both smart and human centered.</p>
+                <div class="about-flow-divider"></div>
+
+                <div class="about-flow-section">
+                    <div class="about-flow-header"><i class="fas fa-code"></i>
+                        <h3>What I Build</h3>
                     </div>
-                    <div class="profile-panel" data-panel="build">
-                        <p>Full-stack applications with <strong>Python, Java, JavaScript, and SQL</strong>.
-                            I also specialize in processing large datasets exceeding 10,000 rows, using
-                            <strong>Power BI, Talend, and enterprise systems</strong> to automate workflows
-                            and deliver actionable insights.</p>
+                    <p>Full‑stack applications with <strong>Python, Java, JavaScript, and SQL</strong>. I also work with
+                        large datasets—often 10,000+ rows—using <strong>Power BI, Talend, and enterprise
+                            systems</strong> to automate workflows and turn raw information into clear, actionable
+                        insights.</p>
+                </div>
+
+                <div class="about-flow-divider"></div>
+
+                <div class="about-flow-section">
+                    <div class="about-flow-header"><i class="fas fa-cogs"></i>
+                        <h3>How I Work</h3>
                     </div>
-                    <div class="profile-panel" data-panel="work">
-                        <p>I start by breaking problems into smaller pieces and tackling them one at a time.
-                            I like writing clean, readable code and testing as I go. Whether it's a solo project
-                            or a team sprint, I stay organized with version control and clear documentation so
-                            nothing falls through the cracks.</p>
+                    <p>I like breaking problems into smaller pieces and tackling them step by step. Clean, readable code
+                        matters to me, and I test as I go to keep things smooth. Whether it’s a solo project or a team
+                        sprint, I stay organized with version control and clear documentation so nothing falls through
+                        the cracks.</p>
+                </div>
+
+                <div class="about-flow-divider"></div>
+
+                <div class="about-flow-section">
+                    <div class="about-flow-header"><i class="fas fa-bolt"></i>
+                        <h3>What Drives Me</h3>
                     </div>
-                    <div class="profile-panel" data-panel="drives">
-                        <p>I'm driven by the moment something finally clicks — when messy data becomes a clear
-                            story, or a feature I've been wrestling with just works. I want to build things
-                            that make people's lives easier and keep pushing myself to learn what's next in
-                            tech.</p>
+                    <p>I’m driven by that moment when everything finally clicks—when messy data becomes a story or a
+                        stubborn feature finally works. I want to build things that make people’s lives easier and keep
+                        pushing myself to learn what’s next in tech.</p>
+                </div>
+
+                <div class="about-flow-divider"></div>
+
+                <div class="about-flow-section">
+                    <div class="about-flow-header"><i class="fas fa-gamepad"></i>
+                        <h3>Fun Facts</h3>
                     </div>
-                    <div class="profile-panel" data-panel="fun">
-                        <p>When I'm not coding, I'm probably gaming. I love <strong>platformers</strong> and
-                            <strong>metroidvanias</strong> like Metroid and Monster Tale, strategic games that
-                            make me think, and the occasional horror title to keep things interesting. Shooters
-                            like <strong>Splatoon</strong> are in the mix too. I also enjoy tinkering with
-                            side projects, exploring new tech, and finding ways to blend creativity with code.</p>
+                    <p>When I'm not coding, I'm probably gaming. I love <strong>platformers</strong>,
+                        <strong>RPGs</strong>, and even some <strong>horror</strong>—something I'm getting into more
+                        despite being a little scared of it. I also enjoy tinkering with side projects, exploring new
+                        tech, and finding ways to blend creativity with code.</p>
+                </div>
+
+                <div class="about-flow-divider"></div>
+
+                <div class="about-flow-section">
+                    <div class="about-flow-header"><i class="fas fa-certificate"></i>
+                        <h3>Certifications</h3>
                     </div>
-                    <div class="profile-panel" data-panel="certs">
-                        <p>Professional credentials including Year Up United completion and Google Data Analytics
-                            coursework.</p>
-                        <button onclick="openCertificatesModal();" class="about-cta-btn">
-                            View Certificates <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
+                    <p>Professional credentials include multiple industry‑recognized certifications that strengthened my
+                        technical foundation and expanded my capabilities across modern digital tools and workflows.</p>
+                    <button onclick="openCertificatesModal();" class="about-cta-btn">
+                        View Certificates <i class="fas fa-arrow-right"></i>
+                    </button>
                 </div>
             </div>
         </section>
@@ -890,11 +898,16 @@
             <!-- Mobile: Tabbed Interface (hidden on desktop) -->
             <div class="mobile-arsenal">
                 <div class="mobile-arsenal-tabs">
-                    <button class="mobile-tab active" data-tab="business" onclick="switchArsenalTab('business')" style="--tab-color: #06b6d4">💼 Business</button>
-                    <button class="mobile-tab" data-tab="data" onclick="switchArsenalTab('data')" style="--tab-color: #8b5cf6">📊 Data</button>
-                    <button class="mobile-tab" data-tab="tech" onclick="switchArsenalTab('tech')" style="--tab-color: #10b981">💻 Tech</button>
-                    <button class="mobile-tab" data-tab="tools" onclick="switchArsenalTab('tools')" style="--tab-color: #f59e0b">🛠️ Tools</button>
-                    <button class="mobile-tab" data-tab="strategic" onclick="switchArsenalTab('strategic')" style="--tab-color: #ec4899">🤝 Strategic</button>
+                    <button class="mobile-tab active" data-tab="business" onclick="switchArsenalTab('business')"
+                        style="--tab-color: #06b6d4">💼 Business</button>
+                    <button class="mobile-tab" data-tab="data" onclick="switchArsenalTab('data')"
+                        style="--tab-color: #8b5cf6">📊 Data</button>
+                    <button class="mobile-tab" data-tab="tech" onclick="switchArsenalTab('tech')"
+                        style="--tab-color: #10b981">💻 Tech</button>
+                    <button class="mobile-tab" data-tab="tools" onclick="switchArsenalTab('tools')"
+                        style="--tab-color: #f59e0b">🛠️ Tools</button>
+                    <button class="mobile-tab" data-tab="strategic" onclick="switchArsenalTab('strategic')"
+                        style="--tab-color: #ec4899">🤝 Strategic</button>
                 </div>
 
                 <div class="mobile-tab-panels">
@@ -1129,10 +1142,12 @@
                         <h3>Software Development Training</h3>
                         <h4>Year Up United | Pluralsight</h4>
                         <span class="edu-entry-date">Feb 2025 - Jan 2026</span>
-                        <p>Intensive career development program collaborating with 250 corporate partners. Completed
-                            coursework in Excel, Business Writing, Public Speaking, and specialized Software Development
-                            training encompassing database management, IDE proficiency, software testing, programming,
-                            and code execution.</p>
+                        <p>Completed an intensive career development program combining college‑level coursework,
+                            professional skills training, and hands‑on software development. Gained experience in Excel,
+                            Business Writing, Public Speaking, and Professional Skills, along with technical training in
+                            database management, IDE workflows, software testing, programming fundamentals, and code
+                            execution. This program strengthened both my technical foundation and my ability to work in
+                            fast‑paced, real‑world environments.</p>
                         <div class="edu-entry-progress">
                             <div class="edu-entry-progress-fill" style="width: 100%"></div>
                         </div>
@@ -1143,17 +1158,19 @@
                     <div class="edu-entry-left">
                         <span class="edu-entry-icon">🏫</span>
                         <span class="edu-entry-year">2019</span>
-                        <span class="edu-entry-status in-progress"><i class="fas fa-spinner fa-spin"></i> In Progress</span>
+                        <span class="edu-entry-status in-progress"><i class="fas fa-spinner fa-spin"></i> In
+                            Progress</span>
                     </div>
                     <div class="edu-entry-line"><span class="edu-entry-dot current-dot"></span></div>
                     <div class="edu-entry-right">
                         <h3>B.S in Multimedia Computing and Information Science</h3>
                         <h4>CUNY Brooklyn College</h4>
                         <span class="edu-entry-date">Aug 2019 - Present</span>
-                        <p>Building a strong foundation in computing frameworks and the mathematical principles behind
-                            digital innovation. Coursework spans multimedia computing, digital arts, software engineering,
-                            and distributed computing. Applying classroom concepts to real-world projects in web development,
-                            data structures, and system design.</p>
+                        <p>Building a strong foundation in computing frameworks, digital systems, and the mathematical
+                            principles behind modern technology. Coursework spans multimedia computing, digital arts,
+                            software engineering, and distributed computing. I apply these concepts through real‑world
+                            projects in web development, data structures, and system design, strengthening both my
+                            creative and technical skill sets.</p>
                         <div class="edu-entry-progress">
                             <div class="edu-entry-progress-fill" style="width: 75%"></div>
                         </div>
@@ -1170,10 +1187,10 @@
                         <h3>A.S Multimedia Programming & Design</h3>
                         <h4>CUNY BMCC</h4>
                         <span class="edu-entry-date">2017 - 2019</span>
-                        <p>Focused on developing computer-based interactive products for technical industries.
-                            Gained hands-on experience with text, graphics, sound, animation, and video production.
-                            Built a foundation in HTML, CSS, JavaScript, and multimedia authoring tools that
-                            carried into every role since.</p>
+                        <p>Developed interactive digital products through hands‑on work with text, graphics, sound,
+                            animation, and video. Strengthened core skills in HTML, CSS, JavaScript, and multimedia
+                            authoring tools. This program helped me blend creativity with technical execution and laid
+                            the groundwork for my future work in design, development, and data‑driven projects.</p>
                     </div>
                 </div>
 
@@ -1187,10 +1204,11 @@
                         <h3>Credits: A.S Computer Networking</h3>
                         <h4>TCI College</h4>
                         <span class="edu-entry-date">2017</span>
-                        <p>Studied computer networking fundamentals including network architecture, protocols, and
-                            troubleshooting across business environments. Developed skills in supporting, installing,
-                            and designing information systems. Transferred to CUNY BMCC to shift focus toward
-                            Multimedia Programming & Design.</p>
+                        <p>Studied networking fundamentals including network architecture, protocols, and
+                            troubleshooting across business environments. Gained experience supporting, installing, and
+                            designing information systems while learning to navigate enterprise computing environments.
+                            These credits later transferred as I shifted my focus toward multimedia and software
+                            development.</p>
                     </div>
                 </div>
 
@@ -1204,10 +1222,11 @@
                         <h3>Credits: A.S Game Design</h3>
                         <h4>Bramson ORT</h4>
                         <span class="edu-entry-date">2014 - 2017</span>
-                        <p>First introduction to programming through Java, JavaScript, C++, HTML, and CSS. Explored
-                            game design and development using Unity, Unreal Engine, and GameMaker. This is where
-                            the passion for coding started. College closed before completion; credits transferred
-                            toward further studies at TCI and BMCC.</p>
+                        <p>My first introduction to programming—learning Java, JavaScript, C++, HTML, and CSS using
+                            Visual Studio. Explored game design through Unity, Unreal Engine, and GameMaker, creating
+                            interactive projects and small games for classmates and personal enjoyment. Although the
+                            college closed before completion, this experience sparked my passion for coding and guided
+                            my path into tech.</p>
                     </div>
                 </div>
 
