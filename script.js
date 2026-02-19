@@ -1603,6 +1603,19 @@ if (document.readyState === 'loading') {
 }
 
 // ============================================================
+// PROJECTS — show more / show less
+// ============================================================
+
+function toggleProjects() {
+    const extra = document.getElementById('projectsExtra');
+    const btn = document.getElementById('projectsToggleBtn');
+    const text = document.getElementById('projectsToggleText');
+    const isOpen = extra.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+    text.textContent = isOpen ? 'Show Less' : 'Show 6 More';
+}
+
+// ============================================================
 // THEME SYSTEM (dark / light)
 // ============================================================
 

@@ -1027,47 +1027,90 @@
                     <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
                 </a>
 
-                <a href="https://jordan721.github.io/Development-Showcase/Professional_Projects/Data_Pipeline/index.html"
-                    target="_blank" class="project-card glass-card" data-aos="fade-up">
-                    <div class="project-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Data Pipeline</h3>
-                        <p>An interactive simulation of an enterprise data pipeline with automated processing, cleaning,
-                            and Excel export.</p>
-                    </div>
-                    <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
-                </a>
+                <!-- Collapsible extra projects -->
+                <div class="projects-extra" id="projectsExtra">
+                    <a href="https://jordan721.github.io/Development-Showcase/Professional_Projects/Data_Pipeline/index.html"
+                        target="_blank" class="project-card glass-card">
+                        <div class="project-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Data Pipeline</h3>
+                            <p>An interactive simulation of an enterprise data pipeline with automated processing, cleaning,
+                                and Excel export.</p>
+                        </div>
+                        <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
+                    </a>
 
-                <a href="https://jordan721.github.io/Development-Showcase/Professional_Projects/One_Heck_Of_A_Sandwich_Web_Edition/index.html"
-                    target="_blank" class="project-card glass-card" data-aos="fade-up">
-                    <div class="project-icon">
-                        <i class="fas fa-burger"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>One Heck Of A Sandwich</h3>
-                        <p>A web-based kiosk app for customizing and ordering sandwiches, drinks, and chips — originally
-                            built as a Java capstone.</p>
-                    </div>
-                    <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
-                </a>
+                    <a href="https://jordan721.github.io/Development-Showcase/Professional_Projects/One_Heck_Of_A_Sandwich_Web_Edition/index.html"
+                        target="_blank" class="project-card glass-card">
+                        <div class="project-icon">
+                            <i class="fas fa-burger"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>One Heck Of A Sandwich</h3>
+                            <p>A web-based kiosk app for customizing and ordering sandwiches, drinks, and chips — originally
+                                built as a Java capstone.</p>
+                        </div>
+                        <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
+                    </a>
 
-                <a href="https://jordan721.github.io/Development-Showcase/Academic_Projects/Dimensional_Playground/index.html"
-                    target="_blank" class="project-card glass-card" data-aos="fade-up">
-                    <div class="project-icon">
-                        <i class="fas fa-cube"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Dimensional Playground</h3>
-                        <p>An immersive 3D universe with interactive geometry, physics simulations, and sound effects
-                            built with WebVR.</p>
-                    </div>
-                    <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
-                </a>
+                    <a href="https://jordan721.github.io/Development-Showcase/Academic_Projects/Dimensional_Playground/index.html"
+                        target="_blank" class="project-card glass-card">
+                        <div class="project-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Dimensional Playground</h3>
+                            <p>An immersive 3D universe with interactive geometry, physics simulations, and sound effects
+                                built with WebVR.</p>
+                        </div>
+                        <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="https://jordan721.github.io/Development-Showcase/Academic_Projects/Orbit_Control/index.html"
+                        target="_blank" class="project-card glass-card">
+                        <div class="project-icon">
+                            <i class="fas fa-satellite"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Orbit Control</h3>
+                            <p>3D orbit control with Arduino integration. Desktop only.</p>
+                        </div>
+                        <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="https://github.com/Year-Up-United-SPR-2025/Capstones" target="_blank"
+                        class="project-card glass-card">
+                        <div class="project-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>YUU Capstone Projects</h3>
+                            <p>Pluralsight capstone projects from Year Up United — applying real-world tech skills through self-paced learning paths to build career-ready solutions.</p>
+                        </div>
+                        <span class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="https://github.com/Year-Up-United-SPR-2025/Workshops" target="_blank"
+                        class="project-card glass-card">
+                        <div class="project-icon">
+                            <i class="fas fa-hammer"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>YUU Workshops</h3>
+                            <p>Java-based workshop projects from Year Up United's Learning & Development phase — each one building toward a fully functional capstone app.</p>
+                        </div>
+                        <span class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
             </div>
 
             <div class="view-all-projects">
+                <button class="projects-toggle-btn" onclick="toggleProjects()" id="projectsToggleBtn">
+                    <span id="projectsToggleText">Show 6 More</span>
+                    <i class="fas fa-chevron-down" id="projectsToggleIcon"></i>
+                </button>
                 <a href="https://jordan721.github.io/Development-Showcase/" target="_blank" class="view-all-link">
                     View All Projects <i class="fas fa-arrow-right"></i>
                 </a>
