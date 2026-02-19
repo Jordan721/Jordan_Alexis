@@ -11,6 +11,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // scroll navigation
 
+// Animate the experience stats counters — called once when #experience enters view
+let _expStatsTriggered = false;
+
+function triggerExpStats() {
+    if (_expStatsTriggered) return;
+    _expStatsTriggered = true;
+    document.querySelectorAll('.exp-stat-num').forEach(num => {
+        const target = parseInt(num.getAttribute('data-target'));
+        if (!target) return;
+        let current = 0;
+        const step = Math.ceil(target / 30);
+        const interval = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                current = target;
+                clearInterval(interval);
+            }
+            num.textContent = current;
+        }, 40);
+    });
+}
+
 function initScrollNavigation() {
     const sections = document.querySelectorAll('.section, .hero');
 
@@ -22,6 +44,9 @@ function initScrollNavigation() {
         document.querySelectorAll('.panel-nav-item').forEach(el => {
             el.classList.toggle('active', el.getAttribute('data-section') === sectionId);
         });
+        if (sectionId === 'experience') {
+            triggerExpStats();
+        }
     }
 
     // Update active section on scroll
@@ -184,35 +209,21 @@ function switchProfileTab(tab) {
 // bento grid
 
 function initHTimeline() {
-    // Stat counter animation
-    const statObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const nums = document.querySelectorAll('.exp-stat-num');
-                nums.forEach(num => {
-                    const target = parseInt(num.dataset.target);
-                    if (!target || num.dataset.animated) return;
-                    num.dataset.animated = 'true';
-                    let current = 0;
-                    const step = Math.ceil(target / 30);
-                    const interval = setInterval(() => {
-                        current += step;
-                        if (current >= target) {
-                            current = target;
-                            clearInterval(interval);
-                        }
-                        num.textContent = current;
-                    }, 40);
-                });
-                statObserver.disconnect();
-            }
-        });
-    }, {
-        threshold: 0.3
+    // Primary trigger is in setActiveSection (initScrollNavigation).
+    // This scroll fallback handles cases where the section is already in view on load.
+    function scrollFallback() {
+        const statsBar = document.querySelector('.exp-stats-bar');
+        if (!statsBar) return;
+        const rect = statsBar.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            triggerExpStats();
+            window.removeEventListener('scroll', scrollFallback);
+        }
+    }
+    window.addEventListener('scroll', scrollFallback, {
+        passive: true
     });
-
-    const statsBar = document.querySelector('.exp-stats-bar');
-    if (statsBar) statObserver.observe(statsBar);
+    scrollFallback();
 }
 
 /* Timeline filter state — tracks active year and type independently */
@@ -1684,15 +1695,18 @@ function initSideNav() {
     const overlay = document.getElementById('sideNavOverlay');
     if (overlay) overlay.addEventListener('click', closeSideNav);
 
-    // Smooth scroll + close panel when a nav item is clicked
-    document.querySelectorAll('.rail-icon, .panel-nav-item').forEach(item => {
+    // Smooth scroll + close panel when a nav item is clicked (exclude social icons)
+    document.querySelectorAll('.rail-icon:not(.rail-social-icon), .panel-nav-item').forEach(item => {
         item.addEventListener('click', (e) => {
             e.preventDefault();
             const href = item.getAttribute('href');
             if (href && href !== '#') {
                 const target = document.querySelector(href);
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             }
             closeSideNav();
