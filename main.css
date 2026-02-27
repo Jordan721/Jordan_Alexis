@@ -6264,6 +6264,66 @@ body {
     border-color: rgba(255, 255, 255, 0.1);
 }
 
+/* ---- Certification modal ---- */
+[data-theme="light"] .glass-modal {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .folder-view h2 {
+    color: #0f172a;
+}
+
+[data-theme="light"] .cert-folder {
+    background: #f8fafc;
+    border-color: #e2e8f0;
+}
+
+[data-theme="light"] .cert-folder h3 {
+    color: #0f172a;
+}
+
+[data-theme="light"] .cert-slide h3 {
+    color: #0f172a;
+}
+
+[data-theme="light"] .course-module span {
+    color: #475569;
+}
+
+[data-theme="light"] .course-module.completed span {
+    color: #0f172a;
+}
+
+[data-theme="light"] .course-module-details {
+    background: #f1f5f9;
+    border-left-color: var(--color-primary);
+}
+
+[data-theme="light"] .course-module-details li {
+    color: #475569;
+}
+
+[data-theme="light"] .course-skills-list li {
+    color: #475569;
+}
+
+[data-theme="light"] .tool-badge {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+    color: #475569;
+}
+
+[data-theme="light"] .course-module.completed.expandable:hover {
+    background: rgba(6, 182, 212, 0.08);
+}
+
+[data-theme="light"] .progress-bar {
+    background: #e2e8f0;
+    border-color: #cbd5e1;
+}
+
 /* Mobile hamburger button (hidden on desktop) */
 .mobile-hamburger {
     display: none;
