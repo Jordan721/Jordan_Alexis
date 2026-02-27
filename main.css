@@ -2922,6 +2922,7 @@ body {
     .projects-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .projects-extra {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -2931,6 +2932,7 @@ body {
     .projects-grid {
         grid-template-columns: 1fr;
     }
+
     .projects-extra {
         grid-template-columns: 1fr;
     }
