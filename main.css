@@ -3841,7 +3841,10 @@ body {
 }
 
 .course-footer {
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-md);
     padding-top: var(--spacing-lg);
     border-top: 2px solid var(--glass-border);
 }
