@@ -1558,13 +1558,25 @@
                         </div>
                     </div>
 
+                    <div class="cert-folder-wrapper">
+                        <button class="cert-folder" onclick="openCertFolder('itsupport')">
+                            <div class="folder-icon"><i class="fas fa-folder"></i></div>
+                            <h3>IT Support</h3>
+                            <p>In Progress</p>
+                        </button>
+                        <div class="cert-info-btn" onclick="openITSupportInfoModal();" role="button" tabindex="0"
+                            aria-label="Course Information">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                    </div>
+
                     <!-- <button class="cert-folder" onclick="openCertFolder('cybersecurity')">
                         <div class="folder-icon"><i class="fas fa-folder"></i></div>
                         <h3>Cybersecurity</h3>
                         <p>1 certificate</p>
                     </button>
 
-                    <button class="cert-folder" onclick="openCertFolder('itsupport')">
+                    <button class="cert-folder" onclick="openCertFolder('itsupport-placeholder')">
                         <div class="folder-icon"><i class="fas fa-folder"></i></div>
                         <h3>IT Support</h3>
                         <p>1 certificate</p>
@@ -1823,7 +1835,77 @@
 
                         <!-- IT Support Certificates -->
                         <!-- <div class="cert-slide itsupport-cert">
-                            <h3>Google IT Support Certificate</h3>
+                            <h3>Technical Support Fundamentals</h3>
+                            <div class="cert-container">
+                                <embed src="" type="application/pdf" class="cert-pdf">
+                                <div class="pdf-fallback">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <p>PDF preview not available on mobile</p>
+                                </div>
+                            </div>
+                            <a href="" target="_blank" class="view-cert-btn">
+                                <i class="fas fa-external-link-alt"></i> View Certificate
+                            </a>
+                        </div>
+
+                        <div class="cert-slide itsupport-cert">
+                            <h3>The Bits and Bytes of Computer Networking</h3>
+                            <div class="cert-container">
+                                <embed src="" type="application/pdf" class="cert-pdf">
+                                <div class="pdf-fallback">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <p>PDF preview not available on mobile</p>
+                                </div>
+                            </div>
+                            <a href="" target="_blank" class="view-cert-btn">
+                                <i class="fas fa-external-link-alt"></i> View Certificate
+                            </a>
+                        </div>
+
+                        <div class="cert-slide itsupport-cert">
+                            <h3>Operating Systems and You: Becoming a Power User</h3>
+                            <div class="cert-container">
+                                <embed src="" type="application/pdf" class="cert-pdf">
+                                <div class="pdf-fallback">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <p>PDF preview not available on mobile</p>
+                                </div>
+                            </div>
+                            <a href="" target="_blank" class="view-cert-btn">
+                                <i class="fas fa-external-link-alt"></i> View Certificate
+                            </a>
+                        </div>
+
+                        <div class="cert-slide itsupport-cert">
+                            <h3>System Administration and IT Infrastructure Services</h3>
+                            <div class="cert-container">
+                                <embed src="" type="application/pdf" class="cert-pdf">
+                                <div class="pdf-fallback">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <p>PDF preview not available on mobile</p>
+                                </div>
+                            </div>
+                            <a href="" target="_blank" class="view-cert-btn">
+                                <i class="fas fa-external-link-alt"></i> View Certificate
+                            </a>
+                        </div>
+
+                        <div class="cert-slide itsupport-cert">
+                            <h3>IT Security: Defense Against the Digital Dark Arts</h3>
+                            <div class="cert-container">
+                                <embed src="" type="application/pdf" class="cert-pdf">
+                                <div class="pdf-fallback">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <p>PDF preview not available on mobile</p>
+                                </div>
+                            </div>
+                            <a href="" target="_blank" class="view-cert-btn">
+                                <i class="fas fa-external-link-alt"></i> View Certificate
+                            </a>
+                        </div>
+
+                        <div class="cert-slide itsupport-cert">
+                            <h3>Google IT Support Professional Certificate</h3>
                             <div class="cert-container">
                                 <embed src="" type="application/pdf" class="cert-pdf">
                                 <div class="pdf-fallback">
@@ -2257,6 +2339,157 @@
                     <a href="https://www.credly.com/badges/2a0e60ae-073d-4889-a1a3-c9c4876bc024/linked_in?t=tba2ty" target="_blank"
                         class="course-link-btn">
                         <i class="fas fa-certificate"></i> View Full Certificate Badge
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- IT Support Course Info Modal -->
+    <div id="itSupportInfoModal" class="modal">
+        <div class="modal-overlay" onclick="closeITSupportInfoModal()"></div>
+        <div class="modal-content glass-modal course-info-modal">
+            <button class="modal-close" onclick="closeITSupportInfoModal()">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="course-info-content">
+                <div class="course-header">
+                    <div class="course-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h2>Google IT Support Professional Certificate</h2>
+                    <p class="course-subtitle">The Launchpad to a Career in IT</p>
+                </div>
+
+                <div class="course-section">
+                    <h3><i class="fas fa-book"></i> Course Overview</h3>
+                    <p>This professional certificate is designed to take beginner learners to job-readiness in IT support. It covers computer hardware, networking, operating systems, system administration, and IT security — with hands-on labs and practical experience throughout all 5 courses.</p>
+                </div>
+
+                <div class="course-section">
+                    <h3><i class="fas fa-tools"></i> Tools & Technologies Covered</h3>
+                    <div class="course-tools">
+                        <span class="tool-badge"><i class="fab fa-linux"></i> Linux</span>
+                        <span class="tool-badge"><i class="fab fa-windows"></i> Microsoft Windows</span>
+                        <span class="tool-badge"><i class="fas fa-terminal"></i> Command-Line Interface</span>
+                        <span class="tool-badge"><i class="fas fa-code-branch"></i> Git</span>
+                        <span class="tool-badge"><i class="fas fa-network-wired"></i> TCP/IP & DNS</span>
+                        <span class="tool-badge"><i class="fas fa-shield-alt"></i> IT Security</span>
+                        <span class="tool-badge"><i class="fas fa-server"></i> Active Directory</span>
+                    </div>
+                </div>
+
+                <div class="course-section">
+                    <h3><i class="fas fa-graduation-cap"></i> Skills Developed</h3>
+                    <ul class="course-skills-list">
+                        <li><i class="fas fa-check-circle"></i> Computer Hardware & Assembly</li>
+                        <li><i class="fas fa-check-circle"></i> Computer Networking & Troubleshooting</li>
+                        <li><i class="fas fa-check-circle"></i> Operating System Administration</li>
+                        <li><i class="fas fa-check-circle"></i> System Administration & IT Infrastructure</li>
+                        <li><i class="fas fa-check-circle"></i> IT Security & Cryptography</li>
+                        <li><i class="fas fa-check-circle"></i> Cloud Computing Fundamentals</li>
+                        <li><i class="fas fa-check-circle"></i> Customer Service & Technical Support</li>
+                    </ul>
+                </div>
+
+                <div class="course-section">
+                    <h3><i class="fas fa-certificate"></i> Courses (0 of 5)</h3>
+                    <p style="font-size: 0.85rem; color: var(--color-gray); margin-bottom: var(--spacing-md);">Currently in progress — courses will be marked as completed upon finishing.</p>
+                    <div class="course-progress">
+                        <div class="course-module-wrapper">
+                            <div class="course-module expandable" onclick="toggleCourseDetails(this)">
+                                <i class="fas fa-circle"></i>
+                                <span>Technical Support Fundamentals</span>
+                            </div>
+                            <div class="course-module-details">
+                                <h5><i class="fas fa-lightbulb"></i> Skills Gained</h5>
+                                <ul>
+                                    <li><i class="fas fa-circle"></i> Understand how binary systems and computer hardware work</li>
+                                    <li><i class="fas fa-circle"></i> Assemble a computer from scratch</li>
+                                    <li><i class="fas fa-circle"></i> Explain how the Internet works and its impact</li>
+                                    <li><i class="fas fa-circle"></i> Apply problem-solving methodologies and soft skills in IT settings</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="course-module-wrapper">
+                            <div class="course-module expandable" onclick="toggleCourseDetails(this)">
+                                <i class="fas fa-circle"></i>
+                                <span>The Bits and Bytes of Computer Networking</span>
+                            </div>
+                            <div class="course-module-details">
+                                <h5><i class="fas fa-lightbulb"></i> Skills Gained</h5>
+                                <ul>
+                                    <li><i class="fas fa-circle"></i> Describe computer networks using the five-layer model</li>
+                                    <li><i class="fas fa-circle"></i> Understand TCP/IP protocols and network troubleshooting</li>
+                                    <li><i class="fas fa-circle"></i> Learn DNS, DHCP, and other network services</li>
+                                    <li><i class="fas fa-circle"></i> Understand cloud computing and cloud storage</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="course-module-wrapper">
+                            <div class="course-module expandable" onclick="toggleCourseDetails(this)">
+                                <i class="fas fa-circle"></i>
+                                <span>Operating Systems and You: Becoming a Power User</span>
+                            </div>
+                            <div class="course-module-details">
+                                <h5><i class="fas fa-lightbulb"></i> Skills Gained</h5>
+                                <ul>
+                                    <li><i class="fas fa-circle"></i> Navigate Windows and Linux filesystems via GUI and CLI</li>
+                                    <li><i class="fas fa-circle"></i> Set up users, groups, and permissions</li>
+                                    <li><i class="fas fa-circle"></i> Install, configure, and remove software on Windows and Linux</li>
+                                    <li><i class="fas fa-circle"></i> Work with system logs and remote connection tools</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="course-module-wrapper">
+                            <div class="course-module expandable" onclick="toggleCourseDetails(this)">
+                                <i class="fas fa-circle"></i>
+                                <span>System Administration and IT Infrastructure Services</span>
+                            </div>
+                            <div class="course-module-details">
+                                <h5><i class="fas fa-lightbulb"></i> Skills Gained</h5>
+                                <ul>
+                                    <li><i class="fas fa-circle"></i> Manage organizational computers using Active Directory and OpenLDAP</li>
+                                    <li><i class="fas fa-circle"></i> Configure and manage cloud infrastructure</li>
+                                    <li><i class="fas fa-circle"></i> Plan and execute disaster recovery strategies</li>
+                                    <li><i class="fas fa-circle"></i> Choose hardware, vendors, and services for an organization</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="course-module-wrapper">
+                            <div class="course-module expandable" onclick="toggleCourseDetails(this)">
+                                <i class="fas fa-circle"></i>
+                                <span>IT Security: Defense Against the Digital Dark Arts</span>
+                            </div>
+                            <div class="course-module-details">
+                                <h5><i class="fas fa-lightbulb"></i> Skills Gained</h5>
+                                <ul>
+                                    <li><i class="fas fa-circle"></i> Understand encryption algorithms and their limitations</li>
+                                    <li><i class="fas fa-circle"></i> Identify authentication systems and types</li>
+                                    <li><i class="fas fa-circle"></i> Evaluate security risks and implement network best practices</li>
+                                    <li><i class="fas fa-circle"></i> Build and integrate a culture of security in an organization</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="--target-width: 0%;"></div>
+                            <span class="progress-text">In Progress</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-footer">
+                    <a href="https://www.coursera.org/professional-certificates/google-it-support" target="_blank"
+                        class="course-link-btn">
+                        <i class="fas fa-external-link-alt"></i> View Course on Coursera
                     </a>
                 </div>
             </div>

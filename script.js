@@ -429,6 +429,18 @@ function closeCourseInfoModal() {
     document.body.style.overflow = '';
 }
 
+function openITSupportInfoModal() {
+    const modal = document.getElementById('itSupportInfoModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeITSupportInfoModal() {
+    const modal = document.getElementById('itSupportInfoModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
 // Toggle course module details dropdown
 function toggleCourseDetails(element) {
     const wrapper = element.parentElement;
