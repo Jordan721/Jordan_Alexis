@@ -1706,127 +1706,140 @@ body {
     color: var(--color-dark);
 }
 
-/* ── Split Panel Layout ── */
+/* ── Filtered Experience Card Grid ── */
 .split-panel-list {
-    display: flex;
-    flex-direction: column;
-    max-width: 900px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-lg);
+    max-width: 1100px;
     margin: 0 auto;
 }
 
-/* Each entry row */
 .split-entry {
     display: flex;
-    align-items: stretch;
-    padding: 1.5rem 0;
-    transition: opacity 0.3s ease;
-}
-
-.split-entry:first-child {
-    padding-top: 0;
-}
-
-/* Left column — year, company, badge */
-.split-left {
-    flex: 0 0 200px;
-    display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    padding-right: 1.5rem;
-    text-align: right;
+    min-height: 100%;
+    padding: 1.35rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base), opacity 0.3s ease;
+}
+
+.split-entry.job {
+    border-color: rgba(6, 182, 212, 0.24);
+}
+
+.split-entry.milestone {
+    border-color: rgba(245, 158, 11, 0.24);
+    background: linear-gradient(145deg, rgba(245, 158, 11, 0.08), var(--glass-bg) 42%);
+}
+
+.split-entry:hover {
+    transform: translateY(-6px);
+    border-color: var(--color-primary);
+    box-shadow: 0 14px 35px rgba(6, 182, 212, 0.16);
+}
+
+.split-entry.milestone:hover {
+    border-color: #f59e0b;
+    box-shadow: 0 14px 35px rgba(245, 158, 11, 0.14);
+}
+
+.split-left {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
 }
 
 .split-year {
-    font-family: var(--font-code);
-    font-size: 1.6rem;
-    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 0.35rem 0.75rem;
+    border-radius: 8px;
+    background: rgba(6, 182, 212, 0.12);
+    border: 1px solid rgba(6, 182, 212, 0.24);
     color: var(--color-primary);
-    line-height: 1;
-    margin-bottom: 0.4rem;
+    font-family: var(--font-code);
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1.1;
 }
 
 .split-company {
-    font-size: 0.85rem;
+    flex: 1;
     color: var(--color-gray-light);
-    font-weight: 500;
-    line-height: 1.3;
-    margin-bottom: 0.5rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.35;
+    text-align: right;
 }
 
 .split-left .h-card-badge {
-    margin-top: 0.3rem;
+    flex: 0 0 auto;
 }
 
-/* Center divider line with dot */
 .split-divider {
-    flex: 0 0 20px;
-    position: relative;
+    display: none;
 }
 
-.split-divider::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 2px;
-    transform: translateX(-50%);
-    background: rgba(6, 182, 212, 0.15);
-}
-
-.split-dot {
-    position: absolute;
-    top: 0.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--color-primary);
-    box-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
-    z-index: 1;
-}
-
-.split-dot.milestone-dot {
-    background: #f59e0b;
-    box-shadow: 0 0 8px rgba(245, 158, 11, 0.5);
-    width: 12px;
-    height: 12px;
-}
-
-/* Right column — role, date, details */
 .split-right {
+    display: flex;
     flex: 1;
-    padding-left: 1.5rem;
+    flex-direction: column;
     min-width: 0;
 }
 
+.split-entry.job .split-right::before {
+    content: 'Job';
+    align-self: flex-start;
+    margin-bottom: 0.55rem;
+    padding: 0.22rem 0.62rem;
+    border-radius: 8px;
+    background: rgba(6, 182, 212, 0.12);
+    border: 1px solid rgba(6, 182, 212, 0.28);
+    color: var(--color-primary);
+    font-size: 0.68rem;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
 .split-right h3 {
-    font-size: 1.05rem;
+    margin-bottom: 0.3rem;
     color: var(--color-white);
-    margin-bottom: 0.2rem;
-    line-height: 1.3;
+    font-size: 1.02rem;
+    line-height: 1.35;
 }
 
 .split-date {
     display: inline-block;
-    font-size: 0.75rem;
+    margin-bottom: 0.75rem;
     color: var(--color-gray);
     font-family: var(--font-code);
-    margin-bottom: 0.6rem;
+    font-size: 0.74rem;
 }
 
-/* Badges */
 .h-card-badge {
-    display: inline-block;
-    padding: 0.2rem 0.6rem;
-    border-radius: 10px;
-    font-size: 0.7rem;
-    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    padding: 0.25rem 0.62rem;
+    border-radius: 8px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    line-height: 1.1;
     text-transform: uppercase;
 }
 
 .milestone-badge {
+    margin-bottom: 0.55rem;
     background: rgba(245, 158, 11, 0.15);
     color: #f59e0b;
     border: 1px solid rgba(245, 158, 11, 0.3);
@@ -1838,7 +1851,6 @@ body {
     border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
-/* Details list — always visible */
 .split-details {
     list-style: none;
     padding: 0;
@@ -1848,52 +1860,40 @@ body {
 .split-details li {
     position: relative;
     padding-left: 1rem;
-    font-size: 0.82rem;
     color: var(--color-gray-light);
-    line-height: 1.6;
-    margin-bottom: 0.4rem;
+    font-size: 0.8rem;
+    line-height: 1.55;
+    margin-bottom: 0.42rem;
 }
 
 .split-details li::before {
-    content: '▹';
+    content: '>';
     position: absolute;
     left: 0;
     color: var(--color-primary);
+    font-family: var(--font-code);
 }
 
-/* Milestone entries — special styling */
 .split-milestone-content {
-    padding-left: 1.5rem;
-}
-
-.split-entry.milestone .split-divider::before {
-    background: rgba(245, 158, 11, 0.3);
-}
-
-.split-milestone-content .h-card-badge {
-    margin-bottom: 0.4rem;
+    padding-left: 0;
 }
 
 .split-milestone-content p {
-    font-size: 0.85rem;
-    color: var(--color-gray-light);
-    line-height: 1.5;
     margin: 0;
+    color: var(--color-gray-light);
+    font-size: 0.84rem;
+    line-height: 1.65;
 }
 
-/* Hover effect on entries */
 .split-entry:hover .split-right h3 {
     color: var(--color-primary);
     transition: color var(--transition-base);
 }
 
-.split-entry:hover .split-dot {
-    box-shadow: 0 0 14px rgba(6, 182, 212, 0.8);
-    transition: box-shadow var(--transition-base);
-}
-
-.split-entry.milestone:hover .split-dot.milestone-dot {
-    box-shadow: 0 0 14px rgba(245, 158, 11, 0.8);
+@media (min-width: 1024px) {
+    .split-entry.job:first-child {
+        border-color: rgba(16, 185, 129, 0.32);
+    }
 }
 
 /* Mobile responsive */
@@ -1912,21 +1912,29 @@ body {
         font-size: 0.65rem;
     }
 
+    .split-panel-list {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .split-entry {
+        padding: 1.1rem;
+    }
+
     .split-left {
-        flex: 0 0 80px;
-        padding-right: 0.8rem;
+        align-items: flex-start;
     }
 
     .split-year {
-        font-size: 1.1rem;
+        font-size: 0.76rem;
     }
 
     .split-company {
-        font-size: 0.7rem;
+        font-size: 0.76rem;
     }
 
-    .split-right {
-        padding-left: 0.8rem;
+    .h-card-badge {
+        font-size: 0.62rem;
     }
 
     .split-right h3 {
