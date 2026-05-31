@@ -3713,26 +3713,30 @@ body {
     gap: 0;
 }
 
-.course-module.completed.expandable {
+.course-module.expandable {
     cursor: pointer;
     position: relative;
 }
 
-.course-module.completed.expandable::after {
+.course-module.expandable::after {
     content: '\f078';
     font-family: 'Font Awesome 6 Free';
     font-weight: 900;
     font-size: 0.75rem;
-    color: var(--color-primary);
+    color: var(--color-gray);
     transition: transform 0.3s ease;
     margin-left: auto;
 }
 
-.course-module.completed.expandable.expanded::after {
+.course-module.completed.expandable::after {
+    color: var(--color-primary);
+}
+
+.course-module.expandable.expanded::after {
     transform: rotate(180deg);
 }
 
-.course-module.completed.expandable:hover {
+.course-module.expandable:hover {
     background: rgba(0, 212, 255, 0.1);
     transform: translateX(5px);
 }
@@ -3809,7 +3813,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+    position: static;
     width: 0;
     animation: progressFillWidth 1.5s ease-out forwards, progressShimmer 2s ease-in-out infinite;
     animation-delay: 0.3s, 1.8s;
@@ -3844,6 +3848,7 @@ body {
     transform: translateX(-50%);
     width: 100%;
     text-align: center;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
 
 .course-footer {
