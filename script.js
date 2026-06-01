@@ -383,6 +383,18 @@ function animateCounter(element) {
 let currentSlide = 0;
 let currentCategory = null;
 
+function openResumeModal() {
+    const modal = document.getElementById('resumeModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeResumeModal() {
+    const modal = document.getElementById('resumeModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
 function openCertificatesModal() {
     const modal = document.getElementById('certificatesModal');
     modal.classList.add('active');
@@ -566,6 +578,13 @@ function updateSlideIndicator(total) {
 // Keyboard navigation for modal
 document.addEventListener('keydown', (e) => {
     const modal = document.getElementById('certificatesModal');
+    const resumeModal = document.getElementById('resumeModal');
+
+    if (e.key === 'Escape' && resumeModal.classList.contains('active')) {
+        closeResumeModal();
+        return;
+    }
+
     if (!modal.classList.contains('active')) return;
 
     const certView = document.getElementById('certView');
@@ -585,7 +604,13 @@ document.addEventListener('keydown', (e) => {
 // Close modal when clicking overlay
 document.addEventListener('click', (e) => {
     if (e.target.classList.contains('modal-overlay')) {
-        closeCertificatesModal();
+        const activeModal = e.target.closest('.modal.active');
+
+        if (activeModal && activeModal.id === 'resumeModal') {
+            closeResumeModal();
+        } else if (activeModal && activeModal.id === 'certificatesModal') {
+            closeCertificatesModal();
+        }
     }
 });
 

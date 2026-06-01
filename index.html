@@ -94,10 +94,10 @@
                         <span>Explore My Work</span>
                         <i class="fas fa-arrow-down"></i>
                     </a>
-                    <a href="./Jordan_Alexis.pdf?v=2" target="_blank" class="btn btn-secondary">
-                        <span>View Resume</span>
+                    <button type="button" onclick="openResumeModal();" class="btn btn-secondary">
+                        <span>Choose Resume</span>
                         <i class="fas fa-file-alt"></i>
-                    </a>
+                    </button>
                 </div>
             </div>
             <div class="scroll-indicator">
@@ -472,7 +472,12 @@
                         both my
                         <strong>technical foundation and enterprise readiness</strong>.</p>
                     <button onclick="openCertificatesModal();" class="about-cta-btn">
-                        View Certificates <i class="fas fa-arrow-right"></i>
+                        <span class="about-cta-icon"><i class="fas fa-award"></i></span>
+                        <span class="about-cta-copy">
+                            <span>View Certificates</span>
+                            <small>12 credentials</small>
+                        </span>
+                        <span class="about-cta-arrow"><i class="fas fa-arrow-right"></i></span>
                     </button>
                 </div>
             </div>
@@ -1609,6 +1614,64 @@
         </button>
     </footer>
 
+    <!-- Resume Modal -->
+    <div id="resumeModal" class="modal">
+        <div class="modal-overlay" onclick="closeResumeModal()"></div>
+        <div class="modal-content glass-modal resume-modal-content">
+            <button class="modal-close" onclick="closeResumeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="resume-view">
+                <h2>Choose Resume</h2>
+                <p class="modal-subtitle">Select the version that best matches what you want to review</p>
+
+                <div class="resume-options">
+                    <a href="./Jordan_Alexis.pdf?v=2" target="_blank" class="resume-option">
+                        <span class="resume-option-icon"><i class="fas fa-file-pdf"></i></span>
+                        <span class="resume-option-copy">
+                            <strong>Main Resume</strong>
+                            <small>Best for a broad overview of my experience, projects, and technical
+                                background.</small>
+                        </span>
+                        <span class="resume-option-action">View PDF <i
+                                class="fas fa-arrow-up-right-from-square"></i></span>
+                    </a>
+
+                    <a href="./Jordan_Alexis_Data Analyst.pdf" target="_blank" class="resume-option">
+                        <span class="resume-option-icon"><i class="fas fa-chart-line"></i></span>
+                        <span class="resume-option-copy">
+                            <strong>Data Analyst Resume</strong>
+                            <small>Best for data analytics, reporting, SQL, Power BI, and insight-focused roles.</small>
+                        </span>
+                        <span class="resume-option-action">View PDF <i
+                                class="fas fa-arrow-up-right-from-square"></i></span>
+                    </a>
+
+                    <a href="./Jordan_Alexis_IT_Support.pdf" target="_blank" class="resume-option">
+                        <span class="resume-option-icon"><i class="fas fa-headset"></i></span>
+                        <span class="resume-option-copy">
+                            <strong>IT Support Resume</strong>
+                            <small>Best for help desk, troubleshooting, technical support, and systems roles.</small>
+                        </span>
+                        <span class="resume-option-action">View PDF <i
+                                class="fas fa-arrow-up-right-from-square"></i></span>
+                    </a>
+
+                    <a href="./Jordan_Alexis_Software Engineer .pdf" target="_blank" class="resume-option">
+                        <span class="resume-option-icon"><i class="fas fa-code"></i></span>
+                        <span class="resume-option-copy">
+                            <strong>Software Engineer Resume</strong>
+                            <small>Best for software engineering, full-stack development, and programming roles.</small>
+                        </span>
+                        <span class="resume-option-action">View PDF <i
+                                class="fas fa-arrow-up-right-from-square"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Certifications Modal -->
     <div id="certificatesModal" class="modal">
         <div class="modal-overlay" onclick="closeCertificatesModal()"></div>
@@ -1915,7 +1978,8 @@
                                     <p>PDF preview not available on mobile</p>
                                 </div>
                             </div>
-                            <a href="./Certifications/IT/Technical_Support_Fundamentals.pdf" target="_blank" class="view-cert-btn">
+                            <a href="./Certifications/IT/Technical_Support_Fundamentals.pdf" target="_blank"
+                                class="view-cert-btn">
                                 <i class="fas fa-external-link-alt"></i> View Certificate
                             </a>
                         </div>
