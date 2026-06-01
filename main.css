@@ -498,7 +498,259 @@ body {
     font-size: 1.125rem;
     color: var(--color-gray-light);
     max-width: 600px;
+    margin: 0 auto var(--spacing-lg);
+}
+
+.hero-signal {
+    width: min(520px, 100%);
+    min-height: 104px;
     margin: 0 auto var(--spacing-xl);
+    display: grid;
+    grid-template-columns: 104px 1fr;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: 0.85rem 1rem;
+    border: 1px solid rgba(6, 182, 212, 0.22);
+    border-radius: 18px;
+    background:
+        linear-gradient(135deg, rgba(6, 182, 212, 0.09), rgba(139, 92, 246, 0.08)),
+        rgba(15, 23, 42, 0.36);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-signal::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+    transform: translateX(-120%);
+    animation: signalSweep 4.5s ease-in-out infinite;
+}
+
+.signal-orbit {
+    width: 86px;
+    height: 86px;
+    justify-self: center;
+    border: 1px solid rgba(6, 182, 212, 0.28);
+    border-radius: 50%;
+    position: relative;
+    animation: signalRotate 12s linear infinite;
+}
+
+.signal-orbit::before {
+    content: '';
+    position: absolute;
+    inset: 22px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.22), rgba(139, 92, 246, 0.08) 62%, transparent 63%);
+    box-shadow: 0 0 28px rgba(6, 182, 212, 0.22);
+}
+
+.signal-node {
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: var(--color-white);
+    background: rgba(15, 23, 42, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 0 18px rgba(6, 182, 212, 0.24);
+    position: absolute;
+    animation: signalCounterRotate 12s linear infinite;
+}
+
+.node-code {
+    top: -8px;
+    left: 28px;
+}
+
+.node-data {
+    right: -7px;
+    bottom: 12px;
+}
+
+.node-chart {
+    left: -7px;
+    bottom: 12px;
+}
+
+.signal-panel {
+    display: grid;
+    gap: 0.85rem;
+    position: relative;
+    z-index: 1;
+}
+
+.signal-row {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.signal-pill {
+    min-width: 48px;
+    padding: 0.42rem 0.65rem;
+    border-radius: 999px;
+    color: var(--color-primary);
+    background: rgba(6, 182, 212, 0.1);
+    border: 1px solid rgba(6, 182, 212, 0.24);
+    font-family: var(--font-code);
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-align: center;
+    animation: signalFloat 3.4s ease-in-out infinite;
+}
+
+.signal-pill:nth-child(2) {
+    animation-delay: 0.25s;
+}
+
+.signal-pill:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.signal-pill:nth-child(4) {
+    animation-delay: 0.75s;
+}
+
+.signal-chart {
+    height: 34px;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    gap: 0.45rem;
+}
+
+.signal-chart span {
+    width: 9px;
+    height: var(--height);
+    min-height: 8px;
+    border-radius: 999px 999px 2px 2px;
+    background: linear-gradient(180deg, var(--color-primary), var(--color-secondary));
+    box-shadow: 0 0 16px rgba(6, 182, 212, 0.24);
+    animation: signalBars 1.9s ease-in-out infinite;
+    animation-delay: var(--delay);
+}
+
+@keyframes signalSweep {
+
+    0%,
+    48% {
+        transform: translateX(-120%);
+    }
+
+    72%,
+    100% {
+        transform: translateX(120%);
+    }
+}
+
+@keyframes signalRotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes signalCounterRotate {
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes signalFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes signalBars {
+
+    0%,
+    100% {
+        transform: scaleY(0.72);
+        opacity: 0.7;
+    }
+
+    45% {
+        transform: scaleY(1.08);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-signal {
+        grid-template-columns: 1fr;
+        gap: 0.65rem;
+        min-height: 0;
+        padding: 0.8rem;
+        border-radius: 14px;
+    }
+
+    .signal-orbit {
+        width: 66px;
+        height: 66px;
+    }
+
+    .signal-orbit::before {
+        inset: 17px;
+    }
+
+    .signal-node {
+        width: 26px;
+        height: 26px;
+        font-size: 0.82rem;
+    }
+
+    .node-code {
+        top: -7px;
+        left: 20px;
+    }
+
+    .node-data {
+        right: -7px;
+        bottom: 8px;
+    }
+
+    .node-chart {
+        left: -7px;
+        bottom: 8px;
+    }
+
+    .signal-panel {
+        gap: 0.65rem;
+    }
+
+    .signal-pill {
+        min-width: 42px;
+        padding: 0.34rem 0.52rem;
+        font-size: 0.72rem;
+    }
+
+    .signal-chart {
+        height: 26px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-signal::before,
+    .signal-orbit,
+    .signal-node,
+    .signal-pill,
+    .signal-chart span {
+        animation: none;
+    }
 }
 
 .hero-cta {
@@ -6242,6 +6494,26 @@ body {
     color: #475569;
 }
 
+[data-theme="light"] .hero-signal {
+    background:
+        linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(139, 92, 246, 0.06)),
+        rgba(255, 255, 255, 0.9);
+    border-color: rgba(6, 182, 212, 0.18);
+    box-shadow: 0 16px 38px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+[data-theme="light"] .signal-node {
+    color: #0f172a;
+    background: rgba(255, 255, 255, 0.94);
+    border-color: rgba(6, 182, 212, 0.22);
+}
+
+[data-theme="light"] .signal-pill {
+    color: var(--color-primary-dark);
+    background: rgba(6, 182, 212, 0.08);
+    border-color: rgba(6, 182, 212, 0.2);
+}
+
 /* ---- Section headers ---- */
 [data-theme="light"] .section-number {
     color: rgba(6, 182, 212, 0.35);
@@ -6503,6 +6775,34 @@ body {
     background: #ffffff;
     border-color: #e2e8f0;
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .resume-view h2 {
+    color: #0f172a;
+}
+
+[data-theme="light"] .modal-subtitle,
+[data-theme="light"] .resume-option-copy small {
+    color: #475569;
+}
+
+[data-theme="light"] .resume-option {
+    color: #334155;
+    background: #f8fafc;
+    border-color: #e2e8f0;
+}
+
+[data-theme="light"] .resume-option:hover {
+    background: rgba(6, 182, 212, 0.06);
+    border-color: rgba(6, 182, 212, 0.35);
+}
+
+[data-theme="light"] .resume-option-copy strong {
+    color: #0f172a;
+}
+
+[data-theme="light"] .resume-option-action {
+    color: var(--color-primary-dark);
 }
 
 [data-theme="light"] .folder-view h2 {
