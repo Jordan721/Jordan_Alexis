@@ -6124,6 +6124,19 @@ body {
     flex-shrink: 0;
 }
 
+.rail-icon::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    width: 4px;
+    height: 18px;
+    background: transparent;
+    border-radius: 999px;
+    transition: background 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+    opacity: 0;
+    transform: translateX(0);
+}
+
 .rail-icon:hover {
     background: rgba(255, 255, 255, 0.08);
     color: #cbd5e1;
@@ -6133,6 +6146,77 @@ body {
     background: rgba(6, 182, 212, 0.15);
     color: var(--color-primary);
 }
+
+.rail-icon.active::before {
+    background: linear-gradient(180deg, var(--color-primary), var(--color-primary-light));
+    opacity: 0.9;
+    transform: translateX(-2px);
+}
+
+.panel-quick-card {
+    margin: 0 0.75rem 1rem;
+    padding: 1rem;
+    border-radius: 18px;
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.16);
+}
+
+.quick-card-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin-bottom: 0.85rem;
+}
+
+.quick-card-body {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.quick-stat {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.quick-stat-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #f8fafc;
+}
+
+.quick-stat-label {
+    color: #94a3b8;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.quick-focus {
+    display: grid;
+    gap: 0.35rem;
+    padding: 0.85rem;
+    border-radius: 14px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.quick-focus-label {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.quick-focus-text {
+    color: #e2e8f0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
 
 /* Rail tooltip on hover */
 .rail-tooltip {
