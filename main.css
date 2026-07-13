@@ -2781,6 +2781,23 @@ body {
     }
 }
 
+/* 🖥️ IT Skills — System panel blocks with terminal-blue glow */
+.cloud-tag[data-category="it"] {
+    border-radius: 6px;
+    border: 1px solid var(--tag-color);
+    background: linear-gradient(180deg, rgba(56, 189, 248, 0.12), rgba(8, 47, 73, 0.22));
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    font-family: var(--font-code);
+}
+
+.cloud-tag[data-category="it"]:hover {
+    transform: translateY(-5px) scale(1.08);
+    background: rgba(56, 189, 248, 0.2);
+    box-shadow: 0 0 14px rgba(56, 189, 248, 0.38), inset 0 0 12px rgba(56, 189, 248, 0.08);
+    color: #fff;
+    z-index: 10;
+}
+
 /* 🛠️ Tools — Dashed double border, metallic shimmer bg, shake hover */
 .cloud-tag[data-category="tools"] {
     border-radius: 8px;
@@ -3109,6 +3126,15 @@ body {
     clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
     padding-left: 1rem;
     padding-right: 1rem;
+}
+
+/* 🖥️ IT Skills — System panel blocks */
+.m-tag.m-it {
+    border-radius: 6px;
+    border: 1px solid #38bdf8;
+    background: linear-gradient(180deg, rgba(56, 189, 248, 0.12), rgba(8, 47, 73, 0.22));
+    color: #38bdf8;
+    font-family: var(--font-code);
 }
 
 /* 🛠️ Tools — Dashed border, metallic shimmer */
