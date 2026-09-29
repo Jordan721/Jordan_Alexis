@@ -1718,22 +1718,38 @@ function applyThemeIcons(theme) {
 // ============================================================
 
 function openSideNav() {
-    document.getElementById('sideNavPanel').classList.add('open');
+    const panel = document.getElementById('sideNavPanel');
+    panel.inert = false;
+    panel.classList.add('open');
+    document.querySelectorAll('[aria-controls="sideNavPanel"]').forEach(button => button.setAttribute('aria-expanded', 'true'));
     document.getElementById('sideNavOverlay').classList.add('active');
     const hamburger = document.getElementById('mobileHamburger');
     if (hamburger) hamburger.classList.add('open');
+    document.getElementById('sideNavClose').focus({ preventScroll: true });
 }
 
 function closeSideNav() {
     const panel = document.getElementById('sideNavPanel');
     const overlay = document.getElementById('sideNavOverlay');
     const hamburger = document.getElementById('mobileHamburger');
-    if (panel) panel.classList.remove('open');
+    const restoreFocus = panel?.contains(document.activeElement);
+    if (panel) {
+        panel.classList.remove('open');
+        panel.inert = true;
+    }
+    document.querySelectorAll('[aria-controls="sideNavPanel"]').forEach(button => button.setAttribute('aria-expanded', 'false'));
     if (overlay) overlay.classList.remove('active');
     if (hamburger) hamburger.classList.remove('open');
+    if (restoreFocus) {
+        const trigger = window.matchMedia('(max-width: 768px)').matches ? hamburger : document.getElementById('sideNavToggle');
+        trigger?.focus({ preventScroll: true });
+    }
 }
 
 function initSideNav() {
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && document.getElementById('sideNavPanel')?.classList.contains('open')) closeSideNav();
+    });
     // Desktop: expand / collapse toggle button on the rail
     const toggleBtn = document.getElementById('sideNavToggle');
     if (toggleBtn) {

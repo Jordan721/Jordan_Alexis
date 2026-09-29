@@ -3960,6 +3960,7 @@ body {
     max-width: 900px;
     width: 100%;
     max-height: 90vh;
+    max-height: calc(100dvh - 2 * var(--spacing-lg));
     overflow-y: auto;
     z-index: 1;
 }
@@ -4267,6 +4268,7 @@ body {
 .course-info-modal {
     max-width: 800px;
     max-height: 90vh;
+    max-height: calc(100dvh - 2 * var(--spacing-lg));
     overflow-y: auto;
 }
 
@@ -4992,7 +4994,7 @@ body {
 
 .games-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-xl);
 }
@@ -5167,6 +5169,10 @@ body {
     bottom: 30px;
     right: 30px;
     width: 350px;
+    max-height: calc(100vh - 60px);
+    max-height: calc(100dvh - 60px);
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
     background: rgba(15, 23, 42, 0.95);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -5413,6 +5419,7 @@ body {
         right: 20px;
         bottom: 85px;
         max-height: calc(100vh - 120px);
+        max-height: calc(100dvh - 120px);
         overflow-y: auto;
     }
 
@@ -6007,7 +6014,7 @@ body {
 
 .activity-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
     gap: var(--spacing-lg);
 }
 
@@ -6290,6 +6297,7 @@ body {
     top: 0;
     left: 0;
     height: 100vh;
+    height: 100dvh;
     z-index: 1000;
     display: flex;
 }
@@ -6307,6 +6315,8 @@ body {
     position: relative;
     z-index: 2;
     flex-shrink: 0;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
 }
 
 .rail-logo {
@@ -6346,13 +6356,11 @@ body {
 }
 
 .rail-icons {
-    flex: 1;
+    flex: 1 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.2rem;
-    overflow-y: auto;
-    overflow-x: hidden;
     scrollbar-width: none;
     width: 100%;
     padding: 0 8px;
@@ -6535,6 +6543,7 @@ body {
 /* ---- Expanded Panel ---- */
 .side-nav-panel {
     width: var(--panel-width);
+    max-width: calc(100vw - var(--rail-width));
     height: 100%;
     background: #111827;
     border-right: 1px solid rgba(255, 255, 255, 0.06);
@@ -6546,7 +6555,25 @@ body {
     left: var(--rail-width);
     top: 0;
     z-index: 1;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    scroll-padding-top: 5rem;
+}
+
+.side-nav-panel > * { flex-shrink: 0; }
+
+/* Keep menu scrolling available without visible scrollbar tracks. */
+.side-nav .side-nav-panel,
+.side-nav .side-nav-rail {
+    overflow-x: hidden;
+    scrollbar-width: none;
+}
+
+.side-nav .side-nav-panel::-webkit-scrollbar,
+.side-nav .side-nav-rail::-webkit-scrollbar {
+    display: none;
 }
 
 .side-nav-panel.open {
@@ -6555,6 +6582,10 @@ body {
 
 /* Panel Header: avatar + name + close */
 .panel-header {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    background: inherit;
     padding: 1rem;
     display: flex;
     align-items: center;
@@ -7362,6 +7393,7 @@ body {
         left: 0;
         transform: translateX(-100%);
         width: min(280px, 85vw);
+        max-width: 100vw;
     }
 
     .side-nav-panel.open {
@@ -7439,11 +7471,10 @@ body {
         pointer-events: none;
     }
 
-    /* Make nav section scrollable so footer (theme toggle) stays pinned at bottom */
+    /* One scroll region includes navigation, Connect, and the theme control. */
     .side-nav-panel .panel-nav {
-        flex: 1 1 auto;
-        overflow-y: auto;
-        min-height: 0;
+        flex: 0 0 auto;
+        overflow: visible;
     }
 
     .side-nav-panel .panel-socials {
@@ -7451,4 +7482,37 @@ body {
     }
 }
 
-/* (lime overrides removed) */
+/* Keep intrinsic content from widening cards on narrow or zoomed screens. */
+.activity-grid > *,
+.projects-grid > *,
+.education-grid > *,
+.resume-option-copy,
+.panel-profile-info { min-width: 0; }
+
+.activity-item-title,
+.resume-option-copy,
+.contact-btn,
+.panel-profile-info { overflow-wrap: anywhere; }
+
+@media (max-width: 480px) {
+    .modal { padding: 0.75rem; }
+    .modal-content,
+    .course-info-modal {
+        max-width: 100%;
+        max-height: calc(100vh - 1.5rem);
+        max-height: calc(100dvh - 1.5rem);
+        margin: 0;
+    }
+    .glass-modal { padding: 1rem; padding-top: 4rem; }
+    .course-info-content { padding: 0; }
+    .project-card-top { flex-wrap: wrap; }
+    .project-type,
+    .education-status,
+    .github-profile-btn { white-space: normal; }
+    .arsenal-toggle { max-width: 100%; flex-shrink: 1; }
+    .panel-header { padding-top: max(1rem, env(safe-area-inset-top, 0px)); }
+    .mobile-hamburger {
+        top: max(14px, env(safe-area-inset-top, 0px));
+        left: max(14px, env(safe-area-inset-left, 0px));
+    }
+}

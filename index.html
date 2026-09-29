@@ -191,14 +191,14 @@
                 <button class="rail-theme-btn" onclick="toggleTheme()" title="Toggle light/dark mode">
                     <i class="fas fa-moon" id="themeIconRail"></i>
                 </button>
-                <button class="rail-expand-btn" id="sideNavToggle" title="Expand menu">
+                <button class="rail-expand-btn" id="sideNavToggle" title="Expand menu" aria-expanded="false" aria-controls="sideNavPanel">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
 
         <!-- Expanded Panel -->
-        <div class="side-nav-panel" id="sideNavPanel">
+        <div class="side-nav-panel" id="sideNavPanel" inert>
             <div class="panel-header">
                 <div class="panel-profile">
                     <img src="Me.png" alt="Jordan Alexis" class="panel-avatar">
@@ -207,7 +207,7 @@
                         <span class="panel-role">Developer</span>
                     </div>
                 </div>
-                <button class="panel-close-btn" id="sideNavClose">
+                <button class="panel-close-btn" id="sideNavClose" aria-label="Close menu">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
@@ -299,7 +299,7 @@
     <div class="side-nav-overlay" id="sideNavOverlay"></div>
 
     <!-- Mobile Hamburger Button (visible only on mobile) -->
-    <button class="mobile-hamburger" id="mobileHamburger" aria-label="Open menu">
+    <button class="mobile-hamburger" id="mobileHamburger" aria-label="Open menu" aria-expanded="false" aria-controls="sideNavPanel">
         <span></span>
         <span></span>
         <span></span>
