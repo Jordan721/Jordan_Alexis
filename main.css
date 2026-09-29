@@ -2641,6 +2641,69 @@ body {
     margin: 0 auto;
 }
 
+/* Compact toolkit controls; revealed only after initialization. */
+.arsenal-toolbar:not([hidden]) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    max-width: 1000px;
+    margin: 0 auto 1.25rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    background: linear-gradient(110deg, rgba(6, 182, 212, 0.08), rgba(139, 92, 246, 0.06));
+}
+
+.arsenal-eyebrow {
+    font-family: var(--font-code);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    color: var(--color-primary);
+}
+
+.arsenal-summary {
+    margin: 0.3rem 0 0;
+    font-size: 0.85rem;
+    color: var(--color-gray-light);
+}
+
+.arsenal-toggle {
+    flex-shrink: 0;
+    padding: 0.65rem 1rem;
+    border: 1px solid var(--color-primary);
+    border-radius: 999px;
+    background: rgba(6, 182, 212, 0.08);
+    color: var(--color-primary);
+    font: inherit;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.arsenal-toggle span { margin-left: 0.5rem; }
+.arsenal-toggle:hover { background: rgba(6, 182, 212, 0.18); }
+.arsenal-toggle:focus-visible,
+.arsenal-enhanced .legend-item:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 4px;
+}
+
+#arsenal.arsenal-enhanced .arsenal-legend { display: flex; margin-bottom: 0.5rem; }
+#arsenal.arsenal-enhanced .tag-cloud { display: flex; gap: 0.65rem; padding: 1rem 0; }
+#arsenal.arsenal-enhanced .mobile-arsenal { display: none; }
+
+@media (max-width: 768px) {
+    .arsenal-toolbar:not([hidden]) { flex-wrap: wrap; padding: 1rem; }
+    .arsenal-enhanced .legend-item { padding: 0.5rem 0.75rem; font-size: 0.75rem; }
+    .arsenal-enhanced .cloud-tag { white-space: normal; max-width: 100%; overflow-wrap: anywhere; }
+    .arsenal-enhanced .cloud-tag.size-lg { font-size: 0.9rem; padding: 0.45rem 0.8rem; }
+    .arsenal-enhanced .cloud-tag.size-md { font-size: 0.8rem; padding: 0.4rem 0.7rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #arsenal .cloud-tag { animation: none; transition: none; }
+}
+
 /* Individual Cloud Tag */
 .cloud-tag {
     display: inline-block;

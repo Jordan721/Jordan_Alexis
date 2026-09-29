@@ -116,85 +116,79 @@ function switchArsenalTab(category) {
 // tag cloud filter & animation
 
 function initTagCloud() {
-    const legend = document.querySelector('.arsenal-legend');
-    const tags = document.querySelectorAll('.cloud-tag');
-
+    const section = document.getElementById('arsenal');
+    const legend = section?.querySelector('.arsenal-legend');
+    const tags = Array.from(section?.querySelectorAll('.cloud-tag') || []);
     if (!legend || !tags.length) return;
 
-    // Assign staggered float delays for organic movement
-    tags.forEach((tag, i) => {
-        tag.style.setProperty('--float-delay', (Math.random() * 5).toFixed(2) + 's');
+    const toolbar = section.querySelector('.arsenal-toolbar');
+    const toggle = section.querySelector('.arsenal-toggle');
+    const summary = section.querySelector('.arsenal-summary');
+    const buttons = Array.from(legend.querySelectorAll('.legend-item'));
+    const categories = buttons.map(button => button.dataset.category).filter(category => category !== 'all');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let category = 'all';
+    let expanded = false;
+
+    // Keep each discipline represented, prioritizing its strongest skills.
+    const ranked = items => [...items].sort((a, b) => {
+        const rank = tag => tag.classList.contains('size-lg') ? 2 : tag.classList.contains('size-md') ? 1 : 0;
+        return rank(b) - rank(a);
     });
+    const highlights = new Set(categories.flatMap(value =>
+        ranked(tags.filter(tag => tag.dataset.category === value)).slice(0, 3)
+    ));
 
-    // Staggered entrance on first scroll into view
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                tags.forEach((tag, i) => {
-                    const delay = i * 0.025;
-                    tag.classList.add('tag-enter');
-                    tag.style.setProperty('--enter-delay', delay.toFixed(3) + 's');
-                    // Remove entrance class after it finishes so float animation resumes
-                    setTimeout(() => tag.classList.remove('tag-enter'), (delay + 0.5) * 1000);
-                });
-                observer.disconnect();
-            }
-        });
-    }, {
-        threshold: 0.15
-    });
-
-    const cloud = document.querySelector('.tag-cloud');
-    if (cloud) observer.observe(cloud);
-
-    // Category filter
-    legend.addEventListener('click', (e) => {
-        const btn = e.target.closest('.legend-item');
-        if (!btn) return;
-
-        const category = btn.dataset.category;
-
-        // Update active legend button
-        legend.querySelectorAll('.legend-item').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const toShow = [];
-        const toHide = [];
-
+    function render() {
+        const matching = tags.filter(tag => category === 'all' || tag.dataset.category === category);
+        const visible = expanded ? matching : category === 'all'
+            ? matching.filter(tag => highlights.has(tag)) : ranked(matching).slice(0, 12);
+        const visibleSet = new Set(visible);
         tags.forEach(tag => {
-            const matches = category === 'all' || tag.dataset.category === category;
-            if (matches) {
-                toShow.push(tag);
-            } else {
-                toHide.push(tag);
-            }
+            tag.classList.toggle('filtered-out', !visibleSet.has(tag));
+            tag.classList.remove('tag-enter');
         });
-
-        // Phase 1: Fade out non-matching tags
-        toHide.forEach(tag => {
-            tag.classList.remove('filtered-out', 'filtering-in');
-            tag.classList.add('filtering-out');
+        if (!reducedMotion.matches) {
+            visible.forEach((tag, index) => {
+                tag.style.setProperty('--enter-delay', `${index * 0.015}s`);
+                // Restart the entrance without timers that can race rapid filter changes.
+                void tag.offsetWidth;
+                tag.classList.add('tag-enter');
+            });
+        }
+        buttons.forEach(button => {
+            const active = button.dataset.category === category;
+            button.classList.toggle('active', active);
+            button.setAttribute('aria-pressed', String(active));
         });
+        summary.textContent = `${visible.length} of ${matching.length} skills${expanded ? ' · Full toolkit' : ' · Highlights'}`;
+        toggle.hidden = matching.length <= visible.length && !expanded;
+        toggle.setAttribute('aria-expanded', String(expanded));
+        toggle.innerHTML = expanded ? 'Show highlights <span aria-hidden="true">−</span>'
+            : `Show all ${matching.length} skills <span aria-hidden="true">+</span>`;
+    }
 
-        // Phase 2: After fade-out transition, hide them and pop in the matching ones
-        setTimeout(() => {
-            toHide.forEach(tag => {
-                tag.classList.remove('filtering-out');
-                tag.classList.add('filtered-out');
-            });
-
-            // Show matching tags with staggered pop-in
-            toShow.forEach((tag, i) => {
-                tag.classList.remove('filtered-out', 'filtering-out');
-                tag.classList.add('filtering-in');
-                tag.style.animationDelay = (i * 0.03) + 's';
-                // Clean up animation class after it finishes
-                setTimeout(() => tag.classList.remove('filtering-in'), 350 + i * 30);
-            });
-        }, 300);
+    tags.forEach(tag => {
+        tag.style.setProperty('--float-delay', `${(Math.random() * 5).toFixed(2)}s`);
+        tag.addEventListener('animationend', event => {
+            if (event.animationName === 'tagEnter') tag.classList.remove('tag-enter');
+        });
     });
+    legend.addEventListener('click', event => {
+        const button = event.target.closest('.legend-item');
+        if (!button) return;
+        category = button.dataset.category;
+        expanded = false;
+        render();
+    });
+    toggle.addEventListener('click', () => {
+        expanded = !expanded;
+        render();
+    });
+    section.classList.add('arsenal-enhanced');
+    toolbar.hidden = false;
+    render();
 }
-
 // flip cards (mobile tap-to-flip)
 
 function switchProfileTab(tab) {

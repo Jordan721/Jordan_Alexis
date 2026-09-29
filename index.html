@@ -880,7 +880,15 @@
                 <div class="section-line"></div>
             </div>
 
-            <!-- Desktop: Category Filter Bar -->
+            <div class="arsenal-toolbar" hidden>
+                <div>
+                    <span class="arsenal-eyebrow">THE TOOLKIT</span>
+                    <p class="arsenal-summary" aria-live="polite"></p>
+                </div>
+                <button class="arsenal-toggle" type="button" aria-expanded="false" aria-controls="arsenal-cloud">Show all skills <span aria-hidden="true">+</span></button>
+            </div>
+
+            <!-- Category Filter Bar -->
             <div class="arsenal-legend">
                 <button class="legend-item active" data-category="all">All</button>
                 <button class="legend-item" data-category="business" style="--cat-color: #06b6d4">💼 Business</button>
@@ -892,7 +900,7 @@
             </div>
 
             <!-- Desktop: Interactive Tag Cloud -->
-            <div class="tag-cloud" data-aos="fade-up">
+            <div class="tag-cloud" id="arsenal-cloud" data-aos="fade-up">
                 <!-- Business Operations & Support — sm -->
                 <span class="cloud-tag size-sm" data-category="business" style="--tag-color: #06b6d4">Calendar
                     Management</span>
