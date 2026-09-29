@@ -124,11 +124,16 @@ function initTagCloud() {
     const toolbar = section.querySelector('.arsenal-toolbar');
     const toggle = section.querySelector('.arsenal-toggle');
     const summary = section.querySelector('.arsenal-summary');
+    const cloud = section.querySelector('.tag-cloud');
+    const toggleLabel = toggle.querySelector('.arsenal-toggle-label');
     const buttons = Array.from(legend.querySelectorAll('.legend-item'));
     const categories = buttons.map(button => button.dataset.category).filter(category => category !== 'all');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let category = 'all';
     let expanded = false;
+    let layoutAnimation;
+    let revealAnimations = [];
+    let initialized = false;
 
     // Keep each discipline represented, prioritizing its strongest skills.
     const ranked = items => [...items].sort((a, b) => {
@@ -140,6 +145,14 @@ function initTagCloud() {
     ));
 
     function render() {
+        const animate = initialized && !reducedMotion.matches && typeof cloud.animate === 'function';
+        const previousHeight = cloud.getBoundingClientRect().height;
+        const previousPositions = new Map(tags.filter(tag => !tag.classList.contains('filtered-out'))
+            .map(tag => [tag, tag.getBoundingClientRect()]));
+        layoutAnimation?.cancel();
+        revealAnimations.forEach(animation => animation.cancel());
+        revealAnimations = [];
+        cloud.classList.remove('is-reflowing');
         const matching = tags.filter(tag => category === 'all' || tag.dataset.category === category);
         const visible = expanded ? matching : category === 'all'
             ? matching.filter(tag => highlights.has(tag)) : ranked(matching).slice(0, 12);
@@ -148,14 +161,6 @@ function initTagCloud() {
             tag.classList.toggle('filtered-out', !visibleSet.has(tag));
             tag.classList.remove('tag-enter');
         });
-        if (!reducedMotion.matches) {
-            visible.forEach((tag, index) => {
-                tag.style.setProperty('--enter-delay', `${index * 0.015}s`);
-                // Restart the entrance without timers that can race rapid filter changes.
-                void tag.offsetWidth;
-                tag.classList.add('tag-enter');
-            });
-        }
         buttons.forEach(button => {
             const active = button.dataset.category === category;
             button.classList.toggle('active', active);
@@ -164,15 +169,39 @@ function initTagCloud() {
         summary.textContent = `${visible.length} of ${matching.length} skills${expanded ? ' · Full toolkit' : ' · Highlights'}`;
         toggle.hidden = matching.length <= visible.length && !expanded;
         toggle.setAttribute('aria-expanded', String(expanded));
-        toggle.innerHTML = expanded ? 'Show highlights <span aria-hidden="true">−</span>'
-            : `Show all ${matching.length} skills <span aria-hidden="true">+</span>`;
+        toggleLabel.textContent = expanded ? 'Show highlights' : `Explore all ${matching.length} skills`;
+        section.classList.toggle('arsenal-expanded', expanded);
+
+        if (animate) {
+            const nextHeight = cloud.getBoundingClientRect().height;
+            // Read the final layout in one pass before starting the animations.
+            const positions = visible.map(tag => [tag, tag.getBoundingClientRect()]);
+            cloud.classList.add('is-reflowing');
+            layoutAnimation = cloud.animate([
+                { height: `${previousHeight}px` }, { height: `${nextHeight}px` }
+            ], { duration: 520, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' });
+            layoutAnimation.onfinish = () => cloud.classList.remove('is-reflowing');
+            positions.forEach(([tag, position], index) => {
+                const previous = previousPositions.get(tag);
+                const frames = previous
+                    ? [{ translate: `${previous.left - position.left}px ${previous.top - position.top}px` }, { translate: '0px 0px' }]
+                    : [{ opacity: 0, translate: '0px 16px', scale: '0.94' }, { opacity: 1, translate: '0px 0px', scale: '1' }];
+                revealAnimations.push(tag.animate(frames, {
+                    duration: 420,
+                    delay: previous ? 0 : Math.min(index * 12, 240),
+                    easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+                    fill: 'backwards'
+                }));
+            });
+        }
+        initialized = true;
     }
 
-    tags.forEach(tag => {
-        tag.style.setProperty('--float-delay', `${(Math.random() * 5).toFixed(2)}s`);
-        tag.addEventListener('animationend', event => {
-            if (event.animationName === 'tagEnter') tag.classList.remove('tag-enter');
-        });
+    // A viewport change must not leave the cloud constrained to an old height.
+    window.addEventListener('resize', () => {
+        layoutAnimation?.cancel();
+        revealAnimations.forEach(animation => animation.cancel());
+        cloud.classList.remove('is-reflowing');
     });
     legend.addEventListener('click', event => {
         const button = event.target.closest('.legend-item');
