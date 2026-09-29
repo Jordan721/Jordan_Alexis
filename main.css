@@ -6922,10 +6922,7 @@ body {
     background: #ffffff;
 }
 [data-theme="light"] .progress-text {
-    width: auto;
-    padding: 0 0.6rem;
-    border-radius: 999px;
-    background: #ffffff;
+    background: transparent;
     color: #0f172a;
     text-shadow: none;
     white-space: nowrap;
