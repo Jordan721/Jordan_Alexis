@@ -6782,6 +6782,18 @@ body {
    ============================================================ */
 
 [data-theme="light"] {
+    color-scheme: light;
+    --color-primary: #0e7490;
+    --color-primary-dark: #155e75;
+    --color-primary-light: #0e7490;
+    --color-secondary: #6d28d9;
+    --color-accent: #92400e;
+    --color-success: #047857;
+    --color-warning: #92400e;
+    --color-error: #b91c1c;
+    --gradient-primary: linear-gradient(135deg, #0e7490 0%, #6d28d9 100%);
+    --gradient-secondary: linear-gradient(135deg, #6d28d9 0%, #be185d 100%);
+    --gradient-accent: linear-gradient(135deg, #92400e 0%, #b91c1c 100%);
     --color-dark: #f8fafc;
     --color-dark-alt: #f1f5f9;
     --color-light: #0f172a;
@@ -6796,6 +6808,143 @@ body {
     --shadow-xl: 0 16px 40px rgba(0, 0, 0, 0.1);
     --shadow-glow: 0 0 20px rgba(6, 182, 212, 0.18);
 }
+
+/* Light surfaces need darker accent inks, including hover/selected states. */
+[data-theme="light"] #arsenal {
+    --arsenal-ink: #0e7490;
+}
+
+[data-theme="light"] #arsenal [data-category="business"],
+[data-theme="light"] #arsenal [data-tab="business"],
+[data-theme="light"] #arsenal .m-business { --arsenal-ink: #155e75; }
+[data-theme="light"] #arsenal [data-category="data"],
+[data-theme="light"] #arsenal [data-tab="data"],
+[data-theme="light"] #arsenal .m-data { --arsenal-ink: #6d28d9; }
+[data-theme="light"] #arsenal [data-category="tech"],
+[data-theme="light"] #arsenal [data-tab="tech"],
+[data-theme="light"] #arsenal .m-tech { --arsenal-ink: #065f46; }
+[data-theme="light"] #arsenal [data-category="it"],
+[data-theme="light"] #arsenal [data-tab="it"],
+[data-theme="light"] #arsenal .m-it { --arsenal-ink: #075985; }
+[data-theme="light"] #arsenal [data-category="tools"],
+[data-theme="light"] #arsenal [data-tab="tools"],
+[data-theme="light"] #arsenal .m-tools { --arsenal-ink: #92400e; }
+[data-theme="light"] #arsenal [data-category="strategic"],
+[data-theme="light"] #arsenal [data-tab="strategic"],
+[data-theme="light"] #arsenal .m-strategic { --arsenal-ink: #9d174d; }
+
+[data-theme="light"] .arsenal-toolbar:not([hidden]) {
+    background: linear-gradient(110deg, #ecfeff, #f5f3ff);
+    border-color: #cbd5e1;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme="light"] #arsenal.arsenal-enhanced .tag-cloud {
+    background: linear-gradient(135deg, #ffffff, #f8fafc);
+    border-color: #cbd5e1;
+}
+
+[data-theme="light"] #arsenal .cloud-tag,
+[data-theme="light"] #arsenal .m-tag {
+    color: var(--arsenal-ink);
+    border-color: var(--arsenal-ink);
+    background: #f1f5f9;
+    background: color-mix(in srgb, var(--arsenal-ink) 6%, white);
+    box-shadow: none;
+}
+
+[data-theme="light"] #arsenal .cloud-tag:hover,
+[data-theme="light"] #arsenal .m-tag:hover {
+    color: var(--arsenal-ink);
+    border-color: var(--arsenal-ink);
+    background: #e2e8f0;
+    background: color-mix(in srgb, var(--arsenal-ink) 12%, white);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+}
+
+[data-theme="light"] #arsenal .legend-item,
+[data-theme="light"] #arsenal .mobile-tab {
+    color: var(--arsenal-ink);
+    border-color: #94a3b8;
+    background: #ffffff;
+}
+
+[data-theme="light"] #arsenal .legend-item:hover,
+[data-theme="light"] #arsenal .mobile-tab:hover {
+    border-color: var(--arsenal-ink);
+    background: #f1f5f9;
+}
+
+[data-theme="light"] #arsenal .legend-item.active,
+[data-theme="light"] #arsenal .mobile-tab.active {
+    color: #ffffff;
+    background: var(--arsenal-ink);
+    border-color: var(--arsenal-ink);
+}
+
+[data-theme="light"] .project-tags span {
+    color: #334155;
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+}
+
+[data-theme="light"] .project-card:hover {
+    background: #ffffff;
+}
+
+[data-theme="light"] .h-filter-group {
+    background: #ffffff;
+    border-color: #cbd5e1;
+}
+
+[data-theme="light"] .h-filter-btn:hover,
+[data-theme="light"] .close-panel:hover {
+    color: #0f172a;
+    background: #e2e8f0;
+}
+
+[data-theme="light"] .h-filter-btn.active { color: #ffffff; }
+
+[data-theme="light"] .milestone-badge,
+[data-theme="light"] .education-status.in-progress { color: #92400e; }
+[data-theme="light"] .current-badge,
+[data-theme="light"] .education-status.completed { color: #065f46; }
+[data-theme="light"] .education-status.credits { color: #5b21b6; }
+
+[data-theme="light"] .about-cta-btn,
+[data-theme="light"] .project-icon { background: var(--gradient-primary); }
+[data-theme="light"] .about-cta-copy small { color: #ffffff; }
+
+[data-theme="light"] .toggle-icon .icon-off { color: #475569; }
+[data-theme="light"] .year-select,
+[data-theme="light"] .year-select option {
+    color: #0f172a;
+    background: #ffffff;
+}
+[data-theme="light"] .progress-text {
+    width: auto;
+    padding: 0 0.6rem;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #0f172a;
+    text-shadow: none;
+    white-space: nowrap;
+}
+[data-theme="light"] .carousel-btn {
+    background: #ffffff;
+    color: #155e75;
+}
+
+/* Keep the dark navigation rail legible while the main page is light. */
+[data-theme="light"] .side-nav-rail {
+    --color-primary: #22d3ee;
+    --color-primary-light: #67e8f9;
+}
+[data-theme="light"] .rail-icon,
+[data-theme="light"] .rail-theme-btn,
+[data-theme="light"] .rail-expand-btn { color: #cbd5e1; }
+[data-theme="light"] .rail-icon.active,
+[data-theme="light"] .rail-icon:hover { color: #67e8f9; }
 
 /* ---- Body ---- */
 [data-theme="light"] body {
@@ -6853,7 +7002,7 @@ body {
 
 /* ---- Section headers ---- */
 [data-theme="light"] .section-number {
-    color: rgba(6, 182, 212, 0.35);
+    color: #0e7490;
 }
 
 [data-theme="light"] .section-title {
@@ -6967,7 +7116,7 @@ body {
 }
 
 [data-theme="light"] .activity-item-time {
-    color: #94a3b8;
+    color: #475569;
 }
 
 /* ---- Scroll progress container ---- */
@@ -7048,7 +7197,7 @@ body {
 }
 
 [data-theme="light"] .panel-close-btn {
-    color: #94a3b8;
+    color: #475569;
 }
 
 [data-theme="light"] .panel-close-btn:hover {
@@ -7057,7 +7206,7 @@ body {
 }
 
 [data-theme="light"] .panel-section-label {
-    color: #94a3b8;
+    color: #475569;
 }
 
 [data-theme="light"] .panel-nav-item {
