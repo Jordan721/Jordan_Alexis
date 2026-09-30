@@ -359,8 +359,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--spacing-xl) var(--spacing-lg);
+    padding: var(--spacing-xl) var(--spacing-lg) calc(var(--spacing-xl) + 4.5rem);
     position: relative;
+    isolation: isolate;
 }
 
 .hero-content {
@@ -371,6 +372,8 @@ body {
 .hero-text {
     text-align: center;
     will-change: transform, opacity;
+    position: relative;
+    z-index: 2;
 }
 
 .greeting {
@@ -758,6 +761,8 @@ body {
     gap: var(--spacing-md);
     justify-content: center;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 3;
 }
 
 /* Buttons */
@@ -846,6 +851,8 @@ body {
     bottom: var(--spacing-xl);
     left: 50%;
     transform: translateX(-50%);
+    z-index: 1;
+    pointer-events: none;
 }
 
 .mouse {
@@ -4937,7 +4944,7 @@ body {
 
 @media (max-width: 640px) {
     .hero {
-        padding: var(--spacing-lg);
+        padding: var(--spacing-lg) var(--spacing-lg) calc(var(--spacing-lg) + 5rem);
     }
 
     .container {
