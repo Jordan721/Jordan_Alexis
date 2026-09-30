@@ -154,8 +154,8 @@ function initTagCloud() {
         revealAnimations = [];
         cloud.classList.remove('is-reflowing');
         const matching = tags.filter(tag => category === 'all' || tag.dataset.category === category);
-        const visible = expanded ? matching : category === 'all'
-            ? matching.filter(tag => highlights.has(tag)) : ranked(matching).slice(0, 12);
+        const visible = expanded ? matching : category === 'all' ?
+            matching.filter(tag => highlights.has(tag)) : ranked(matching).slice(0, 12);
         const visibleSet = new Set(visible);
         tags.forEach(tag => {
             tag.classList.toggle('filtered-out', !visibleSet.has(tag));
@@ -177,15 +177,32 @@ function initTagCloud() {
             // Read the final layout in one pass before starting the animations.
             const positions = visible.map(tag => [tag, tag.getBoundingClientRect()]);
             cloud.classList.add('is-reflowing');
-            layoutAnimation = cloud.animate([
-                { height: `${previousHeight}px` }, { height: `${nextHeight}px` }
-            ], { duration: 520, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' });
+            layoutAnimation = cloud.animate([{
+                height: `${previousHeight}px`
+            }, {
+                height: `${nextHeight}px`
+            }], {
+                duration: 520,
+                easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
+            });
             layoutAnimation.onfinish = () => cloud.classList.remove('is-reflowing');
             positions.forEach(([tag, position], index) => {
                 const previous = previousPositions.get(tag);
-                const frames = previous
-                    ? [{ translate: `${previous.left - position.left}px ${previous.top - position.top}px` }, { translate: '0px 0px' }]
-                    : [{ opacity: 0, translate: '0px 16px', scale: '0.94' }, { opacity: 1, translate: '0px 0px', scale: '1' }];
+                const frames = previous ?
+                    [{
+                        translate: `${previous.left - position.left}px ${previous.top - position.top}px`
+                    }, {
+                        translate: '0px 0px'
+                    }] :
+                    [{
+                        opacity: 0,
+                        translate: '0px 16px',
+                        scale: '0.94'
+                    }, {
+                        opacity: 1,
+                        translate: '0px 0px',
+                        scale: '1'
+                    }];
                 revealAnimations.push(tag.animate(frames, {
                     duration: 420,
                     delay: previous ? 0 : Math.min(index * 12, 240),
@@ -1725,7 +1742,9 @@ function openSideNav() {
     document.getElementById('sideNavOverlay').classList.add('active');
     const hamburger = document.getElementById('mobileHamburger');
     if (hamburger) hamburger.classList.add('open');
-    document.getElementById('sideNavClose').focus({ preventScroll: true });
+    document.getElementById('sideNavClose').focus({
+        preventScroll: true
+    });
 }
 
 function closeSideNav() {
@@ -1742,7 +1761,9 @@ function closeSideNav() {
     if (hamburger) hamburger.classList.remove('open');
     if (restoreFocus) {
         const trigger = window.matchMedia('(max-width: 768px)').matches ? hamburger : document.getElementById('sideNavToggle');
-        trigger?.focus({ preventScroll: true });
+        trigger?.focus({
+            preventScroll: true
+        });
     }
 }
 
