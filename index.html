@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -37,403 +37,303 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="main.css">
+    <!-- Organized site styles -->
+    <link rel="stylesheet" href="assets/css/modals.css">
+    <link rel="stylesheet" href="assets/css/studio.css">
+    <link rel="stylesheet" href="assets/css/creative.css">
+    <link rel="stylesheet" href="assets/css/motion-toolkit.css">
+    <link rel="stylesheet" href="assets/css/credentials.css">
 </head>
 
 <body>
-    <!-- Scroll Progress Indicator -->
-    <div class="scroll-progress-container">
-        <div class="scroll-progress-bar"></div>
-    </div>
-
-    <!-- Animated Background -->
-    <div class="animated-background">
-        <div class="gradient-orb orb-1"></div>
-        <div class="gradient-orb orb-2"></div>
-        <div class="gradient-orb orb-3"></div>
-    </div>
-
-    <!-- Mobile Gradient Mesh Animation -->
-    <div class="gradient-mesh">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-        <div class="blob blob-4"></div>
-    </div>
-
-    <!-- Mobile Scan Lines Animation -->
-    <div class="scan-lines"></div>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-text">
-                <div class="greeting fade-in terminal-greeting">
-                    <span class="terminal-text">&gt; const developer = new Jordan("Programmer")</span><span
-                        class="terminal-cursor">|</span>
-                </div>
-                <h1 class="hero-title fade-in-up">
-                    I'm <span class="gradient-text animated-name">
-                        <span class="letter">J</span><span class="letter">o</span><span class="letter">r</span><span
-                            class="letter">d</span><span class="letter">a</span><span class="letter">n</span><span
-                            class="letter space"> </span><span class="letter">A</span><span class="letter">l</span><span
-                            class="letter">e</span><span class="letter">x</span><span class="letter">i</span><span
-                            class="letter">s</span>
-                    </span>
-                </h1>
-                <p class="hero-subtitle fade-in-up delay-1">
-                    Programmer & Full&#8209;Stack Developer, Multimedia & Data Analytics Developer
-                </p>
-                <p class="hero-description fade-in-up delay-2">
-                    Crafting clean, efficient code and data-driven solutions. Specializing in full-stack development,
-                    web technologies, and transforming raw data into meaningful visualizations.
-                </p>
-                <div class="hero-signal fade-in-up delay-2" aria-label="Animated skills snapshot">
-                    <div class="signal-orbit" aria-hidden="true">
-                        <span class="signal-node node-code"><i class="fas fa-code"></i></span>
-                        <span class="signal-node node-data"><i class="fas fa-database"></i></span>
-                        <span class="signal-node node-chart"><i class="fas fa-chart-line"></i></span>
-                    </div>
-                    <div class="signal-panel">
-                        <div class="signal-row">
-                            <span class="signal-pill">API</span>
-                            <span class="signal-pill">SQL</span>
-                            <span class="signal-pill">BI</span>
-                            <span class="signal-pill">UI</span>
-                        </div>
-                        <div class="signal-chart" aria-hidden="true">
-                            <span style="--height: 42%; --delay: 0s;"></span>
-                            <span style="--height: 68%; --delay: 0.1s;"></span>
-                            <span style="--height: 36%; --delay: 0.2s;"></span>
-                            <span style="--height: 78%; --delay: 0.3s;"></span>
-                            <span style="--height: 58%; --delay: 0.4s;"></span>
-                            <span style="--height: 88%; --delay: 0.5s;"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-cta fade-in-up delay-3">
-                    <a href="#about" class="btn btn-primary">
-                        <span>Explore My Work</span>
-                        <i class="fas fa-arrow-down"></i>
-                    </a>
-                    <button type="button" onclick="openResumeModal();" class="btn btn-secondary">
-                        <span>Choose Resume</span>
-                        <i class="fas fa-file-alt"></i>
-                    </button>
-                </div>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <a class="wordmark" href="#home" aria-label="Jordan Alexis home">ja<span>✳</span></a>
+        <nav id="primaryNav" class="primary-nav" aria-label="Main navigation"><span class="nav-highlight"
+                aria-hidden="true"></span>
+            <a href="#projects" data-section="projects">Work</a><a href="#about" data-section="about">About</a><a
+                href="#experience" data-section="experience">Experience</a><a href="#arsenal"
+                data-section="arsenal">Toolkit</a><a href="#education" data-section="education">Education</a><a
+                href="#github-activity" data-section="github-activity">Activity</a><a href="#contact"
+                data-section="contact">Contact ↗</a>
+        </nav>
+        <div class="header-actions"><button id="themeButton" class="theme-button" type="button"
+                aria-label="Switch to dark theme"><i class="fas fa-moon" aria-hidden="true"></i></button><button
+                id="menuButton" class="menu-button" type="button" aria-expanded="false" aria-controls="primaryNav">Menu
+                <span aria-hidden="true">☰</span></button></div>
+    </header>
+    <section class="studio-hero" id="home" aria-labelledby="introTitle">
+        <div class="hero-topline"><span>JORDAN ALEXIS / DEVELOPER & CREATIVE THINKER</span><span
+                class="hero-edition">INDEPENDENT MIND / INTERCONNECTED IDEAS</span></div>
+        <div class="intro-grid">
+            <div class="intro-copy">
+                <p class="eyebrow"><span></span> DEVELOPER BRAIN. CREATIVE SOUL.</p>
+                <h1 id="introTitle"><span class="headline-line">Serious code.</span><br><span
+                        class="headline-line">Playful</span><br><em>possibilities.</em><span class="title-star"
+                        aria-hidden="true">✳</span></h1>
+                <p class="intro-description">I’m Jordan—a full-stack developer with a creative streak. I build useful
+                    web experiences and find the stories hiding in data.</p>
+                <div class="intro-actions"><a class="solid-button" href="#projects">Discover my work <span
+                            aria-hidden="true">↘</span></a><button class="text-button" onclick="openResumeModal()">View
+                        my resume ↗</button></div>
             </div>
-            <div class="scroll-indicator">
-                <div class="mouse desktop-only"></div>
-                <div class="phone mobile-only"></div>
+            <div class="portrait-composition"><span class="collage-note" aria-hidden="true">a human, not a
+                    template.</span><svg class="portrait-doodle" viewBox="0 0 160 120" fill="none" aria-hidden="true">
+                    <path d="M12 17C110-10 143 53 67 58C9 61 70 104 133 88M117 70l22 19-25 12" stroke="currentColor"
+                        stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                <div class="portrait-label">MEET THE MAKER <span aria-hidden="true">↙</span></div>
+                <div class="portrait-frame"><img src="Me.png" alt="Jordan Alexis" width="560" height="660"
+                        fetchpriority="high"></div>
+                <div class="portrait-sticker"><span aria-hidden="true">✳</span>A LITTLE<br>DIFFERENT.</div>
+                <div class="portrait-caption"><span>01 / A WORK IN PROGRESS, ALWAYS.</span><a href="#about"
+                        aria-label="More about Jordan">↗</a></div>
             </div>
+        </div>
+        <div class="creative-note"><span aria-hidden="true">↳</span>
+            <p>Somewhere between a sketchbook<br>and a well-organized codebase.</p><span class="note-spark"
+                aria-hidden="true">✺</span>
+        </div>
+        <div class="hero-bottom"><span>SCROLL TO EXPLORE ↓</span>
+            <p>Where development, data, and imagination meet.</p><span>HTML / CSS / JS / PYTHON / SQL</span>
         </div>
     </section>
-
-    <!-- Dashboard Side Navigation -->
-    <aside class="side-nav" id="sideNav">
-
-        <!-- Icon Rail (always visible) -->
-        <div class="side-nav-rail">
-            <div class="rail-logo">JA</div>
-
-            <div class="rail-icons">
-                <a href="#home" class="rail-icon active" data-section="home">
-                    <i class="fas fa-house"></i>
-                    <span class="rail-tooltip">Home</span>
-                </a>
-                <a href="#about" class="rail-icon" data-section="about">
-                    <i class="fas fa-user"></i>
-                    <span class="rail-tooltip">About</span>
-                </a>
-                <a href="#experience" class="rail-icon" data-section="experience">
-                    <i class="fas fa-briefcase"></i>
-                    <span class="rail-tooltip">Experience</span>
-                </a>
-                <a href="#arsenal" class="rail-icon" data-section="arsenal">
-                    <i class="fas fa-code"></i>
-                    <span class="rail-tooltip">Arsenal</span>
-                </a>
-                <a href="#projects" class="rail-icon" data-section="projects">
-                    <i class="fas fa-folder-open"></i>
-                    <span class="rail-tooltip">Projects</span>
-                </a>
-                <a href="#education" class="rail-icon" data-section="education">
-                    <i class="fas fa-graduation-cap"></i>
-                    <span class="rail-tooltip">Education</span>
-                </a>
-                <a href="#github-activity" class="rail-icon" data-section="github-activity">
-                    <i class="fab fa-github-alt"></i>
-                    <span class="rail-tooltip">Activity</span>
-                </a>
-                <a href="#contact" class="rail-icon" data-section="contact">
-                    <i class="fas fa-envelope"></i>
-                    <span class="rail-tooltip">Contact</span>
-                </a>
-            </div>
-
-            <div class="rail-socials">
-                <a href="https://github.com/Jordan721" target="_blank" class="rail-icon rail-social-icon">
-                    <i class="fab fa-github"></i>
-                    <span class="rail-tooltip">GitHub</span>
-                </a>
-                <a href="https://www.linkedin.com/in/jordan-alexis/" target="_blank" class="rail-icon rail-social-icon">
-                    <i class="fab fa-linkedin-in"></i>
-                    <span class="rail-tooltip">LinkedIn</span>
-                </a>
-                <a href="https://linktr.ee/Jordan_Alexis_" target="_blank" class="rail-icon rail-social-icon">
-                    <i class="fas fa-tree"></i>
-                    <span class="rail-tooltip">Linktree</span>
-                </a>
-            </div>
-
-            <div class="rail-footer">
-                <button class="rail-theme-btn" onclick="toggleTheme()" title="Toggle light/dark mode">
-                    <i class="fas fa-moon" id="themeIconRail"></i>
-                </button>
-                <button class="rail-expand-btn" id="sideNavToggle" title="Expand menu" aria-expanded="false"
-                    aria-controls="sideNavPanel">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Expanded Panel -->
-        <div class="side-nav-panel" id="sideNavPanel" inert>
-            <div class="panel-header">
-                <div class="panel-profile">
-                    <img src="Me.png" alt="Jordan Alexis" class="panel-avatar">
-                    <div class="panel-profile-info">
-                        <span class="panel-name">Jordan Alexis</span>
-                        <span class="panel-role">Developer</span>
-                    </div>
-                </div>
-                <button class="panel-close-btn" id="sideNavClose" aria-label="Close menu">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-
-            <div class="panel-quick-card">
-                <div class="quick-card-title">Current Focus</div>
-                <div class="quick-card-body">
-                    <div class="quick-stat">
-                        <span class="quick-stat-value">12+</span>
-                        <span class="quick-stat-label">Projects</span>
-                    </div>
-                    <div class="quick-stat">
-                        <span class="quick-stat-value">4 yrs</span>
-                        <span class="quick-stat-label">Experience</span>
-                    </div>
-                    <div class="quick-focus">
-                        <span class="quick-focus-label">Now:</span>
-                        <span class="quick-focus-text">React · D3 · Data Viz</span>
-                    </div>
-                </div>
-            </div>
-
-            <nav class="panel-nav">
-                <div class="panel-section-label">Navigation</div>
-                <a href="#home" class="panel-nav-item active" data-section="home">
-                    <i class="fas fa-house"></i>
-                    <span>Home</span>
-                </a>
-                <a href="#about" class="panel-nav-item" data-section="about">
-                    <i class="fas fa-user"></i>
-                    <span>About</span>
-                </a>
-                <a href="#experience" class="panel-nav-item" data-section="experience">
-                    <i class="fas fa-briefcase"></i>
-                    <span>Experience</span>
-                </a>
-                <a href="#arsenal" class="panel-nav-item" data-section="arsenal">
-                    <i class="fas fa-code"></i>
-                    <span>Arsenal</span>
-                </a>
-                <a href="#projects" class="panel-nav-item" data-section="projects">
-                    <i class="fas fa-folder-open"></i>
-                    <span>Projects</span>
-                </a>
-                <a href="#education" class="panel-nav-item" data-section="education">
-                    <i class="fas fa-graduation-cap"></i>
-                    <span>Education</span>
-                </a>
-                <a href="#github-activity" class="panel-nav-item" data-section="github-activity">
-                    <i class="fab fa-github-alt"></i>
-                    <span>Activity</span>
-                </a>
-                <a href="#contact" class="panel-nav-item" data-section="contact">
-                    <i class="fas fa-envelope"></i>
-                    <span>Contact</span>
-                </a>
-            </nav>
-
-            <div class="panel-socials">
-                <div class="panel-section-label">Connect</div>
-                <a href="https://github.com/Jordan721" target="_blank" class="panel-social-link">
-                    <i class="fab fa-github"></i>
-                    <span>GitHub</span>
-                </a>
-                <a href="https://www.linkedin.com/in/jordan-alexis/" target="_blank" class="panel-social-link">
-                    <i class="fab fa-linkedin-in"></i>
-                    <span>LinkedIn</span>
-                </a>
-                <a href="https://linktr.ee/Jordan_Alexis_" target="_blank" class="panel-social-link">
-                    <i class="fas fa-tree"></i>
-                    <span>Linktree</span>
-                </a>
-            </div>
-
-            <div class="panel-footer">
-                <button class="panel-theme-btn" onclick="toggleTheme()">
-                    <i class="fas fa-moon" id="themeIconPanel"></i>
-                    <span id="themeLabel">Dark Mode</span>
-                    <div class="toggle-track" id="themeToggleTrack">
-                        <div class="toggle-thumb"></div>
-                    </div>
-                </button>
-            </div>
-        </div>
-
-    </aside>
-
-    <!-- Side nav overlay for mobile -->
-    <div class="side-nav-overlay" id="sideNavOverlay"></div>
-
-    <!-- Mobile Hamburger Button (visible only on mobile) -->
-    <button class="mobile-hamburger" id="mobileHamburger" aria-label="Open menu" aria-expanded="false"
-        aria-controls="sideNavPanel">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-
-    <!-- Gamification Settings Toggle -->
-    <button class="gamification-toggle" id="gamificationToggle" onclick="toggleGamificationSettings()"
-        aria-label="Gamification Settings">
-        <i class="fas fa-gamepad"></i>
-        <span class="click-me-tooltip" id="clickMeTooltip">Click me!</span>
-    </button>
-
-    <!-- Gamification Settings Panel -->
-    <div class="gamification-panel" id="gamificationPanel">
-        <div class="gamification-header">
-            <h3><i class="fas fa-gamepad"></i> Interactive Effects</h3>
-            <button class="close-panel" onclick="toggleGamificationSettings()">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="gamification-options">
-            <div class="option-item">
-                <div class="option-label">
-                    <i class="fas fa-mouse-pointer"></i>
-                    <span>Cursor Trail</span>
-                </div>
-                <label class="icon-toggle">
-                    <input type="checkbox" id="cursorTrailToggle" onchange="toggleCursorTrail()">
-                    <span class="toggle-icon">
-                        <i class="fas fa-eye icon-on"></i>
-                        <i class="fas fa-eye-slash icon-off"></i>
-                    </span>
-                </label>
-            </div>
-            <div class="option-item">
-                <div class="option-label">
-                    <i class="fas fa-atom"></i>
-                    <span>Floating Particles</span>
-                </div>
-                <label class="icon-toggle">
-                    <input type="checkbox" id="particlesToggle" onchange="toggleParticles()">
-                    <span class="toggle-icon">
-                        <i class="fas fa-eye icon-on"></i>
-                        <i class="fas fa-eye-slash icon-off"></i>
-                    </span>
-                </label>
-            </div>
-            <div class="option-item">
-                <div class="option-label">
-                    <i class="fas fa-cube"></i>
-                    <span>Card Tilt Effect</span>
-                </div>
-                <label class="icon-toggle">
-                    <input type="checkbox" id="cardTiltToggle" onchange="toggleCardTilt()">
-                    <span class="toggle-icon">
-                        <i class="fas fa-eye icon-on"></i>
-                        <i class="fas fa-eye-slash icon-off"></i>
-                    </span>
-                </label>
-            </div>
-            <div class="option-item">
-                <div class="option-label">
-                    <i class="fas fa-hand-pointer"></i>
-                    <span>Click Ripples</span>
-                </div>
-                <label class="icon-toggle">
-                    <input type="checkbox" id="rippleToggle" onchange="toggleRipple()">
-                    <span class="toggle-icon">
-                        <i class="fas fa-eye icon-on"></i>
-                        <i class="fas fa-eye-slash icon-off"></i>
-                    </span>
-                </label>
-            </div>
-            <div class="option-item desktop-only">
-                <div class="option-label">
-                    <i class="fas fa-th"></i>
-                    <span>Animated Grid</span>
-                </div>
-                <label class="icon-toggle">
-                    <input type="checkbox" id="shapes3DToggle" onchange="toggle3DShapes()">
-                    <span class="toggle-icon">
-                        <i class="fas fa-eye icon-on"></i>
-                        <i class="fas fa-eye-slash icon-off"></i>
-                    </span>
-                </label>
-            </div>
-            <div class="option-item mobile-only">
-                <div class="option-label">
-                    <i class="fas fa-circle-nodes"></i>
-                    <span>Gradient Mesh</span>
-                </div>
-                <label class="icon-toggle">
-                    <input type="checkbox" id="gradientMeshToggle" onchange="toggleGradientMesh()" checked>
-                    <span class="toggle-icon">
-                        <i class="fas fa-eye icon-on"></i>
-                        <i class="fas fa-eye-slash icon-off"></i>
-                    </span>
-                </label>
-            </div>
-            <div class="option-item mobile-only">
-                <div class="option-label">
-                    <i class="fas fa-bars-staggered"></i>
-                    <span>Scan Lines</span>
-                </div>
-                <label class="icon-toggle">
-                    <input type="checkbox" id="scanLinesToggle" onchange="toggleScanLines()" checked>
-                    <span class="toggle-icon">
-                        <i class="fas fa-eye icon-on"></i>
-                        <i class="fas fa-eye-slash icon-off"></i>
-                    </span>
-                </label>
-            </div>
-            <div class="option-hint mobile-only">
-                <i class="fas fa-desktop"></i>
-                <small>View on desktop for more interactive features!</small>
-            </div>
-        </div>
-    </div>
-
+    <div class="discipline-banner" aria-label="Areas of focus"><span>FULL-STACK DEVELOPMENT</span><b
+            aria-hidden="true">✳</b><span>DATA ANALYTICS</span><b aria-hidden="true">✳</b><span>INTERACTIVE
+            EXPERIENCES</span><b aria-hidden="true">✳</b></div>
     <!-- Main Container -->
-    <main class="container">
+    <main class="container" id="main">
 
-        <!-- About Section -->
-        <section id="about" class="section about-section">
-            <div class="about-background-image">
-                <img src="Me.png" alt="Jordan Alexis">
+        <!-- Featured Projects Section -->
+        <section id="projects" class="section">
+            <div class="section-header"><span class="section-number">01 / SELECTED WORK</span>
+                <h2 class="section-title">Good ideas.<br><em>Real things.</em></h2>
+                <p class="section-intro">Useful tools, playful experiments, and ideas brought to life through code.</p>
             </div>
 
-            <div class="section-header">
-                <span class="section-number">01.</span>
-                <h2 class="section-title hover-float">About Me</h2>
-                <div class="section-line"></div>
+            <div class="projects-grid featured-projects">
+                <a href="https://jordan721.github.io/Development-Showcase/Game_Vault/index.html" target="_blank"
+                    rel="noopener noreferrer" class="project-card glass-card project-card-featured" data-aos="fade-up">
+                    <div class="project-cover cover-games"><span class="cover-stamp" aria-hidden="true">INSERT
+                            CURIOSITY</span><svg class="game-doodle" viewBox="0 0 170 100" aria-hidden="true">
+                            <path
+                                d="M44 20h82c16 0 26 18 30 38l3 15c3 16-12 22-22 11l-18-17H51L33 84C21 96 7 89 11 73l4-15c5-20 13-38 29-38Z"
+                                fill="#f7f1df" stroke="#27251f" stroke-width="4" />
+                            <path d="M48 35v25M36 47h25" stroke="#27251f" stroke-width="6" stroke-linecap="round" />
+                            <circle cx="122" cy="41" r="6" fill="#f37853" />
+                            <circle cx="109" cy="55" r="6" fill="#b5a2e7" /></svg><span aria-hidden="true">✦ &nbsp; +
+                            &nbsp; ✦</span><strong>GAME<br>VAULT</strong><span>PLAY / EXPLORE / REPEAT</span></div>
+                    <div class="project-card-top">
+                        <div class="project-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <span class="project-type">Interactive Suite</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Game Vault</h3>
+                        <p>A collection of browser-based games I've created from scratch using JavaScript, HTML, and
+                            CSS.</p>
+                        <div class="project-tags" aria-label="Project highlights">
+                            <span>JavaScript</span>
+                            <span>Game Logic</span>
+                            <span>UI Systems</span>
+                        </div>
+                    </div>
+                    <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
+                </a>
+
+                <a href="https://jordan721.github.io/Development-Showcase/Personal_Projects/AnimateLab/index.html"
+                    target="_blank" rel="noopener noreferrer" class="project-card glass-card" data-aos="fade-up">
+                    <div class="project-cover cover-motion"><span class="motion-label" aria-hidden="true">MOVE OUTSIDE
+                            THE LINES ↗</span>
+                        <div class="cover-orbits" aria-hidden="true"><i></i><i></i><i></i></div>
+                        <strong>Animate<span>Lab</span></strong><span>AN EXPERIMENT IN MOTION</span>
+                    </div>
+                    <div class="project-card-top">
+                        <div class="project-icon">
+                            <i class="fas fa-wand-magic-sparkles"></i>
+                        </div>
+                        <span class="project-type">Creative Tooling</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>AnimateLab</h3>
+                        <p>Interactive showcase of web animation techniques and effects you can achieve on the web.</p>
+                        <div class="project-tags" aria-label="Project highlights">
+                            <span>Animation</span>
+                            <span>Effects</span>
+                        </div>
+                    </div>
+                    <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
+                </a>
+
+                <a href="https://jordan721.github.io/Development-Showcase/Personal_Projects/PipelineTrack/index.html"
+                    target="_blank" rel="noopener noreferrer" class="project-card glass-card" data-aos="fade-up">
+                    <div class="project-cover cover-pipeline"><span class="pipeline-stamp" aria-hidden="true">NEXT
+                            CHAPTER ↗</span><span>YOUR NEXT CHAPTER, ORGANIZED.</span><strong>PipelineTrack</strong>
+                        <div class="cover-kanban" aria-hidden="true">
+                            <i>Saved<b></b><b></b></i><i>Applied<b></b></i><i>Interview<b></b><b></b></i></div>
+                    </div>
+                    <div class="project-card-top">
+                        <div class="project-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <span class="project-type">Productivity App</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>PipelineTrack</h3>
+                        <p>A job application tracker built to help job seekers stay organized and in control of their
+                            search — now expanded to support multiple industries.</p>
+                        <div class="project-tags" aria-label="Project highlights">
+                            <span>Workflow</span>
+                            <span>Data Views</span>
+                        </div>
+                    </div>
+                    <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
+                </a>
+
+                <!-- Collapsible extra projects -->
+                <div class="projects-extra" id="projectsExtra">
+                    <a href="https://jordan721.github.io/Development-Showcase/Personal_Projects/Bagely_Bytes_Programming/index.html"
+                        target="_blank" rel="noopener noreferrer" class="project-card glass-card">
+                        <div class="project-card-top">
+                            <div class="project-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <span class="project-type">Learning Platform</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>Bagely Bytes</h3>
+                            <p>An educational platform teaching programming across different languages and tools.</p>
+                            <div class="project-tags" aria-label="Project highlights">
+                                <span>Education</span>
+                                <span>Curriculum</span>
+                            </div>
+                        </div>
+                        <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="https://jordan721.github.io/Development-Showcase/Professional_Projects/Data_Pipeline/index.html"
+                        target="_blank" rel="noopener noreferrer" class="project-card glass-card">
+                        <div class="project-card-top">
+                            <div class="project-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <span class="project-type">Data Workflow</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>Data Pipeline</h3>
+                            <p>An interactive simulation of an enterprise data pipeline with automated processing,
+                                cleaning,
+                                and Excel export.</p>
+                            <div class="project-tags" aria-label="Project highlights">
+                                <span>ETL</span>
+                                <span>Excel Export</span>
+                            </div>
+                        </div>
+                        <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="https://jordan721.github.io/Development-Showcase/Professional_Projects/One_Heck_Of_A_Sandwich_Web_Edition/index.html"
+                        target="_blank" rel="noopener noreferrer" class="project-card glass-card">
+                        <div class="project-card-top">
+                            <div class="project-icon">
+                                <i class="fas fa-burger"></i>
+                            </div>
+                            <span class="project-type">Ordering App</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>One Heck Of A Sandwich</h3>
+                            <p>A web-based kiosk app for customizing and ordering sandwiches, drinks, and chips —
+                                originally
+                                built as a Java capstone.</p>
+                            <div class="project-tags" aria-label="Project highlights">
+                                <span>Kiosk UI</span>
+                                <span>Java Capstone</span>
+                            </div>
+                        </div>
+                        <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="https://jordan721.github.io/Development-Showcase/Academic_Projects/Dimensional_Playground/index.html"
+                        target="_blank" rel="noopener noreferrer" class="project-card glass-card">
+                        <div class="project-card-top">
+                            <div class="project-icon">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <span class="project-type">3D Experiment</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>Dimensional Playground</h3>
+                            <p>An immersive 3D universe with interactive geometry, physics simulations, and sound
+                                effects
+                                built with WebVR.</p>
+                            <div class="project-tags" aria-label="Project highlights">
+                                <span>WebVR</span>
+                                <span>Physics</span>
+                            </div>
+                        </div>
+                        <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="https://github.com/Year-Up-United-SPR-2025/Capstones" target="_blank"
+                        rel="noopener noreferrer" class="project-card glass-card">
+                        <div class="project-card-top">
+                            <div class="project-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <span class="project-type">Capstones</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>YUU Capstone Projects</h3>
+                            <p>Pluralsight capstone projects from Year Up United — applying real-world tech skills
+                                through self-paced learning paths to build career-ready solutions.</p>
+                            <div class="project-tags" aria-label="Project highlights">
+                                <span>Career Skills</span>
+                                <span>GitHub</span>
+                            </div>
+                        </div>
+                        <span class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="https://github.com/Year-Up-United-SPR-2025/Workshops" target="_blank"
+                        rel="noopener noreferrer" class="project-card glass-card">
+                        <div class="project-card-top">
+                            <div class="project-icon">
+                                <i class="fas fa-hammer"></i>
+                            </div>
+                            <span class="project-type">Workshops</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>YUU Workshops</h3>
+                            <p>Java-based workshop projects from Year Up United's Learning & Development phase — each
+                                one building toward a fully functional capstone app.</p>
+                            <div class="project-tags" aria-label="Project highlights">
+                                <span>Java</span>
+                                <span>Practice Apps</span>
+                            </div>
+                        </div>
+                        <span class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="view-all-projects">
+                <button class="projects-toggle-btn" onclick="toggleProjects()" id="projectsToggleBtn">
+                    <span id="projectsToggleText">Show 6 More</span>
+                    <i class="fas fa-chevron-down" id="projectsToggleIcon"></i>
+                </button>
+                <a href="https://jordan721.github.io/Development-Showcase/" target="_blank" rel="noopener noreferrer"
+                    class="view-all-link">
+                    View All Projects <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
+
+        <section id="about" class="section about-section">
+
+            <div class="section-header"><span class="section-number">02 / BEHIND THE WORK</span>
+                <h2 class="section-title">A curious mind.<br><em>A maker’s instinct.</em></h2>
+                <p class="section-intro">A little about the person behind the projects.</p>
             </div>
 
             <!-- Profile Card -->
@@ -518,7 +418,7 @@
                         <span class="about-cta-icon"><i class="fas fa-award"></i></span>
                         <span class="about-cta-copy">
                             <span>View Certificates</span>
-                            <small>15 credentials</small>
+                            <small>17 credentials</small>
                         </span>
                         <span class="about-cta-arrow"><i class="fas fa-arrow-right"></i></span>
                     </button>
@@ -529,10 +429,9 @@
 
         <!-- Experience Section (merged with Career Journey) -->
         <section id="experience" class="section">
-            <div class="section-header">
-                <span class="section-number">02.</span>
-                <h2 class="section-title hover-glitch">Experience</h2>
-                <div class="section-line"></div>
+            <div class="section-header"><span class="section-number">03 / THE JOURNEY</span>
+                <h2 class="section-title">Always learning.<br>Always building.</h2>
+                <p class="section-intro">The roles, experiences, and milestones that shaped my approach.</p>
             </div>
 
             <!-- Stats Bar -->
@@ -891,715 +790,348 @@
 
         <!-- Skills Section -->
         <section id="arsenal" class="section">
-            <div class="section-header">
-                <span class="section-number">03.</span>
-                <h2 class="section-title hover-pulse">Tech Arsenal</h2>
-                <div class="section-line"></div>
+            <div class="section-header"><span class="section-number">04 / THE TOOLKIT</span>
+                <h2 class="section-title">Many tools.<br>One curious mind.</h2>
+                <p class="section-intro">A mix of technical depth, creative practice, and the skills to bring people and
+                    ideas together.</p>
             </div>
-
-            <div class="arsenal-toolbar" hidden>
-                <div>
-                    <span class="arsenal-eyebrow">THE TOOLKIT</span>
-                    <p class="arsenal-summary" aria-live="polite"></p>
+            <div class="toolkit-controls" hidden>
+                <div class="toolkit-controls-top">
+                    <p class="toolkit-instruction"><span aria-hidden="true">✳</span> Welcome to the skill playground.
+                    </p><label class="toolkit-search"><i class="fas fa-search" aria-hidden="true"></i><span
+                            class="sr-only">Search toolkit skills</span><input type="search" id="toolkitSearch"
+                            placeholder="Find a skill…" autocomplete="off" aria-controls="toolkitGrid"></label>
                 </div>
-                <button class="arsenal-toggle" type="button" aria-expanded="false" aria-controls="arsenal-cloud"><span
-                        class="arsenal-toggle-label">Explore all skills</span><span class="arsenal-toggle-icon"
-                        aria-hidden="true">↗</span></button>
-            </div>
-
-            <!-- Category Filter Bar -->
-            <div class="arsenal-legend">
-                <button class="legend-item active" data-category="all">All</button>
-                <button class="legend-item" data-category="business" style="--cat-color: #06b6d4">💼 Business</button>
-                <button class="legend-item" data-category="data" style="--cat-color: #8b5cf6">📊 Data</button>
-                <button class="legend-item" data-category="tech" style="--cat-color: #10b981">💻 Tech</button>
-                <button class="legend-item" data-category="it" style="--cat-color: #38bdf8">🖥️ IT Skills</button>
-                <button class="legend-item" data-category="tools" style="--cat-color: #f59e0b">🛠️ Tools</button>
-                <button class="legend-item" data-category="strategic" style="--cat-color: #ec4899">🤝 Strategic</button>
-            </div>
-
-            <!-- Desktop: Interactive Tag Cloud -->
-            <div class="tag-cloud" id="arsenal-cloud" data-aos="fade-up">
-                <!-- Business Operations & Support — sm -->
-                <span class="cloud-tag size-sm" data-category="business" style="--tag-color: #06b6d4">Calendar
-                    Management</span>
-                <span class="cloud-tag size-sm" data-category="business" style="--tag-color: #06b6d4">Client
-                    Engagement</span>
-                <span class="cloud-tag size-sm" data-category="business" style="--tag-color: #06b6d4">Data Entry</span>
-                <span class="cloud-tag size-sm" data-category="business" style="--tag-color: #06b6d4">Data Ethics</span>
-                <span class="cloud-tag size-sm" data-category="business" style="--tag-color: #06b6d4">Form
-                    Processing</span>
-                <span class="cloud-tag size-sm" data-category="business" style="--tag-color: #06b6d4">Office
-                    Coordination</span>
-
-                <!-- Project & Data Skills — md -->
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Account
-                    Management</span>
-                <span class="cloud-tag size-sm" data-category="data" style="--tag-color: #8b5cf6">Analysis</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Analytical
-                    Skills</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Analytics</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Business
-                    Analysis</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Business
-                    Analytics</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Case Studies</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Dashboard</span>
-                <span class="cloud-tag size-lg" data-category="data" style="--tag-color: #8b5cf6">Data Analysis</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Data Cleansing</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Data Collection</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Data
-                    Compilation</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Data-Driven
-                    Decision-Making</span>
-                <span class="cloud-tag size-sm" data-category="data" style="--tag-color: #8b5cf6">Data
-                    Import/Export</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Data
-                    Integration</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Data Integrity</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Data Literacy</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Data Management</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Data
-                    Manipulation</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Data
-                    Presentation</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Data Processing</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Data Quality</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Data Security</span>
-                <span class="cloud-tag size-sm" data-category="data" style="--tag-color: #8b5cf6">Data Storage</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Data
-                    Storytelling</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Data
-                    Transformation</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Data Validation</span>
-                <span class="cloud-tag size-lg" data-category="data" style="--tag-color: #8b5cf6">Data
-                    Visualization</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Data Visualization
-                    Software</span>
-                <span class="cloud-tag size-lg" data-category="data" style="--tag-color: #8b5cf6">Database
-                    Management</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Excel Formulas</span>
-                <span class="cloud-tag size-sm" data-category="data" style="--tag-color: #8b5cf6">Metadata
-                    Management</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Pivot Tables And
-                    Charts</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Project
-                    Management</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Quantitative
-                    Research</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Research &
-                    Reporting</span>
-                <span class="cloud-tag size-sm" data-category="data" style="--tag-color: #8b5cf6">Research
-                    Reports</span>
-                <span class="cloud-tag size-sm" data-category="data" style="--tag-color: #8b5cf6">Sample Size
-                    Determination</span>
-                <span class="cloud-tag size-sm" data-category="data" style="--tag-color: #8b5cf6">Sampling
-                    (Statistics)</span>
-                <span class="cloud-tag size-md" data-category="data" style="--tag-color: #8b5cf6">Spreadsheet
-                    Software</span>
-                <span class="cloud-tag size-sm" data-category="data" style="--tag-color: #8b5cf6">Unstructured
-                    Data</span>
-                <span class="cloud-tag size-sm" data-category="data" style="--tag-color: #8b5cf6">Web Content
-                    Accessibility Guidelines</span>
-
-                <!-- Tech Stack — lg -->
-                <span class="cloud-tag size-md" data-category="tech" style="--tag-color: #10b981">Version Control</span>
-                <span class="cloud-tag size-md" data-category="tech" style="--tag-color: #10b981">Ruby (Programming
-                    Language)</span>
-                <span class="cloud-tag size-md" data-category="tech" style="--tag-color: #10b981">Web Presence</span>
-                <span class="cloud-tag size-md" data-category="tech" style="--tag-color: #10b981">Algorithms</span>
-                <span class="cloud-tag size-md" data-category="tech" style="--tag-color: #10b981">Artificial
-                    Intelligence</span>
-                <span class="cloud-tag size-md" data-category="tech" style="--tag-color: #10b981">Data Structures</span>
-                <span class="cloud-tag size-sm" data-category="tech" style="--tag-color: #10b981">Debugging</span>
-                <span class="cloud-tag size-lg" data-category="tech" style="--tag-color: #10b981">HTML/CSS</span>
-                <span class="cloud-tag size-lg" data-category="tech" style="--tag-color: #10b981">Java</span>
-                <span class="cloud-tag size-lg" data-category="tech" style="--tag-color: #10b981">JavaScript</span>
-                <span class="cloud-tag size-md" data-category="tech" style="--tag-color: #10b981">jQuery</span>
-                <span class="cloud-tag size-md" data-category="tech" style="--tag-color: #10b981">Object Oriented
-                    Programming (OOP)</span>
-                <span class="cloud-tag size-md" data-category="tech" style="--tag-color: #10b981">PHP</span>
-                <span class="cloud-tag size-lg" data-category="tech" style="--tag-color: #10b981">Python</span>
-                <span class="cloud-tag size-md" data-category="tech" style="--tag-color: #10b981">Python
-                    Programming</span>
-                <span class="cloud-tag size-md" data-category="tech" style="--tag-color: #10b981">Responsive
-                    Design</span>
-                <span class="cloud-tag size-sm" data-category="tech" style="--tag-color: #10b981">Scripting</span>
-                <span class="cloud-tag size-lg" data-category="tech" style="--tag-color: #10b981">SQL</span>
-
-                <!-- IT Support & Systems — md -->
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Malware
-                    Protection</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Network
-                    Monitoring</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">IT Security
-                    Architecture</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Application
-                    Security</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Security
-                    Awareness</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Cyber Security
-                    Policies</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Hardening</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Encryption</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Authorization
-                    (Computing)</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Identity and Access
-                    Management</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Information Systems
-                    Security</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Computer Hardware</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">IT Automation</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Network
-                    Administration</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Computer
-                    Networking</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">IT Infrastructure</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Active Directory</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Cloud
-                    Infrastructure</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Cloud Management</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Data Storage</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Disaster Recovery</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">File Management</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Linux</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Linux
-                    Administration</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Linux Commands</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Lightweight Directory
-                    Access Protocols</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Microsoft Windows</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Network
-                    Infrastructure</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Operating System
-                    Administration</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Operating Systems</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Package and Software
-                    Management</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Remote Access
-                    Systems</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Software
-                    Installation</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Server
-                    Administration</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">Servers</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">System Monitoring</span>
-                <span class="cloud-tag size-lg" data-category="it" style="--tag-color: #38bdf8">Systems
-                    Administration</span>
-                <span class="cloud-tag size-md" data-category="it" style="--tag-color: #38bdf8">User Provisioning</span>
-
-                <!-- Tools & Platforms — md -->
-                <span class="cloud-tag size-md" data-category="tools" style="--tag-color: #f59e0b">Chef (Configuration
-                    Management Tool)</span>
-                <span class="cloud-tag size-md" data-category="tools" style="--tag-color: #f59e0b">Adobe
-                    Illustrator</span>
-                <span class="cloud-tag size-md" data-category="tools" style="--tag-color: #f59e0b">Adobe
-                    Photoshop</span>
-                <span class="cloud-tag size-md" data-category="tools" style="--tag-color: #f59e0b">Adobe Premiere
-                    Pro</span>
-                <span class="cloud-tag size-md" data-category="tools" style="--tag-color: #f59e0b">Adobe XD</span>
-                <span class="cloud-tag size-md" data-category="tools" style="--tag-color: #f59e0b">BigQuery</span>
-                <span class="cloud-tag size-sm" data-category="tools" style="--tag-color: #f59e0b">Command Prompt
-                    (CMD)</span>
-                <span class="cloud-tag size-md" data-category="tools" style="--tag-color: #f59e0b">Copilot</span>
-                <span class="cloud-tag size-sm" data-category="tools" style="--tag-color: #f59e0b">DBArtisan</span>
-                <span class="cloud-tag size-md" data-category="tools" style="--tag-color: #f59e0b">DBeaver</span>
-                <span class="cloud-tag size-sm" data-category="tools" style="--tag-color: #f59e0b">Draw.io</span>
-                <span class="cloud-tag size-sm" data-category="tools" style="--tag-color: #f59e0b">Dreamweaver</span>
-                <span class="cloud-tag size-md" data-category="tools" style="--tag-color: #f59e0b">Eclipse</span>
-                <span class="cloud-tag size-lg" data-category="tools" style="--tag-color: #f59e0b">Git</span>
-                <span class="cloud-tag size-md" data-category="tools" style="--tag-color: #f59e0b">Git Bash</span>
-                <span class="cloud-tag size-lg" data-category="tools" style="--tag-color: #f59e0b">GitHub</span>
-                <span class="cloud-tag size-md" data-category="tools" style="--tag-color: #f59e0b">Google Cloud</span>
-                <span class="cloud-tag size-sm" data-category="tools" style="--tag-color: #f59e0b">Google Docs</span>
-                <span class="cloud-tag size-sm" data-category="tools" style="--tag-color: #f59e0b">Google Sheets</span>
-                <span class="cloud-tag size-sm" data-category="tools" style="--tag-color: #f59e0b">Google Slides</span>
-                <span class="cloud-tag size-sm" data-category="tools" style="--tag-color: #f59e0b">Hootsuite</span>
-                <span class="cloud-tag size-lg" data-category="tools" style="--tag-color: #f59e0b">IntelliJ</span>
-                <span class="cloud-tag size-md" data-category="tools" style="--tag-color: #f59e0b">Jira</span>
-                <span class="cloud-tag size-sm" data-category="tools" style="--tag-color: #f59e0b">LinkedIn</span>
-                <span class="cloud-tag size-md" data-category="tools" style="--tag-color: #f59e0b">Microsoft
-                    Excel</span>
-                <span class="cloud-tag size-sm" data-category="tools" style="--tag-color: #f59e0b">Microsoft
-                    PowerPoint</span>
-                <span class="cloud-tag size-sm" data-category="tools" style="--tag-color: #f59e0b">Microsoft
-                    Teams</span>
-                <span class="cloud-tag size-sm" data-category="tools" style="--tag-color: #f59e0b">Microsoft Word</span>
-                <span class="cloud-tag size-lg" data-category="tools" style="--tag-color: #f59e0b">MongoDB</span>
-                <span class="cloud-tag size-lg" data-category="tools" style="--tag-color: #f59e0b">MySQL</span>
-                <span class="cloud-tag size-md" data-category="tools" style="--tag-color: #f59e0b">NetBeans</span>
-                <span class="cloud-tag size-md" data-category="tools" style="--tag-color: #f59e0b">NumPy</span>
-                <span class="cloud-tag size-sm" data-category="tools" style="--tag-color: #f59e0b">Obsidian.md</span>
-                <span class="cloud-tag size-md" data-category="tools" style="--tag-color: #f59e0b">Pandas (Python
-                    Package)</span>
-                <span class="cloud-tag size-lg" data-category="tools" style="--tag-color: #f59e0b">Postman</span>
-                <span class="cloud-tag size-lg" data-category="tools" style="--tag-color: #f59e0b">Power BI</span>
-                <span class="cloud-tag size-md" data-category="tools" style="--tag-color: #f59e0b">PowerShell</span>
-                <span class="cloud-tag size-md" data-category="tools" style="--tag-color: #f59e0b">Talend</span>
-                <span class="cloud-tag size-md" data-category="tools" style="--tag-color: #f59e0b">Tableau
-                    Software</span>
-                <span class="cloud-tag size-md" data-category="tools" style="--tag-color: #f59e0b">Unix</span>
-                <span class="cloud-tag size-md" data-category="tools" style="--tag-color: #f59e0b">Linux</span>
-                <span class="cloud-tag size-lg" data-category="tools" style="--tag-color: #f59e0b">Visual Studio
-                    Code</span>
-
-                <!-- Strategic & Interpersonal — sm -->
-                <span class="cloud-tag size-sm" data-category="strategic" style="--tag-color: #ec4899">AI
-                    Enablement</span>
-                <span class="cloud-tag size-sm" data-category="strategic" style="--tag-color: #ec4899">Benefits
-                    Coordination</span>
-                <span class="cloud-tag size-sm" data-category="strategic" style="--tag-color: #ec4899">Interviewing
-                    Skills</span>
-                <span class="cloud-tag size-sm" data-category="strategic" style="--tag-color: #ec4899">Portfolio
-                    Management</span>
-                <span class="cloud-tag size-sm" data-category="strategic"
-                    style="--tag-color: #ec4899">Presentations</span>
-                <span class="cloud-tag size-md" data-category="strategic" style="--tag-color: #ec4899">Problem
-                    Solving</span>
-                <span class="cloud-tag size-sm" data-category="strategic" style="--tag-color: #ec4899">Relationship
-                    Building</span>
-                <span class="cloud-tag size-sm" data-category="strategic" style="--tag-color: #ec4899">Smart
-                    Goals</span>
-                <span class="cloud-tag size-sm" data-category="strategic" style="--tag-color: #ec4899">Social Media
-                    Strategy</span>
-                <span class="cloud-tag size-md" data-category="strategic" style="--tag-color: #ec4899">Stakeholder
-                    Communications</span>
-                <span class="cloud-tag size-md" data-category="strategic" style="--tag-color: #ec4899">Stakeholder
-                    Engagement</span>
-                <span class="cloud-tag size-sm" data-category="strategic" style="--tag-color: #ec4899">Training &
-                    Development</span>
-                <span class="cloud-tag size-sm" data-category="strategic" style="--tag-color: #ec4899">User
-                    Feedback</span>
-            </div>
-
-            <!-- Mobile: Tabbed Interface (hidden on desktop) -->
-            <div class="mobile-arsenal">
-                <div class="mobile-arsenal-tabs">
-                    <button class="mobile-tab active" data-tab="business" onclick="switchArsenalTab('business')"
-                        style="--tab-color: #06b6d4">💼 Business</button>
-                    <button class="mobile-tab" data-tab="data" onclick="switchArsenalTab('data')"
-                        style="--tab-color: #8b5cf6">📊 Data</button>
-                    <button class="mobile-tab" data-tab="tech" onclick="switchArsenalTab('tech')"
-                        style="--tab-color: #10b981">💻 Tech</button>
-                    <button class="mobile-tab" data-tab="it" onclick="switchArsenalTab('it')"
-                        style="--tab-color: #38bdf8">🖥️ IT Skills</button>
-                    <button class="mobile-tab" data-tab="tools" onclick="switchArsenalTab('tools')"
-                        style="--tab-color: #f59e0b">🛠️ Tools</button>
-                    <button class="mobile-tab" data-tab="strategic" onclick="switchArsenalTab('strategic')"
-                        style="--tab-color: #ec4899">🤝 Strategic</button>
+                <div class="toolkit-filters" role="group" aria-label="Filter by discipline"><button type="button"
+                        data-filter="all" aria-pressed="true">The whole mix</button><button type="button"
+                        data-filter="discipline-0" aria-pressed="false">Business</button><button type="button"
+                        data-filter="discipline-1" aria-pressed="false">Data & analytics</button><button type="button"
+                        data-filter="discipline-2" aria-pressed="false">Development</button><button type="button"
+                        data-filter="discipline-3" aria-pressed="false">IT & systems</button><button type="button"
+                        data-filter="discipline-4" aria-pressed="false">Tools & platforms</button><button type="button"
+                        data-filter="discipline-5" aria-pressed="false">Strategy & collaboration</button></div>
+                <div class="skill-workbench">
+                    <div class="workbench-heading"><span class="workbench-label">YOUR IDEA STARTS HERE ↘</span><button
+                            type="button" id="clearSkillMix" hidden>Clear mix ×</button></div>
+                    <p class="workbench-hint">Pick up to 5 skills to make your own mix. Tap a sticker below to pin it
+                        here.</p>
+                    <div id="skillMix" class="skill-mix" aria-label="Pinned skills"></div>
+                    <p class="toolkit-feedback" id="toolkitFeedback" role="status" aria-live="polite"
+                        aria-atomic="true"></p>
                 </div>
-
-                <div class="mobile-tab-panels">
-                    <!-- Business -->
-                    <div class="mobile-tab-panel active" data-panel="business">
-                        <div class="mobile-skill-tags" data-category="business">
-                            <span class="m-tag m-business">Calendar Management</span>
-                            <span class="m-tag m-business">Client Engagement</span>
-                            <span class="m-tag m-business">Data Entry</span>
-                            <span class="m-tag m-business">Data Ethics</span>
-                            <span class="m-tag m-business">Form Processing</span>
-                            <span class="m-tag m-business">Office Coordination</span>
-                        </div>
-                    </div>
-
-                    <!-- Data -->
-                    <div class="mobile-tab-panel" data-panel="data">
-                        <div class="mobile-skill-tags" data-category="data">
-                            <span class="m-tag m-data">Account Management</span>
-                            <span class="m-tag m-data">Analysis</span>
-                            <span class="m-tag m-data">Analytical Skills</span>
-                            <span class="m-tag m-data">Analytics</span>
-                            <span class="m-tag m-data">Business Analysis</span>
-                            <span class="m-tag m-data">Business Analytics</span>
-                            <span class="m-tag m-data">Case Studies</span>
-                            <span class="m-tag m-data">Dashboard</span>
-                            <span class="m-tag m-data">Data Analysis</span>
-                            <span class="m-tag m-data">Data Cleansing</span>
-                            <span class="m-tag m-data">Data Collection</span>
-                            <span class="m-tag m-data">Data Compilation</span>
-                            <span class="m-tag m-data">Data-Driven Decision-Making</span>
-                            <span class="m-tag m-data">Data Import/Export</span>
-                            <span class="m-tag m-data">Data Integration</span>
-                            <span class="m-tag m-data">Data Integrity</span>
-                            <span class="m-tag m-data">Data Literacy</span>
-                            <span class="m-tag m-data">Data Management</span>
-                            <span class="m-tag m-data">Data Manipulation</span>
-                            <span class="m-tag m-data">Data Presentation</span>
-                            <span class="m-tag m-data">Data Processing</span>
-                            <span class="m-tag m-data">Data Quality</span>
-                            <span class="m-tag m-data">Data Security</span>
-                            <span class="m-tag m-data">Data Storage</span>
-                            <span class="m-tag m-data">Data Storytelling</span>
-                            <span class="m-tag m-data">Data Transformation</span>
-                            <span class="m-tag m-data">Data Validation</span>
-                            <span class="m-tag m-data">Data Visualization</span>
-                            <span class="m-tag m-data">Data Visualization Software</span>
-                            <span class="m-tag m-data">Database Management</span>
-                            <span class="m-tag m-data">Excel Formulas</span>
-                            <span class="m-tag m-data">Metadata Management</span>
-                            <span class="m-tag m-data">Pivot Tables And Charts</span>
-                            <span class="m-tag m-data">Project Management</span>
-                            <span class="m-tag m-data">Quantitative Research</span>
-                            <span class="m-tag m-data">Research & Reporting</span>
-                            <span class="m-tag m-data">Research Reports</span>
-                            <span class="m-tag m-data">Sample Size Determination</span>
-                            <span class="m-tag m-data">Sampling (Statistics)</span>
-                            <span class="m-tag m-data">Spreadsheet Software</span>
-                            <span class="m-tag m-data">Unstructured Data</span>
-                            <span class="m-tag m-data">Web Content Accessibility Guidelines</span>
-                        </div>
-                    </div>
-
-                    <!-- Tech -->
-                    <div class="mobile-tab-panel" data-panel="tech">
-                        <div class="mobile-skill-tags" data-category="tech">
-                            <span class="m-tag m-tech">Version Control</span>
-                            <span class="m-tag m-tech">Ruby (Programming Language)</span>
-                            <span class="m-tag m-tech">Web Presence</span>
-                            <span class="m-tag m-tech">Algorithms</span>
-                            <span class="m-tag m-tech">Artificial Intelligence</span>
-                            <span class="m-tag m-tech">Data Structures</span>
-                            <span class="m-tag m-tech">Debugging</span>
-                            <span class="m-tag m-tech">HTML/CSS</span>
-                            <span class="m-tag m-tech">Java</span>
-                            <span class="m-tag m-tech">JavaScript</span>
-                            <span class="m-tag m-tech">jQuery</span>
-                            <span class="m-tag m-tech">Object Oriented Programming (OOP)</span>
-                            <span class="m-tag m-tech">PHP</span>
-                            <span class="m-tag m-tech">Python</span>
-                            <span class="m-tag m-tech">Python Programming</span>
-                            <span class="m-tag m-tech">Responsive Design</span>
-                            <span class="m-tag m-tech">Scripting</span>
-                            <span class="m-tag m-tech">SQL</span>
-                        </div>
-                    </div>
-
-                    <!-- IT Skills -->
-                    <div class="mobile-tab-panel" data-panel="it">
-                        <div class="mobile-skill-tags" data-category="it">
-                            <span class="m-tag m-it">Malware Protection</span>
-                            <span class="m-tag m-it">Network Monitoring</span>
-                            <span class="m-tag m-it">IT Security Architecture</span>
-                            <span class="m-tag m-it">Application Security</span>
-                            <span class="m-tag m-it">Security Awareness</span>
-                            <span class="m-tag m-it">Cyber Security Policies</span>
-                            <span class="m-tag m-it">Hardening</span>
-                            <span class="m-tag m-it">Encryption</span>
-                            <span class="m-tag m-it">Authorization (Computing)</span>
-                            <span class="m-tag m-it">Identity and Access Management</span>
-                            <span class="m-tag m-it">Information Systems Security</span>
-                            <span class="m-tag m-it">Computer Hardware</span>
-                            <span class="m-tag m-it">IT Automation</span>
-                            <span class="m-tag m-it">Network Administration</span>
-                            <span class="m-tag m-it">Computer Networking</span>
-                            <span class="m-tag m-it">IT Infrastructure</span>
-                            <span class="m-tag m-it">File Management</span>
-                            <span class="m-tag m-it">Active Directory</span>
-                            <span class="m-tag m-it">Cloud Infrastructure</span>
-                            <span class="m-tag m-it">Cloud Management</span>
-                            <span class="m-tag m-it">Data Storage</span>
-                            <span class="m-tag m-it">Disaster Recovery</span>
-                            <span class="m-tag m-it">Linux</span>
-                            <span class="m-tag m-it">Linux Administration</span>
-                            <span class="m-tag m-it">Linux Commands</span>
-                            <span class="m-tag m-it">Lightweight Directory Access Protocols</span>
-                            <span class="m-tag m-it">Microsoft Windows</span>
-                            <span class="m-tag m-it">Network Infrastructure</span>
-                            <span class="m-tag m-it">Operating System Administration</span>
-                            <span class="m-tag m-it">Operating Systems</span>
-                            <span class="m-tag m-it">Package and Software Management</span>
-                            <span class="m-tag m-it">Remote Access Systems</span>
-                            <span class="m-tag m-it">Software Installation</span>
-                            <span class="m-tag m-it">Server Administration</span>
-                            <span class="m-tag m-it">Servers</span>
-                            <span class="m-tag m-it">System Monitoring</span>
-                            <span class="m-tag m-it">Systems Administration</span>
-                            <span class="m-tag m-it">User Provisioning</span>
-                        </div>
-                    </div>
-
-                    <!-- Tools -->
-                    <div class="mobile-tab-panel" data-panel="tools">
-                        <div class="mobile-skill-tags" data-category="tools">
-                            <span class="m-tag m-tools">Chef (Configuration Management Tool)</span>
-                            <span class="m-tag m-tools">Adobe Illustrator</span>
-                            <span class="m-tag m-tools">Adobe Photoshop</span>
-                            <span class="m-tag m-tools">Adobe Premiere Pro</span>
-                            <span class="m-tag m-tools">Adobe XD</span>
-                            <span class="m-tag m-tools">BigQuery</span>
-                            <span class="m-tag m-tools">Command Prompt (CMD)</span>
-                            <span class="m-tag m-tools">Copilot</span>
-                            <span class="m-tag m-tools">DBArtisan</span>
-                            <span class="m-tag m-tools">DBeaver</span>
-                            <span class="m-tag m-tools">Draw.io</span>
-                            <span class="m-tag m-tools">Dreamweaver</span>
-                            <span class="m-tag m-tools">Eclipse</span>
-                            <span class="m-tag m-tools">Git</span>
-                            <span class="m-tag m-tools">Git Bash</span>
-                            <span class="m-tag m-tools">GitHub</span>
-                            <span class="m-tag m-tools">Google Cloud</span>
-                            <span class="m-tag m-tools">Google Docs</span>
-                            <span class="m-tag m-tools">Google Sheets</span>
-                            <span class="m-tag m-tools">Google Slides</span>
-                            <span class="m-tag m-tools">Hootsuite</span>
-                            <span class="m-tag m-tools">IntelliJ</span>
-                            <span class="m-tag m-tools">Jira</span>
-                            <span class="m-tag m-tools">LinkedIn</span>
-                            <span class="m-tag m-tools">Microsoft Excel</span>
-                            <span class="m-tag m-tools">Microsoft PowerPoint</span>
-                            <span class="m-tag m-tools">Microsoft Teams</span>
-                            <span class="m-tag m-tools">Microsoft Word</span>
-                            <span class="m-tag m-tools">MongoDB</span>
-                            <span class="m-tag m-tools">MySQL</span>
-                            <span class="m-tag m-tools">NetBeans</span>
-                            <span class="m-tag m-tools">NumPy</span>
-                            <span class="m-tag m-tools">Obsidian.md</span>
-                            <span class="m-tag m-tools">Pandas (Python Package)</span>
-                            <span class="m-tag m-tools">Postman</span>
-                            <span class="m-tag m-tools">Power BI</span>
-                            <span class="m-tag m-tools">PowerShell</span>
-                            <span class="m-tag m-tools">Talend</span>
-                            <span class="m-tag m-tools">Tableau Software</span>
-                            <span class="m-tag m-tools">Unix</span>
-                            <span class="m-tag m-tools">Linux</span>
-                            <span class="m-tag m-tools">Visual Studio Code</span>
-                        </div>
-                    </div>
-
-                    <!-- Strategic -->
-                    <div class="mobile-tab-panel" data-panel="strategic">
-                        <div class="mobile-skill-tags" data-category="strategic">
-                            <span class="m-tag m-strategic">AI Enablement</span>
-                            <span class="m-tag m-strategic">Benefits Coordination</span>
-                            <span class="m-tag m-strategic">Interviewing Skills</span>
-                            <span class="m-tag m-strategic">Portfolio Management</span>
-                            <span class="m-tag m-strategic">Presentations</span>
-                            <span class="m-tag m-strategic">Problem Solving</span>
-                            <span class="m-tag m-strategic">Relationship Building</span>
-                            <span class="m-tag m-strategic">Smart Goals</span>
-                            <span class="m-tag m-strategic">Social Media Strategy</span>
-                            <span class="m-tag m-strategic">Stakeholder Communications</span>
-                            <span class="m-tag m-strategic">Stakeholder Engagement</span>
-                            <span class="m-tag m-strategic">Training & Development</span>
-                            <span class="m-tag m-strategic">User Feedback</span>
-                        </div>
-                    </div>
-                </div>
+                <div class="toolkit-results"><span id="toolkitResultCount"></span><button id="resetToolkit"
+                        type="button">Reset playground ↻</button></div>
+            </div>
+            <p class="toolkit-empty" hidden>No skills match this mix. Try a different search or reset the playground.
+            </p>
+            <div class="toolkit-grid" id="toolkitGrid">
+                <article class="toolkit-card" data-discipline="discipline-0"><span class="toolkit-symbol"
+                        aria-hidden="true">+</span>
+                    <h3>Business</h3>
+                    <p>Connecting technical work to real needs.</p>
+                    <div class="skill-pills"><button class="skill-sticker" type="button" aria-pressed="false"
+                            data-discipline="discipline-0">Calendar Management</button><button class="skill-sticker"
+                            type="button" aria-pressed="false" data-discipline="discipline-0">Client
+                            Engagement</button><button class="skill-sticker" type="button" aria-pressed="false"
+                            data-discipline="discipline-0">Data Entry</button><button class="skill-sticker"
+                            type="button" aria-pressed="false" data-discipline="discipline-0">Data
+                            Ethics</button><button class="skill-sticker" type="button" aria-pressed="false"
+                            data-discipline="discipline-0">Form Processing</button><button class="skill-sticker"
+                            type="button" aria-pressed="false" data-discipline="discipline-0">Office
+                            Coordination</button></div><span class="toolkit-card-count"></span>
+                </article>
+                <article class="toolkit-card" data-discipline="discipline-1"><span class="toolkit-symbol"
+                        aria-hidden="true">↗</span>
+                    <h3>Data & analytics</h3>
+                    <p>From raw information to useful insight.</p>
+                    <div class="skill-pills"><button class="skill-sticker" type="button" aria-pressed="false"
+                            data-discipline="discipline-1">Account Management</button><button class="skill-sticker"
+                            type="button" aria-pressed="false" data-discipline="discipline-1">Analysis</button><button
+                            class="skill-sticker" type="button" aria-pressed="false"
+                            data-discipline="discipline-1">Analytical Skills</button><button class="skill-sticker"
+                            type="button" aria-pressed="false" data-discipline="discipline-1">Analytics</button><button
+                            class="skill-sticker" type="button" aria-pressed="false"
+                            data-discipline="discipline-1">Business Analysis</button><button class="skill-sticker"
+                            type="button" aria-pressed="false" data-discipline="discipline-1">Business
+                            Analytics</button><button class="skill-sticker" type="button" aria-pressed="false"
+                            data-discipline="discipline-1">Case Studies</button></div>
+                    <details>
+                        <summary>Explore 35 more skills</summary>
+                        <div class="skill-pills"><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-1">Dashboard</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-1">Data
+                                Analysis</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-1">Data Cleansing</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-1">Data
+                                Collection</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-1">Data Compilation</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-1">Data-Driven
+                                Decision-Making</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-1">Data Import/Export</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-1">Data
+                                Integration</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-1">Data Integrity</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-1">Data
+                                Literacy</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-1">Data Management</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-1">Data
+                                Manipulation</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-1">Data Presentation</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-1">Data
+                                Processing</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-1">Data Quality</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-1">Data
+                                Security</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-1">Data Storage</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-1">Data
+                                Storytelling</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-1">Data Transformation</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-1">Data
+                                Validation</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-1">Data Visualization</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-1">Data Visualization
+                                Software</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-1">Database Management</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-1">Excel
+                                Formulas</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-1">Metadata Management</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-1">Pivot Tables And
+                                Charts</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-1">Project Management</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-1">Quantitative
+                                Research</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-1">Research & Reporting</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-1">Research Reports</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-1">Sample Size
+                                Determination</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-1">Sampling (Statistics)</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-1">Spreadsheet Software</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-1">Unstructured Data</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-1">Web Content
+                                Accessibility Guidelines</button></div>
+                    </details><span class="toolkit-card-count"></span>
+                </article>
+                <article class="toolkit-card" data-discipline="discipline-2"><span class="toolkit-symbol"
+                        aria-hidden="true">⌘</span>
+                    <h3>Development</h3>
+                    <p>Code that brings ideas to life.</p>
+                    <div class="skill-pills"><button class="skill-sticker" type="button" aria-pressed="false"
+                            data-discipline="discipline-2">Version Control</button><button class="skill-sticker"
+                            type="button" aria-pressed="false" data-discipline="discipline-2">Ruby (Programming
+                            Language)</button><button class="skill-sticker" type="button" aria-pressed="false"
+                            data-discipline="discipline-2">Web Presence</button><button class="skill-sticker"
+                            type="button" aria-pressed="false" data-discipline="discipline-2">Algorithms</button><button
+                            class="skill-sticker" type="button" aria-pressed="false"
+                            data-discipline="discipline-2">Artificial Intelligence</button><button class="skill-sticker"
+                            type="button" aria-pressed="false" data-discipline="discipline-2">Data
+                            Structures</button><button class="skill-sticker" type="button" aria-pressed="false"
+                            data-discipline="discipline-2">Debugging</button></div>
+                    <details>
+                        <summary>Explore 11 more skills</summary>
+                        <div class="skill-pills"><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-2">HTML/CSS</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-2">Java</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-2">JavaScript</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-2">jQuery</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-2">Object Oriented Programming (OOP)</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-2">PHP</button><button class="skill-sticker" type="button"
+                                aria-pressed="false" data-discipline="discipline-2">Python</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-2">Python Programming</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-2">Responsive
+                                Design</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-2">Scripting</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-2">SQL</button></div>
+                    </details><span class="toolkit-card-count"></span>
+                </article>
+                <article class="toolkit-card" data-discipline="discipline-3"><span class="toolkit-symbol"
+                        aria-hidden="true">+</span>
+                    <h3>IT & systems</h3>
+                    <p>A practical technical foundation.</p>
+                    <div class="skill-pills"><button class="skill-sticker" type="button" aria-pressed="false"
+                            data-discipline="discipline-3">Malware Protection</button><button class="skill-sticker"
+                            type="button" aria-pressed="false" data-discipline="discipline-3">Network
+                            Monitoring</button><button class="skill-sticker" type="button" aria-pressed="false"
+                            data-discipline="discipline-3">IT Security Architecture</button><button
+                            class="skill-sticker" type="button" aria-pressed="false"
+                            data-discipline="discipline-3">Application Security</button><button class="skill-sticker"
+                            type="button" aria-pressed="false" data-discipline="discipline-3">Security
+                            Awareness</button><button class="skill-sticker" type="button" aria-pressed="false"
+                            data-discipline="discipline-3">Cyber Security Policies</button><button class="skill-sticker"
+                            type="button" aria-pressed="false" data-discipline="discipline-3">Hardening</button></div>
+                    <details>
+                        <summary>Explore 31 more skills</summary>
+                        <div class="skill-pills"><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-3">Encryption</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-3">Authorization
+                                (Computing)</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-3">Identity and Access Management</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-3">Information Systems Security</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-3">Computer Hardware</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-3">IT
+                                Automation</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-3">Network Administration</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-3">Computer Networking</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-3">IT
+                                Infrastructure</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-3">Active Directory</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-3">Cloud
+                                Infrastructure</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-3">Cloud Management</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-3">Data
+                                Storage</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-3">Disaster Recovery</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-3">File
+                                Management</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-3">Linux</button><button class="skill-sticker" type="button"
+                                aria-pressed="false" data-discipline="discipline-3">Linux Administration</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-3">Linux Commands</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-3">Lightweight Directory
+                                Access Protocols</button><button class="skill-sticker" type="button"
+                                aria-pressed="false" data-discipline="discipline-3">Microsoft Windows</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-3">Network Infrastructure</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-3">Operating System Administration</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-3">Operating Systems</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-3">Package and Software
+                                Management</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-3">Remote Access Systems</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-3">Software Installation</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-3">Server Administration</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-3">Servers</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-3">System
+                                Monitoring</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-3">Systems Administration</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-3">User Provisioning</button></div>
+                    </details><span class="toolkit-card-count"></span>
+                </article>
+                <article class="toolkit-card" data-discipline="discipline-4"><span class="toolkit-symbol"
+                        aria-hidden="true">✳</span>
+                    <h3>Tools & platforms</h3>
+                    <p>The tools behind the process.</p>
+                    <div class="skill-pills"><button class="skill-sticker" type="button" aria-pressed="false"
+                            data-discipline="discipline-4">Chef (Configuration Management Tool)</button><button
+                            class="skill-sticker" type="button" aria-pressed="false"
+                            data-discipline="discipline-4">Adobe Illustrator</button><button class="skill-sticker"
+                            type="button" aria-pressed="false" data-discipline="discipline-4">Adobe
+                            Photoshop</button><button class="skill-sticker" type="button" aria-pressed="false"
+                            data-discipline="discipline-4">Adobe Premiere Pro</button><button class="skill-sticker"
+                            type="button" aria-pressed="false" data-discipline="discipline-4">Adobe XD</button><button
+                            class="skill-sticker" type="button" aria-pressed="false"
+                            data-discipline="discipline-4">BigQuery</button><button class="skill-sticker" type="button"
+                            aria-pressed="false" data-discipline="discipline-4">Command Prompt (CMD)</button></div>
+                    <details>
+                        <summary>Explore 35 more skills</summary>
+                        <div class="skill-pills"><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-4">Copilot</button><button class="skill-sticker"
+                                type="button" aria-pressed="false"
+                                data-discipline="discipline-4">DBArtisan</button><button class="skill-sticker"
+                                type="button" aria-pressed="false"
+                                data-discipline="discipline-4">DBeaver</button><button class="skill-sticker"
+                                type="button" aria-pressed="false"
+                                data-discipline="discipline-4">Draw.io</button><button class="skill-sticker"
+                                type="button" aria-pressed="false"
+                                data-discipline="discipline-4">Dreamweaver</button><button class="skill-sticker"
+                                type="button" aria-pressed="false"
+                                data-discipline="discipline-4">Eclipse</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-4">Git</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-4">Git Bash</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-4">GitHub</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-4">Google Cloud</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-4">Google
+                                Docs</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-4">Google Sheets</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-4">Google
+                                Slides</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-4">Hootsuite</button><button class="skill-sticker"
+                                type="button" aria-pressed="false"
+                                data-discipline="discipline-4">IntelliJ</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-4">Jira</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-4">LinkedIn</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-4">Microsoft
+                                Excel</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-4">Microsoft PowerPoint</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-4">Microsoft Teams</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-4">Microsoft
+                                Word</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-4">MongoDB</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-4">MySQL</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-4">NetBeans</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-4">NumPy</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-4">Obsidian.md</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-4">Pandas (Python
+                                Package)</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-4">Postman</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-4">Power
+                                BI</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-4">PowerShell</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-4">Talend</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-4">Tableau Software</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-4">Unix</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-4">Linux</button><button class="skill-sticker" type="button"
+                                aria-pressed="false" data-discipline="discipline-4">Visual Studio Code</button></div>
+                    </details><span class="toolkit-card-count"></span>
+                </article>
+                <article class="toolkit-card" data-discipline="discipline-5"><span class="toolkit-symbol"
+                        aria-hidden="true">+</span>
+                    <h3>Strategy & collaboration</h3>
+                    <p>Better work starts with clear thinking.</p>
+                    <div class="skill-pills"><button class="skill-sticker" type="button" aria-pressed="false"
+                            data-discipline="discipline-5">AI Enablement</button><button class="skill-sticker"
+                            type="button" aria-pressed="false" data-discipline="discipline-5">Benefits
+                            Coordination</button><button class="skill-sticker" type="button" aria-pressed="false"
+                            data-discipline="discipline-5">Interviewing Skills</button><button class="skill-sticker"
+                            type="button" aria-pressed="false" data-discipline="discipline-5">Portfolio
+                            Management</button><button class="skill-sticker" type="button" aria-pressed="false"
+                            data-discipline="discipline-5">Presentations</button><button class="skill-sticker"
+                            type="button" aria-pressed="false" data-discipline="discipline-5">Problem
+                            Solving</button><button class="skill-sticker" type="button" aria-pressed="false"
+                            data-discipline="discipline-5">Relationship Building</button></div>
+                    <details>
+                        <summary>Explore 6 more skills</summary>
+                        <div class="skill-pills"><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-5">Smart Goals</button><button class="skill-sticker"
+                                type="button" aria-pressed="false" data-discipline="discipline-5">Social Media
+                                Strategy</button><button class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-5">Stakeholder Communications</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-5">Stakeholder Engagement</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-5">Training & Development</button><button
+                                class="skill-sticker" type="button" aria-pressed="false"
+                                data-discipline="discipline-5">User Feedback</button></div>
+                    </details><span class="toolkit-card-count"></span>
+                </article>
             </div>
         </section>
-
-        <!-- Featured Projects Section -->
-        <section id="projects" class="section">
-            <div class="section-header">
-                <span class="section-number">04.</span>
-                <h2 class="section-title hover-pulse">Featured Projects</h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="projects-grid featured-projects">
-                <a href="https://jordan721.github.io/Development-Showcase/Game_Vault/index.html" target="_blank"
-                    class="project-card glass-card project-card-featured" data-aos="fade-up">
-                    <div class="project-card-top">
-                        <div class="project-icon">
-                            <i class="fas fa-gamepad"></i>
-                        </div>
-                        <span class="project-type">Interactive Suite</span>
-                    </div>
-                    <div class="project-content">
-                        <h3>Game Vault</h3>
-                        <p>A collection of browser-based games I've created from scratch using JavaScript, HTML, and
-                            CSS.</p>
-                        <div class="project-tags" aria-label="Project highlights">
-                            <span>JavaScript</span>
-                            <span>Game Logic</span>
-                            <span>UI Systems</span>
-                        </div>
-                    </div>
-                    <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
-                </a>
-
-                <a href="https://jordan721.github.io/Development-Showcase/Personal_Projects/AnimateLab/index.html"
-                    target="_blank" class="project-card glass-card" data-aos="fade-up">
-                    <div class="project-card-top">
-                        <div class="project-icon">
-                            <i class="fas fa-wand-magic-sparkles"></i>
-                        </div>
-                        <span class="project-type">Creative Tooling</span>
-                    </div>
-                    <div class="project-content">
-                        <h3>AnimateLab</h3>
-                        <p>Interactive showcase of web animation techniques and effects you can achieve on the web.</p>
-                        <div class="project-tags" aria-label="Project highlights">
-                            <span>Animation</span>
-                            <span>Effects</span>
-                        </div>
-                    </div>
-                    <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
-                </a>
-
-                <a href="https://jordan721.github.io/Development-Showcase/Personal_Projects/PipelineTrack/index.html"
-                    target="_blank" class="project-card glass-card" data-aos="fade-up">
-                    <div class="project-card-top">
-                        <div class="project-icon">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <span class="project-type">Productivity App</span>
-                    </div>
-                    <div class="project-content">
-                        <h3>PipelineTrack</h3>
-                        <p>A job application tracker built to help job seekers stay organized and in control of their
-                            search — now expanded to support multiple industries.</p>
-                        <div class="project-tags" aria-label="Project highlights">
-                            <span>Workflow</span>
-                            <span>Data Views</span>
-                        </div>
-                    </div>
-                    <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
-                </a>
-
-                <!-- Collapsible extra projects -->
-                <div class="projects-extra" id="projectsExtra">
-                    <a href="https://jordan721.github.io/Development-Showcase/Personal_Projects/Bagely_Bytes_Programming/index.html"
-                        target="_blank" class="project-card glass-card">
-                        <div class="project-card-top">
-                            <div class="project-icon">
-                                <i class="fas fa-book-open"></i>
-                            </div>
-                            <span class="project-type">Learning Platform</span>
-                        </div>
-                        <div class="project-content">
-                            <h3>Bagely Bytes</h3>
-                            <p>An educational platform teaching programming across different languages and tools.</p>
-                            <div class="project-tags" aria-label="Project highlights">
-                                <span>Education</span>
-                                <span>Curriculum</span>
-                            </div>
-                        </div>
-                        <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
-                    </a>
-
-                    <a href="https://jordan721.github.io/Development-Showcase/Professional_Projects/Data_Pipeline/index.html"
-                        target="_blank" class="project-card glass-card">
-                        <div class="project-card-top">
-                            <div class="project-icon">
-                                <i class="fas fa-database"></i>
-                            </div>
-                            <span class="project-type">Data Workflow</span>
-                        </div>
-                        <div class="project-content">
-                            <h3>Data Pipeline</h3>
-                            <p>An interactive simulation of an enterprise data pipeline with automated processing,
-                                cleaning,
-                                and Excel export.</p>
-                            <div class="project-tags" aria-label="Project highlights">
-                                <span>ETL</span>
-                                <span>Excel Export</span>
-                            </div>
-                        </div>
-                        <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
-                    </a>
-
-                    <a href="https://jordan721.github.io/Development-Showcase/Professional_Projects/One_Heck_Of_A_Sandwich_Web_Edition/index.html"
-                        target="_blank" class="project-card glass-card">
-                        <div class="project-card-top">
-                            <div class="project-icon">
-                                <i class="fas fa-burger"></i>
-                            </div>
-                            <span class="project-type">Ordering App</span>
-                        </div>
-                        <div class="project-content">
-                            <h3>One Heck Of A Sandwich</h3>
-                            <p>A web-based kiosk app for customizing and ordering sandwiches, drinks, and chips —
-                                originally
-                                built as a Java capstone.</p>
-                            <div class="project-tags" aria-label="Project highlights">
-                                <span>Kiosk UI</span>
-                                <span>Java Capstone</span>
-                            </div>
-                        </div>
-                        <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
-                    </a>
-
-                    <a href="https://jordan721.github.io/Development-Showcase/Academic_Projects/Dimensional_Playground/index.html"
-                        target="_blank" class="project-card glass-card">
-                        <div class="project-card-top">
-                            <div class="project-icon">
-                                <i class="fas fa-cube"></i>
-                            </div>
-                            <span class="project-type">3D Experiment</span>
-                        </div>
-                        <div class="project-content">
-                            <h3>Dimensional Playground</h3>
-                            <p>An immersive 3D universe with interactive geometry, physics simulations, and sound
-                                effects
-                                built with WebVR.</p>
-                            <div class="project-tags" aria-label="Project highlights">
-                                <span>WebVR</span>
-                                <span>Physics</span>
-                            </div>
-                        </div>
-                        <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
-                    </a>
-
-                    <a href="https://github.com/Year-Up-United-SPR-2025/Capstones" target="_blank"
-                        class="project-card glass-card">
-                        <div class="project-card-top">
-                            <div class="project-icon">
-                                <i class="fas fa-trophy"></i>
-                            </div>
-                            <span class="project-type">Capstones</span>
-                        </div>
-                        <div class="project-content">
-                            <h3>YUU Capstone Projects</h3>
-                            <p>Pluralsight capstone projects from Year Up United — applying real-world tech skills
-                                through self-paced learning paths to build career-ready solutions.</p>
-                            <div class="project-tags" aria-label="Project highlights">
-                                <span>Career Skills</span>
-                                <span>GitHub</span>
-                            </div>
-                        </div>
-                        <span class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></span>
-                    </a>
-
-                    <a href="https://github.com/Year-Up-United-SPR-2025/Workshops" target="_blank"
-                        class="project-card glass-card">
-                        <div class="project-card-top">
-                            <div class="project-icon">
-                                <i class="fas fa-hammer"></i>
-                            </div>
-                            <span class="project-type">Workshops</span>
-                        </div>
-                        <div class="project-content">
-                            <h3>YUU Workshops</h3>
-                            <p>Java-based workshop projects from Year Up United's Learning & Development phase — each
-                                one building toward a fully functional capstone app.</p>
-                            <div class="project-tags" aria-label="Project highlights">
-                                <span>Java</span>
-                                <span>Practice Apps</span>
-                            </div>
-                        </div>
-                        <span class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="view-all-projects">
-                <button class="projects-toggle-btn" onclick="toggleProjects()" id="projectsToggleBtn">
-                    <span id="projectsToggleText">Show 6 More</span>
-                    <i class="fas fa-chevron-down" id="projectsToggleIcon"></i>
-                </button>
-                <a href="https://jordan721.github.io/Development-Showcase/" target="_blank" class="view-all-link">
-                    View All Projects <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </section>
-
-        <!-- Education Section -->
         <section id="education" class="section">
-            <div class="section-header">
-                <span class="section-number">05.</span>
-                <h2 class="section-title hover-rotate">Education</h2>
-                <div class="section-line"></div>
+            <div class="section-header"><span class="section-number">05 / THE FOUNDATION</span>
+                <h2 class="section-title">Learning never<br>stands still.</h2>
+                <p class="section-intro">Formal education, focused training, and a habit of asking better questions.</p>
             </div>
 
             <!-- Education Cards Grid -->
@@ -1743,10 +1275,9 @@
 
         <!-- GitHub Activity Feed Section -->
         <section id="github-activity" class="section github-section">
-            <div class="section-header">
-                <span class="section-number">06.</span>
-                <h2 class="section-title hover-code">Latest Activity</h2>
-                <div class="section-line"></div>
+            <div class="section-header"><span class="section-number">06 / IN THE OPEN</span>
+                <h2 class="section-title">The work<br>between the work.</h2>
+                <p class="section-intro">A live look at my repositories, contributions, and latest commits.</p>
             </div>
 
             <div class="github-activity-container">
@@ -1758,7 +1289,8 @@
                             <p>My latest commits, repositories, and contributions</p>
                         </div>
                     </div>
-                    <a href="https://github.com/Jordan721" target="_blank" class="github-profile-btn">
+                    <a href="https://github.com/Jordan721" target="_blank" rel="noopener noreferrer"
+                        class="github-profile-btn">
                         <i class="fab fa-github"></i> View Profile
                     </a>
                 </div>
@@ -1818,10 +1350,10 @@
 
         <!-- Contact Section -->
         <section id="contact" class="section">
-            <div class="section-header">
-                <span class="section-number">07.</span>
-                <h2 class="section-title hover-rainbow">Get In Touch</h2>
-                <div class="section-line"></div>
+            <div class="section-header"><span class="section-number">07 / YOUR NEXT IDEA</span>
+                <h2 class="section-title">Got a wild idea?<br><em>Let’s build it.</em></h2>
+                <p class="section-intro">Have a project, an opportunity, or a good question? Let’s start a conversation.
+                </p>
             </div>
 
             <div class="contact-container">
@@ -1833,15 +1365,18 @@
                     </p>
 
                     <div class="contact-links">
-                        <a href="https://www.linkedin.com/in/jordan-alexis/" target="_blank" class="contact-btn">
+                        <a href="https://www.linkedin.com/in/jordan-alexis/" target="_blank" rel="noopener noreferrer"
+                            class="contact-btn">
                             <i class="fab fa-linkedin-in"></i>
                             <span>Connect on LinkedIn</span>
                         </a>
-                        <a href="https://github.com/Jordan721" target="_blank" class="contact-btn">
+                        <a href="https://github.com/Jordan721" target="_blank" rel="noopener noreferrer"
+                            class="contact-btn">
                             <i class="fab fa-github"></i>
                             <span>View GitHub Profile</span>
                         </a>
-                        <a href="https://linktr.ee/Jordan_Alexis_" target="_blank" class="contact-btn mobile-only">
+                        <a href="https://linktr.ee/Jordan_Alexis_" target="_blank" rel="noopener noreferrer"
+                            class="contact-btn mobile-only">
                             <i class="fas fa-tree"></i>
                             <span>View Linktree</span>
                         </a>
@@ -1856,7 +1391,8 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <p>Designed & Built by Jordan Alexis</p>
+            <a class="footer-wordmark" href="#home">Jordan Alexis<span>↗</span></a>
+            <p>Built with curiosity. Designed with purpose.</p>
             <p class="footer-tech">Using HTML, CSS & JavaScript</p>
         </div>
         <button id="backToTop" class="back-to-top" aria-label="Back to top">
@@ -1865,10 +1401,10 @@
     </footer>
 
     <!-- Resume Modal -->
-    <div id="resumeModal" class="modal">
+    <div id="resumeModal" class="modal" role="dialog" aria-modal="true" tabindex="-1">
         <div class="modal-overlay" onclick="closeResumeModal()"></div>
         <div class="modal-content glass-modal resume-modal-content">
-            <button class="modal-close" onclick="closeResumeModal()">
+            <button class="modal-close" aria-label="Close dialog" onclick="closeResumeModal()">
                 <i class="fas fa-times"></i>
             </button>
 
@@ -1877,7 +1413,7 @@
                 <p class="modal-subtitle">Select the version that best matches what you want to review</p>
 
                 <div class="resume-options">
-                    <a href="./Jordan_Alexis.pdf?v=2" target="_blank" class="resume-option">
+                    <a href="./Jordan_Alexis.pdf?v=2" target="_blank" rel="noopener noreferrer" class="resume-option">
                         <span class="resume-option-icon"><i class="fas fa-file-pdf"></i></span>
                         <span class="resume-option-copy">
                             <strong>Main Resume</strong>
@@ -1888,7 +1424,8 @@
                                 class="fas fa-arrow-up-right-from-square"></i></span>
                     </a>
 
-                    <a href="./Jordan_Alexis_Data Analyst.pdf" target="_blank" class="resume-option">
+                    <a href="./Jordan_Alexis_Data Analyst.pdf" target="_blank" rel="noopener noreferrer"
+                        class="resume-option">
                         <span class="resume-option-icon"><i class="fas fa-chart-line"></i></span>
                         <span class="resume-option-copy">
                             <strong>Data Analyst Resume</strong>
@@ -1898,7 +1435,8 @@
                                 class="fas fa-arrow-up-right-from-square"></i></span>
                     </a>
 
-                    <a href="./Jordan_Alexis_Software Engineer .pdf" target="_blank" class="resume-option">
+                    <a href="./Jordan_Alexis_Software Engineer .pdf" target="_blank" rel="noopener noreferrer"
+                        class="resume-option">
                         <span class="resume-option-icon"><i class="fas fa-code"></i></span>
                         <span class="resume-option-copy">
                             <strong>Software Engineer Resume</strong>
@@ -1912,604 +1450,47 @@
         </div>
     </div>
 
-    <!-- Certifications Modal -->
-    <div id="certificatesModal" class="modal">
-        <div class="modal-overlay" onclick="closeCertificatesModal()"></div>
-        <div class="modal-content glass-modal">
-            <button class="modal-close" onclick="closeCertificatesModal()">
-                <i class="fas fa-times"></i>
-            </button>
-
-            <div id="folderView" class="folder-view">
-                <h2>My Certifications</h2>
-                <p class="modal-subtitle">Select a certificate type to view</p>
-
-                <div class="cert-folders">
-                    <div class="cert-folder-wrapper">
-                        <button class="cert-folder" onclick="openCertFolder('yearup')">
-                            <div class="folder-icon"><i class="fas fa-folder"></i></div>
-                            <h3>Year Up United</h3>
-                            <p>2 certificates</p>
-                        </button>
-                        <div class="cert-info-btn" onclick="openYearUpInfoModal();" role="button" tabindex="0"
-                            aria-label="Program Information">
-                            <i class="fas fa-info-circle"></i>
-                        </div>
-                    </div>
-
-                    <div class="cert-folder-wrapper">
-                        <button class="cert-folder" onclick="openCertFolder('dataanalytics')">
-                            <div class="folder-icon"><i class="fas fa-folder"></i></div>
-                            <h3>Data Analytics</h3>
-                            <p>9 certificates</p>
-                        </button>
-                        <div class="cert-info-btn" onclick="openCourseInfoModal();" role="button" tabindex="0"
-                            aria-label="Course Information">
-                            <i class="fas fa-info-circle"></i>
-                        </div>
-                    </div>
-
-                    <div class="cert-folder-wrapper">
-                        <button class="cert-folder" onclick="openCertFolder('itsupport')">
-                            <div class="folder-icon"><i class="fas fa-folder"></i></div>
-                            <h3>IT Support</h3>
-                            <p>6 certificates</p>
-                        </button>
-                        <div class="cert-info-btn" onclick="openITSupportInfoModal();" role="button" tabindex="0"
-                            aria-label="Course Information">
-                            <i class="fas fa-info-circle"></i>
-                        </div>
-                    </div>
-
-                    <!-- <button class="cert-folder" onclick="openCertFolder('cybersecurity')">
-                        <div class="folder-icon"><i class="fas fa-folder"></i></div>
-                        <h3>Cybersecurity</h3>
-                        <p>1 certificate</p>
-                    </button>
-
-                    <button class="cert-folder" onclick="openCertFolder('itsupport-placeholder')">
-                        <div class="folder-icon"><i class="fas fa-folder"></i></div>
-                        <h3>IT Support</h3>
-                        <p>1 certificate</p>
-                    </button>
-
-                    <button class="cert-folder" onclick="openCertFolder('advancedanalytics')">
-                        <div class="folder-icon"><i class="fas fa-folder"></i></div>
-                        <h3>Advanced Data Analytics</h3>
-                        <p>1 certificate</p>
-                    </button>
-
-                    <button class="cert-folder" onclick="openCertFolder('itautomation')">
-                        <div class="folder-icon"><i class="fas fa-folder"></i></div>
-                        <h3>IT Automation with Python</h3>
-                        <p>1 certificate</p>
-                    </button>
-
-                    <button class="cert-folder" onclick="openCertFolder('uxdesign')">
-                        <div class="folder-icon"><i class="fas fa-folder"></i></div>
-                        <h3>UX Design</h3>
-                        <p>1 certificate</p>
-                    </button>
-
-                    <button class="cert-folder" onclick="openCertFolder('businessintel')">
-                        <div class="folder-icon"><i class="fas fa-folder"></i></div>
-                        <h3>Business Intelligence</h3>
-                        <p>1 certificate</p>
-                    </button>
-
-                    <button class="cert-folder" onclick="openCertFolder('projectmgmt')">
-                        <div class="folder-icon"><i class="fas fa-folder"></i></div>
-                        <h3>Project Management</h3>
-                        <p>1 certificate</p>
-                    </button> -->
-                </div>
-            </div>
-
-            <div id="certView" class="cert-view" style="display: none;">
-                <button class="back-btn" onclick="backToFolders()">
-                    <i class="fas fa-arrow-left"></i> Back to Certifications
-                </button>
-
-                <div class="cert-carousel">
-                    <button class="carousel-btn prev-btn" onclick="changeSlide(-1)">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-
-                    <div class="cert-slides">
-                        <!-- Year Up Certificate 1 -->
-                        <div class="cert-slide yearup-cert">
-                            <h3>Bootcamp Completion - Year Up United</h3>
-                            <div class="cert-container">
-                                <embed src="./Certifications/Year_Up_United/Year_Up_United_LTCA_Certificate.pdf"
-                                    type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="./Certifications/Year_Up_United/Year_Up_United_LTCA_Certificate.pdf"
-                                target="_blank" class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div>
-
-                        <!-- Year Up Certificate 2 -->
-                        <div class="cert-slide yearup-cert">
-                            <h3>Certificate of Completion - Year Up United</h3>
-                            <div class="cert-container">
-                                <embed src="./Certifications/Year_Up_United/Certifcate_of_Completion_YUU.pdf"
-                                    type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="./Certifications/Year_Up_United/Certifcate_of_Completion_YUU.pdf" target="_blank"
-                                class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div>
-
-                        <!-- Data Analytics Certificate 1 -->
-                        <div class="cert-slide dataanalytics-cert">
-                            <h3>Foundations: Data, Data, Everywhere</h3>
-                            <div class="cert-container">
-                                <embed src="./Certifications/Data_Analytics/Foundations_Data_Data_Everywhere.pdf"
-                                    type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="./Certifications/Data_Analytics/Foundations_Data_Data_Everywhere.pdf"
-                                target="_blank" class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div>
-
-                        <!-- Data Analytics Certificate 2 -->
-                        <div class="cert-slide dataanalytics-cert">
-                            <h3>Ask Questions to Make Data-Driven Decisions</h3>
-                            <div class="cert-container">
-                                <embed
-                                    src="./Certifications/Data_Analytics/Ask_Questions_to_Make_Data_Driven_Decisions_Certification.pdf"
-                                    type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="./Certifications/Data_Analytics/Ask_Questions_to_Make_Data_Driven_Decisions_Certification.pdf"
-                                target="_blank" class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div>
-
-                        <!-- Data Analytics Certificate 3 -->
-                        <div class="cert-slide dataanalytics-cert">
-                            <h3>Prepare Data for Exploration</h3>
-                            <div class="cert-container">
-                                <embed src="./Certifications/Data_Analytics/Prepare_Data_for_Exploration.pdf"
-                                    type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="./Certifications/Data_Analytics/Prepare_Data_for_Exploration.pdf" target="_blank"
-                                class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div>
-
-                        <!-- Data Analytics Certificate 4 -->
-                        <div class="cert-slide dataanalytics-cert">
-                            <h3>Process Data from Dirty to Clean</h3>
-                            <div class="cert-container">
-                                <embed src="./Certifications/Data_Analytics/Process_Data_from_Dirty to_Clean.pdf"
-                                    type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="./Certifications/Data_Analytics/Process_Data_from_Dirty to_Clean.pdf"
-                                target="_blank" class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div>
-
-                        <!-- Data Analytics Certificate 5 -->
-                        <div class="cert-slide dataanalytics-cert">
-                            <h3>Analyze Data to Answer Questions</h3>
-                            <div class="cert-container">
-                                <embed src="./Certifications/Data_Analytics/Analyze_Data_to_Answer_Questions.pdf"
-                                    type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="./Certifications/Data_Analytics/Analyze_Data_to_Answer_Questions.pdf"
-                                target="_blank" class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div>
-
-                        <!-- Data Analytics Certificate 6 -->
-                        <div class="cert-slide dataanalytics-cert">
-                            <h3>Share Data Through the Art of Visualization</h3>
-                            <div class="cert-container">
-                                <embed
-                                    src="./Certifications/Data_Analytics/Share_Data_Through_the_Art_of_Visualization.pdf"
-                                    type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="./Certifications/Data_Analytics/Share_Data_Through_the_Art_of_Visualization.pdf"
-                                target="_blank" class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div>
-
-                        <!-- Data Analytics Certificate 7 -->
-                        <div class="cert-slide dataanalytics-cert">
-                            <h3>Introduction to Data Analysis Using Python</h3>
-                            <div class="cert-container">
-                                <embed
-                                    src="./Certifications/Data_Analytics/Introduction_to_Data_Analysis_Using_Python.pdf"
-                                    type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="./Certifications/Data_Analytics/Introduction_to_Data_Analysis_Using_Python.pdf"
-                                target="_blank" class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div>
-
-                        <!-- Data Analytics Certificate 8 -->
-                        <div class="cert-slide dataanalytics-cert">
-                            <h3>Google Data Analytics Capstone: Complete a Case Study</h3>
-                            <div class="cert-container">
-                                <embed
-                                    src="./Certifications/Data_Analytics/Google_Data_Analytics_Capstone_-_Complete_a_Case.pdf"
-                                    type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="./Certifications/Data_Analytics/Google_Data_Analytics_Capstone_-_Complete_a_Case.pdf"
-                                target="_blank" class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div>
-
-                        <!-- Data Analytics Certificate 9 — Full Professional Certificate -->
-                        <div class="cert-slide dataanalytics-cert">
-                            <h3>Google Data Analytics Professional Certificate</h3>
-                            <div class="cert-container">
-                                <embed
-                                    src="./Certifications/Data_Analytics/Google_Data_Analytics_Professional_Certificate.pdf"
-                                    type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="./Certifications/Data_Analytics/Google_Data_Analytics_Professional_Certificate.pdf"
-                                target="_blank" class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div>
-
-                        <!-- IT Support Certificate 1 — Full Professional Certificate -->
-                        <div class="cert-slide itsupport-cert">
-                            <h3>Technical Support Fundamentals</h3>
-                            <div class="cert-container">
-                                <embed src="./Certifications/IT/Technical_Support_Fundamentals.pdf"
-                                    type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="./Certifications/IT/Technical_Support_Fundamentals.pdf" target="_blank"
-                                class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div>
-
-                        <!-- IT Support Certificate 2 — Full Professional Certificate -->
-                        <div class="cert-slide itsupport-cert">
-                            <h3>The Bits and Bytes of Computer Networking</h3>
-                            <div class="cert-container">
-                                <embed src="./Certifications/IT/The_Bits_and_Bytes_of_Computer_Networking.pdf"
-                                    type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="./Certifications/IT/The_Bits_and_Bytes_of_Computer_Networking.pdf" target="_blank"
-                                class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div>
-
-                        <!-- IT Support Certificate 3 — Full Professional Certificate -->
-                        <div class="cert-slide itsupport-cert">
-                            <h3>Operating Systems and You: Becoming a Power User</h3>
-                            <div class="cert-container">
-                                <embed src="./Certifications/IT/Operating_Systems_and_You - Becoming_a_Power.pdf"
-                                    type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="./Certifications/IT/Operating_Systems_and_You - Becoming_a_Power.pdf"
-                                target="_blank" class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div>
-
-                        <!-- IT Support Certificate 4 — Full Professional Certificate -->
-                        <div class="cert-slide itsupport-cert">
-                            <h3>System Administration and IT Infrastructure Services</h3>
-                            <div class="cert-container">
-                                <embed src="./Certifications/IT/System_Administration_and_IT_Infrastructure.pdf"
-                                    type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="./Certifications/IT/System_Administration_and_IT_Infrastructure.pdf"
-                                target="_blank" class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div>
-
-
-
-                        <div class="cert-slide itsupport-cert">
-                            <h3>IT Security: Defense Against the Digital Dark Arts</h3>
-                            <div class="cert-container">
-                                <embed src="./Certifications/IT/IT%20Security_Defense_Against_the_Digital_Dark_Arts.pdf"
-                                    type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="./Certifications/IT/IT%20Security_Defense_Against_the_Digital_Dark_Arts.pdf"
-                                target="_blank" class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div>
-
-                        <div class="cert-slide itsupport-cert">
-                            <h3>Google IT Support Professional Certificate</h3>
-                            <div class="cert-container">
-                                <embed src="./Certifications/IT/Google_IT_Support_Professional_Certificate.pdf"
-                                    type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="./Certifications/IT/Google_IT_Support_Professional_Certificate.pdf" target="_blank"
-                                class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div>
-
-                        <!-- ========================================
-                             FUTURE CERTIFICATES - COMMENTED OUT
-                             Will add them when I complete them....
-                             ======================================== -->
-
-                        <!-- Cybersecurity Certificates -->
-                        <!-- <div class="cert-slide cybersecurity-cert">
-                            <h3>Google Cybersecurity Certificate</h3>
-                            <div class="cert-container">
-                                <embed src="" type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="" target="_blank" class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div> -->
-
-                        <!-- IT Support Certificates -->
-                        <!-- <div class="cert-slide itsupport-cert">
-                            <h3>Technical Support Fundamentals</h3>
-                            <div class="cert-container">
-                                <embed src="" type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="" target="_blank" class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div>
-
-                        <div class="cert-slide itsupport-cert">
-                            <h3>The Bits and Bytes of Computer Networking</h3>
-                            <div class="cert-container">
-                                <embed src="" type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="" target="_blank" class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div>
-
-                        <div class="cert-slide itsupport-cert">
-                            <h3>Operating Systems and You: Becoming a Power User</h3>
-                            <div class="cert-container">
-                                <embed src="" type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="" target="_blank" class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div>
-
-                        <div class="cert-slide itsupport-cert">
-                            <h3>System Administration and IT Infrastructure Services</h3>
-                            <div class="cert-container">
-                                <embed src="./Certifications/IT/System_Administration_and_IT_Infrastructure.pdf"
-                                    type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="./Certifications/IT/System_Administration_and_IT_Infrastructure.pdf" target="_blank"
-                                class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div>
-
-                        <div class="cert-slide itsupport-cert">
-                            <h3>IT Security: Defense Against the Digital Dark Arts</h3>
-                            <div class="cert-container">
-                                <embed src="" type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="" target="_blank" class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div>
-
-                        <div class="cert-slide itsupport-cert">
-                            <h3>Google IT Support Professional Certificate</h3>
-                            <div class="cert-container">
-                                <embed src="" type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="" target="_blank" class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div> -->
-
-                        <!-- Advanced Data Analytics Certificates -->
-                        <!-- <div class="cert-slide advancedanalytics-cert">
-                            <h3>Google Advanced Data Analytics Certificate</h3>
-                            <div class="cert-container">
-                                <embed src="" type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="" target="_blank" class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div> -->
-
-                        <!-- IT Automation with Python Certificates -->
-                        <!-- <div class="cert-slide itautomation-cert">
-                            <h3>Google IT Automation with Python Certificate</h3>
-                            <div class="cert-container">
-                                <embed src="" type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="" target="_blank" class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div> -->
-
-                        <!-- UX Design Certificates -->
-                        <!-- <div class="cert-slide uxdesign-cert">
-                            <h3>Google UX Design Certificate</h3>
-                            <div class="cert-container">
-                                <embed src="" type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="" target="_blank" class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div> -->
-
-                        <!-- Business Intelligence Certificates -->
-                        <!-- <div class="cert-slide businessintel-cert">
-                            <h3>Google Business Intelligence Certificate</h3>
-                            <div class="cert-container">
-                                <embed src="" type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="" target="_blank" class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div> -->
-
-                        <!-- Project Management Certificates -->
-                        <!-- <div class="cert-slide projectmgmt-cert">
-                            <h3>Google Project Management Certificate</h3>
-                            <div class="cert-container">
-                                <embed src="" type="application/pdf" class="cert-pdf">
-                                <div class="pdf-fallback">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <p>PDF preview not available on mobile</p>
-                                </div>
-                            </div>
-                            <a href="" target="_blank" class="view-cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div> -->
-                    </div>
-
-                    <button class="carousel-btn next-btn" onclick="changeSlide(1)">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-
-                <div class="slide-indicator">
-                    <span id="slideNumber">1 / 3</span>
-                </div>
-            </div>
+    <!-- Searchable credential gallery -->
+    <div id="certificatesModal" class="modal credential-modal" role="dialog" aria-modal="true" aria-labelledby="credentialGalleryTitle" tabindex="-1">
+      <div class="modal-overlay" onclick="closeCertificatesModal()"></div>
+      <div class="modal-content glass-modal credential-shell">
+        <button class="modal-close" type="button" aria-label="Close certifications" onclick="closeCertificatesModal()"><i class="fas fa-times" aria-hidden="true"></i></button>
+        <div id="credentialBrowse">
+          <div class="credential-heading"><span class="credential-eyebrow">THE LEARNING COLLECTION / 17 CREDENTIALS</span><h2 id="credentialGalleryTitle">Proof of curiosity<span>.</span></h2><p>Courses completed. Skills put to work. Explore the learning behind the projects.</p></div>
+          <section class="credential-completed" aria-labelledby="completedCredentialsTitle"><div class="credential-completed-heading"><h3 id="completedCredentialsTitle">Completed professional certificates</h3><p>Full programs completed through Google and Coursera.</p></div><div class="credential-completed-grid"><button class="credential-feature completed-dataanalytics" type="button" data-credential="credential-11"><span class="credential-feature-art" aria-hidden="true">↗<span>PROGRAM<br>COMPLETE.</span></span><span class="credential-feature-copy"><span class="credential-eyebrow">✓ COMPLETED / DATA ANALYTICS</span><strong>Google Data Analytics Professional Certificate</strong><span>Google · Coursera</span><span class="credential-feature-action">Explore the full credential ↗</span></span></button><button class="credential-feature completed-itsupport" type="button" data-credential="credential-17"><span class="credential-feature-art" aria-hidden="true">⌘<span>PROGRAM<br>COMPLETE.</span></span><span class="credential-feature-copy"><span class="credential-eyebrow">✓ COMPLETED / IT SUPPORT</span><strong>Google IT Support Professional Certificate</strong><span>Google · Coursera</span><span class="credential-feature-action">Explore the full credential ↗</span></span></button></div></section>
+          <div class="credential-toolbar"><div class="credential-filters" role="group" aria-label="Filter certifications"><button type="button" data-cert-filter="all" aria-pressed="true">All credentials <span>17</span></button><button type="button" data-cert-filter="yearup" aria-pressed="false">Development <span>2</span></button><button type="button" data-cert-filter="dataanalytics" aria-pressed="false">Data analytics <span>9</span></button><button type="button" data-cert-filter="itsupport" aria-pressed="false">IT support <span>6</span></button></div><label class="credential-search"><i class="fas fa-search" aria-hidden="true"></i><span class="sr-only">Search certifications</span><input id="credentialSearch" type="search" placeholder="Find a credential…" autocomplete="off" aria-controls="credentialGrid"></label></div>
+          <div class="credential-results"><p id="credentialResultCount" role="status" aria-live="polite" aria-atomic="true">Showing all 17 credentials</p><button type="button" id="credentialReset">Reset filters ↻</button></div>
+          <p id="credentialEmpty" class="credential-empty" hidden>No credentials match. Try another search or reset the filters.</p>
+          <div id="credentialGrid" class="credential-grid"><button type="button" class="credential-card credential-yearup" data-credential="credential-1" aria-label="View Bootcamp Completion - Year Up United"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Year Up United</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Bootcamp Completion - Year Up United</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>Development</span><span aria-hidden="true">↗</span></span><strong>Bootcamp Completion - Year Up United</strong><span class="credential-provider">Year Up United</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
+<button type="button" class="credential-card credential-yearup" data-credential="credential-2" aria-label="View Certificate of Completion - Year Up United"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Year Up United</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Certificate of Completion - Year Up United</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>Development</span><span aria-hidden="true">↗</span></span><strong>Certificate of Completion - Year Up United</strong><span class="credential-provider">Year Up United</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
+<button type="button" class="credential-card credential-dataanalytics" data-credential="credential-3" aria-label="View Foundations: Data, Data, Everywhere"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Foundations: Data, Data, Everywhere</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>Data analytics</span><span aria-hidden="true">↗</span></span><strong>Foundations: Data, Data, Everywhere</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
+<button type="button" class="credential-card credential-dataanalytics" data-credential="credential-4" aria-label="View Ask Questions to Make Data-Driven Decisions"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Ask Questions to Make Data-Driven Decisions</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>Data analytics</span><span aria-hidden="true">↗</span></span><strong>Ask Questions to Make Data-Driven Decisions</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
+<button type="button" class="credential-card credential-dataanalytics" data-credential="credential-5" aria-label="View Prepare Data for Exploration"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Prepare Data for Exploration</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>Data analytics</span><span aria-hidden="true">↗</span></span><strong>Prepare Data for Exploration</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
+<button type="button" class="credential-card credential-dataanalytics" data-credential="credential-6" aria-label="View Process Data from Dirty to Clean"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Process Data from Dirty to Clean</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>Data analytics</span><span aria-hidden="true">↗</span></span><strong>Process Data from Dirty to Clean</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
+<button type="button" class="credential-card credential-dataanalytics" data-credential="credential-7" aria-label="View Analyze Data to Answer Questions"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Analyze Data to Answer Questions</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>Data analytics</span><span aria-hidden="true">↗</span></span><strong>Analyze Data to Answer Questions</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
+<button type="button" class="credential-card credential-dataanalytics" data-credential="credential-8" aria-label="View Share Data Through the Art of Visualization"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Share Data Through the Art of Visualization</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>Data analytics</span><span aria-hidden="true">↗</span></span><strong>Share Data Through the Art of Visualization</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
+<button type="button" class="credential-card credential-dataanalytics" data-credential="credential-9" aria-label="View Introduction to Data Analysis Using Python"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Introduction to Data Analysis Using Python</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>Data analytics</span><span aria-hidden="true">↗</span></span><strong>Introduction to Data Analysis Using Python</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
+<button type="button" class="credential-card credential-dataanalytics" data-credential="credential-10" aria-label="View Google Data Analytics Capstone: Complete a Case Study"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Google Data Analytics Capstone: Complete a Case Study</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>Data analytics</span><span aria-hidden="true">↗</span></span><strong>Google Data Analytics Capstone: Complete a Case Study</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
+<button type="button" class="credential-card credential-dataanalytics" data-credential="credential-11" aria-label="View Google Data Analytics Professional Certificate"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Google Data Analytics Professional Certificate</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>Data analytics</span><span aria-hidden="true">↗</span></span><strong>Google Data Analytics Professional Certificate</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
+<button type="button" class="credential-card credential-itsupport" data-credential="credential-12" aria-label="View Technical Support Fundamentals"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Technical Support Fundamentals</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>IT support</span><span aria-hidden="true">↗</span></span><strong>Technical Support Fundamentals</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
+<button type="button" class="credential-card credential-itsupport" data-credential="credential-13" aria-label="View The Bits and Bytes of Computer Networking"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">The Bits and Bytes of Computer Networking</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>IT support</span><span aria-hidden="true">↗</span></span><strong>The Bits and Bytes of Computer Networking</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
+<button type="button" class="credential-card credential-itsupport" data-credential="credential-14" aria-label="View Operating Systems and You: Becoming a Power User"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Operating Systems and You: Becoming a Power User</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>IT support</span><span aria-hidden="true">↗</span></span><strong>Operating Systems and You: Becoming a Power User</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
+<button type="button" class="credential-card credential-itsupport" data-credential="credential-15" aria-label="View System Administration and IT Infrastructure Services"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">System Administration and IT Infrastructure Services</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>IT support</span><span aria-hidden="true">↗</span></span><strong>System Administration and IT Infrastructure Services</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
+<button type="button" class="credential-card credential-itsupport" data-credential="credential-16" aria-label="View IT Security: Defense Against the Digital Dark Arts"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">IT Security: Defense Against the Digital Dark Arts</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>IT support</span><span aria-hidden="true">↗</span></span><strong>IT Security: Defense Against the Digital Dark Arts</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
+<button type="button" class="credential-card credential-itsupport" data-credential="credential-17" aria-label="View Google IT Support Professional Certificate"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Google IT Support Professional Certificate</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>IT support</span><span aria-hidden="true">↗</span></span><strong>Google IT Support Professional Certificate</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button></div>
         </div>
+        <div id="credentialDetail" hidden>
+          <button type="button" id="credentialBack" class="credential-back">← Back to the collection</button>
+          <div class="credential-detail-heading"><span id="credentialDetailCategory" class="credential-eyebrow"></span><h2 id="credentialDetailTitle" tabindex="-1"></h2><p id="credentialDetailProvider"></p></div>
+          <div class="credential-detail-layout"><div class="credential-preview"><div id="credentialPdf"></div><p>Preview unavailable? Use Open PDF to view the original certificate in your browser.</p></div><aside class="credential-detail-info" aria-label="Credential information"><h3>The original credential</h3><a id="credentialOpenPdf" target="_blank" rel="noopener noreferrer" class="credential-primary">Open PDF ↗</a><a id="credentialDownload" class="credential-secondary" download>Download certificate ↓</a><a id="credentialVerify" target="_blank" rel="noopener noreferrer" class="credential-secondary" hidden>View provider badge ↗</a><div class="credential-skill-section"><h3>Top skills</h3><p id="credentialSkillsDescription">Selected skill highlights.</p><div id="credentialSkills" class="credential-skill-tags"></div><a id="credentialSkillsSource" class="credential-syllabus" target="_blank" rel="noopener noreferrer">View provider curriculum ↗</a></div><button id="credentialProgram" type="button" class="credential-secondary">Explore the program →</button><a id="credentialRelated" class="credential-related">See related work ↗</a></aside></div>
+        </div>
+      </div>
     </div>
 
-    <!-- Year Up United Info Modal -->
-    <div id="yearUpInfoModal" class="modal">
+    <div id="yearUpInfoModal" class="modal" role="dialog" aria-modal="true" tabindex="-1">
         <div class="modal-overlay" onclick="closeYearUpInfoModal()"></div>
         <div class="modal-content glass-modal course-info-modal">
-            <button class="modal-close" onclick="closeYearUpInfoModal()">
+            <button class="modal-close" aria-label="Close dialog" onclick="closeYearUpInfoModal()">
                 <i class="fas fa-times"></i>
             </button>
 
@@ -2603,7 +1584,7 @@
                 </div>
 
                 <div class="course-footer">
-                    <a href="https://www.yearup.org/" target="_blank" class="course-link-btn">
+                    <a href="https://www.yearup.org/" target="_blank" rel="noopener noreferrer" class="course-link-btn">
                         <i class="fas fa-external-link-alt"></i> Learn More About Year Up United
                     </a>
                 </div>
@@ -2612,10 +1593,10 @@
     </div>
 
     <!-- Course Info Modal -->
-    <div id="courseInfoModal" class="modal">
+    <div id="courseInfoModal" class="modal" role="dialog" aria-modal="true" tabindex="-1">
         <div class="modal-overlay" onclick="closeCourseInfoModal()"></div>
         <div class="modal-content glass-modal course-info-modal">
-            <button class="modal-close" onclick="closeCourseInfoModal()">
+            <button class="modal-close" aria-label="Close dialog" onclick="closeCourseInfoModal()">
                 <i class="fas fa-times"></i>
             </button>
 
@@ -2844,11 +1825,11 @@
 
                 <div class="course-footer">
                     <a href="https://www.coursera.org/professional-certificates/google-data-analytics" target="_blank"
-                        class="course-link-btn">
+                        rel="noopener noreferrer" class="course-link-btn">
                         <i class="fas fa-external-link-alt"></i> View Course on Coursera
                     </a>
                     <a href="https://www.credly.com/badges/2a0e60ae-073d-4889-a1a3-c9c4876bc024/linked_in?t=tba2ty"
-                        target="_blank" class="course-link-btn">
+                        target="_blank" rel="noopener noreferrer" class="course-link-btn">
                         <i class="fas fa-certificate"></i> View Full Certificate Badge
                     </a>
                 </div>
@@ -2857,10 +1838,10 @@
     </div>
 
     <!-- IT Support Course Info Modal -->
-    <div id="itSupportInfoModal" class="modal">
+    <div id="itSupportInfoModal" class="modal" role="dialog" aria-modal="true" tabindex="-1">
         <div class="modal-overlay" onclick="closeITSupportInfoModal()"></div>
         <div class="modal-content glass-modal course-info-modal">
-            <button class="modal-close" onclick="closeITSupportInfoModal()">
+            <button class="modal-close" aria-label="Close dialog" onclick="closeITSupportInfoModal()">
                 <i class="fas fa-times"></i>
             </button>
 
@@ -3016,7 +1997,7 @@
 
                 <div class="course-footer">
                     <a href="https://www.coursera.org/professional-certificates/google-it-support" target="_blank"
-                        class="course-link-btn">
+                        rel="noopener noreferrer" class="course-link-btn">
                         <i class="fas fa-external-link-alt"></i> View Course on Coursera
                     </a>
                     <a href="https://www.credly.com/earner/earned/badge/1fe87c3f-305e-4e96-98ac-da444e420bfe"
@@ -3029,7 +2010,13 @@
     </div>
 
     <!-- Custom JavaScript -->
-    <script src="script.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/modals.js"></script>
+    <script src="assets/js/credentials.js"></script>
+    <script src="assets/js/interactions.js"></script>
+    <script src="assets/js/activity.js"></script>
+    <script src="assets/js/navigation-theme.js"></script>
+    <script src="assets/js/motion-toolkit.js"></script>
 </body>
 
 </html>

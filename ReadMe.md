@@ -1,8 +1,82 @@
-# 🌐 Jordan Alexis - Portfolio Website
+# Jordan Alexis — Portfolio
 
-A modern, interactive portfolio built from scratch showcasing my journey as a developer. Previous versions live in the Trail folder.
+A personal portfolio showcasing my work in full-stack development, data analytics, and multimedia. Built with HTML, CSS, and vanilla JavaScript.
 
-## 🕐 Recent Updates
+[View the portfolio](https://jordan721.github.io/Jordan_Alexis/)
+
+## Current design and features
+
+- **Creative studio design:** oversized typography, a portrait collage, hand-drawn details, illustrated project covers, and solid backgrounds.
+- **Responsive navigation:** sticky header, sliding link highlight, active-section tracking, and an animated mobile menu.
+- **Light and dark themes:** animated sun/moon toggle, saved preference, and a circular reveal in browsers supporting View Transitions. Other browsers use a color transition; reduced-motion preferences are respected.
+- **Selected projects:** three featured projects with links to live work, plus six more available through the expand/collapse control.
+- **Interactive toolkit:** search skills, filter by discipline, and pin up to five skills to a personal workbench. Includes clear/reset controls and keyboard-accessible buttons.
+- **About and experience:** profile cards, a timeline with year/type filters, and animated experience counters.
+- **Education and credentials:** education cards, resume selection, and a searchable 17-credential gallery with category filters, completed professional certificate highlights, PDF previews/downloads, existing provider badge links, program details, and certificate-specific top-skill highlights sourced from provider curricula.
+- **GitHub activity:** recent repositories, commits, profile statistics, and a contribution chart.
+- **Readability:** improved dark-mode contrast and stable toolkit cards without the 3D tilt effect.
+
+## Run locally
+
+Open `index.html` in a browser. No installation, build step, or API key is required.
+
+An internet connection is needed for Google Fonts, Font Awesome, GitHub activity, and the contribution chart. Local images and PDFs keep their existing relative paths.
+
+## Project structure
+
+```text
+Jordan_Alexis/
+├── index.html
+├── assets/
+│   ├── css/
+│   │   ├── modals.css          # Resume and certification dialog layouts
+│   │   ├── studio.css          # Base layout, sections, themes, responsive styles
+│   │   ├── creative.css        # Collage design and project illustrations
+│   │   ├── motion-toolkit.css  # Theme/nav animation, toolkit, contrast fixes
+│   │   └── credentials.css     # Credential gallery and PDF detail viewer
+│   └── js/
+│       ├── main.js             # Section initialization, filters, counters
+│       ├── modals.js           # Accessible dialogs and nested program details
+│       ├── credentials.js      # Credential data, search/filtering, PDF viewer
+│       ├── interactions.js     # Shared scrolling and back-to-top behavior
+│       ├── activity.js         # GitHub activity
+│       ├── navigation-theme.js # Menu, themes, project expansion
+│       └── motion-toolkit.js   # Navigation highlight and skill playground
+├── main.css                   # Compatibility stylesheet importing active CSS
+├── script.js                  # Pointer to the scripts in assets/js/
+├── Me.png
+├── Pics/
+├── Certifications/
+├── Jordan_Alexis*.pdf          # Resume variants
+├── Trail_*/                   # Previous portfolio versions
+├── SOURCE-STRUCTURE.md
+└── ReadMe.md
+```
+
+The tree lists the active CSS and JavaScript files. Earlier stylesheets and `effects.js` remain in `assets/` as inactive source.
+
+Skill sources and selection notes are documented in [docs/CREDENTIAL-SOURCES.md](docs/CREDENTIAL-SOURCES.md).
+
+## Editing the site
+
+Update portfolio content and links in `index.html`. Styles load in the order shown above; later stylesheets refine the base design. Keep mobile and reduced-motion rules with the feature they affect.
+
+JavaScript files load as ordered classic scripts so existing inline button handlers continue to work. Preserve their order in `index.html` when reorganizing code. See [SOURCE-STRUCTURE.md](SOURCE-STRUCTURE.md) for the file responsibilities.
+
+## Recent updates
+
+### November 7, 2026
+
+- Replaced dashboard sidebar navigation with a sticky top header and mobile menu.
+- Introduced the creative studio layout, portrait collage, and illustrated project covers.
+- Organized CSS and JavaScript into separate folders and feature files.
+- Added theme-switch and navbar animation, skill search/filtering, and the five-skill workbench.
+- Improved dark-mode contrast, removed dotted background textures, and removed toolkit card tilt to keep text sharp.
+- Replaced certificate folders and the carousel with a searchable gallery, category filters, completed professional certificate highlights, and a larger PDF detail view.
+
+## Earlier updates
+
+These entries describe previous versions and may reference features that have since been replaced.
 
 ### 📅 February 19, 2026
 Projects section collapsible expand/collapse and new project links added.
@@ -47,52 +121,10 @@ Gamification system with toggle panel (cursor trail, floating particles, card ti
 ### 📅 December 2025
 Certificate folder system with carousel, responsive year filtering, folder hover animations, and complete site redesign from Trail_7.
 
----
+## Connect
 
-## ✨ Key Features
+- [LinkedIn](https://www.linkedin.com/in/jordan-alexis/)
+- [GitHub](https://github.com/Jordan721)
+- [Linktree](https://linktr.ee/Jordan_Alexis_)
 
-- 🗂️ **Dashboard Side Nav** — Icon rail + expandable panel with profile, navigation, and social links
-- 🌙 **Dark / Light Mode** — Full theme toggle with localStorage persistence
-- 💼 **Split Panel Experience** — Clean left/right layout with year filters, type filters, and animated stat counters
-- 👤 **Tabbed About Me** — Single profile card with 6 tabs (Who I Am, What I Build, How I Work, What Drives Me, Fun Facts, Certifications)
-- 🎓 **Split Panel Education** — Unified timeline with progress bars, status badges, and full details for all 5 programs
-- 🏷️ **Interactive Tag Cloud** — Filterable skill tags with unique shapes, borders, and hover animations per category
-- 🐙 **GitHub Activity Feed** — Live commits, repos, and stats from GitHub API
-- 📜 **Certificate System** — Folder-based navigation with carousel viewer and info modals
-- 🎮 **Gamification Panel** — Toggle cursor trails, particles, card tilt, ripples, grid, and icon effects
-- 🕸️ **Animated Grid** — Canvas-based interactive background with mouse-responsive glow
-- 🪟 **Glass Morphism** — Consistent frosted glass design throughout
-- 📂 **Expandable Projects Grid** — Shows 3 featured projects by default, expands to all 9 with an animated Show More / Show Less toggle
-
----
-
-## 🛠️ Tech Stack
-
-- 🧱 **HTML5** — Semantic markup
-- 🎨 **CSS3** — Variables, Grid, Flexbox, glassmorphism, animations, theme system
-- ⚡ **JavaScript (ES6)** — Vanilla JS, Canvas API, GitHub API, localStorage
-- 🔣 **Font Awesome** — Icons
-
-## 📁 Project Structure
-
-```
-Jordan_Alexis/
-├── index.html          # Main portfolio page
-├── main.css            # Styles + theme system
-├── script.js           # Interactivity + side nav + theme toggle
-├── Me.png              # Profile photo
-├── Certifications/     # PDF certificates
-├── Pics/               # Project screenshots
-├── Trail_#/            # Older site versions
-└── ReadMe.md
-```
-
----
-
-## 🤝 Connect
-
-- 💼 [LinkedIn](https://www.linkedin.com/in/jordan-alexis/)
-- 🐙 [GitHub](https://github.com/Jordan721)
-- 🌿 [Linktree](https://linktr.ee/Jordan_Alexis_)
-
-**🗓️ Last Updated:** February 19, 2026
+Last updated: November 7, 2026
