@@ -2,7 +2,10 @@
 
 Open index.html in a browser. No build is required.
 
+The page links to main.css, which imports the active stylesheets. Add or reorder CSS imports in main.css.
+
 Active styles:
+- assets/css/journey.css: side-by-side experience chapters and achievement cards, filters, responsive stat cards, and expandable role details.
 - assets/css/credentials.css: searchable credential gallery and responsive PDF detail viewer.
 - assets/css/motion-toolkit.css: theme reveal, animated navigation, and searchable skill workbench.
 - assets/css/creative.css: sketchbook and collage presentation, project illustrations, and responsive creative treatments. Loads after studio.css.
@@ -18,4 +21,4 @@ Active JavaScript:
 - interactions.js: shared scrolling and back-to-top behavior.
 - activity.js: GitHub repositories and commits.
 
-Scripts remain classic scripts to support existing inline handlers. Images and PDFs retain their original paths. Previous CSS files and effects.js are retained as inactive source; index.html lists the active files. Trail folders are preserved.
+Scripts remain classic scripts to support existing inline handlers. Images and PDFs retain their original paths. Previous CSS files and effects.js are retained as inactive source; main.css lists the active CSS imports and index.html lists the active scripts. Trail folders are preserved.

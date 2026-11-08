@@ -11,7 +11,7 @@ A personal portfolio showcasing my work in full-stack development, data analytic
 - **Light and dark themes:** animated sun/moon toggle, saved preference, and a circular reveal in browsers supporting View Transitions. Other browsers use a color transition; reduced-motion preferences are respected.
 - **Selected projects:** three featured projects with links to live work, plus six more available through the expand/collapse control.
 - **Interactive toolkit:** search skills, filter by discipline, and pin up to five skills to a personal workbench. Includes clear/reset controls and keyboard-accessible buttons.
-- **About and experience:** profile cards, a timeline with year/type filters, and animated experience counters.
+- **About and experience:** profile cards, side-by-side chapter cards for roles and milestones, expandable role details, year/type filters with reset and result counts, and animated experience counters.
 - **Education and credentials:** education cards, resume selection, and a searchable 17-credential gallery with category filters, completed professional certificate highlights, PDF previews/downloads, existing provider badge links, program details, and certificate-specific top-skill highlights sourced from provider curricula.
 - **GitHub activity:** recent repositories, commits, profile statistics, and a contribution chart.
 - **Readability:** improved dark-mode contrast and stable toolkit cards without the 3D tilt effect.
@@ -42,7 +42,7 @@ Jordan_Alexis/
 │       ├── activity.js         # GitHub activity
 │       ├── navigation-theme.js # Menu, themes, project expansion
 │       └── motion-toolkit.js   # Navigation highlight and skill playground
-├── main.css                   # Compatibility stylesheet importing active CSS
+├── main.css                   # Main entry point importing organized styles
 ├── script.js                  # Pointer to the scripts in assets/js/
 ├── Me.png
 ├── Pics/
@@ -59,7 +59,7 @@ Skill sources and selection notes are documented in [docs/CREDENTIAL-SOURCES.md]
 
 ## Editing the site
 
-Update portfolio content and links in `index.html`. Styles load in the order shown above; later stylesheets refine the base design. Keep mobile and reduced-motion rules with the feature they affect.
+Update portfolio content and links in `index.html`. The page links to `main.css`, which imports the organized styles in order; later stylesheets refine the base design. Add new CSS imports there. Keep mobile and reduced-motion rules with the feature they affect.
 
 JavaScript files load as ordered classic scripts so existing inline button handlers continue to work. Preserve their order in `index.html` when reorganizing code. See [SOURCE-STRUCTURE.md](SOURCE-STRUCTURE.md) for the file responsibilities.
 

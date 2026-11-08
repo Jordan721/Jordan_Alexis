@@ -1,6 +1,7 @@
-/* Compatibility entry point. Active design: assets/css/studio.css. */
+/* Main stylesheet entry point. Keep imports in this order to preserve the cascade. */
 @import url("assets/css/modals.css");
 @import url("assets/css/studio.css");
 @import url("assets/css/creative.css");
 @import url("assets/css/motion-toolkit.css");
 @import url("assets/css/credentials.css");
+@import url("assets/css/journey.css");

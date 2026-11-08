@@ -38,11 +38,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Organized site styles -->
-    <link rel="stylesheet" href="assets/css/modals.css">
-    <link rel="stylesheet" href="assets/css/studio.css">
-    <link rel="stylesheet" href="assets/css/creative.css">
-    <link rel="stylesheet" href="assets/css/motion-toolkit.css">
-    <link rel="stylesheet" href="assets/css/credentials.css">
+    <link rel="stylesheet" href="main.css">
+  
 </head>
 
 <body>
@@ -328,7 +325,6 @@
             </div>
         </section>
 
-
         <section id="about" class="section about-section">
 
             <div class="section-header"><span class="section-number">02 / BEHIND THE WORK</span>
@@ -431,72 +427,79 @@
         <section id="experience" class="section">
             <div class="section-header"><span class="section-number">03 / THE JOURNEY</span>
                 <h2 class="section-title">Always learning.<br>Always building.</h2>
-                <p class="section-intro">The roles, experiences, and milestones that shaped my approach.</p>
+                <p class="section-intro">Different roles. New skills. Meaningful milestones. A collection of the experiences that shaped how I build.</p>
             </div>
 
             <!-- Stats Bar -->
             <div class="exp-stats-bar">
-                <div class="exp-stat-pill glass-card">
+                <div class="exp-stat-pill glass-card"><i class="fas fa-route journey-stat-icon" aria-hidden="true"></i>
                     <span class="exp-stat-num" data-target="11">0</span>
                     <span class="exp-stat-label">Years</span>
                 </div>
-                <div class="exp-stat-pill glass-card">
+                <div class="exp-stat-pill glass-card"><i class="fas fa-building journey-stat-icon"
+                        aria-hidden="true"></i>
                     <span class="exp-stat-num" data-target="11">0</span>
                     <span class="exp-stat-label">Organizations</span>
                 </div>
-                <div class="exp-stat-pill glass-card">
+                <div class="exp-stat-pill glass-card"><i class="fas fa-graduation-cap journey-stat-icon"
+                        aria-hidden="true"></i>
                     <span class="exp-stat-num" data-target="2">0</span>
                     <span class="exp-stat-label">Degrees</span>
                 </div>
-                <div class="exp-stat-pill glass-card">
+                <div class="exp-stat-pill glass-card"><i class="fas fa-award journey-stat-icon" aria-hidden="true"></i>
                     <span class="exp-stat-num" data-target="17">0</span>
-                    <span class="exp-stat-label">Certs</span>
+                    <span class="exp-stat-label">Credentials</span>
                 </div>
             </div>
 
             <!-- Timeline Filters -->
+            <div class="journey-filter-label"><span>EXPLORE THE CHAPTERS</span><button type="button"
+                    onclick="resetJourneyFilters()">Reset filters ↻</button></div>
             <div class="h-timeline-filters">
-                <div class="h-filter-group">
-                    <button class="h-filter-btn active" data-filter="all"
-                        onclick="filterTimeline('all', 'year')">All</button>
-                    <button class="h-filter-btn" data-filter="2026"
+                <div class="h-filter-group" role="group" aria-label="Filter journey by year">
+                    <button class="h-filter-btn active" aria-pressed="true" data-filter="all"
+                        onclick="filterTimeline('all', 'year')">All years</button>
+                    <button class="h-filter-btn" aria-pressed="false" data-filter="2026"
                         onclick="filterTimeline('2026', 'year')">2026</button>
-                    <button class="h-filter-btn" data-filter="2025"
+                    <button class="h-filter-btn" aria-pressed="false" data-filter="2025"
                         onclick="filterTimeline('2025', 'year')">2025</button>
-                    <button class="h-filter-btn" data-filter="2023"
+                    <button class="h-filter-btn" aria-pressed="false" data-filter="2023"
                         onclick="filterTimeline('2023', 'year')">2023</button>
-                    <button class="h-filter-btn" data-filter="2021"
+                    <button class="h-filter-btn" aria-pressed="false" data-filter="2021"
                         onclick="filterTimeline('2021', 'year')">2021</button>
-                    <button class="h-filter-btn" data-filter="2020"
+                    <button class="h-filter-btn" aria-pressed="false" data-filter="2020"
                         onclick="filterTimeline('2020', 'year')">2020</button>
-                    <button class="h-filter-btn" data-filter="2019"
+                    <button class="h-filter-btn" aria-pressed="false" data-filter="2019"
                         onclick="filterTimeline('2019', 'year')">2019</button>
-                    <button class="h-filter-btn" data-filter="2018"
+                    <button class="h-filter-btn" aria-pressed="false" data-filter="2018"
                         onclick="filterTimeline('2018', 'year')">2018</button>
-                    <button class="h-filter-btn" data-filter="2017"
+                    <button class="h-filter-btn" aria-pressed="false" data-filter="2017"
                         onclick="filterTimeline('2017', 'year')">2017</button>
-                    <button class="h-filter-btn" data-filter="2014"
+                    <button class="h-filter-btn" aria-pressed="false" data-filter="2014"
                         onclick="filterTimeline('2014', 'year')">2014</button>
                 </div>
-                <div class="h-filter-group h-filter-type">
-                    <button class="h-filter-btn type-btn active" data-filter="all"
-                        onclick="filterTimeline('all', 'type')">All</button>
-                    <button class="h-filter-btn type-btn" data-filter="job"
+                <div class="h-filter-group h-filter-type" role="group" aria-label="Filter journey by entry type">
+                    <button class="h-filter-btn type-btn active" aria-pressed="true" data-filter="all"
+                        onclick="filterTimeline('all', 'type')">Everything</button>
+                    <button class="h-filter-btn type-btn" aria-pressed="false" data-filter="job"
                         onclick="filterTimeline('job', 'type')">Jobs</button>
-                    <button class="h-filter-btn type-btn" data-filter="milestone"
+                    <button class="h-filter-btn type-btn" aria-pressed="false" data-filter="milestone"
                         onclick="filterTimeline('milestone', 'type')">Milestones</button>
                 </div>
             </div>
 
             <!-- Split Panel Experience List -->
-            <div class="split-panel-list">
+            <div class="journey-list-heading"><span>A COLLECTION OF CHAPTERS</span><span id="journeyResultCount" role="status"
+                    aria-live="polite" aria-atomic="true">15 experiences & milestones</span></div>
+            <p id="journeyEmpty" class="journey-empty" hidden>No entries match these filters. <button type="button"
+                    onclick="resetJourneyFilters()">Show the whole journey ↻</button></p>
+            <div class="split-panel-list journey-card-grid" aria-label="Career experiences and milestones">
 
                 <!-- Oct. 2026 Milestone -->
-                <div class="split-entry milestone" data-year="2026" data-type="milestone">
+                <div class="split-entry milestone" data-year="2026" data-type="milestone"><div class="journey-card-topline"><span>MILESTONE</span><span aria-hidden="true">01 / ✳</span></div>
                     <div class="split-left">
                         <span class="split-year">Oct. 2026</span>
                     </div>
-                    <div class="split-divider"><span class="split-dot milestone-dot"></span></div>
                     <div class="split-right split-milestone-content">
                         <span class="h-card-badge milestone-badge">🎓 Milestone</span>
                         <h3>Google IT Support Professional Certificate</h3>
@@ -507,11 +510,10 @@
                 </div>
 
                 <!-- Mar. 2026 Milestone -->
-                <div class="split-entry milestone" data-year="2026" data-type="milestone">
+                <div class="split-entry milestone" data-year="2026" data-type="milestone"><div class="journey-card-topline"><span>MILESTONE</span><span aria-hidden="true">02 / ✳</span></div>
                     <div class="split-left">
                         <span class="split-year">Mar. 2026</span>
                     </div>
-                    <div class="split-divider"><span class="split-dot milestone-dot"></span></div>
                     <div class="split-right split-milestone-content">
                         <span class="h-card-badge milestone-badge">📊 Milestone</span>
                         <h3>Google Data Analytics Professional Certificate</h3>
@@ -522,13 +524,12 @@
                 </div>
 
                 <!-- 2025 Morgan Stanley -->
-                <div class="split-entry job" data-year="2025" data-type="job">
+                <div class="split-entry job" data-year="2025" data-type="job"><div class="journey-card-topline"><span>WORK CHAPTER</span><span aria-hidden="true">03 / ↗</span></div>
                     <div class="split-left">
                         <span class="split-year">2025</span>
                         <span class="split-company">Morgan Stanley</span>
                         <span class="h-card-badge current-badge">🔥 Latest</span>
                     </div>
-                    <div class="split-divider"><span class="split-dot"></span></div>
                     <div class="split-right">
                         <h3>Data Analytics Developer Apprentice</h3>
                         <span class="split-date">July 2025 - Jan 2026</span>
@@ -537,26 +538,36 @@
                                 outputs used for business decision-making.</li>
                             <li>Optimized SQL queries and data workflows to improve processing efficiency and reduce
                                 execution time.</li>
-                            <li>Managed and maintained multiple relational databases to support enterprise-level project
-                                requirements.</li>
-                            <li>Built scalable backend solutions using Java, Python, and SQL within an Agile development
-                                environment.</li>
-                            <li>Integrated Git-based version control and Jira tracking for structured deployments and
-                                traceable code commits.</li>
-                            <li>Developed a Python automation tool to parse structured documents and generate Excel
-                                reports, reducing manual processing time.</li>
-                            <li>Leveraged AI-assisted development tools (Copilot) to accelerate coding tasks and improve
-                                productivity.</li>
                         </ul>
+                        <details class="journey-more">
+                            <summary><span class="journey-more-closed">More about this role</span><span
+                                    class="journey-more-open">Show fewer details</span><span aria-hidden="true">+</span>
+                            </summary>
+                            <ul class="split-details">
+                                <li>Managed and maintained multiple relational databases to support enterprise-level
+                                    project
+                                    requirements.</li>
+                                <li>Built scalable backend solutions using Java, Python, and SQL within an Agile
+                                    development
+                                    environment.</li>
+                                <li>Integrated Git-based version control and Jira tracking for structured deployments
+                                    and
+                                    traceable code commits.</li>
+                                <li>Developed a Python automation tool to parse structured documents and generate Excel
+                                    reports, reducing manual processing time.</li>
+                                <li>Leveraged AI-assisted development tools (Copilot) to accelerate coding tasks and
+                                    improve
+                                    productivity.</li>
+                            </ul>
+                        </details>
                     </div>
                 </div>
 
                 <!-- Jan. 2026 Milestone -->
-                <div class="split-entry milestone" data-year="2026" data-type="milestone">
+                <div class="split-entry milestone" data-year="2026" data-type="milestone"><div class="journey-card-topline"><span>MILESTONE</span><span aria-hidden="true">04 / ✳</span></div>
                     <div class="split-left">
                         <span class="split-year">Jan. 2026</span>
                     </div>
-                    <div class="split-divider"><span class="split-dot milestone-dot"></span></div>
                     <div class="split-right split-milestone-content">
                         <span class="h-card-badge milestone-badge">🎓 Milestone</span>
                         <h3>Career Pathways Certificate of Completion</h3>
@@ -567,11 +578,10 @@
                 </div>
 
                 <!-- 2025 Milestone -->
-                <div class="split-entry milestone" data-year="2025" data-type="milestone">
+                <div class="split-entry milestone" data-year="2025" data-type="milestone"><div class="journey-card-topline"><span>MILESTONE</span><span aria-hidden="true">05 / ✳</span></div>
                     <div class="split-left">
                         <span class="split-year">2025</span>
                     </div>
-                    <div class="split-divider"><span class="split-dot milestone-dot"></span></div>
                     <div class="split-right split-milestone-content">
                         <span class="h-card-badge milestone-badge">🚀 Milestone</span>
                         <h3>Year Up &rarr; Morgan Stanley</h3>
@@ -581,11 +591,10 @@
                 </div>
 
                 <!-- June 2025 Milestone -->
-                <div class="split-entry milestone" data-year="2025" data-type="milestone">
+                <div class="split-entry milestone" data-year="2025" data-type="milestone"><div class="journey-card-topline"><span>MILESTONE</span><span aria-hidden="true">06 / ✳</span></div>
                     <div class="split-left">
                         <span class="split-year">June 2025</span>
                     </div>
-                    <div class="split-divider"><span class="split-dot milestone-dot"></span></div>
                     <div class="split-right split-milestone-content">
                         <span class="h-card-badge milestone-badge">💻 Milestone</span>
                         <h3>Java Focus – 12-Week Immersive Developer Academy</h3>
@@ -596,12 +605,11 @@
                 </div>
 
                 <!-- 2023 Tip Top Shoes -->
-                <div class="split-entry job" data-year="2023" data-type="job">
+                <div class="split-entry job" data-year="2023" data-type="job"><div class="journey-card-topline"><span>WORK CHAPTER</span><span aria-hidden="true">07 / ↗</span></div>
                     <div class="split-left">
                         <span class="split-year">2023</span>
                         <span class="split-company">Tip Top Shoes</span>
                     </div>
-                    <div class="split-divider"><span class="split-dot"></span></div>
                     <div class="split-right">
                         <h3>Product Lister & Data Entry</h3>
                         <span class="split-date">Dec 2023</span>
@@ -610,23 +618,30 @@
                             </li>
                             <li>Applied SEO best practices to increase organic traffic and improve product
                                 discoverability.</li>
-                            <li>Automated repetitive data-entry workflows, reducing manual errors and improving
-                                operational efficiency.</li>
-                            <li>Analyzed performance metrics to identify high-performing SKUs and support data-driven
-                                merchandising decisions.</li>
-                            <li>Standardized product data structures to improve filtering accuracy and search
-                                performance.</li>
                         </ul>
+                        <details class="journey-more">
+                            <summary><span class="journey-more-closed">More about this role</span><span
+                                    class="journey-more-open">Show fewer details</span><span aria-hidden="true">+</span>
+                            </summary>
+                            <ul class="split-details">
+                                <li>Automated repetitive data-entry workflows, reducing manual errors and improving
+                                    operational efficiency.</li>
+                                <li>Analyzed performance metrics to identify high-performing SKUs and support
+                                    data-driven
+                                    merchandising decisions.</li>
+                                <li>Standardized product data structures to improve filtering accuracy and search
+                                    performance.</li>
+                            </ul>
+                        </details>
                     </div>
                 </div>
 
                 <!-- 2021 Unadat -->
-                <div class="split-entry job" data-year="2021" data-type="job">
+                <div class="split-entry job" data-year="2021" data-type="job"><div class="journey-card-topline"><span>WORK CHAPTER</span><span aria-hidden="true">08 / ↗</span></div>
                     <div class="split-left">
                         <span class="split-year">2021</span>
                         <span class="split-company">Unadat</span>
                     </div>
-                    <div class="split-divider"><span class="split-dot"></span></div>
                     <div class="split-right">
                         <h3>Software Engineer Intern</h3>
                         <span class="split-date">July 2021 - Aug 2021</span>
@@ -635,21 +650,29 @@
                                 enhancing accessibility and user preference support.</li>
                             <li>Conducted user research, usability testing, and A/B experiments to improve engagement
                                 and interface clarity.</li>
-                            <li>Partnered with cross-functional teams to refine UI components and streamline front-end
-                                architecture.</li>
-                            <li>Improved responsiveness and optimized front-end performance through asset refactoring
-                                and best practices.</li>
                         </ul>
+                        <details class="journey-more">
+                            <summary><span class="journey-more-closed">More about this role</span><span
+                                    class="journey-more-open">Show fewer details</span><span aria-hidden="true">+</span>
+                            </summary>
+                            <ul class="split-details">
+                                <li>Partnered with cross-functional teams to refine UI components and streamline
+                                    front-end
+                                    architecture.</li>
+                                <li>Improved responsiveness and optimized front-end performance through asset
+                                    refactoring
+                                    and best practices.</li>
+                            </ul>
+                        </details>
                     </div>
                 </div>
 
                 <!-- 2020 B&A Appliances -->
-                <div class="split-entry job" data-year="2020" data-type="job">
+                <div class="split-entry job" data-year="2020" data-type="job"><div class="journey-card-topline"><span>WORK CHAPTER</span><span aria-hidden="true">09 / ↗</span></div>
                     <div class="split-left">
                         <span class="split-year">2020</span>
                         <span class="split-company">B&A Appliances</span>
                     </div>
-                    <div class="split-divider"><span class="split-dot"></span></div>
                     <div class="split-right">
                         <h3>Data Entry Associate</h3>
                         <span class="split-date">Jan 2020 - Mar 2025</span>
@@ -658,20 +681,26 @@
                                 of data accuracy.</li>
                             <li>Managed large volumes of transaction records while preserving data integrity and audit
                                 compliance.</li>
-                            <li>Implemented improved tracking processes that reduced inventory discrepancies.</li>
-                            <li>Collaborated across departments to streamline workflows and enhance operational
-                                efficiency.</li>
                         </ul>
+                        <details class="journey-more">
+                            <summary><span class="journey-more-closed">More about this role</span><span
+                                    class="journey-more-open">Show fewer details</span><span aria-hidden="true">+</span>
+                            </summary>
+                            <ul class="split-details">
+                                <li>Implemented improved tracking processes that reduced inventory discrepancies.</li>
+                                <li>Collaborated across departments to streamline workflows and enhance operational
+                                    efficiency.</li>
+                            </ul>
+                        </details>
                     </div>
                 </div>
 
                 <!-- 2019 WBAI Radio -->
-                <div class="split-entry job" data-year="2019" data-type="job">
+                <div class="split-entry job" data-year="2019" data-type="job"><div class="journey-card-topline"><span>WORK CHAPTER</span><span aria-hidden="true">10 / ↗</span></div>
                     <div class="split-left">
                         <span class="split-year">2019</span>
                         <span class="split-company">WBAI Radio 99.5FM NYC</span>
                     </div>
-                    <div class="split-divider"><span class="split-dot"></span></div>
                     <div class="split-right">
                         <h3>Spring Intern</h3>
                         <span class="split-date">Jan 2019 - May 2019</span>
@@ -680,20 +709,27 @@
                                 consistent outreach.</li>
                             <li>Provided customer service to donors and listeners, assisting with contests, merchandise
                                 distribution, and general inquiries.</li>
-                            <li>Created and scheduled social media posts days in advance using Hootsuite, ensuring
-                                timely promotion of events and campaigns.</li>
-                            <li>Contributed to streamlining the station's social media strategy by analyzing engagement
-                                trends and coordinating content across platforms.</li>
                         </ul>
+                        <details class="journey-more">
+                            <summary><span class="journey-more-closed">More about this role</span><span
+                                    class="journey-more-open">Show fewer details</span><span aria-hidden="true">+</span>
+                            </summary>
+                            <ul class="split-details">
+                                <li>Created and scheduled social media posts days in advance using Hootsuite, ensuring
+                                    timely promotion of events and campaigns.</li>
+                                <li>Contributed to streamlining the station's social media strategy by analyzing
+                                    engagement
+                                    trends and coordinating content across platforms.</li>
+                            </ul>
+                        </details>
                     </div>
                 </div>
 
                 <!-- 2019 Milestone -->
-                <div class="split-entry milestone" data-year="2019" data-type="milestone">
+                <div class="split-entry milestone" data-year="2019" data-type="milestone"><div class="journey-card-topline"><span>MILESTONE</span><span aria-hidden="true">11 / ✳</span></div>
                     <div class="split-left">
                         <span class="split-year">2019</span>
                     </div>
-                    <div class="split-divider"><span class="split-dot milestone-dot"></span></div>
                     <div class="split-right split-milestone-content">
                         <span class="h-card-badge milestone-badge">🎓 Milestone</span>
                         <h3>Associate Degree</h3>
@@ -703,12 +739,11 @@
                 </div>
 
                 <!-- 2018 Challenge Publisher -->
-                <div class="split-entry job" data-year="2018" data-type="job">
+                <div class="split-entry job" data-year="2018" data-type="job"><div class="journey-card-topline"><span>WORK CHAPTER</span><span aria-hidden="true">12 / ↗</span></div>
                     <div class="split-left">
                         <span class="split-year">2018</span>
                         <span class="split-company">The Challenge Publisher Group</span>
                     </div>
-                    <div class="split-divider"><span class="split-dot"></span></div>
                     <div class="split-right">
                         <h3>Multimedia Intern</h3>
                         <span class="split-date">July - Aug 2018</span>
@@ -717,20 +752,26 @@
                                 format.</li>
                             <li>Led digital layout design and production workflows using Microsoft Publisher and Adobe
                                 Photoshop.</li>
-                            <li>Collaborated directly with leadership to align digital strategy with organizational
-                                growth goals.</li>
-                            <li>Modernized legacy publishing processes to improve efficiency and accessibility.</li>
                         </ul>
+                        <details class="journey-more">
+                            <summary><span class="journey-more-closed">More about this role</span><span
+                                    class="journey-more-open">Show fewer details</span><span aria-hidden="true">+</span>
+                            </summary>
+                            <ul class="split-details">
+                                <li>Collaborated directly with leadership to align digital strategy with organizational
+                                    growth goals.</li>
+                                <li>Modernized legacy publishing processes to improve efficiency and accessibility.</li>
+                            </ul>
+                        </details>
                     </div>
                 </div>
 
                 <!-- 2017 BNIA Office Assistant -->
-                <div class="split-entry job" data-year="2017" data-type="job">
+                <div class="split-entry job" data-year="2017" data-type="job"><div class="journey-card-topline"><span>WORK CHAPTER</span><span aria-hidden="true">13 / ↗</span></div>
                     <div class="split-left">
                         <span class="split-year">2017</span>
                         <span class="split-company">Brooklyn Neighborhood Improvement Association</span>
                     </div>
-                    <div class="split-divider"><span class="split-dot"></span></div>
                     <div class="split-right">
                         <h3>Office Assistant</h3>
                         <span class="split-date">Aug 2017</span>
@@ -740,22 +781,29 @@
                                 participants.</li>
                             <li>Acted as a point of contact for intern questions and concerns, helping foster a
                                 supportive and organized environment.</li>
-                            <li>Assisted with onboarding and orientation processes, clarifying expectations and program
-                                goals.</li>
-                            <li>Helped improve efficiency of the internship program by identifying bottlenecks,
-                                streamlining communication, and contributing to documentation efforts for future
-                                cohorts.</li>
                         </ul>
+                        <details class="journey-more">
+                            <summary><span class="journey-more-closed">More about this role</span><span
+                                    class="journey-more-open">Show fewer details</span><span aria-hidden="true">+</span>
+                            </summary>
+                            <ul class="split-details">
+                                <li>Assisted with onboarding and orientation processes, clarifying expectations and
+                                    program
+                                    goals.</li>
+                                <li>Helped improve efficiency of the internship program by identifying bottlenecks,
+                                    streamlining communication, and contributing to documentation efforts for future
+                                    cohorts.</li>
+                            </ul>
+                        </details>
                     </div>
                 </div>
 
                 <!-- 2017 Summer Youth Enrichment Program -->
-                <div class="split-entry job" data-year="2017" data-type="job">
+                <div class="split-entry job" data-year="2017" data-type="job"><div class="journey-card-topline"><span>WORK CHAPTER</span><span aria-hidden="true">14 / ↗</span></div>
                     <div class="split-left">
                         <span class="split-year">2017</span>
                         <span class="split-company">Summer Youth Enrichment Program</span>
                     </div>
-                    <div class="split-divider"><span class="split-dot"></span></div>
                     <div class="split-right">
                         <h3>Multimedia Developer Intern</h3>
                         <span class="split-date">Jul 2017 - Aug 2017</span>
@@ -765,18 +813,25 @@
                                 manipulating images.</li>
                             <li>Supported multimedia projects by applying these tools to enhance visual quality and
                                 storytelling.</li>
-                            <li>Strengthened technical proficiency through hands-on experimentation and collaboration,
-                                contributing to the overall creative output of the team.</li>
                         </ul>
+                        <details class="journey-more">
+                            <summary><span class="journey-more-closed">More about this role</span><span
+                                    class="journey-more-open">Show fewer details</span><span aria-hidden="true">+</span>
+                            </summary>
+                            <ul class="split-details">
+                                <li>Strengthened technical proficiency through hands-on experimentation and
+                                    collaboration,
+                                    contributing to the overall creative output of the team.</li>
+                            </ul>
+                        </details>
                     </div>
                 </div>
 
                 <!-- 2014 Milestone -->
-                <div class="split-entry milestone" data-year="2014" data-type="milestone">
+                <div class="split-entry milestone" data-year="2014" data-type="milestone"><div class="journey-card-topline"><span>MILESTONE</span><span aria-hidden="true">15 / ✳</span></div>
                     <div class="split-left">
                         <span class="split-year">2014</span>
                     </div>
-                    <div class="split-divider"><span class="split-dot milestone-dot"></span></div>
                     <div class="split-right split-milestone-content">
                         <span class="h-card-badge milestone-badge">🎮 Milestone</span>
                         <h3>Game Design Journey Begins</h3>
@@ -1451,40 +1506,286 @@
     </div>
 
     <!-- Searchable credential gallery -->
-    <div id="certificatesModal" class="modal credential-modal" role="dialog" aria-modal="true" aria-labelledby="credentialGalleryTitle" tabindex="-1">
-      <div class="modal-overlay" onclick="closeCertificatesModal()"></div>
-      <div class="modal-content glass-modal credential-shell">
-        <button class="modal-close" type="button" aria-label="Close certifications" onclick="closeCertificatesModal()"><i class="fas fa-times" aria-hidden="true"></i></button>
-        <div id="credentialBrowse">
-          <div class="credential-heading"><span class="credential-eyebrow">THE LEARNING COLLECTION / 17 CREDENTIALS</span><h2 id="credentialGalleryTitle">Proof of curiosity<span>.</span></h2><p>Courses completed. Skills put to work. Explore the learning behind the projects.</p></div>
-          <section class="credential-completed" aria-labelledby="completedCredentialsTitle"><div class="credential-completed-heading"><h3 id="completedCredentialsTitle">Completed professional certificates</h3><p>Full programs completed through Google and Coursera.</p></div><div class="credential-completed-grid"><button class="credential-feature completed-dataanalytics" type="button" data-credential="credential-11"><span class="credential-feature-art" aria-hidden="true">↗<span>PROGRAM<br>COMPLETE.</span></span><span class="credential-feature-copy"><span class="credential-eyebrow">✓ COMPLETED / DATA ANALYTICS</span><strong>Google Data Analytics Professional Certificate</strong><span>Google · Coursera</span><span class="credential-feature-action">Explore the full credential ↗</span></span></button><button class="credential-feature completed-itsupport" type="button" data-credential="credential-17"><span class="credential-feature-art" aria-hidden="true">⌘<span>PROGRAM<br>COMPLETE.</span></span><span class="credential-feature-copy"><span class="credential-eyebrow">✓ COMPLETED / IT SUPPORT</span><strong>Google IT Support Professional Certificate</strong><span>Google · Coursera</span><span class="credential-feature-action">Explore the full credential ↗</span></span></button></div></section>
-          <div class="credential-toolbar"><div class="credential-filters" role="group" aria-label="Filter certifications"><button type="button" data-cert-filter="all" aria-pressed="true">All credentials <span>17</span></button><button type="button" data-cert-filter="yearup" aria-pressed="false">Development <span>2</span></button><button type="button" data-cert-filter="dataanalytics" aria-pressed="false">Data analytics <span>9</span></button><button type="button" data-cert-filter="itsupport" aria-pressed="false">IT support <span>6</span></button></div><label class="credential-search"><i class="fas fa-search" aria-hidden="true"></i><span class="sr-only">Search certifications</span><input id="credentialSearch" type="search" placeholder="Find a credential…" autocomplete="off" aria-controls="credentialGrid"></label></div>
-          <div class="credential-results"><p id="credentialResultCount" role="status" aria-live="polite" aria-atomic="true">Showing all 17 credentials</p><button type="button" id="credentialReset">Reset filters ↻</button></div>
-          <p id="credentialEmpty" class="credential-empty" hidden>No credentials match. Try another search or reset the filters.</p>
-          <div id="credentialGrid" class="credential-grid"><button type="button" class="credential-card credential-yearup" data-credential="credential-1" aria-label="View Bootcamp Completion - Year Up United"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Year Up United</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Bootcamp Completion - Year Up United</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>Development</span><span aria-hidden="true">↗</span></span><strong>Bootcamp Completion - Year Up United</strong><span class="credential-provider">Year Up United</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
-<button type="button" class="credential-card credential-yearup" data-credential="credential-2" aria-label="View Certificate of Completion - Year Up United"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Year Up United</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Certificate of Completion - Year Up United</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>Development</span><span aria-hidden="true">↗</span></span><strong>Certificate of Completion - Year Up United</strong><span class="credential-provider">Year Up United</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
-<button type="button" class="credential-card credential-dataanalytics" data-credential="credential-3" aria-label="View Foundations: Data, Data, Everywhere"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Foundations: Data, Data, Everywhere</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>Data analytics</span><span aria-hidden="true">↗</span></span><strong>Foundations: Data, Data, Everywhere</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
-<button type="button" class="credential-card credential-dataanalytics" data-credential="credential-4" aria-label="View Ask Questions to Make Data-Driven Decisions"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Ask Questions to Make Data-Driven Decisions</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>Data analytics</span><span aria-hidden="true">↗</span></span><strong>Ask Questions to Make Data-Driven Decisions</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
-<button type="button" class="credential-card credential-dataanalytics" data-credential="credential-5" aria-label="View Prepare Data for Exploration"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Prepare Data for Exploration</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>Data analytics</span><span aria-hidden="true">↗</span></span><strong>Prepare Data for Exploration</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
-<button type="button" class="credential-card credential-dataanalytics" data-credential="credential-6" aria-label="View Process Data from Dirty to Clean"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Process Data from Dirty to Clean</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>Data analytics</span><span aria-hidden="true">↗</span></span><strong>Process Data from Dirty to Clean</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
-<button type="button" class="credential-card credential-dataanalytics" data-credential="credential-7" aria-label="View Analyze Data to Answer Questions"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Analyze Data to Answer Questions</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>Data analytics</span><span aria-hidden="true">↗</span></span><strong>Analyze Data to Answer Questions</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
-<button type="button" class="credential-card credential-dataanalytics" data-credential="credential-8" aria-label="View Share Data Through the Art of Visualization"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Share Data Through the Art of Visualization</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>Data analytics</span><span aria-hidden="true">↗</span></span><strong>Share Data Through the Art of Visualization</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
-<button type="button" class="credential-card credential-dataanalytics" data-credential="credential-9" aria-label="View Introduction to Data Analysis Using Python"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Introduction to Data Analysis Using Python</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>Data analytics</span><span aria-hidden="true">↗</span></span><strong>Introduction to Data Analysis Using Python</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
-<button type="button" class="credential-card credential-dataanalytics" data-credential="credential-10" aria-label="View Google Data Analytics Capstone: Complete a Case Study"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Google Data Analytics Capstone: Complete a Case Study</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>Data analytics</span><span aria-hidden="true">↗</span></span><strong>Google Data Analytics Capstone: Complete a Case Study</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
-<button type="button" class="credential-card credential-dataanalytics" data-credential="credential-11" aria-label="View Google Data Analytics Professional Certificate"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Google Data Analytics Professional Certificate</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>Data analytics</span><span aria-hidden="true">↗</span></span><strong>Google Data Analytics Professional Certificate</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
-<button type="button" class="credential-card credential-itsupport" data-credential="credential-12" aria-label="View Technical Support Fundamentals"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Technical Support Fundamentals</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>IT support</span><span aria-hidden="true">↗</span></span><strong>Technical Support Fundamentals</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
-<button type="button" class="credential-card credential-itsupport" data-credential="credential-13" aria-label="View The Bits and Bytes of Computer Networking"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">The Bits and Bytes of Computer Networking</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>IT support</span><span aria-hidden="true">↗</span></span><strong>The Bits and Bytes of Computer Networking</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
-<button type="button" class="credential-card credential-itsupport" data-credential="credential-14" aria-label="View Operating Systems and You: Becoming a Power User"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Operating Systems and You: Becoming a Power User</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>IT support</span><span aria-hidden="true">↗</span></span><strong>Operating Systems and You: Becoming a Power User</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
-<button type="button" class="credential-card credential-itsupport" data-credential="credential-15" aria-label="View System Administration and IT Infrastructure Services"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">System Administration and IT Infrastructure Services</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>IT support</span><span aria-hidden="true">↗</span></span><strong>System Administration and IT Infrastructure Services</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
-<button type="button" class="credential-card credential-itsupport" data-credential="credential-16" aria-label="View IT Security: Defense Against the Digital Dark Arts"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">IT Security: Defense Against the Digital Dark Arts</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>IT support</span><span aria-hidden="true">↗</span></span><strong>IT Security: Defense Against the Digital Dark Arts</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button>
-<button type="button" class="credential-card credential-itsupport" data-credential="credential-17" aria-label="View Google IT Support Professional Certificate"><span class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span class="credential-paper-rule"></span><span class="credential-paper-title">Google IT Support Professional Certificate</span><span class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span class="credential-card-meta"><span>IT support</span><span aria-hidden="true">↗</span></span><strong>Google IT Support Professional Certificate</strong><span class="credential-provider">Google · Coursera</span><span class="credential-card-action">Explore credential <span aria-hidden="true">→</span></span></button></div>
+    <div id="certificatesModal" class="modal credential-modal" role="dialog" aria-modal="true"
+        aria-labelledby="credentialGalleryTitle" tabindex="-1">
+        <div class="modal-overlay" onclick="closeCertificatesModal()"></div>
+        <div class="modal-content glass-modal credential-shell">
+            <button class="modal-close" type="button" aria-label="Close certifications"
+                onclick="closeCertificatesModal()"><i class="fas fa-times" aria-hidden="true"></i></button>
+            <div id="credentialBrowse">
+                <div class="credential-heading"><span class="credential-eyebrow">THE LEARNING COLLECTION / 17
+                        CREDENTIALS</span>
+                    <h2 id="credentialGalleryTitle">Proof of curiosity<span>.</span></h2>
+                    <p>Courses completed. Skills put to work. Explore the learning behind the projects.</p>
+                </div>
+                <section class="credential-completed" aria-labelledby="completedCredentialsTitle">
+                    <div class="credential-completed-heading">
+                        <h3 id="completedCredentialsTitle">Completed professional certificates</h3>
+                        <p>Full programs completed through Google and Coursera.</p>
+                    </div>
+                    <div class="credential-completed-grid"><button class="credential-feature completed-dataanalytics"
+                            type="button" data-credential="credential-11"><span class="credential-feature-art"
+                                aria-hidden="true">↗<span>PROGRAM<br>COMPLETE.</span></span><span
+                                class="credential-feature-copy"><span class="credential-eyebrow">✓ COMPLETED / DATA
+                                    ANALYTICS</span><strong>Google Data Analytics Professional
+                                    Certificate</strong><span>Google · Coursera</span><span
+                                    class="credential-feature-action">Explore the full credential
+                                    ↗</span></span></button><button class="credential-feature completed-itsupport"
+                            type="button" data-credential="credential-17"><span class="credential-feature-art"
+                                aria-hidden="true">⌘<span>PROGRAM<br>COMPLETE.</span></span><span
+                                class="credential-feature-copy"><span class="credential-eyebrow">✓ COMPLETED / IT
+                                    SUPPORT</span><strong>Google IT Support Professional
+                                    Certificate</strong><span>Google · Coursera</span><span
+                                    class="credential-feature-action">Explore the full credential
+                                    ↗</span></span></button></div>
+                </section>
+                <div class="credential-toolbar">
+                    <div class="credential-filters" role="group" aria-label="Filter certifications"><button
+                            type="button" data-cert-filter="all" aria-pressed="true">All credentials
+                            <span>17</span></button><button type="button" data-cert-filter="yearup"
+                            aria-pressed="false">Development <span>2</span></button><button type="button"
+                            data-cert-filter="dataanalytics" aria-pressed="false">Data analytics
+                            <span>9</span></button><button type="button" data-cert-filter="itsupport"
+                            aria-pressed="false">IT support <span>6</span></button></div><label
+                        class="credential-search"><i class="fas fa-search" aria-hidden="true"></i><span
+                            class="sr-only">Search certifications</span><input id="credentialSearch" type="search"
+                            placeholder="Find a credential…" autocomplete="off" aria-controls="credentialGrid"></label>
+                </div>
+                <div class="credential-results">
+                    <p id="credentialResultCount" role="status" aria-live="polite" aria-atomic="true">Showing all 17
+                        credentials</p><button type="button" id="credentialReset">Reset filters ↻</button>
+                </div>
+                <p id="credentialEmpty" class="credential-empty" hidden>No credentials match. Try another search or
+                    reset the filters.</p>
+                <div id="credentialGrid" class="credential-grid"><button type="button"
+                        class="credential-card credential-yearup" data-credential="credential-1"
+                        aria-label="View Bootcamp Completion - Year Up United"><span class="credential-paper"
+                            aria-hidden="true"><span class="credential-paper-provider">Year Up United</span><span
+                                class="credential-paper-rule"></span><span class="credential-paper-title">Bootcamp
+                                Completion - Year Up United</span><span class="credential-seal">✳</span><span
+                                class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span
+                            class="credential-card-meta"><span>Development</span><span
+                                aria-hidden="true">↗</span></span><strong>Bootcamp Completion - Year Up
+                            United</strong><span class="credential-provider">Year Up United</span><span
+                            class="credential-card-action">Explore credential <span
+                                aria-hidden="true">→</span></span></button>
+                    <button type="button" class="credential-card credential-yearup" data-credential="credential-2"
+                        aria-label="View Certificate of Completion - Year Up United"><span class="credential-paper"
+                            aria-hidden="true"><span class="credential-paper-provider">Year Up United</span><span
+                                class="credential-paper-rule"></span><span class="credential-paper-title">Certificate of
+                                Completion - Year Up United</span><span class="credential-seal">✳</span><span
+                                class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span
+                            class="credential-card-meta"><span>Development</span><span
+                                aria-hidden="true">↗</span></span><strong>Certificate of Completion - Year Up
+                            United</strong><span class="credential-provider">Year Up United</span><span
+                            class="credential-card-action">Explore credential <span
+                                aria-hidden="true">→</span></span></button>
+                    <button type="button" class="credential-card credential-dataanalytics"
+                        data-credential="credential-3" aria-label="View Foundations: Data, Data, Everywhere"><span
+                            class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google ·
+                                Coursera</span><span class="credential-paper-rule"></span><span
+                                class="credential-paper-title">Foundations: Data, Data, Everywhere</span><span
+                                class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF
+                                COMPLETION</span></span><span class="credential-card-meta"><span>Data
+                                analytics</span><span aria-hidden="true">↗</span></span><strong>Foundations: Data, Data,
+                            Everywhere</strong><span class="credential-provider">Google · Coursera</span><span
+                            class="credential-card-action">Explore credential <span
+                                aria-hidden="true">→</span></span></button>
+                    <button type="button" class="credential-card credential-dataanalytics"
+                        data-credential="credential-4"
+                        aria-label="View Ask Questions to Make Data-Driven Decisions"><span class="credential-paper"
+                            aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span
+                                class="credential-paper-rule"></span><span class="credential-paper-title">Ask Questions
+                                to Make Data-Driven Decisions</span><span class="credential-seal">✳</span><span
+                                class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span
+                            class="credential-card-meta"><span>Data analytics</span><span
+                                aria-hidden="true">↗</span></span><strong>Ask Questions to Make Data-Driven
+                            Decisions</strong><span class="credential-provider">Google · Coursera</span><span
+                            class="credential-card-action">Explore credential <span
+                                aria-hidden="true">→</span></span></button>
+                    <button type="button" class="credential-card credential-dataanalytics"
+                        data-credential="credential-5" aria-label="View Prepare Data for Exploration"><span
+                            class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google ·
+                                Coursera</span><span class="credential-paper-rule"></span><span
+                                class="credential-paper-title">Prepare Data for Exploration</span><span
+                                class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF
+                                COMPLETION</span></span><span class="credential-card-meta"><span>Data
+                                analytics</span><span aria-hidden="true">↗</span></span><strong>Prepare Data for
+                            Exploration</strong><span class="credential-provider">Google · Coursera</span><span
+                            class="credential-card-action">Explore credential <span
+                                aria-hidden="true">→</span></span></button>
+                    <button type="button" class="credential-card credential-dataanalytics"
+                        data-credential="credential-6" aria-label="View Process Data from Dirty to Clean"><span
+                            class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google ·
+                                Coursera</span><span class="credential-paper-rule"></span><span
+                                class="credential-paper-title">Process Data from Dirty to Clean</span><span
+                                class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF
+                                COMPLETION</span></span><span class="credential-card-meta"><span>Data
+                                analytics</span><span aria-hidden="true">↗</span></span><strong>Process Data from Dirty
+                            to Clean</strong><span class="credential-provider">Google · Coursera</span><span
+                            class="credential-card-action">Explore credential <span
+                                aria-hidden="true">→</span></span></button>
+                    <button type="button" class="credential-card credential-dataanalytics"
+                        data-credential="credential-7" aria-label="View Analyze Data to Answer Questions"><span
+                            class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google ·
+                                Coursera</span><span class="credential-paper-rule"></span><span
+                                class="credential-paper-title">Analyze Data to Answer Questions</span><span
+                                class="credential-seal">✳</span><span class="credential-paper-caption">CERTIFICATE OF
+                                COMPLETION</span></span><span class="credential-card-meta"><span>Data
+                                analytics</span><span aria-hidden="true">↗</span></span><strong>Analyze Data to Answer
+                            Questions</strong><span class="credential-provider">Google · Coursera</span><span
+                            class="credential-card-action">Explore credential <span
+                                aria-hidden="true">→</span></span></button>
+                    <button type="button" class="credential-card credential-dataanalytics"
+                        data-credential="credential-8"
+                        aria-label="View Share Data Through the Art of Visualization"><span class="credential-paper"
+                            aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span
+                                class="credential-paper-rule"></span><span class="credential-paper-title">Share Data
+                                Through the Art of Visualization</span><span class="credential-seal">✳</span><span
+                                class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span
+                            class="credential-card-meta"><span>Data analytics</span><span
+                                aria-hidden="true">↗</span></span><strong>Share Data Through the Art of
+                            Visualization</strong><span class="credential-provider">Google · Coursera</span><span
+                            class="credential-card-action">Explore credential <span
+                                aria-hidden="true">→</span></span></button>
+                    <button type="button" class="credential-card credential-dataanalytics"
+                        data-credential="credential-9"
+                        aria-label="View Introduction to Data Analysis Using Python"><span class="credential-paper"
+                            aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span
+                                class="credential-paper-rule"></span><span class="credential-paper-title">Introduction
+                                to Data Analysis Using Python</span><span class="credential-seal">✳</span><span
+                                class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span
+                            class="credential-card-meta"><span>Data analytics</span><span
+                                aria-hidden="true">↗</span></span><strong>Introduction to Data Analysis Using
+                            Python</strong><span class="credential-provider">Google · Coursera</span><span
+                            class="credential-card-action">Explore credential <span
+                                aria-hidden="true">→</span></span></button>
+                    <button type="button" class="credential-card credential-dataanalytics"
+                        data-credential="credential-10"
+                        aria-label="View Google Data Analytics Capstone: Complete a Case Study"><span
+                            class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google ·
+                                Coursera</span><span class="credential-paper-rule"></span><span
+                                class="credential-paper-title">Google Data Analytics Capstone: Complete a Case
+                                Study</span><span class="credential-seal">✳</span><span
+                                class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span
+                            class="credential-card-meta"><span>Data analytics</span><span
+                                aria-hidden="true">↗</span></span><strong>Google Data Analytics Capstone: Complete a
+                            Case Study</strong><span class="credential-provider">Google · Coursera</span><span
+                            class="credential-card-action">Explore credential <span
+                                aria-hidden="true">→</span></span></button>
+                    <button type="button" class="credential-card credential-dataanalytics"
+                        data-credential="credential-11"
+                        aria-label="View Google Data Analytics Professional Certificate"><span class="credential-paper"
+                            aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span
+                                class="credential-paper-rule"></span><span class="credential-paper-title">Google Data
+                                Analytics Professional Certificate</span><span class="credential-seal">✳</span><span
+                                class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span
+                            class="credential-card-meta"><span>Data analytics</span><span
+                                aria-hidden="true">↗</span></span><strong>Google Data Analytics Professional
+                            Certificate</strong><span class="credential-provider">Google · Coursera</span><span
+                            class="credential-card-action">Explore credential <span
+                                aria-hidden="true">→</span></span></button>
+                    <button type="button" class="credential-card credential-itsupport" data-credential="credential-12"
+                        aria-label="View Technical Support Fundamentals"><span class="credential-paper"
+                            aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span
+                                class="credential-paper-rule"></span><span class="credential-paper-title">Technical
+                                Support Fundamentals</span><span class="credential-seal">✳</span><span
+                                class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span
+                            class="credential-card-meta"><span>IT support</span><span
+                                aria-hidden="true">↗</span></span><strong>Technical Support Fundamentals</strong><span
+                            class="credential-provider">Google · Coursera</span><span
+                            class="credential-card-action">Explore credential <span
+                                aria-hidden="true">→</span></span></button>
+                    <button type="button" class="credential-card credential-itsupport" data-credential="credential-13"
+                        aria-label="View The Bits and Bytes of Computer Networking"><span class="credential-paper"
+                            aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span
+                                class="credential-paper-rule"></span><span class="credential-paper-title">The Bits and
+                                Bytes of Computer Networking</span><span class="credential-seal">✳</span><span
+                                class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span
+                            class="credential-card-meta"><span>IT support</span><span
+                                aria-hidden="true">↗</span></span><strong>The Bits and Bytes of Computer
+                            Networking</strong><span class="credential-provider">Google · Coursera</span><span
+                            class="credential-card-action">Explore credential <span
+                                aria-hidden="true">→</span></span></button>
+                    <button type="button" class="credential-card credential-itsupport" data-credential="credential-14"
+                        aria-label="View Operating Systems and You: Becoming a Power User"><span
+                            class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google ·
+                                Coursera</span><span class="credential-paper-rule"></span><span
+                                class="credential-paper-title">Operating Systems and You: Becoming a Power
+                                User</span><span class="credential-seal">✳</span><span
+                                class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span
+                            class="credential-card-meta"><span>IT support</span><span
+                                aria-hidden="true">↗</span></span><strong>Operating Systems and You: Becoming a Power
+                            User</strong><span class="credential-provider">Google · Coursera</span><span
+                            class="credential-card-action">Explore credential <span
+                                aria-hidden="true">→</span></span></button>
+                    <button type="button" class="credential-card credential-itsupport" data-credential="credential-15"
+                        aria-label="View System Administration and IT Infrastructure Services"><span
+                            class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google ·
+                                Coursera</span><span class="credential-paper-rule"></span><span
+                                class="credential-paper-title">System Administration and IT Infrastructure
+                                Services</span><span class="credential-seal">✳</span><span
+                                class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span
+                            class="credential-card-meta"><span>IT support</span><span
+                                aria-hidden="true">↗</span></span><strong>System Administration and IT Infrastructure
+                            Services</strong><span class="credential-provider">Google · Coursera</span><span
+                            class="credential-card-action">Explore credential <span
+                                aria-hidden="true">→</span></span></button>
+                    <button type="button" class="credential-card credential-itsupport" data-credential="credential-16"
+                        aria-label="View IT Security: Defense Against the Digital Dark Arts"><span
+                            class="credential-paper" aria-hidden="true"><span class="credential-paper-provider">Google ·
+                                Coursera</span><span class="credential-paper-rule"></span><span
+                                class="credential-paper-title">IT Security: Defense Against the Digital Dark
+                                Arts</span><span class="credential-seal">✳</span><span
+                                class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span
+                            class="credential-card-meta"><span>IT support</span><span
+                                aria-hidden="true">↗</span></span><strong>IT Security: Defense Against the Digital Dark
+                            Arts</strong><span class="credential-provider">Google · Coursera</span><span
+                            class="credential-card-action">Explore credential <span
+                                aria-hidden="true">→</span></span></button>
+                    <button type="button" class="credential-card credential-itsupport" data-credential="credential-17"
+                        aria-label="View Google IT Support Professional Certificate"><span class="credential-paper"
+                            aria-hidden="true"><span class="credential-paper-provider">Google · Coursera</span><span
+                                class="credential-paper-rule"></span><span class="credential-paper-title">Google IT
+                                Support Professional Certificate</span><span class="credential-seal">✳</span><span
+                                class="credential-paper-caption">CERTIFICATE OF COMPLETION</span></span><span
+                            class="credential-card-meta"><span>IT support</span><span
+                                aria-hidden="true">↗</span></span><strong>Google IT Support Professional
+                            Certificate</strong><span class="credential-provider">Google · Coursera</span><span
+                            class="credential-card-action">Explore credential <span
+                                aria-hidden="true">→</span></span></button></div>
+            </div>
+            <div id="credentialDetail" hidden>
+                <button type="button" id="credentialBack" class="credential-back">← Back to the collection</button>
+                <div class="credential-detail-heading"><span id="credentialDetailCategory"
+                        class="credential-eyebrow"></span>
+                    <h2 id="credentialDetailTitle" tabindex="-1"></h2>
+                    <p id="credentialDetailProvider"></p>
+                </div>
+                <div class="credential-detail-layout">
+                    <div class="credential-preview">
+                        <div id="credentialPdf"></div>
+                        <p>Preview unavailable? Use Open PDF to view the original certificate in your browser.</p>
+                    </div>
+                    <aside class="credential-detail-info" aria-label="Credential information">
+                        <h3>The original credential</h3><a id="credentialOpenPdf" target="_blank"
+                            rel="noopener noreferrer" class="credential-primary">Open PDF ↗</a><a
+                            id="credentialDownload" class="credential-secondary" download>Download certificate ↓</a><a
+                            id="credentialVerify" target="_blank" rel="noopener noreferrer" class="credential-secondary"
+                            hidden>View provider badge ↗</a>
+                        <div class="credential-skill-section">
+                            <h3>Top skills</h3>
+                            <p id="credentialSkillsDescription">Selected skill highlights.</p>
+                            <div id="credentialSkills" class="credential-skill-tags"></div><a
+                                id="credentialSkillsSource" class="credential-syllabus" target="_blank"
+                                rel="noopener noreferrer">View provider curriculum ↗</a>
+                        </div><button id="credentialProgram" type="button" class="credential-secondary">Explore the
+                            program →</button><a id="credentialRelated" class="credential-related">See related work
+                            ↗</a>
+                    </aside>
+                </div>
+            </div>
         </div>
-        <div id="credentialDetail" hidden>
-          <button type="button" id="credentialBack" class="credential-back">← Back to the collection</button>
-          <div class="credential-detail-heading"><span id="credentialDetailCategory" class="credential-eyebrow"></span><h2 id="credentialDetailTitle" tabindex="-1"></h2><p id="credentialDetailProvider"></p></div>
-          <div class="credential-detail-layout"><div class="credential-preview"><div id="credentialPdf"></div><p>Preview unavailable? Use Open PDF to view the original certificate in your browser.</p></div><aside class="credential-detail-info" aria-label="Credential information"><h3>The original credential</h3><a id="credentialOpenPdf" target="_blank" rel="noopener noreferrer" class="credential-primary">Open PDF ↗</a><a id="credentialDownload" class="credential-secondary" download>Download certificate ↓</a><a id="credentialVerify" target="_blank" rel="noopener noreferrer" class="credential-secondary" hidden>View provider badge ↗</a><div class="credential-skill-section"><h3>Top skills</h3><p id="credentialSkillsDescription">Selected skill highlights.</p><div id="credentialSkills" class="credential-skill-tags"></div><a id="credentialSkillsSource" class="credential-syllabus" target="_blank" rel="noopener noreferrer">View provider curriculum ↗</a></div><button id="credentialProgram" type="button" class="credential-secondary">Explore the program →</button><a id="credentialRelated" class="credential-related">See related work ↗</a></aside></div>
-        </div>
-      </div>
     </div>
 
     <div id="yearUpInfoModal" class="modal" role="dialog" aria-modal="true" tabindex="-1">

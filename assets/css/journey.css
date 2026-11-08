@@ -1,0 +1,89 @@
+/* Journey: side-by-side chapter cards for work and achievements. */
+#experience .section-header { margin-bottom: 35px; }
+#experience .exp-stats-bar { gap: 12px; background: transparent; border: 0; box-shadow: none; margin-bottom: 32px; }
+#experience .exp-stat-pill { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 7px; padding: 24px; color: var(--ink); }
+#experience .exp-stat-pill:nth-child(2) { background: #bda7e5; color: #30253f; border-color: #75628f; }
+#experience .exp-stat-pill:nth-child(2) .exp-stat-label { color: #44345e; }
+#experience .exp-stat-pill:nth-child(2) .journey-stat-icon { color: #44345e; }
+#experience .exp-stat-num { font-family: var(--font-primary); font-style: normal; font-weight: 550; font-size: 43px; letter-spacing: -.07em; }
+#experience .exp-stat-label { color: var(--muted); font-size: 9px; }
+.journey-stat-icon { position: absolute; right: 20px; top: 24px; color: var(--color-secondary); font-size: 18px; }
+.journey-filter-label { display: flex; justify-content: space-between; align-items: center; gap: 15px; margin-bottom: 13px; }
+.journey-filter-label>span { font: 500 9px var(--font-code); letter-spacing: .08em; color: var(--muted); }
+.journey-filter-label>button { font-size: 10px; color: var(--muted); background: none; padding: 6px 0; text-decoration: underline; text-underline-offset: 4px; }
+#experience .h-timeline-filters { padding: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 7px; gap: 16px; margin-bottom: 27px; }
+#experience .h-filter-group { gap: 6px; align-items: center; }
+#experience .h-filter-btn { border: 1px solid var(--line); border-radius: 20px; padding: 8px 12px; background: var(--paper); color: var(--muted); transition: background-color .2s, border-color .2s; }
+#experience .h-filter-btn:hover { color: var(--ink); border-color: var(--ink); }
+#experience .h-filter-btn.active { background: #dbef83; color: #29261f; border-color: #29261f; }
+#experience .h-filter-type { gap: 3px; padding: 4px; border: 1px solid var(--line); border-radius: 24px; }
+#experience .h-filter-type .h-filter-btn { background: none; border-color: transparent; }
+#experience .h-filter-type .h-filter-btn.active { background: #bda7e5; color: #30253f; border-color: #75628f; }
+.journey-list-heading { display: flex; justify-content: space-between; gap: 20px; align-items: center; margin-bottom: 22px; font: 400 9px var(--font-code); color: var(--muted); }
+.journey-list-heading>span:first-child { letter-spacing: .1em; }
+.journey-more { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); }
+.journey-more>summary { list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 15px; cursor: pointer; font-size: 11px; color: var(--ink); }
+.journey-more>summary::-webkit-details-marker { display: none; }
+.journey-more>summary>span:last-child { font-size: 19px; color: var(--color-secondary); line-height: 1; }
+.journey-more-open { display: none; }
+.journey-more[open] .journey-more-closed { display: none; }
+.journey-more[open] .journey-more-open { display: inline; }
+.journey-more[open]>summary>span:last-child { transform: rotate(45deg); }
+.journey-empty { border: 1px solid var(--line); border-radius: 7px; padding: 25px; text-align: center; color: var(--muted); font-size: 12px; }
+.journey-empty>button { display: block; background: transparent; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; margin: 12px auto 0; padding: 5px; font-size: 11px; }
+/* A collection of chapter cards, with no timeline rails or dots. */
+#experience .journey-card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; align-items: stretch; }
+#experience .split-entry { display: flex; flex-direction: column; position: relative; gap: 0; margin: 0; padding: 26px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); min-width: 0; transition: border-color .2s, box-shadow .2s; }
+#experience .split-entry.filtered-out, #experience .split-entry[hidden] { display: none; }
+#experience .split-entry:hover, #experience .split-entry:focus-within { border-color: var(--muted); box-shadow: 4px 5px 0 var(--line); }
+.journey-card-topline { display: flex; align-items: center; justify-content: space-between; gap: 15px; font: 400 8px var(--font-code); letter-spacing: .1em; color: var(--color-secondary); margin-bottom: 24px; }
+.journey-card-topline>span:last-child { font-size: 11px; letter-spacing: .04em; }
+#experience .split-left { display: flex; flex-direction: row; align-items: center; flex-wrap: wrap; gap: 10px; padding: 0 0 17px; margin-bottom: 20px; border-bottom: 1px solid var(--line); }
+#experience .split-year { background: var(--paper); color: var(--muted); border: 1px solid var(--line); border-radius: 20px; padding: 5px 10px; font: 400 9px var(--font-code); transform: none; order: 2; }
+#experience .split-company { font-size: 12px; font-weight: 600; line-height: 1.6; text-align: left; flex: 1 1 160px; order: 1; }
+#experience .split-left .current-badge { background: #dbef83; color: #394622; border: 1px solid #839347; padding: 4px 8px; border-radius: 4px; font-size: 8px; margin: 0; order: 3; }
+#experience .split-right { position: relative; padding: 0; border: 0; border-radius: 0; background: none; min-width: 0; flex: 1; }
+#experience .split-right h3 { font-size: clamp(21px, 2.1vw, 29px); letter-spacing: -.045em; line-height: 1.25; margin-bottom: 13px; }
+#experience .split-date { display: block; font: 400 9px/1.7 var(--font-code); color: var(--muted); margin-bottom: 20px; }
+#experience .split-details { margin-top: 14px; padding-left: 16px; }
+#experience .split-details li { font-size: 12px; line-height: 1.85; padding-left: 3px; margin-bottom: 12px; }
+#experience .split-details li::marker { color: var(--color-secondary); }
+#experience .split-details li:last-child { margin-bottom: 0; }
+#experience .milestone { --ink: #352a43; --muted: #554263; --line: #a18cb1; --surface: #f4edf9; --paper: #f4edf9; --color-secondary: #654880; color: var(--ink); background: #e8dff1; border-color: #a18cb1; }
+#experience .milestone:nth-child(4n+1) { --ink: #2e3924; --muted: #465536; --line: #8b9b71; --surface: #edf3df; --paper: #edf3df; --color-secondary: #4f642f; color: var(--ink); background: #e0eacb; border-color: #8b9b71; }
+#experience .milestone .split-left { border: 0; padding-bottom: 0; margin-bottom: 22px; }
+#experience .milestone .split-right { background: none; padding: 0; border: 0; }
+#experience .milestone .split-right h3 { font-size: 23px; max-width: 420px; }
+#experience .milestone .split-right p { font-size: 12px; line-height: 1.85; max-width: 480px; }
+#experience .milestone-badge { display: inline-block; font: 400 9px var(--font-code); margin-bottom: 13px; color: var(--muted); }
+#experience .milestone .journey-card-topline { color: var(--muted); }
+#experience .job:has(.current-badge) { border-top: 5px solid var(--purple); padding-top: 22px; }
+@media (max-width: 1000px) {
+    #experience .split-entry { padding: 22px; }
+    #experience .job:has(.current-badge) { padding-top: 18px; }
+    #experience .exp-stat-pill { padding: 20px; }
+    .journey-stat-icon { top: 20px; right: 15px; font-size: 15px; }
+    #experience .split-left { align-items: flex-start; }
+    #experience .split-company { flex-basis: 100%; }
+    #experience .split-right h3 { font-size: 23px; }
+}
+@media (max-width: 650px) {
+    #experience .journey-card-grid { grid-template-columns: 1fr; gap: 17px; }
+    #experience .exp-stats-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    #experience .exp-stat-pill { padding: 18px; }
+    #experience .exp-stat-num { font-size: 37px; }
+    #experience .exp-stat-label { font-size: 8px; }
+    #experience .h-timeline-filters { padding: 14px; gap: 14px; }
+    #experience .h-filter-btn { font-size: 9px; padding: 7px 10px; }
+    #experience .split-entry { padding: 23px 20px; }
+    .journey-card-topline { margin-bottom: 20px; font-size: 8px; }
+    #experience .split-left { gap: 9px; }
+    #experience .split-company { flex: 1 1 170px; font-size: 12px; }
+    #experience .split-year { font-size: 8px; }
+    #experience .split-right h3, #experience .milestone .split-right h3 { font-size: 23px; }
+    #experience .split-details li { font-size: 12px; }
+    .journey-list-heading { font-size: 8px; gap: 12px; }
+    .journey-filter-label>span { font-size: 8px; }
+    .journey-filter-label>button { font-size: 9px; }
+}
+@media (prefers-reduced-motion: reduce) { #experience .split-entry, #experience .h-filter-btn { transition: none; } }

@@ -282,7 +282,9 @@ function filterTimeline(value, filterType) {
     // Update active button styles for this filter group
     const groupClass = filterType === 'type' ? '.h-filter-type' : '.h-filter-group:not(.h-filter-type)';
     document.querySelectorAll(`${groupClass} .h-filter-btn`).forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.filter === value);
+        const active = btn.dataset.filter === value;
+        btn.classList.toggle('active', active);
+        btn.setAttribute('aria-pressed', String(active));
     });
 
     // Apply both filters to every entry
@@ -291,7 +293,11 @@ function filterTimeline(value, filterType) {
         const yearMatch = timelineFilterState.year === 'all' || entry.dataset.year === timelineFilterState.year;
         const typeMatch = timelineFilterState.type === 'all' || entry.dataset.type === timelineFilterState.type;
         entry.classList.toggle('filtered-out', !(yearMatch && typeMatch));
+        entry.hidden = !(yearMatch && typeMatch);
     });
+    const visible = [...entries].filter(entry => !entry.hidden).length;
+    document.getElementById("journeyResultCount").textContent = `${visible} of ${entries.length} experiences & milestones`;
+    document.getElementById("journeyEmpty").hidden = visible > 0;
 }
 
 // scroll animations
@@ -421,3 +427,9 @@ function animateCounter(element) {
     }, 30);
 }
 
+
+function resetJourneyFilters() {
+    timelineFilterState.type = "all";
+    filterTimeline("all", "year");
+    filterTimeline("all", "type");
+}
