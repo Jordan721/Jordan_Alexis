@@ -48,7 +48,7 @@ Jordan_Alexis/
 ├── Pics/
 ├── Certifications/
 ├── Jordan_Alexis*.pdf          # Resume variants
-├── Trail_*/                   # Previous portfolio versions
+├── Ver_*/                     # Previous portfolio versions (Ver = version)
 ├── SOURCE-STRUCTURE.md
 └── ReadMe.md
 ```
@@ -119,7 +119,7 @@ Scroll animations — progress indicator, parallax orbs, section reveals, unique
 Gamification system with toggle panel (cursor trail, floating particles, card tilt, click ripples, animated grid, icon colors). All settings saved to localStorage. Also added interactive letter hover effects on hero name.
 
 ### 📅 December 2025
-Certificate folder system with carousel, responsive year filtering, folder hover animations, and complete site redesign from Trail_7.
+Certificate folder system with carousel, responsive year filtering, folder hover animations, and complete site redesign from Ver_7.
 
 ## Connect
 
