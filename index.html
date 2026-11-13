@@ -39,7 +39,7 @@
 
     <!-- Organized site styles -->
     <link rel="stylesheet" href="main.css">
-  
+
 </head>
 
 <body>
@@ -70,6 +70,9 @@
                         aria-hidden="true">✳</span></h1>
                 <p class="intro-description">I’m Jordan—a full-stack developer with a creative streak. I build useful
                     web experiences and find the stories hiding in data.</p>
+                <p class="career-focus"><strong>Career focus</strong> Seeking software development and data analytics
+                    opportunities where I can build useful tools, simplify workflows, and turn data into clear insights.
+                </p>
                 <div class="intro-actions"><a class="solid-button" href="#projects">Discover my work <span
                             aria-hidden="true">↘</span></a><button class="text-button" onclick="openResumeModal()">View
                         my resume ↗</button></div>
@@ -108,8 +111,7 @@
             </div>
 
             <div class="projects-grid featured-projects">
-                <a href="https://jordan721.github.io/Development-Showcase/Game_Vault/index.html" target="_blank"
-                    rel="noopener noreferrer" class="project-card glass-card project-card-featured" data-aos="fade-up">
+                <article class="project-card glass-card project-card-featured" data-aos="fade-up">
                     <div class="project-cover cover-games"><span class="cover-stamp" aria-hidden="true">INSERT
                             CURIOSITY</span><svg class="game-doodle" viewBox="0 0 170 100" aria-hidden="true">
                             <path
@@ -135,11 +137,15 @@
                             <span>UI Systems</span>
                         </div>
                     </div>
-                    <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
-                </a>
+                    <div class="project-link project-actions"><a
+                            href="https://jordan721.github.io/Development-Showcase/Game_Vault/index.html"
+                            target="_blank" rel="noopener noreferrer" aria-label="Game Vault: Live demo">Live demo
+                            ↗</a><a href="https://github.com/Jordan721/Development-Showcase/tree/main/Game_Vault"
+                            target="_blank" rel="noopener noreferrer" aria-label="Game Vault: Source code">Source code
+                            ↗</a></div>
+                </article>
 
-                <a href="https://jordan721.github.io/Development-Showcase/Personal_Projects/AnimateLab/index.html"
-                    target="_blank" rel="noopener noreferrer" class="project-card glass-card" data-aos="fade-up">
+                <article class="project-card glass-card" data-aos="fade-up">
                     <div class="project-cover cover-motion"><span class="motion-label" aria-hidden="true">MOVE OUTSIDE
                             THE LINES ↗</span>
                         <div class="cover-orbits" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -159,11 +165,16 @@
                             <span>Effects</span>
                         </div>
                     </div>
-                    <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
-                </a>
+                    <div class="project-link project-actions"><a
+                            href="https://jordan721.github.io/Development-Showcase/Personal_Projects/AnimateLab/index.html"
+                            target="_blank" rel="noopener noreferrer" aria-label="AnimateLab: Live demo">Live demo
+                            ↗</a><a
+                            href="https://github.com/Jordan721/Development-Showcase/tree/main/Personal_Projects/AnimateLab"
+                            target="_blank" rel="noopener noreferrer" aria-label="AnimateLab: Source code">Source code
+                            ↗</a></div>
+                </article>
 
-                <a href="https://jordan721.github.io/Development-Showcase/Personal_Projects/PipelineTrack/index.html"
-                    target="_blank" rel="noopener noreferrer" class="project-card glass-card" data-aos="fade-up">
+                <article class="project-card glass-card" data-aos="fade-up">
                     <div class="project-cover cover-pipeline"><span class="pipeline-stamp" aria-hidden="true">NEXT
                             CHAPTER ↗</span><span>YOUR NEXT CHAPTER, ORGANIZED.</span><strong>PipelineTrack</strong>
                         <div class="cover-kanban" aria-hidden="true">
@@ -184,13 +195,65 @@
                             <span>Data Views</span>
                         </div>
                     </div>
-                    <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
-                </a>
+                    <div class="project-link project-actions"><a
+                            href="https://jordan721.github.io/Development-Showcase/Personal_Projects/PipelineTrack/index.html"
+                            target="_blank" rel="noopener noreferrer" aria-label="PipelineTrack: Live demo">Live demo
+                            ↗</a><a
+                            href="https://github.com/Jordan721/Development-Showcase/tree/main/Personal_Projects/PipelineTrack"
+                            target="_blank" rel="noopener noreferrer" aria-label="PipelineTrack: Source code">Source
+                            code ↗</a></div>
+                </article>
 
+                <article class="project-card glass-card">
+                    <div class="project-cover cover-data"><span>FROM RAW DATA TO READABLE
+                            RESULTS</span><strong>Data<br>Pipeline</strong>
+                        <div class="data-flow"><span>Import</span><span>Clean</span><span>Visualize</span></div>
+                        <span>ETL / DATA QUALITY / REPORTING</span>
+                    </div>
+                    <div class="project-card-top">
+                        <div class="project-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <span class="project-type">Data Analytics & ETL</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Data Pipeline</h3>
+                        <p>An interactive simulation of an enterprise data pipeline with automated processing,
+                            cleaning,
+                            and Excel export.</p>
+                        <details class="project-case-study">
+                            <summary>Explore the data workflow</summary>
+                            <dl>
+                                <dt>The question</dt>
+                                <dd>How can messy records become readable, exportable reports?</dd>
+                                <dt>Data & preparation</dt>
+                                <dd>Sample trading, client, and log records, plus CSV, JSON, or text uploads. This
+                                    browser-based simulation parses, cleans, validates, and transforms records for
+                                    reporting.</dd>
+                                <dt>Visualization</dt>
+                                <dd>Value distributions, category breakdowns, a data quality heatmap, and pipeline
+                                    timing reveal processing results.</dd>
+                                <dt>Takeaway</dt>
+                                <dd>Data quality checks connect raw inputs to visual summaries and CSV or Excel exports.
+                                    Sample outputs illustrate the workflow rather than measured business outcomes.</dd>
+                            </dl>
+                        </details>
+                        <div class="project-tags" aria-label="Project highlights">
+                            <span>ETL</span>
+                            <span>Excel Export</span>
+                        </div>
+                    </div>
+                    <div class="project-link project-actions"><a
+                            href="https://jordan721.github.io/Development-Showcase/Professional_Projects/Data_Pipeline/index.html"
+                            target="_blank" rel="noopener noreferrer" aria-label="Data Pipeline: Live demo">Live demo
+                            ↗</a><a
+                            href="https://github.com/Jordan721/Development-Showcase/tree/main/Professional_Projects/Data_Pipeline"
+                            target="_blank" rel="noopener noreferrer" aria-label="Data Pipeline: Source code">Source
+                            code ↗</a></div>
+                </article>
                 <!-- Collapsible extra projects -->
                 <div class="projects-extra" id="projectsExtra">
-                    <a href="https://jordan721.github.io/Development-Showcase/Personal_Projects/Bagely_Bytes_Programming/index.html"
-                        target="_blank" rel="noopener noreferrer" class="project-card glass-card">
+                    <article class="project-card glass-card">
                         <div class="project-card-top">
                             <div class="project-icon">
                                 <i class="fas fa-book-open"></i>
@@ -205,32 +268,18 @@
                                 <span>Curriculum</span>
                             </div>
                         </div>
-                        <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
-                    </a>
+                        <div class="project-link project-actions"><a
+                                href="https://jordan721.github.io/Development-Showcase/Personal_Projects/Bagely_Bytes_Programming/index.html"
+                                target="_blank" rel="noopener noreferrer" aria-label="Bagely Bytes: Live demo">Live demo
+                                ↗</a><a
+                                href="https://github.com/Jordan721/Development-Showcase/tree/main/Personal_Projects/Bagely_Bytes_Programming"
+                                target="_blank" rel="noopener noreferrer" aria-label="Bagely Bytes: Source code">Source
+                                code ↗</a></div>
+                    </article>
 
-                    <a href="https://jordan721.github.io/Development-Showcase/Professional_Projects/Data_Pipeline/index.html"
-                        target="_blank" rel="noopener noreferrer" class="project-card glass-card">
-                        <div class="project-card-top">
-                            <div class="project-icon">
-                                <i class="fas fa-database"></i>
-                            </div>
-                            <span class="project-type">Data Workflow</span>
-                        </div>
-                        <div class="project-content">
-                            <h3>Data Pipeline</h3>
-                            <p>An interactive simulation of an enterprise data pipeline with automated processing,
-                                cleaning,
-                                and Excel export.</p>
-                            <div class="project-tags" aria-label="Project highlights">
-                                <span>ETL</span>
-                                <span>Excel Export</span>
-                            </div>
-                        </div>
-                        <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
-                    </a>
 
-                    <a href="https://jordan721.github.io/Development-Showcase/Professional_Projects/One_Heck_Of_A_Sandwich_Web_Edition/index.html"
-                        target="_blank" rel="noopener noreferrer" class="project-card glass-card">
+
+                    <article class="project-card glass-card">
                         <div class="project-card-top">
                             <div class="project-icon">
                                 <i class="fas fa-burger"></i>
@@ -247,11 +296,16 @@
                                 <span>Java Capstone</span>
                             </div>
                         </div>
-                        <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
-                    </a>
+                        <div class="project-link project-actions"><a
+                                href="https://jordan721.github.io/Development-Showcase/Professional_Projects/One_Heck_Of_A_Sandwich_Web_Edition/index.html"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="One Heck Of A Sandwich: Live demo">Live demo ↗</a><a
+                                href="https://github.com/Jordan721/Development-Showcase/tree/main/Professional_Projects/One_Heck_Of_A_Sandwich_Web_Edition"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="One Heck Of A Sandwich: Source code">Source code ↗</a></div>
+                    </article>
 
-                    <a href="https://jordan721.github.io/Development-Showcase/Academic_Projects/Dimensional_Playground/index.html"
-                        target="_blank" rel="noopener noreferrer" class="project-card glass-card">
+                    <article class="project-card glass-card">
                         <div class="project-card-top">
                             <div class="project-icon">
                                 <i class="fas fa-cube"></i>
@@ -268,11 +322,16 @@
                                 <span>Physics</span>
                             </div>
                         </div>
-                        <span class="project-link">View Project <i class="fas fa-arrow-right"></i></span>
-                    </a>
+                        <div class="project-link project-actions"><a
+                                href="https://jordan721.github.io/Development-Showcase/Academic_Projects/Dimensional_Playground/index.html"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Dimensional Playground: Live demo">Live demo ↗</a><a
+                                href="https://github.com/Jordan721/Development-Showcase/tree/main/Academic_Projects/Dimensional_Playground"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Dimensional Playground: Source code">Source code ↗</a></div>
+                    </article>
 
-                    <a href="https://github.com/Year-Up-United-SPR-2025/Capstones" target="_blank"
-                        rel="noopener noreferrer" class="project-card glass-card">
+                    <article class="project-card glass-card">
                         <div class="project-card-top">
                             <div class="project-icon">
                                 <i class="fas fa-trophy"></i>
@@ -288,11 +347,13 @@
                                 <span>GitHub</span>
                             </div>
                         </div>
-                        <span class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></span>
-                    </a>
+                        <div class="project-link project-actions"><a
+                                href="https://github.com/Year-Up-United-SPR-2025/Capstones" target="_blank"
+                                rel="noopener noreferrer" aria-label="YUU Capstone Projects: Source code">Source code
+                                ↗</a></div>
+                    </article>
 
-                    <a href="https://github.com/Year-Up-United-SPR-2025/Workshops" target="_blank"
-                        rel="noopener noreferrer" class="project-card glass-card">
+                    <article class="project-card glass-card">
                         <div class="project-card-top">
                             <div class="project-icon">
                                 <i class="fas fa-hammer"></i>
@@ -308,14 +369,17 @@
                                 <span>Practice Apps</span>
                             </div>
                         </div>
-                        <span class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></span>
-                    </a>
+                        <div class="project-link project-actions"><a
+                                href="https://github.com/Year-Up-United-SPR-2025/Workshops" target="_blank"
+                                rel="noopener noreferrer" aria-label="YUU Workshops: Source code">Source code ↗</a>
+                        </div>
+                    </article>
                 </div>
             </div>
 
             <div class="view-all-projects">
                 <button class="projects-toggle-btn" onclick="toggleProjects()" id="projectsToggleBtn">
-                    <span id="projectsToggleText">Show 6 More</span>
+                    <span id="projectsToggleText">Show 5 More</span>
                     <i class="fas fa-chevron-down" id="projectsToggleIcon"></i>
                 </button>
                 <a href="https://jordan721.github.io/Development-Showcase/" target="_blank" rel="noopener noreferrer"
@@ -427,7 +491,8 @@
         <section id="experience" class="section">
             <div class="section-header"><span class="section-number">03 / THE JOURNEY</span>
                 <h2 class="section-title">Always learning.<br>Always building.</h2>
-                <p class="section-intro">Different roles. New skills. Meaningful milestones. A collection of the experiences that shaped how I build.</p>
+                <p class="section-intro">Different roles. New skills. Meaningful milestones. A collection of the
+                    experiences that shaped how I build.</p>
             </div>
 
             <!-- Stats Bar -->
@@ -489,14 +554,15 @@
             </div>
 
             <!-- Split Panel Experience List -->
-            <div class="journey-list-heading"><span>A COLLECTION OF CHAPTERS</span><span id="journeyResultCount" role="status"
-                    aria-live="polite" aria-atomic="true">15 experiences & milestones</span></div>
+            <div class="journey-list-heading"><span>A COLLECTION OF CHAPTERS</span><span id="journeyResultCount"
+                    role="status" aria-live="polite" aria-atomic="true">15 experiences & milestones</span></div>
             <p id="journeyEmpty" class="journey-empty" hidden>No entries match these filters. <button type="button"
                     onclick="resetJourneyFilters()">Show the whole journey ↻</button></p>
             <div class="split-panel-list journey-card-grid" aria-label="Career experiences and milestones">
 
                 <!-- Oct. 2026 Milestone -->
-                <div class="split-entry milestone" data-year="2026" data-type="milestone"><div class="journey-card-topline"><span>MILESTONE</span><span aria-hidden="true">01 / ✳</span></div>
+                <div class="split-entry milestone" data-year="2026" data-type="milestone">
+                    <div class="journey-card-topline"><span>MILESTONE</span><span aria-hidden="true">01 / ✳</span></div>
                     <div class="split-left">
                         <span class="split-year">Oct. 2026</span>
                     </div>
@@ -510,7 +576,8 @@
                 </div>
 
                 <!-- Mar. 2026 Milestone -->
-                <div class="split-entry milestone" data-year="2026" data-type="milestone"><div class="journey-card-topline"><span>MILESTONE</span><span aria-hidden="true">02 / ✳</span></div>
+                <div class="split-entry milestone" data-year="2026" data-type="milestone">
+                    <div class="journey-card-topline"><span>MILESTONE</span><span aria-hidden="true">02 / ✳</span></div>
                     <div class="split-left">
                         <span class="split-year">Mar. 2026</span>
                     </div>
@@ -524,7 +591,9 @@
                 </div>
 
                 <!-- 2025 Morgan Stanley -->
-                <div class="split-entry job" data-year="2025" data-type="job"><div class="journey-card-topline"><span>WORK CHAPTER</span><span aria-hidden="true">03 / ↗</span></div>
+                <div class="split-entry job" data-year="2025" data-type="job">
+                    <div class="journey-card-topline"><span>WORK CHAPTER</span><span aria-hidden="true">03 / ↗</span>
+                    </div>
                     <div class="split-left">
                         <span class="split-year">2025</span>
                         <span class="split-company">Morgan Stanley</span>
@@ -564,7 +633,8 @@
                 </div>
 
                 <!-- Jan. 2026 Milestone -->
-                <div class="split-entry milestone" data-year="2026" data-type="milestone"><div class="journey-card-topline"><span>MILESTONE</span><span aria-hidden="true">04 / ✳</span></div>
+                <div class="split-entry milestone" data-year="2026" data-type="milestone">
+                    <div class="journey-card-topline"><span>MILESTONE</span><span aria-hidden="true">04 / ✳</span></div>
                     <div class="split-left">
                         <span class="split-year">Jan. 2026</span>
                     </div>
@@ -578,7 +648,8 @@
                 </div>
 
                 <!-- 2025 Milestone -->
-                <div class="split-entry milestone" data-year="2025" data-type="milestone"><div class="journey-card-topline"><span>MILESTONE</span><span aria-hidden="true">05 / ✳</span></div>
+                <div class="split-entry milestone" data-year="2025" data-type="milestone">
+                    <div class="journey-card-topline"><span>MILESTONE</span><span aria-hidden="true">05 / ✳</span></div>
                     <div class="split-left">
                         <span class="split-year">2025</span>
                     </div>
@@ -591,7 +662,8 @@
                 </div>
 
                 <!-- June 2025 Milestone -->
-                <div class="split-entry milestone" data-year="2025" data-type="milestone"><div class="journey-card-topline"><span>MILESTONE</span><span aria-hidden="true">06 / ✳</span></div>
+                <div class="split-entry milestone" data-year="2025" data-type="milestone">
+                    <div class="journey-card-topline"><span>MILESTONE</span><span aria-hidden="true">06 / ✳</span></div>
                     <div class="split-left">
                         <span class="split-year">June 2025</span>
                     </div>
@@ -605,7 +677,9 @@
                 </div>
 
                 <!-- 2023 Tip Top Shoes -->
-                <div class="split-entry job" data-year="2023" data-type="job"><div class="journey-card-topline"><span>WORK CHAPTER</span><span aria-hidden="true">07 / ↗</span></div>
+                <div class="split-entry job" data-year="2023" data-type="job">
+                    <div class="journey-card-topline"><span>WORK CHAPTER</span><span aria-hidden="true">07 / ↗</span>
+                    </div>
                     <div class="split-left">
                         <span class="split-year">2023</span>
                         <span class="split-company">Tip Top Shoes</span>
@@ -637,7 +711,9 @@
                 </div>
 
                 <!-- 2021 Unadat -->
-                <div class="split-entry job" data-year="2021" data-type="job"><div class="journey-card-topline"><span>WORK CHAPTER</span><span aria-hidden="true">08 / ↗</span></div>
+                <div class="split-entry job" data-year="2021" data-type="job">
+                    <div class="journey-card-topline"><span>WORK CHAPTER</span><span aria-hidden="true">08 / ↗</span>
+                    </div>
                     <div class="split-left">
                         <span class="split-year">2021</span>
                         <span class="split-company">Unadat</span>
@@ -668,7 +744,9 @@
                 </div>
 
                 <!-- 2020 B&A Appliances -->
-                <div class="split-entry job" data-year="2020" data-type="job"><div class="journey-card-topline"><span>WORK CHAPTER</span><span aria-hidden="true">09 / ↗</span></div>
+                <div class="split-entry job" data-year="2020" data-type="job">
+                    <div class="journey-card-topline"><span>WORK CHAPTER</span><span aria-hidden="true">09 / ↗</span>
+                    </div>
                     <div class="split-left">
                         <span class="split-year">2020</span>
                         <span class="split-company">B&A Appliances</span>
@@ -696,7 +774,9 @@
                 </div>
 
                 <!-- 2019 WBAI Radio -->
-                <div class="split-entry job" data-year="2019" data-type="job"><div class="journey-card-topline"><span>WORK CHAPTER</span><span aria-hidden="true">10 / ↗</span></div>
+                <div class="split-entry job" data-year="2019" data-type="job">
+                    <div class="journey-card-topline"><span>WORK CHAPTER</span><span aria-hidden="true">10 / ↗</span>
+                    </div>
                     <div class="split-left">
                         <span class="split-year">2019</span>
                         <span class="split-company">WBAI Radio 99.5FM NYC</span>
@@ -726,7 +806,8 @@
                 </div>
 
                 <!-- 2019 Milestone -->
-                <div class="split-entry milestone" data-year="2019" data-type="milestone"><div class="journey-card-topline"><span>MILESTONE</span><span aria-hidden="true">11 / ✳</span></div>
+                <div class="split-entry milestone" data-year="2019" data-type="milestone">
+                    <div class="journey-card-topline"><span>MILESTONE</span><span aria-hidden="true">11 / ✳</span></div>
                     <div class="split-left">
                         <span class="split-year">2019</span>
                     </div>
@@ -739,7 +820,9 @@
                 </div>
 
                 <!-- 2018 Challenge Publisher -->
-                <div class="split-entry job" data-year="2018" data-type="job"><div class="journey-card-topline"><span>WORK CHAPTER</span><span aria-hidden="true">12 / ↗</span></div>
+                <div class="split-entry job" data-year="2018" data-type="job">
+                    <div class="journey-card-topline"><span>WORK CHAPTER</span><span aria-hidden="true">12 / ↗</span>
+                    </div>
                     <div class="split-left">
                         <span class="split-year">2018</span>
                         <span class="split-company">The Challenge Publisher Group</span>
@@ -767,7 +850,9 @@
                 </div>
 
                 <!-- 2017 BNIA Office Assistant -->
-                <div class="split-entry job" data-year="2017" data-type="job"><div class="journey-card-topline"><span>WORK CHAPTER</span><span aria-hidden="true">13 / ↗</span></div>
+                <div class="split-entry job" data-year="2017" data-type="job">
+                    <div class="journey-card-topline"><span>WORK CHAPTER</span><span aria-hidden="true">13 / ↗</span>
+                    </div>
                     <div class="split-left">
                         <span class="split-year">2017</span>
                         <span class="split-company">Brooklyn Neighborhood Improvement Association</span>
@@ -799,7 +884,9 @@
                 </div>
 
                 <!-- 2017 Summer Youth Enrichment Program -->
-                <div class="split-entry job" data-year="2017" data-type="job"><div class="journey-card-topline"><span>WORK CHAPTER</span><span aria-hidden="true">14 / ↗</span></div>
+                <div class="split-entry job" data-year="2017" data-type="job">
+                    <div class="journey-card-topline"><span>WORK CHAPTER</span><span aria-hidden="true">14 / ↗</span>
+                    </div>
                     <div class="split-left">
                         <span class="split-year">2017</span>
                         <span class="split-company">Summer Youth Enrichment Program</span>
@@ -828,7 +915,8 @@
                 </div>
 
                 <!-- 2014 Milestone -->
-                <div class="split-entry milestone" data-year="2014" data-type="milestone"><div class="journey-card-topline"><span>MILESTONE</span><span aria-hidden="true">15 / ✳</span></div>
+                <div class="split-entry milestone" data-year="2014" data-type="milestone">
+                    <div class="journey-card-topline"><span>MILESTONE</span><span aria-hidden="true">15 / ✳</span></div>
                     <div class="split-left">
                         <span class="split-year">2014</span>
                     </div>

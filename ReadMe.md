@@ -9,7 +9,7 @@ A personal portfolio showcasing my work in full-stack development, data analytic
 - **Creative studio design:** oversized typography, a portrait collage, hand-drawn details, illustrated project covers, and solid backgrounds.
 - **Responsive navigation:** sticky header, sliding link highlight, active-section tracking, and an animated mobile menu.
 - **Light and dark themes:** animated sun/moon toggle, saved preference, and a circular reveal in browsers supporting View Transitions. Other browsers use a color transition; reduced-motion preferences are respected.
-- **Selected projects:** three featured projects with links to live work, plus six more available through the expand/collapse control.
+- **Selected projects:** four featured projects with links to live work, plus five more available through the expand/collapse control.
 - **Interactive toolkit:** search skills, filter by discipline, and pin up to five skills to a personal workbench. Includes clear/reset controls and keyboard-accessible buttons.
 - **About and experience:** profile cards, side-by-side chapter cards for roles and milestones, expandable role details, year/type filters with reset and result counts, and animated experience counters.
 - **Education and credentials:** education cards, resume selection, and a searchable 17-credential gallery with category filters, completed professional certificate highlights, PDF previews/downloads, existing provider badge links, program details, and certificate-specific top-skill highlights sourced from provider curricula.

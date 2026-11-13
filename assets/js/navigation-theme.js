@@ -5,7 +5,7 @@ function toggleProjects() {
     const open = extra.classList.toggle('open');
     button.classList.toggle('open', open);
     button.setAttribute('aria-expanded', String(open));
-    document.getElementById('projectsToggleText').textContent = open ? 'Show less' : 'Explore 6 more projects';
+    document.getElementById('projectsToggleText').textContent = open ? 'Show less' : `Explore ${extra.querySelectorAll('.project-card').length} more projects`;
 }
 function initTheme() {
     let theme = 'light';

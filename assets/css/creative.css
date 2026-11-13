@@ -974,3 +974,100 @@ body {
         transition: none !important;
     }
 }
+
+/* Career focus and individual project actions. */
+.career-focus {
+    max-width: 540px;
+    margin: 0 0 24px;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--muted);
+}
+
+.career-focus strong {
+    display: block;
+    color: var(--ink);
+    font: 400 11px var(--font-code);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: 5px;
+}
+
+.project-actions {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 12px 24px;
+}
+
+.project-actions a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.project-actions a:hover {
+    color: var(--color-secondary);
+}
+
+.project-actions a:focus-visible,
+.project-case-study summary:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 5px;
+}
+
+.cover-data {
+    background: #b9d5c0;
+    color: #29261f;
+    padding: 20px;
+    text-align: center;
+}
+
+.cover-data>span {
+    font: 400 10px var(--font-code);
+    letter-spacing: .06em;
+}
+
+.data-flow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.data-flow span {
+    border: 1px solid #29261f;
+    border-radius: 4px;
+    padding: 9px 13px;
+    font: 400 11px var(--font-code);
+    background: #f7f1df;
+}
+
+.project-case-study {
+    margin-top: 20px;
+    border-top: 1px dashed var(--line);
+    padding-top: 14px;
+}
+
+.project-case-study summary {
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--ink);
+    padding: 8px 0;
+}
+
+.project-case-study dt {
+    margin-top: 14px;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--ink);
+}
+
+.project-case-study dd {
+    margin: 5px 0 0;
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--muted);
+}
