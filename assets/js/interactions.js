@@ -8,8 +8,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(href);
         if (target) {
+            // Reveal older journey entries before attempting to scroll to them.
+            if (target.matches('#journeyChapters .split-entry')) {
+                showWholeJourney();
+            }
             target.scrollIntoView({
-                behavior: 'smooth',
+                behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
                 block: 'start'
             });
         }

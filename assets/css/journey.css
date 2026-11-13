@@ -87,3 +87,34 @@
     .journey-filter-label>button { font-size: 9px; }
 }
 @media (prefers-reduced-motion: reduce) { #experience .split-entry, #experience .h-filter-btn { transition: none; } }
+/* Personal story and defining chapters. */
+.story-cards { align-items: stretch; }
+.story-cards .about-flow-section { min-width: 0; margin: 0; }
+.story-cards .about-flow-section:nth-child(2) { background: var(--surface); color: var(--ink); }
+.story-cards .about-flow-section:nth-child(3) { background: var(--purple); color: #29261f; }
+.story-cards .about-flow-section:nth-child(3) p { color: #44345e; }
+.story-cards p + p { margin-top: 14px; }
+.story-link { display: block; width: fit-content; max-width: 100%; padding: 12px 0; margin-top: 12px; font-size: 12px; color: inherit; text-decoration: underline; text-underline-offset: 4px; }
+.work-process { list-style: none; padding: 0; margin: 20px 0 0; counter-reset: process; }
+.work-process li { counter-increment: process; display: grid; grid-template-columns: 24px 1fr; gap: 4px 8px; margin-bottom: 13px; font-size: 12px; }
+.work-process li::before { content: '0' counter(process); grid-row: 1 / 3; font: 400 10px var(--font-code); color: var(--muted); padding-top: 3px; }
+.work-process li span { grid-column: 2; color: var(--muted); line-height: 1.65; }
+.education-credentials { max-width: 430px; margin-bottom: 28px; }
+.education-credentials .about-cta-btn { color: var(--ink); }
+.journey-highlights { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-bottom: 32px; }
+.journey-highlights > a { display: flex; flex-direction: column; gap: 14px; padding: 24px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); color: var(--ink); }
+.journey-highlights > a:first-child { border-top: 4px solid #839347; }
+.journey-highlights > a:nth-child(2) { border-top: 4px solid #bda7e5; }
+.journey-highlights > a:last-child { border-top: 4px solid #df855e; }
+.journey-highlights span { font: 400 9px/1.7 var(--font-code); }
+.journey-highlights h3 { font-size: 23px; line-height: 1.2; letter-spacing: -.035em; }
+.journey-highlights p { font-size: 12px; line-height: 1.8; color: var(--muted); }
+.journey-highlights .highlight-action { margin-top: auto; text-decoration: underline; text-underline-offset: 4px; }
+.role-summary { margin-top: 14px; }
+.role-summary dt { font: 500 10px var(--font-code); text-transform: uppercase; letter-spacing: .06em; margin: 16px 0 7px; color: var(--ink); }
+.role-summary dd { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.85; }
+.journey-earlier-toggle { display: block; margin: 28px auto 0; padding: 14px 22px; border: 1px solid var(--ink); border-radius: 5px; background: var(--surface); color: var(--ink); cursor: pointer; }
+.journey-earlier-toggle[hidden] { display: none; }
+.story-link:focus-visible, .journey-highlights > a:focus-visible, .journey-earlier-toggle:focus-visible { outline: 2px solid var(--ink); outline-offset: 5px; }
+#journeyChapters .split-entry, #data-pipeline-project { scroll-margin-top: 110px; }
+@media (max-width: 900px) { .story-cards, .journey-highlights { grid-template-columns: 1fr; } }

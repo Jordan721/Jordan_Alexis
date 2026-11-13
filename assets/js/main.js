@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     initHTimeline();
+    initJourneyChapters();
 
 });
 
@@ -34,7 +35,7 @@ function triggerExpStats() {
 }
 
 function initScrollNavigation() {
-    const sections = document.querySelectorAll('.section, .hero');
+    const sections = document.querySelectorAll('#home, .section, .hero');
 
     // Update active state across all nav elements for a given section id
     function setActiveSection(sectionId) {
@@ -51,6 +52,8 @@ function initScrollNavigation() {
             triggerExpStats();
         }
     }
+
+    if (window.scrollY < 60) setActiveSection('home');
 
     // Update active section on scroll
     const observerOptions = {
@@ -272,7 +275,8 @@ function initHTimeline() {
 /* Timeline filter state — tracks active year and type independently */
 const timelineFilterState = {
     year: 'all',
-    type: 'all'
+    type: 'all',
+    expanded: false
 };
 
 function filterTimeline(value, filterType) {
@@ -292,12 +296,17 @@ function filterTimeline(value, filterType) {
     entries.forEach(entry => {
         const yearMatch = timelineFilterState.year === 'all' || entry.dataset.year === timelineFilterState.year;
         const typeMatch = timelineFilterState.type === 'all' || entry.dataset.type === timelineFilterState.type;
-        entry.classList.toggle('filtered-out', !(yearMatch && typeMatch));
-        entry.hidden = !(yearMatch && typeMatch);
+        const scopeMatch = timelineFilterState.expanded || timelineFilterState.year !== 'all' || timelineFilterState.type !== 'all' || Number(entry.dataset.year) >= 2025;
+        entry.classList.toggle('filtered-out', !(yearMatch && typeMatch && scopeMatch));
+        entry.hidden = !(yearMatch && typeMatch && scopeMatch);
     });
     const visible = [...entries].filter(entry => !entry.hidden).length;
     document.getElementById("journeyResultCount").textContent = `${visible} of ${entries.length} experiences & milestones`;
     document.getElementById("journeyEmpty").hidden = visible > 0;
+    const toggle = document.getElementById('journeyEarlierToggle');
+    toggle.hidden = timelineFilterState.year !== 'all' || timelineFilterState.type !== 'all';
+    const earlier = [...entries].filter(entry => Number(entry.dataset.year) < 2025).length;
+    setDisclosureButton(toggle, timelineFilterState.expanded ? 'Show recent chapters' : `Show ${earlier} earlier chapters`, timelineFilterState.expanded);
 }
 
 // scroll animations
@@ -432,4 +441,28 @@ function resetJourneyFilters() {
     timelineFilterState.type = "all";
     filterTimeline("all", "year");
     filterTimeline("all", "type");
+}
+
+function showWholeJourney() {
+    timelineFilterState.expanded = true;
+    resetJourneyFilters();
+}
+function initJourneyChapters() {
+    const toggle = document.getElementById('journeyEarlierToggle');
+    if (!toggle) return;
+    toggle.addEventListener('click', () => {
+        preserveDisclosurePosition(toggle, () => {
+            timelineFilterState.expanded = !timelineFilterState.expanded;
+            filterTimeline(timelineFilterState.year, 'year');
+        });
+    });
+    function revealLinkedChapter() {
+        const target = document.getElementById(location.hash.slice(1));
+        if (!target?.matches('#journeyChapters .split-entry')) return;
+        showWholeJourney();
+        target.scrollIntoView({ block: 'start' });
+    }
+    window.addEventListener('hashchange', revealLinkedChapter);
+    filterTimeline('all', 'year');
+    revealLinkedChapter();
 }

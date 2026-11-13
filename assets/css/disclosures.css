@@ -1,0 +1,142 @@
+/* Shared expansion controls, kept inline with the content they reveal. */
+.disclosure-control,
+.toolkit-card summary.disclosure-control,
+.journey-more>summary.disclosure-control,
+.project-case-study summary.disclosure-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 44px;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--surface);
+    color: var(--ink);
+    font: 400 12px/1.5 var(--font-primary);
+    cursor: pointer;
+    list-style: none;
+    text-align: left;
+}
+
+.disclosure-control::-webkit-details-marker {
+    display: none;
+}
+
+.disclosure-control:hover {
+    border-color: var(--ink);
+}
+
+.disclosure-control:focus-visible,
+.course-module.expandable:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 4px;
+}
+
+.disclosure-chevron,
+.journey-more>summary>.disclosure-chevron {
+    display: block;
+    flex: 0 0 7px;
+    width: 7px;
+    height: 7px;
+    margin: 0 3px 4px;
+    border: solid currentColor;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    transition: transform .18s ease;
+}
+
+details[open]>summary>.disclosure-chevron,
+.journey-more[open]>summary>.disclosure-chevron,
+.disclosure-control[aria-expanded="true"]>.disclosure-chevron {
+    transform: rotate(225deg);
+    margin-bottom: 0;
+}
+
+.projects-extra,
+#journeyChapters,
+.toolkit-card {
+    overflow-anchor: none;
+}
+
+.disclosure-control[hidden] {
+    display: none;
+}
+
+/* Native scrollbars: square corners and pixel-like ridges match the studio palette. */
+:root {
+    color-scheme: light;
+    --scroll-track: #eee7d5;
+    --scroll-thumb: #77658f;
+    --scroll-hover: #59476f;
+    --scroll-edge: #29261f;
+    --scroll-ridge: #bda7e5;
+}
+
+[data-theme="dark"] {
+    color-scheme: dark;
+    --scroll-track: #24221f;
+    --scroll-thumb: #bda7e5;
+    --scroll-hover: #dbef83;
+    --scroll-edge: #171612;
+    --scroll-ridge: #8e79b1;
+}
+
+* {
+    scrollbar-width: auto;
+    scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+}
+
+html {
+    scrollbar-gutter: stable;
+}
+
+/* Standard colors are the fallback; Chromium/WebKit get the pixel treatment. */
+@supports selector(::-webkit-scrollbar) {
+    * {
+        scrollbar-color: auto;
+    }
+
+    ::-webkit-scrollbar {
+        width: 14px;
+        height: 14px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: var(--scroll-track);
+        border-left: 1px solid var(--scroll-edge);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border: 3px solid var(--scroll-track);
+        border-radius: 0;
+        background: repeating-linear-gradient(0deg, transparent 0 6px, var(--scroll-ridge) 6px 8px), var(--scroll-thumb);
+        box-shadow: inset 0 0 0 1px var(--scroll-edge);
+        min-height: 40px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover,
+    ::-webkit-scrollbar-thumb:active {
+        background: var(--scroll-hover);
+    }
+
+    ::-webkit-scrollbar-corner {
+        background: var(--scroll-track);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .disclosure-chevron {
+        transition: none;
+    }
+
+    .toolkit-card details[open] .skill-pills {
+        animation: none;
+    }
+}
+
+@media (forced-colors: active) {
+    * {
+        scrollbar-color: auto;
+    }
+}

@@ -42,9 +42,11 @@ function openITSupportInfoModal() { showPortfolioDialog('itSupportInfoModal'); }
 function closeITSupportInfoModal() { hidePortfolioDialog('itSupportInfoModal'); }
 function toggleCourseDetails(element) {
     const details = element.parentElement.querySelector('.course-module-details');
-    const expanded = element.classList.toggle('expanded');
-    details.classList.toggle('expanded', expanded);
-    element.setAttribute('aria-expanded', String(expanded));
+    preserveDisclosurePosition(element, () => {
+        const expanded = element.classList.toggle('expanded');
+        details.classList.toggle('expanded', expanded);
+        element.setAttribute('aria-expanded', String(expanded));
+    });
 }
 document.addEventListener('keydown', event => {
     const entry = dialogStack.at(-1);

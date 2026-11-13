@@ -2,10 +2,11 @@
 function toggleProjects() {
     const extra = document.getElementById('projectsExtra');
     const button = document.getElementById('projectsToggleBtn');
-    const open = extra.classList.toggle('open');
-    button.classList.toggle('open', open);
-    button.setAttribute('aria-expanded', String(open));
-    document.getElementById('projectsToggleText').textContent = open ? 'Show less' : `Explore ${extra.querySelectorAll('.project-card').length} more projects`;
+    preserveDisclosurePosition(button, () => {
+        const open = extra.classList.toggle('open');
+        button.classList.toggle('open', open);
+        setDisclosureButton(button, open ? 'Show fewer projects' : `Show ${extra.querySelectorAll('.project-card').length} more projects`, open);
+    });
 }
 function initTheme() {
     let theme = 'light';
@@ -75,7 +76,7 @@ function initSiteNavigation() {
     mobile.addEventListener('change', () => setOpen(false));
     document.getElementById('themeButton').addEventListener('click', toggleTheme);
     const projectsButton = document.getElementById('projectsToggleBtn');
-    projectsButton.setAttribute('aria-expanded', 'false');
+    setDisclosureButton(projectsButton, `Show ${document.querySelectorAll('#projectsExtra .project-card').length} more projects`, false);
     projectsButton.setAttribute('aria-controls', 'projectsExtra');
     setOpen(false);
 }

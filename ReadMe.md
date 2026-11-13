@@ -16,6 +16,13 @@ A personal portfolio showcasing my work in full-stack development, data analytic
 - **GitHub activity:** recent repositories, commits, profile statistics, and a contribution chart.
 - **Readability:** improved dark-mode contrast and stable toolkit cards without the 3D tilt effect.
 
+## Expansion controls and scrollbars
+
+- Inline project, skill, journey, and case-study controls share chevrons, clear expanded labels, visible focus, and counts where relevant.
+- Collapsing content preserves the control’s position; toolkit search reveals matching skills and restores prior expansion choices when cleared.
+- Native scrollbars use square, pixel-inspired styling with light and dark theme colors. Browsers without WebKit scrollbar styling use standard theme colors.
+- Course modules support Enter and Space; reduced-motion settings disable disclosure animation and smooth anchor scrolling.
+
 ## Run locally
 
 Open `index.html` in a browser. No installation, build step, or API key is required.

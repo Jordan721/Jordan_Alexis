@@ -69,6 +69,12 @@ function initSkillPlayground() {
     let category = 'all';
     let searchActive = false;
     let searchTimer;
+    cards.forEach(card => {
+        const details = card.querySelector('details');
+        details?.addEventListener('toggle', () => {
+            if (!searchActive) defaultDetails.set(card, details.open);
+        });
+    });
 
     const announce = message => { feedback.textContent = message; };
     const animate = (element, frames, options) => {
@@ -118,6 +124,7 @@ function initSkillPlayground() {
         count.textContent = `${total} of ${stickers.length} skills · ${visibleIndex} discipline${visibleIndex === 1 ? '' : 's'}`;
         empty.hidden = total > 0;
         filters.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === category)));
+        updateDisclosureLabels();
         return total;
     }
     function renderMix() {

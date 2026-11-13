@@ -204,7 +204,7 @@
                             code ↗</a></div>
                 </article>
 
-                <article class="project-card glass-card">
+                <article id="data-pipeline-project" class="project-card glass-card">
                     <div class="project-cover cover-data"><span>FROM RAW DATA TO READABLE
                             RESULTS</span><strong>Data<br>Pipeline</strong>
                         <div class="data-flow"><span>Import</span><span>Clean</span><span>Visualize</span></div>
@@ -378,7 +378,7 @@
             </div>
 
             <div class="view-all-projects">
-                <button class="projects-toggle-btn" onclick="toggleProjects()" id="projectsToggleBtn">
+                <button type="button" class="projects-toggle-btn" onclick="toggleProjects()" id="projectsToggleBtn">
                     <span id="projectsToggleText">Show 5 More</span>
                     <i class="fas fa-chevron-down" id="projectsToggleIcon"></i>
                 </button>
@@ -396,93 +396,46 @@
                 <p class="section-intro">A little about the person behind the projects.</p>
             </div>
 
-            <!-- Profile Card -->
-            <div class="profile-card glass-card">
-                <div class="about-flow-section">
-                    <div class="about-flow-header"><i class="fas fa-user"></i>
-                        <h3>Who I Am</h3>
+            <div class="profile-card glass-card story-cards">
+                <article class="about-flow-section">
+                    <div class="about-flow-header"><i class="fas fa-gamepad" aria-hidden="true"></i>
+                        <h3>My story</h3>
                     </div>
-                    <p>I am a <strong>Programmer & Full&#8209;Stack Developer</strong>, uniting <strong>creative,
-                            data&#8209;driven, and full&#8209;stack</strong> programming styles to build
-                        <strong>impactful solutions</strong>. I thrive at the intersection of <strong>design and
-                            engineering</strong> — crafting experiences that are as thoughtful as they are functional,
-                        and turning complex problems into <strong>clean, purposeful code</strong>.</p>
-                </div>
-
-                <div class="about-flow-divider"></div>
-
-                <div class="about-flow-section">
-                    <div class="about-flow-header"><i class="fas fa-code"></i>
-                        <h3>What I Build</h3>
+                    <p>Game design was my gateway into programming. I wanted to understand how an idea becomes something
+                        you can play, explore, and interact with.</p>
+                    <p>That curiosity grew into multimedia, full-stack development, and data analytics. Today, I bring
+                        that same creative instinct to useful web experiences and clearer data workflows.</p>
+                    <a class="story-link" href="#experience">Follow my journey ↘</a>
+                </article>
+                <article class="about-flow-section">
+                    <div class="about-flow-header"><i class="fas fa-code" aria-hidden="true"></i>
+                        <h3>How I solve problems</h3>
                     </div>
-                    <p>I develop full-stack and data-driven applications using <strong>Python, Java, JavaScript, and
-                            SQL</strong>. I work with large datasets (10,000+ rows), leveraging <strong>Power BI,
-                            Talend, and enterprise systems</strong> to automate workflows, optimize performance, and
-                        transform raw data into strategic insights.</p>
-                </div>
-
-                <div class="about-flow-divider"></div>
-
-                <div class="about-flow-section">
-                    <div class="about-flow-header"><i class="fas fa-cogs"></i>
-                        <h3>How I Work</h3>
+                    <p>I break complex problems into smaller pieces, keep the code maintainable, and improve the result
+                        through testing and iteration.</p>
+                    <ol class="work-process">
+                        <li><strong>Understand</strong><span>Identify the problem and the people using the
+                                solution.</span></li>
+                        <li><strong>Build</strong><span>Turn the workflow into focused, usable features.</span></li>
+                        <li><strong>Test</strong><span>Check the logic, data, and user experience.</span></li>
+                        <li><strong>Refine</strong><span>Use what I learn to make the next version better.</span></li>
+                    </ol>
+                    <a class="story-link"
+                        href="https://jordan721.github.io/Development-Showcase/Personal_Projects/PipelineTrack/index.html"
+                        target="_blank" rel="noopener noreferrer">Explore PipelineTrack ↗</a>
+                    <a class="story-link" href="#data-pipeline-project">See the data workflow ↘</a>
+                </article>
+                <article class="about-flow-section">
+                    <div class="about-flow-header"><i class="fas fa-bolt" aria-hidden="true"></i>
+                        <h3>Outside the code</h3>
                     </div>
-                    <p>I approach complex challenges <strong>methodically</strong>—breaking them into manageable
-                        components and solving
-                        them with <strong>clean, maintainable code</strong>. I prioritize <strong>scalability,
-                            performance, and clarity</strong>, using
-                        <strong>version control, structured documentation, and iterative testing</strong> to ensure
-                        quality from
-                        development to deployment.</p>
-                </div>
-
-                <div class="about-flow-divider"></div>
-
-                <div class="about-flow-section">
-                    <div class="about-flow-header"><i class="fas fa-bolt"></i>
-                        <h3>What Drives Me</h3>
-                    </div>
-                    <p>I’m motivated by building systems that create <strong>clarity from complexity</strong>—whether
-                        turning
-                        <strong>unstructured data into meaningful insight</strong> or engineering features that improve
-                        real-world
-                        workflows. <strong>Continuous learning and technical growth</strong> are central to how I evolve
-                        as a developer.
-                    </p>
-                </div>
-
-                <div class="about-flow-divider"></div>
-
-                <div class="about-flow-section">
-                    <div class="about-flow-header"><i class="fas fa-gamepad"></i>
-                        <h3>Fun Facts</h3>
-                    </div>
-                    <p>Outside of development, I’m passionate about gaming—especially <strong>platformers</strong>,
-                        <strong>RPGs</strong>, and increasingly <strong>horror titles</strong>. Game design was my
-                        original gateway into programming, and that creative foundation still influences how I approach
-                        technology today.</p>
-                </div>
-
-                <div class="about-flow-divider"></div>
-
-                <div class="about-flow-section">
-                    <div class="about-flow-header"><i class="fas fa-certificate"></i>
-                        <h3>Certifications</h3>
-                    </div>
-                    <p>I hold multiple <strong>industry-recognized certifications</strong> that strengthened my
-                        expertise in
-                        <strong>software development, data systems, and modern digital workflows</strong>—reinforcing
-                        both my
-                        <strong>technical foundation and enterprise readiness</strong>.</p>
-                    <button onclick="openCertificatesModal();" class="about-cta-btn">
-                        <span class="about-cta-icon"><i class="fas fa-award"></i></span>
-                        <span class="about-cta-copy">
-                            <span>View Certificates</span>
-                            <small>17 credentials</small>
-                        </span>
-                        <span class="about-cta-arrow"><i class="fas fa-arrow-right"></i></span>
-                    </button>
-                </div>
+                    <p>You'll often find me playing platformers, RPGs, or exploring horror games. I enjoy the mix of
+                        storytelling, discovery, and problem-solving that makes a game memorable.</p>
+                    <p>That interest still shapes my projects: a little playfulness, room to experiment, and attention
+                        to how an experience feels.</p>
+                    <a class="story-link" href="https://jordan721.github.io/Development-Showcase/Game_Vault/index.html"
+                        target="_blank" rel="noopener noreferrer">Step into Game Vault ↗</a>
+                </article>
             </div>
 
         </section>
@@ -493,6 +446,24 @@
                 <h2 class="section-title">Always learning.<br>Always building.</h2>
                 <p class="section-intro">Different roles. New skills. Meaningful milestones. A collection of the
                     experiences that shaped how I build.</p>
+            </div>
+
+            <div class="journey-highlights" aria-label="Three defining milestones">
+                <a href="#journey-origin"><span>2014 / THE SPARK</span>
+                    <h3>From games to code</h3>
+                    <p>Game development coursework introduced me to programming and system design.</p><span
+                        class="highlight-action">Explore the beginning ↘</span>
+                </a>
+                <a href="#journey-enterprise"><span>2025 / THE NEXT CHAPTER</span>
+                    <h3>Into enterprise data</h3>
+                    <p>Year Up United training led to a data analytics developer apprenticeship at Morgan Stanley.</p>
+                    <span class="highlight-action">Explore the role ↘</span>
+                </a>
+                <a href="#journey-analytics"><span>2026 / KEEP GROWING</span>
+                    <h3>A stronger analytics foundation</h3>
+                    <p>Completed the Google Data Analytics Professional Certificate across eight courses.</p><span
+                        class="highlight-action">Explore the milestone ↘</span>
+                </a>
             </div>
 
             <!-- Stats Bar -->
@@ -557,8 +528,9 @@
             <div class="journey-list-heading"><span>A COLLECTION OF CHAPTERS</span><span id="journeyResultCount"
                     role="status" aria-live="polite" aria-atomic="true">15 experiences & milestones</span></div>
             <p id="journeyEmpty" class="journey-empty" hidden>No entries match these filters. <button type="button"
-                    onclick="resetJourneyFilters()">Show the whole journey ↻</button></p>
-            <div class="split-panel-list journey-card-grid" aria-label="Career experiences and milestones">
+                    onclick="showWholeJourney()">Show the whole journey ↻</button></p>
+            <div id="journeyChapters" class="split-panel-list journey-card-grid"
+                aria-label="Career experiences and milestones">
 
                 <!-- Oct. 2026 Milestone -->
                 <div class="split-entry milestone" data-year="2026" data-type="milestone">
@@ -576,7 +548,7 @@
                 </div>
 
                 <!-- Mar. 2026 Milestone -->
-                <div class="split-entry milestone" data-year="2026" data-type="milestone">
+                <div id="journey-analytics" class="split-entry milestone" data-year="2026" data-type="milestone">
                     <div class="journey-card-topline"><span>MILESTONE</span><span aria-hidden="true">02 / ✳</span></div>
                     <div class="split-left">
                         <span class="split-year">Mar. 2026</span>
@@ -591,7 +563,7 @@
                 </div>
 
                 <!-- 2025 Morgan Stanley -->
-                <div class="split-entry job" data-year="2025" data-type="job">
+                <div id="journey-enterprise" class="split-entry job" data-year="2025" data-type="job">
                     <div class="journey-card-topline"><span>WORK CHAPTER</span><span aria-hidden="true">03 / ↗</span>
                     </div>
                     <div class="split-left">
@@ -602,12 +574,16 @@
                     <div class="split-right">
                         <h3>Data Analytics Developer Apprentice</h3>
                         <span class="split-date">July 2025 - Jan 2026</span>
-                        <ul class="split-details">
-                            <li>Processed and transformed large datasets (10,000+ rows) into structured, analytics-ready
-                                outputs used for business decision-making.</li>
-                            <li>Optimized SQL queries and data workflows to improve processing efficiency and reduce
-                                execution time.</li>
-                        </ul>
+                        <dl class="role-summary">
+                            <dt>Contribution</dt>
+                            <dd>Processed and transformed large datasets (10,000+ rows) into structured, analytics-ready
+                                outputs used for business decision-making. Optimized SQL queries and data workflows to
+                                improve processing efficiency and reduce execution time.</dd>
+                            <dt>What I learned</dt>
+                            <dd>Working with enterprise data strengthened my approach to validation, repeatable
+                                reporting, and traceable development.</dd>
+                        </dl><a class="story-link role-work-link" href="#data-pipeline-project">Related portfolio demo:
+                            Data Pipeline ↗</a>
                         <details class="journey-more">
                             <summary><span class="journey-more-closed">More about this role</span><span
                                     class="journey-more-open">Show fewer details</span><span aria-hidden="true">+</span>
@@ -687,12 +663,15 @@
                     <div class="split-right">
                         <h3>Product Lister & Data Entry</h3>
                         <span class="split-date">Dec 2023</span>
-                        <ul class="split-details">
-                            <li>Optimized Shopify product listings to enhance search visibility and user experience.
-                            </li>
-                            <li>Applied SEO best practices to increase organic traffic and improve product
-                                discoverability.</li>
-                        </ul>
+                        <dl class="role-summary">
+                            <dt>Contribution</dt>
+                            <dd>Optimized Shopify product listings to enhance search visibility and user experience.
+                                Applied SEO best practices to increase organic traffic and improve product
+                                discoverability.</dd>
+                            <dt>What I learned</dt>
+                            <dd>Product data connects structure and consistency with how easily customers find what they
+                                need.</dd>
+                        </dl>
                         <details class="journey-more">
                             <summary><span class="journey-more-closed">More about this role</span><span
                                     class="journey-more-open">Show fewer details</span><span aria-hidden="true">+</span>
@@ -721,12 +700,15 @@
                     <div class="split-right">
                         <h3>Software Engineer Intern</h3>
                         <span class="split-date">July 2021 - Aug 2021</span>
-                        <ul class="split-details">
-                            <li>Led end-to-end implementation of dark mode functionality using JavaScript and CSS,
-                                enhancing accessibility and user preference support.</li>
-                            <li>Conducted user research, usability testing, and A/B experiments to improve engagement
-                                and interface clarity.</li>
-                        </ul>
+                        <dl class="role-summary">
+                            <dt>Contribution</dt>
+                            <dd>Led end-to-end implementation of dark mode functionality using JavaScript and CSS,
+                                enhancing accessibility and user preference support. Conducted user research, usability
+                                testing, and A/B experiments to improve engagement and interface clarity.</dd>
+                            <dt>What I learned</dt>
+                            <dd>User research and usability testing help guide interface decisions alongside
+                                implementation.</dd>
+                        </dl>
                         <details class="journey-more">
                             <summary><span class="journey-more-closed">More about this role</span><span
                                     class="journey-more-open">Show fewer details</span><span aria-hidden="true">+</span>
@@ -754,12 +736,15 @@
                     <div class="split-right">
                         <h3>Data Entry Associate</h3>
                         <span class="split-date">Jan 2020 - Mar 2025</span>
-                        <ul class="split-details">
-                            <li>Maintained and updated structured customer and inventory databases, ensuring high levels
-                                of data accuracy.</li>
-                            <li>Managed large volumes of transaction records while preserving data integrity and audit
-                                compliance.</li>
-                        </ul>
+                        <dl class="role-summary">
+                            <dt>Contribution</dt>
+                            <dd>Maintained and updated structured customer and inventory databases, ensuring high levels
+                                of data accuracy. Managed large volumes of transaction records while preserving data
+                                integrity and audit compliance.</dd>
+                            <dt>What I learned</dt>
+                            <dd>Accurate records and consistent data structures support reliable day-to-day operations.
+                            </dd>
+                        </dl>
                         <details class="journey-more">
                             <summary><span class="journey-more-closed">More about this role</span><span
                                     class="journey-more-open">Show fewer details</span><span aria-hidden="true">+</span>
@@ -784,12 +769,15 @@
                     <div class="split-right">
                         <h3>Spring Intern</h3>
                         <span class="split-date">Jan 2019 - May 2019</span>
-                        <ul class="split-details">
-                            <li>Managed social media and event calendars to improve listener engagement and maintain
-                                consistent outreach.</li>
-                            <li>Provided customer service to donors and listeners, assisting with contests, merchandise
-                                distribution, and general inquiries.</li>
-                        </ul>
+                        <dl class="role-summary">
+                            <dt>Contribution</dt>
+                            <dd>Managed social media and event calendars to improve listener engagement and maintain
+                                consistent outreach. Provided customer service to donors and listeners, assisting with
+                                contests, merchandise distribution, and general inquiries.</dd>
+                            <dt>What I learned</dt>
+                            <dd>Coordinating content and listener requests connects clear communication with reliable
+                                scheduling.</dd>
+                        </dl>
                         <details class="journey-more">
                             <summary><span class="journey-more-closed">More about this role</span><span
                                     class="journey-more-open">Show fewer details</span><span aria-hidden="true">+</span>
@@ -830,12 +818,14 @@
                     <div class="split-right">
                         <h3>Multimedia Intern</h3>
                         <span class="split-date">July - Aug 2018</span>
-                        <ul class="split-details">
-                            <li>Spearheaded the transition of the New American newspaper to a fully digital-first
-                                format.</li>
-                            <li>Led digital layout design and production workflows using Microsoft Publisher and Adobe
-                                Photoshop.</li>
-                        </ul>
+                        <dl class="role-summary">
+                            <dt>Contribution</dt>
+                            <dd>Spearheaded the transition of the New American newspaper to a fully digital-first
+                                format. Led digital layout design and production workflows using Microsoft Publisher and
+                                Adobe Photoshop.</dd>
+                            <dt>What I learned</dt>
+                            <dd>Digital publishing brings layout, production, and collaboration into one workflow.</dd>
+                        </dl>
                         <details class="journey-more">
                             <summary><span class="journey-more-closed">More about this role</span><span
                                     class="journey-more-open">Show fewer details</span><span aria-hidden="true">+</span>
@@ -860,13 +850,15 @@
                     <div class="split-right">
                         <h3>Office Assistant</h3>
                         <span class="split-date">Aug 2017</span>
-                        <ul class="split-details">
-                            <li>Supported management of Summer Youth Interns by ensuring adherence to established
+                        <dl class="role-summary">
+                            <dt>Contribution</dt>
+                            <dd>Supported management of Summer Youth Interns by ensuring adherence to established
                                 workflows, resolving day-to-day issues, and maintaining accurate timesheets for over 50
-                                participants.</li>
-                            <li>Acted as a point of contact for intern questions and concerns, helping foster a
-                                supportive and organized environment.</li>
-                        </ul>
+                                participants. Acted as a point of contact for intern questions and concerns, helping
+                                foster a supportive and organized environment.</dd>
+                            <dt>What I learned</dt>
+                            <dd>Clear expectations and accurate documentation help a large team stay organized.</dd>
+                        </dl>
                         <details class="journey-more">
                             <summary><span class="journey-more-closed">More about this role</span><span
                                     class="journey-more-open">Show fewer details</span><span aria-hidden="true">+</span>
@@ -894,13 +886,15 @@
                     <div class="split-right">
                         <h3>Multimedia Developer Intern</h3>
                         <span class="split-date">Jul 2017 - Aug 2017</span>
-                        <ul class="split-details">
-                            <li>Gained practical experience with Adobe Creative Suite, including Premiere Pro for video
+                        <dl class="role-summary">
+                            <dt>Contribution</dt>
+                            <dd>Gained practical experience with Adobe Creative Suite, including Premiere Pro for video
                                 editing, Illustrator for creating digital artwork, and Photoshop for retouching and
-                                manipulating images.</li>
-                            <li>Supported multimedia projects by applying these tools to enhance visual quality and
-                                storytelling.</li>
-                        </ul>
+                                manipulating images. Supported multimedia projects by applying these tools to enhance
+                                visual quality and storytelling.</dd>
+                            <dt>What I learned</dt>
+                            <dd>Hands-on multimedia work connects technical tools with visual storytelling.</dd>
+                        </dl>
                         <details class="journey-more">
                             <summary><span class="journey-more-closed">More about this role</span><span
                                     class="journey-more-open">Show fewer details</span><span aria-hidden="true">+</span>
@@ -915,7 +909,7 @@
                 </div>
 
                 <!-- 2014 Milestone -->
-                <div class="split-entry milestone" data-year="2014" data-type="milestone">
+                <div id="journey-origin" class="split-entry milestone" data-year="2014" data-type="milestone">
                     <div class="journey-card-topline"><span>MILESTONE</span><span aria-hidden="true">15 / ✳</span></div>
                     <div class="split-left">
                         <span class="split-year">2014</span>
@@ -929,6 +923,8 @@
                 </div>
 
             </div>
+            <button type="button" id="journeyEarlierToggle" class="journey-earlier-toggle" aria-expanded="false"
+                aria-controls="journeyChapters" hidden>Explore earlier chapters</button>
         </section>
 
         <!-- Skills Section -->
@@ -1276,6 +1272,15 @@
                 <h2 class="section-title">Learning never<br>stands still.</h2>
                 <p class="section-intro">Formal education, focused training, and a habit of asking better questions.</p>
             </div>
+            <div class="education-credentials"><button onclick="openCertificatesModal();" class="about-cta-btn">
+                    <span class="about-cta-icon"><i class="fas fa-award"></i></span>
+                    <span class="about-cta-copy">
+                        <span>View Certificates</span>
+                        <small>17 credentials</small>
+                    </span>
+                    <span class="about-cta-arrow"><i class="fas fa-arrow-right"></i></span>
+                </button></div>
+
 
             <!-- Education Cards Grid -->
             <div class="education-grid">
@@ -2399,6 +2404,7 @@
     </div>
 
     <!-- Custom JavaScript -->
+    <script src="assets/js/disclosures.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/modals.js"></script>
     <script src="assets/js/credentials.js"></script>
